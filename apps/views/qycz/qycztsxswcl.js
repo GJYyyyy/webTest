@@ -32,10 +32,8 @@ var qycztsxswcl = {
             showCloseButton: true,
             showModal: true,
             ondestroy: function(action) {
-                console.log(this.getIFrameEl().contentWindow.qycztsxswcl_add);
                 if('ok' === action) {
-
-                    var data = this.getIFrameEl().contentWindow.getData();
+                    var data = this.getIFrameEl().contentWindow.qycztsxswcl_add.getData();
                     console.log(data);
                 }
             }
