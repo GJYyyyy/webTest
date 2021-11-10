@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清算报备查统</title>
+    <!-- <link rel="stylesheet" href="qsbb.css"> -->
+    <link rel="stylesheet" href="../../styles/style.css">
+</head>
+
+<body>
+    <div class="form-table" id="srarchForm" style="width: 80%; margin: 0 auto;">
+        <table width="100%">
+            <tr style="height: 40px;">
+                <td class="txt-r" style="width: 15%">纳税人识别号：</td>
+                <td style="width: 35%">
+                    <input name="nsrsbh" type="text" id="nsrsbh" class="mini-textbox" style="width: 100%" readonly valueField="nsrsbh"/>
+                </td>
+                <td class="txt-r" style="width: 15%">纳税人名称：</td>
+                <td style="width: 35%">
+                    <input name="nsrmc" type="text" id="nsrmc" class="mini-textbox" style="width: 100%" readonly/>
+                </td>
+            </tr>
+            <tr style="height: 40px;">
+                <td class="txt-r">主管税务机关：</td>
+                <td>
+                    <input name="zgswjg" type="text" id="zgswjg" class="mini-textbox" style="width: 100%" readonly/>
+                </td>
+                <td class="txt-r">管理员：</td>
+                <td>
+                    <input name="gly" type="text" id="gly" class="mini-textbox" style="width: 100%" readonly/>
+                </td>
+            </tr>
+            <tr style="height: 40px;">
+                <td class="txt-r">清算报备时间：</td>
+                <td>
+                    <input name="qsbbsj" type="text" id="qsbbsj" class="mini-textbox" style="width: 100%" readonly/>
+                </td>
+            </tr>
+            <tr style="height: 40px;">
+                <td class="txt-r"><span style='color:red'>*</span>处理意见：</td>
+                <td colspan='3'>
+                    <div class="mini-radiobuttonlist" name="clyj" id="clyj" repeatItems="3" repeatLayout="table"
+                        repeatDirection="horizontal" textField="text" valueField="id"
+                        data="[{id:'1',text:'已完成注销'},{id:'2',text:'已作废清算报备'},{id:'0',text:'其他'}]"
+                        onvaluechanged='setClyjValue'>
+                    </div>
+                </td>
+            </tr>
+            <tr style="height: 132px;" id="Tr"></tr>
+            <tr style="height: 40px;" id="txxxTr">
+                <td class="txt-r"><span style='color:red'>*</span>填写信息：</td>
+                <td colspan='3'>
+                    <textarea id="txxx" name="txxx" maxLength="200" class="mini-textarea"
+                        style="width: 100%;min-height: 130px;" requiredErrorText="允许最多输入200个字符" requiredErrorText="填写信息不能为空"
+                        maxLengthErrorText="允许最多输入200个字符">
+                </textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="qsbbct.js"></script>
+
+</html>

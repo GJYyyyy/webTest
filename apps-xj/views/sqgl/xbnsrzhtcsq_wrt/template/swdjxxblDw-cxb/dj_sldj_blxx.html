@@ -1,0 +1,317 @@
+<!doctype html>
+<html>
+<head>
+	<title>登记信息补录</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<link rel="stylesheet" href="../../../../../styles/style.css">
+	<script src="../../../../../../lib/jquery/jquery.js"></script>
+	<script src="../../../../../../lib/sui-miniui/mini-all-source.js"></script>
+	<script src="../../../../dbsx/sxsl_service.js"></script>
+	<script src="../../../../../scripts/miniui.js"></script>
+	<script src="../../../../../scripts/gldcommon.js"></script>
+	<script src="dj_sldj_blxx.js" type="text/javascript"></script>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			width: 100%;
+			height: 100%;
+			overflow: visible;
+		}
+
+		html .sbbtab td {
+			color: #727272
+		}
+
+		html .sbbtab th {
+			color: #000;
+			text-align: right;
+		}
+
+		hr {
+			margin: 10px 0
+		}
+
+		.mini-popup {
+			overflow: hidden !important;
+		}
+
+		.editform {
+			padding: 2%;
+			width: 96%;
+		}
+
+		.editform h1 {
+			text-align: center;
+			font-size: 20px;
+			color: #158cc6;
+			padding: 10px 0;
+		}
+
+		.editform th {
+			padding: 5px;
+			text-align: right;
+		}
+
+		.editform td {
+			padding: 5px;
+		}
+
+		hr {
+			margin: 10px 0;
+			border: 1px solid #f5f5f5;
+		}
+
+		.open_btdiv {
+			text-align: center;
+			padding: 20px 0;
+		}
+		.border{
+			border: 1px solid #ddd;
+			padding: 10px;
+		}
+		.ntd-bg td{
+			padding: 2px 0px;
+		}
+		.bg-con{
+			background: #f5f5f5;
+			line-height: 28px;
+			padding-left: 5px;
+		}
+        .B_red{
+            color: red;
+			margin: 0 4px;
+        }
+	</style>
+</head>
+<body>
+<input name="parentlcslid" id="parentlcslid" class="mini-hidden" value=""/>
+<input name="lcslId" id="lcslId" class="mini-hidden" value=""/>
+<input name="blztDm" id="blztDm" class="mini-hidden" value=""/>
+<input name="rwztDm" id="rwztDm" class="mini-hidden" value=""/>
+<input name="swsxDm" id="swsxDm" class="mini-hidden" value=""/>
+<input name="isYct" id="isYct" class="mini-hidden" value=""/>
+<div class="mini-fit">
+	<div class="editform">
+		<div id="blxxForm" class="editdiv">
+			<h1>税务登记信息补录</h1>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edittab">
+				<input id="gdghlxDm" name="gdghlxDm" value="1" class="mini-combobox" textfield="name" required="true" valuefield="id" data="[{name: '国地共管',id: '1'}]" shownullitem="false"  style="display: none;" readonly/>
+				<input id="bzfsDm" name="bzfsDm" class="mini-combobox" value="3" textfield="name" required="true" valuefield="id" data="[{name: '国地税联合办证',id: '3'}]" style="display:none;"/>
+				<input id="nsrztDm" name="nsrztDm" class="mini-textbox" value="03" textfield="name" required="true" style="display:none;"/>
+				<tr>
+					<th width="20%" nowrap><span class="B_red"> * </span>组织机构代码：</th>
+					<td width="30%">
+						<input required="true" id="zzjgdm" name="zzjgdm" class="mini-textbox" style="width:100%;" requiredErrorText="组织机构代码 不能为空"/>
+					</td>
+					<th width="20%" nowrap><span class="B_red"> * </span>单位性质：</th>
+          			<td width="30%">
+						<input id="zzjglxDm" required="true" name="zzjglxDm" class="mini-combobox" textfield="MC" valuefield="ID" style="width:100%" requiredErrorText="单位性质 不能为空"
+							url="/dzgzpt-wsys/api/baseCode/get/baseCode2CombSelect2/DM_GY_ZZJGLX"/>
+					</td>
+				</tr>
+				<tr>
+					<th width="20%"><span class="B_red"> * </span>证照名称：</th>
+					<td width="30%">
+						<input id="zzmc" required="true" name="zzmc" class="mini-combobox" style="width:100%" textfield="MC" valuefield="ID" requiredErrorText="证照名称 不能为空"
+							url="/dzgzpt-wsys/api/baseCode/get/baseCode2CombSelect2/DM_GY_ZZLX"/>
+					  </td>
+					<th width="20%"><span class="B_red"> * </span>证照号码：</th>
+					<td width="30%">
+						<input id="zzhm" required="true" name="zzhm" class="mini-textbox" style="width:100%;" requiredErrorText="证照号码 不能为空"/>
+					</td>
+				</tr>
+				<tr>
+					<th width="20%" nowrap><span class="B_red"> * </span>课征主体类型：</th>
+					<td width="30%">
+						<input id="kzztdjlxdm" name="kzztdjlxdm" required="true" class="mini-combobox" textfield="MC"  valuefield="ID" requiredErrorText="课征主体类型 不能为空"
+						url="/dzgzpt-wsys/api/baseCode/get/baseCode2CombSelect2/DM_DJ_KZZTDJLX" style="width:100%;"/>
+					</td>
+					<th width="20%" nowrap><i class="B_red"> * </i>登记注册类型</th>
+					<td width="30%">
+						<input required="true" requiredErrorText="登记注册类型 不能为空" id="djzclxDm" name="djzclxDm" class="mini-combobox"  textfield="MC"
+								valuefield="ID" url="/dzgzpt-wsys/api/baseCode/get/baseCode2CombSelect2/DM_DJ_DJZCLX_GT3" style="width:100%;"
+								onvaluechanged="slbl.hideSydt()"
+						/>
+					</td>
+				</tr>
+				<tr>
+					<th nowrap><span class="B_red"> * </span>国标行业（主）：</th>
+					<td><input id="hyDm" name="hyDm" textfield="MC" valuefield="ID" parentField="PID" popupWidth="100%"
+								required="true" class="mini-treeselect" requiredErrorText="国标行业（主） 不能为空"
+								url="/dzgzpt-wsys/api/baseCode/get/baseCodeTree/DM_GY_HY_GT3"
+								style="width:100%;" onbeforenodeselect="slbl.beforeGbyhSelect" onvaluechanged=""
+								showQueryToolBar="true" allowInput="false" valueFromSelect="true"/>
+						<!-- <input name="hyDm" id="hyDm" class="mini-hidden" value="" /> -->
+					</td>
+					<th nowrap>国标行业（附）1：</th>
+					<td style="position: relative"><input id="fshyDm1" name="fshyDm1" textfield="MC" valuefield="ID" parentField="PID"
+								popupWidth="100%" required="false" class="mini-treeselect"
+								style="width:100%;" onbeforenodeselect="slbl.beforeGbyhSelect" onvaluechanged="slbl.beforeGbyhSelect1"
+								showQueryToolBar="true" allowInput="false" valueFromSelect="true"/>
+						<img src="../../../../../images/public/icon-notice.png" alt="注意" onclick="slbl.openTips()" style="position: absolute;right: -11px; top:13px;display: none;" id="notice1"/>
+					</td>
+				</tr>
+				<tr>
+					<th nowrap>国标行业（附）2：</th>
+					<td style="position: relative"><input id="fshyDm2" name="fshyDm2" textfield="MC" valuefield="ID" parentField="PID"
+								popupWidth="100%" required="false" class="mini-treeselect"
+								style="width:100%;" onbeforenodeselect="slbl.beforeGbyhSelect" onvaluechanged="slbl.beforeGbyhSelect2"
+								showQueryToolBar="true" allowInput="false" valueFromSelect="true"/>
+						<img src="../../../../../images/public/icon-notice.png" alt="注意" onclick="slbl.openTips()" style="position: absolute;right: -11px; top:13px;display: none;" id="notice2"/>
+					</td>
+					<th nowrap>国标行业（附）3：</th>
+					<td style="position: relative"><input id="fshyDm3" name="fshyDm3" textfield="MC" valuefield="ID" parentField="PID"
+								popupWidth="100%" required="false" class="mini-treeselect"
+								style="width:100%;" onbeforenodeselect="slbl.beforeGbyhSelect" onvaluechanged="slbl.beforeGbyhSelect3"
+								showQueryToolBar="true" allowInput="false" valueFromSelect="true"/>
+						<img src="../../../../../images/public/icon-notice.png" alt="注意" onclick="slbl.openTips()" style="position: absolute;right: -11px; top:13px;display: none;" id="notice3"/>
+					</td>
+				</tr>
+				<tr>
+					<th width="20%" nowrap>
+						<span class="B_red"> * </span>主管税务机关：
+					</th>
+					<td width="30%">
+						<!-- <input id="zgswjDm" name="zgswjDm" required="true" allowInput="true"
+							valueFromSelect="true" onbeforenodeselect="slbl.beforenodeselect"
+							url="/dzgzpt-wsys/api/baseCode/get/all/SwjgQx" onvaluechanged="slbl.doZgswjSelected"
+						class="mini-treeselect" textfield="MC" valuefield="ID" parentField="PID" shownullitem="true"
+						showQueryToolBar="true" expandOnLoad="true" popupWidth="350" style="width:100%;"/> -->
+						<input id="zgswjDmText" required="true" name="zgswjDmText" readonly="true" class="mini-textbox" style="width:100%;" requiredErrorText="主管税务机关 不能为空"/>
+						<input id="zgswjDm" required="true" name="zgswjDm" style="display:none;" class="mini-textbox" requiredErrorText="主管税务机关 不能为空"/>
+					</td>
+					<th width="20%" nowrap>
+						<span class="B_red"> * </span>主管税务所（科）：
+					</th>
+					<td width="30%">
+						<input id="zgswskfjDm" name="zgswskfjDm" required="true" class="mini-treeselect" requiredErrorText="主管税务所（科） 不能为空"
+							allowInput="true" valueFromSelect="true" textfield="SWJGJC" valuefield="ID"
+							parentField="PID" shownullitem="true" popupWidth="350" style="width:100%;"
+							onbeforenodeselect="slbl.beforenodeselect" onvaluechanged="slbl.doZgswjkfjSelected"/>
+					</td>
+				</tr>
+				<tr>
+					<th width="20%" nowrap><span class="B_red"> * </span>注册地地址：</th>
+					<td width="80%" colspan="3">
+							上海市<span class="zcdzxzqhdmText"></span>&nbsp;
+						<input id="jdxz1" name="jdxz1"  required="true"
+							class="mini-combobox" style="width:20%;"
+							textfield="MC" valuefield="ID" parentfield="PID" requiredErrorText="注册地地址 不能为空"
+							shownullitem="false" nullitemtext="" />
+						<input id="zcdz" style="width:40%;" required="true" name="zcdz" readonly="true" class="mini-textbox" style="width:100%;" requiredErrorText="注册地地址 不能为空"/>
+						<span class="sydt" id="sydt" style="cursor: pointer;" onclick="slbl.sydt()">
+							<img src="/dzgzpt-wsys/dzgzpt-wsys/apps/images/map.png" style="width: 30px; vertical-align: middle;" alt="">
+							<span style="color: blue;">税源地图管户分配推荐</span>
+						</span>
+					</td>
+				</tr>
+				<tr class="sydt_isShow">
+					<th width="20%" nowrap>建议分配管理所：</th>
+					<td width="30%"><span class="B_red" id="jyfpgls"></span></td>
+				</tr>
+				<tr class="sydt_isShow">
+					<td colspan="4">
+						<iframe id="sydt_iframe" src="" width="100%" height="350px" frameborder="0"></iframe>
+					</td>
+				</tr>
+				<tr>
+					<th width="20%" nowrap><span class="B_red"> * </span>生产经营地地址：</th>
+					<td width="80%" colspan="3">
+							上海市<span class="scjydzxzqhszDmText"></span>&nbsp;
+						<input id="jdxz2" name="jdxz2"  required="true"
+							class="mini-combobox" style="width:20%;"
+							textfield="MC" valuefield="ID" parentfield="PID" requiredErrorText="注册地址不能为空"
+							shownullitem="false" nullitemtext="" />
+						<input id="scjydz"  style="width:40%;" required="true" name="scjydz" readonly="true" class="mini-textbox" style="width:100%;" requiredErrorText="生产经营地地址 不能为空"/>
+						<span class="btn mini-button tzf_btn">投资方信息</span>
+					</td>
+				
+				</tr>
+				<tr>
+					<th nowrap><span class="B_red"> * </span>纳税人所处街乡：</th>
+					<td><input id="jdxzDm" name="jdxzDm" textfield="MC" required="true" allowInput="true" requiredErrorText="纳税人所处街乡 不能为空"
+								valueFromSelect="true" valuefield="ID" class="mini-combobox" style="width:100%;"/>
+					</td>
+					<th width="20%" nowrap>国有控股类型：</th>
+					<td width="30%">
+						<input id="gykglx" name="gykglx" class="mini-combobox" textfield="MC"  valuefield="ID"
+						url="/dzgzpt-wsys/api/baseCode/get/baseCode2CombSelect/DM_GY_GYKGLX" style="width:100%;"/>
+					</td>
+				</tr>
+				<tr>
+					<th width="20%" nowrap><span class="B_red"> * </span>批准设立机关：</th>
+					<td width="30%">
+						<input id="pzsljgdm" name="pzsljgdm"  required="true"
+							class="mini-treeselect" style="width:100%;"
+							textfield="MC" valuefield="ID" parentfield="PID" requiredErrorText="批准设立机关 不能为空"
+							shownullitem="false" nullitemtext="" />
+					</td>
+					<th nowrap><span class="B_red"> * </span>隶属关系：</th>
+					<td>
+						<input id="dwlsgxDm" name="dwlsgxDm" class="mini-combobox" textfield="MC" required="true" requiredErrorText="隶属关系 不能为空"
+							valuefield="ID" url="/dzgzpt-wsys/api/baseCode/CombSelect/common/DM_GY_DWLSGX"
+							style="width:100%;"/>
+					</td>
+				</tr>
+				<tr>
+					<th width="20%" nowrap>经营范围：</th>
+					<td width="70%" colspan="3">
+						<input id="jyfw" required="true" name="jyfw" readonly="true" class="mini-textbox" style="width:100%;"/>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="open_btdiv"><a class="mini-button blue font14" onclick="slbl.nextShowSwsxtzs()" style="padding:4px 10px;">受理</a>&nbsp;&nbsp;
+	<a class="mini-button gray font14" onclick="slbl.onCancel('cancel')" style="padding:4px 10px;">取消</a></div>
+</body>
+
+<div class="mini-window" allowDrag="false" id="tzf-win" style="width: 780px; height: 320px; display: none"
+    title="投资方信息" showToolbar="false">
+    <div>
+		<div class="mini-datagrid mb20" id="tzf_grid" enabled="true" showReloadButton="false" showEmptyText="false"
+		allowSortColumn="false" allowResize="false" allowCellEdit="true" allowCellSelect="true" showPager="false"
+		ondrawcell="" multiSelect="true" width="100%">
+		<div property="columns">
+			<div field="tzfhhhrzjzlDmText" width="100">证件类型</div>
+			<div field="tzfzjhm" width="100">证件号码</div>
+			<div field="tzfmc" width="100">投资方名称 </div>
+			<div field="tzfjjxzText" width="100">投资方经济性质</div>
+			<div field="tzje" width="100">投资方投资金额(万元)</div>
+			<div field="tzbl" width="100">投资比例(%)</div>
+			<div field="tzfgjText" width="100">国籍(地区)</div>
+			<div field="tzfdz" width="180">地址</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+<div id="cjsslWin"
+	 class="mini-window"
+	 title="提示"
+	 style="width:auto;min-height:180px;display: none"
+	 showMaxButton="true"
+	 showToolbar="true"
+	 showFooter="true"
+	 showModal="true"
+	 allowResize="true"
+	 allowDrag="true">
+	<div>目前选择的纳税人所处街乡对应多个城建税税率,请在下方选择适合纳税人的税率.</div>
+	<div>
+		<span class="B_red"> * </span>城建税税率：
+		<input id="cjssl"
+			   name="cjssl"
+			   class="mini-combobox"
+			   textfield="text"
+			   required="true"
+			   valuefield="id"/>
+	</div>
+	<div property="footer" style="text-align: center">
+		<a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="slbl.closeCjsslWin()">确认</a>
+	</div>
+</div>
+
+</html>

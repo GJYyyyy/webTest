@@ -1,0 +1,126 @@
+#swxzxk-yltj, .wrapper {
+    height: auto; }
+#swxzxk-yltj h2, .wrapper h2 {
+    text-align: center; }
+#swxzxk-yltj p, .wrapper p {
+    margin-left: 15%; }
+#swxzxk-yltj p, #swxzxk-yltj h2, .wrapper p, .wrapper h2 {
+    line-height: 30px;
+    margin-bottom: 10px; }
+
+#sqb1, #swxzxk-yltj {
+    border: none;
+    margin: auto;
+    border-collapse: collapse; }
+#sqb1 th, #swxzxk-yltj th {
+    text-align: center; }
+#sqb1 tr, #swxzxk-yltj tr {
+    width: 100%; }
+#sqb1 td, #sqb1 th, #swxzxk-yltj td, #swxzxk-yltj th {
+    line-height: 28px;
+    border: 1px solid #000;
+    padding: 2px;
+    font-size: 12px; }
+#sqb1 td, #swxzxk-yltj td {
+    text-align: left; }
+
+#sqsx td, #sqcl-1 td, #sqcl-2 td, #sqcl-3 td, #sqcl-4 td, #sqcl-5 td, #sqcl-6 td, #sqcl-7 td {
+    border: none !important; }
+
+/*
+.mini-textbox-border {
+  border: none !important;
+}
+*/
+#sqsx {
+    margin-left: 10px; }
+
+#sqcl-block {
+    padding: 10px !important; }
+#sqcl-block p, #sqcl-block h4 {
+    margin: 5px 0; }
+#sqcl-block .info {
+    margin-bottom: 10px; }
+
+.swxzxk-yltj-h4 {
+    text-align: center; }
+
+#tx-swxksqb {
+    min-height: 1000px }
+
+#tx-swxksqb .mini-textbox, #swxzxk-yltj .mini-textbox {
+    height: 32px; }
+#tx-swxksqb .mini-textbox .mini-textbox-border, #swxzxk-yltj .mini-textbox .mini-textbox-border {
+    border: 1px solid #fff; }
+#tx-swxksqb .mini-textbox-focus .mini-textbox-border, #swxzxk-yltj .mini-textbox-focus .mini-textbox-border {
+    border-color: #0896db; }
+#tx-swxksqb .mini-invalid .mini-textbox-border, #swxzxk-yltj .mini-invalid .mini-textbox-border {
+    border: red 1px solid; }
+
+#sqb1 .mini-textbox-readOnly, #sqb1 .mini-textbox-border, #sqb1 .mini-textbox-input, #swxzxk-yltj .mini-textbox-readOnly, #swxzxk-yltj .mini-textbox-border, #swxzxk-yltj .mini-textbox-input, .wrapper .mini-textbox-readOnly, .wrapper .mini-textbox-border, .wrapper .mini-textbox-input {
+    background-color: #FFFFFF;
+    cursor: default; }
+
+#blyj-window {
+    top: 280px !important; }
+
+.mini-checkboxlist label {
+    display: inline !important; }
+
+.swxzxk-date .mini-textbox-readOnly, .swxzxk-date .mini-textbox-border, .swxzxk-date .mini-textbox-input {
+    background-color: #FFFFFF !important;
+    cursor: default !important; }
+
+.sqsx-yl td {
+    border: none !important; }
+
+.autograph-btn{
+    display: inline-block;
+    padding: 6px 30px;
+    margin-bottom: 20px;
+    background: #fff;
+    color: #0994DC;
+    border-radius: 3px;
+    border: 1px solid #0994DC;
+    margin-top: 10px;
+}
+
+.autograph-btn:hover{
+    background: #f1faff;
+    color: #0a94dd;
+}
+#qrcode_image_login{
+    margin: 0 auto;
+    width: 200px;
+    display: block;
+}
+
+.red{
+    color: red;
+}
+.grid-title{
+    text-align: center;
+    font-size: 16px;
+}
+.title{
+    font-size: 15px;
+    line-height: 30px;
+    padding-top: 15px;
+}
+.left-label{
+    width: 120px;
+    text-align: right;
+    padding-right: 8px;
+}
+.mini-datepicker input{
+    text-indent: 10px;
+}
+input[type=radio]{
+    margin-right: 1px;
+}
+.mini-tabs-bodys{
+    padding: 0px;
+}
+.wizard .content .body{
+    width: 1165px;
+}

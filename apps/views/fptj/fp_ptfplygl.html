@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+<head>
+    <title>甘肃管理平台</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="fp_ptfplygl.css">
+    <style type="text/css" id="printStyle">
+        .print-area{
+            /* display: none;*/
+            width: 850px;
+            color: #000;
+            font-size: 16px;
+            font-family: 宋体;
+            margin: 15px auto;
+        }
+        .print-area .second-title{
+            text-align: center;
+        }
+        .print-area .fpxx-item{
+            margin: 0 auto;
+        }
+        .print-area .fpxx-item p{
+            /*display: inline-block;*/
+            float: left;
+            width: 49%;
+            margin-bottom: 10px;
+        }
+        .print-area h4{
+            clear: both;
+        }
+
+        .print-area table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .print-area table tr td{
+            height: 25px;
+            text-align: center;
+            border: 1px #000 solid;
+
+        }
+        .print-area table tr td span.mini-textbox-border{
+            border: none;
+            background: inherit;
+        }
+        .print-area table tr td input{
+            border: none;
+            text-align:center;
+        }
+		.yzcl{
+			margin:100px 0px 0px 0px;
+		}  
+		.nsrcl{
+			margin:100px 0px 0px 0px;
+		}
+
+
+    </style>
+</head>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../../lib/sui-miniui/mini-all-min.js"></script>
+<script src="../../../lib/ds-commonFront/build/common-front.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="../../../lib/lodop/lodopPrint.js"></script>
+<script src="gs-fplygl.js" type="text/javascript"></script>
+<body>
+<div class="fply-table" id="searchdiv" style="padding: 0 20px">
+    <h4>纳税人基本信息:</h4>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <th width="15%"  align="right">纳税人识别号：</th>
+            <td width="30%" align="left" id="nsrsbh"></td>
+            <th width="15%" align="right">纳税人名称：</th>
+            <td width="30%" width="left" id="nsrmc"></td>
+        </tr>
+        <tr>
+            <th align="right">购票人：<span class="txt-red" >*</span></th>
+            <td align="left" id="gprxm"></td>
+            <th align="right">发票领取方式：</th>
+            <td align="left" id="lqfs"></td>
+        </tr>
+        <tr>
+            <th  align="right">纳税人所属税务机关：</th>
+            <td align="left" id="swjg_DM"></td>
+            <th align="right">联系人姓名：</th>
+            <td align="left" id="name"></td>
+        </tr>
+        <tr>
+            <th align="right">手机号码：</th>
+            <td align="left" id="mobile"></td>
+            <th align="right">发票领用状态：</th>
+            <td align="left" id="blztdm"></td>
+        </tr>
+    </table>
+    <h4>发票领用信息:</h4>
+    <div id="lgxxGrid" class="mini-datagrid"
+         style="width:100%;height:210px;" idfield="id" allowresize="false"
+         showpager="false" allowcellvalid="true" allowcelledit="true"
+         allowcellselect="true" multiselect="true">
+        <div property="columns">
+            <div field="fpzldm" displayfield="fpzlmc" headeralign="center"
+                 allowsort="false">发票种类
+            </div>
+
+            <div field="remainNum" headeralign="center" allowsort="false">结存发票份数</div>
+
+            <div field="bczgkyfs" displayfield="bczgkyfs" headeralign="center"
+                 allowsort="false">本次最高可领用份数
+            </div>
+
+            <div headeralign="center" width="200" header="本次发票领用小计">
+                <div property="columns">
+                    <!--ComboBox：本地数据-->
+                    <div autoShowPopup="true" field="mbfs" width="50" align="center"
+                         headerAlig="center">每本份数
+                    </div>
+                    <div field="bs" headeralign="center" align=center width="150">
+                        数量(每本份数>1时按本领，否则按份领)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="fpfsxx" style="padding:0">
+        <h4>发票发售信息:</h4>
+        <div id="fpfsGrid" class="mini-datagrid"
+             style="width:100%;height:112px;" idfield="id" allowresize="false"
+             showpager="false" allowCellEdit="true" allowCellSelect="true"
+             multiSelect="false" allowCellValid="true"
+             oncellcommitedit="onCellCommitEdit"  oncellbeginedit="onCellBeginEdit">
+            <div property="columns">
+                <div field="fpzlmc" headeralign="center" allowsort="false">发票种类</div>
+                <div field="fpzldm" headeralign="center" allowsort="false">发票代码</div>
+                <div field="fpqshm" headeralign="center" allowsort="false">发票起始号码</div>
+                <div field="fpzzhm" headeralign="center" allowsort="false">发票终止号码</div>
+                <div field="bs" headeralign="center" allowsort="false">本数</div>
+                <div field="sqfs" headeralign="center" allowsort="false">总申领份数</div>
+                <div field="hffs" width="" allowsort="false"
+                     vtype="required;float;rangeDecimals:2;maxLength:14;int;fs"
+                     headeralign="center" align=center>
+                    核发份数 <span class="txt-red">*</span>
+                </div>
+                <div field="mbfs" headeralign="center" allowsort="false">每本份数</div>
+            </div>
+        </div>
+    </div>
+    <div id="fpqdxx" style="display: none">
+        <div id="print-area" class="print-area" style="padding:0;width:100%;height:30%;">
+            <div class="gscl">
+                <h2 align="center">发票网上申领邮寄清单</h2>
+                <p class="second-title">（国税留存）</p>
+                <div class="fpxx-item">
+                    <p><span>纳税人名称：</span><span data-name="nsrmc"></span></p>
+                    <p><span>纳税人识别号：</span><span data-name="nsrsbh"></span></p>
+                    <p><span>订单号：</span><span data-name="ddh"></span></p>
+                    <p><span>邮件号：</span><span class="yjh" data-name="mailnum"></span></p>
+                </div>
+                <table >
+                    <tbody id="gply_list">
+                    <tr>
+                        <td colspan="4" align="center">发票名称</td>
+                        <td colspan="2" align="center">发票代码</td>
+                        <td colspan="2" align="center">发票起号</td>
+                        <td colspan="2" align="center">发票止号</td>
+                        <td colspan="2" align="center">核发份数</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="fpxx-item">
+                    <p><span>申领人：</span><span data-name="glrxm"></span></p>
+                    <p><span>出票人：</span><span data-name="cprxm"></span></p>
+                    <p><span data-name="currentDate"></span></p>
+                </div>
+            </div>
+            <div class="yzcl">
+                <h2 align="center">发票网上申领邮寄清单</h2>
+                <p class="second-title">（邮政留存）</p>
+                <div class="fpxx-item">
+                    <p><span>纳税人名称：</span><span data-name="nsrmc"></span></p>
+                    <p><span>纳税人识别号：</span><span data-name="nsrsbh"></span></p>
+                    <p><span>订单号：</span><span data-name="ddh"></span></p>
+                    <p><span>邮件号：</span><span class="yjh" data-name="mailnum"></span></p>
+                </div>
+                <table >
+                    <tbody id="yzlc_list">
+                    <tr>
+                        <td colspan="4" align="center">发票名称</td>
+                        <td colspan="2" align="center">发票代码</td>
+                        <td colspan="2" align="center">发票起号</td>
+                        <td colspan="2" align="center">发票止号</td>
+                        <td colspan="2" align="center">核发份数</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="fpxx-item">
+                    <p><span>申领人：</span><span data-name="glrxm"></span></p>
+                    <p><span>出票人：</span><span data-name="cprxm"></span></p>
+                    <p><span data-name="currentDate"></span></p>
+                </div>
+            </div>
+            <div class="nsrcl">
+                <h2 align="center">发票网上申领邮寄清单</h2>
+                <p class="second-title">（纳税人留存）</p>
+                <div class="fpxx-item">
+                    <p><span>纳税人名称：</span><span data-name="nsrmc"></span></p>
+                    <p><span>纳税人识别号：</span><span data-name="nsrsbh"></span></p>
+                    <p><span>订单号：</span><span data-name="ddh"></span></p>
+                    <p><span>邮件号：</span><span class="yjh" data-name="mailnum"></span></p>
+                </div>
+                <table >
+                    <tbody id="nsrlc_list">
+                    <tr>
+                        <td colspan="4" align="center">发票名称</td>
+                        <td colspan="2" align="center">发票代码</td>
+                        <td colspan="2" align="center">发票起号</td>
+                        <td colspan="2" align="center">发票止号</td>
+                        <td colspan="2" align="center">核发份数</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="fpxx-item">
+                    <p><span>申领人：</span><span data-name="glrxm"></span></p>
+                    <p><span>出票人：</span><span data-name="cprxm"></span></p>
+                    <p><span data-name="currentDate"></span></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="btdiv">
+        <a id="fh" class="mini-button blue font14 mini-button-iconRight" style="padding:6px 20px;" onclick="doBack()">上一级</a>
+        <a id="fpqdPrint" class="mini-button blue font14 mini-button-iconRight" style="padding:6px 20px; margin:0px 0px 0px 20px" onclick="fpqdPrint()">发票清单打印</a>
+    </div>
+</div>
+</body>
+</html>

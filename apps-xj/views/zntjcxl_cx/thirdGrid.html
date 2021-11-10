@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- <title>智能推荐采信率查询统计</title> -->
+    <link rel="stylesheet" href="../../../apps/styles/style.css">
+    <link rel="stylesheet" href="./cxlCxtj.css">
+    <title>表格数据</title>
+</head>
+
+<body style="background:#fff;">
+    <input type="hidden" class="mini-hidden" id="searchInfo" name="searchInfo" value="${searchInfo!''}" />
+    <div class="mini-fit">
+        <!-- 第三级 -->
+        <div id="cxtjGrid" idField="cxtjGrid" class="mini-datagrid" allowHeaderWrap="true" showPager="true"
+            style="width: 100%; height:100%;" sizeList="[10,30,50,100]" pageSize="10">
+            <div property="columns">
+                <div type="indexcolumn" width="50">序号</div>
+                <div field="wsh" headeralign="center" align="center" allowsort="false" width="180">文书号
+                </div>
+                <div field="nsrsbh" headeralign="center" align="center" allowsort="false" width="180">纳税人社会信用码（纳税人税号）
+                </div>
+                <div field="nsrmc" headeralign="center" align="center" allowsort="false" width="180">纳税人名称
+                </div>
+                <div field="zgswjgMc" headeralign="center" align="center" allowsort="false" width="200">主管税务机关（显示到所，简称）
+                </div>
+                <div field="ssglyxm" headeralign="center" align="center" allowsort="false" width="140">税收管理员</div>
+                <div field="sqrq" headeralign="center" align="center" allowsort="false" dateFormat="yyyy-MM-dd"
+                    width="120">申请日期</div>
+                <div field="slrq" headeralign="center" align="center" allowsort="false" dateFormat="yyyy-MM-dd"
+                    width="120">受理日期</div>
+                <div field="sfcytj" headeralign="center" align="center" allowsort="false" width="80">是否采用推荐</div>
+                <div field="jjyyMc" headeralign="center" align="center" allowsort="false" width="140">不采用推荐原因</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="./tableGrid.js"></script>
+
+</html>

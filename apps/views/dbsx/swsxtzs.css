@@ -1,0 +1,55 @@
+.textCenter{
+    text-align: center;
+}
+.colorY{
+    font-weight: bold;
+    color: #D08D47;
+}
+.marginLeft50{
+    margin-left: 50px;
+}
+.marginLeft60{
+    margin-left: 60px;
+}
+.marginRight50{
+    margin-right: 50px;
+}
+.form-table {
+    width: 1160px;
+/*    text-align: center;*/
+/*    margin: 25px auto;*/
+}
+.table_bg {
+    background: #f7f7f7;
+    margin-top: 0px;
+}
+#dbsx_content .form-table .mini-textbox-border{
+    border: none;
+    background: #f7f7f7;
+}
+/*企业所得税预览*/
+.qysdsYhsxBaYl{
+    width: 100%;
+}
+.qysdsYhsxBaYl .txtCenter{
+    text-align: center;
+}
+.qysdsYhsxBaYl .txtLeft{
+    text-align: left;
+}
+.qysdsYhsxBaYl .txtRight{
+    text-align: right;
+}
+.qysdsYhsxBaYl table{
+    width: 100%;
+}
+.bandYl .mini-textbox-border{
+     border:none;
+ }
+
+#xbtc-yl-win .form-table{
+    margin-top: 20px;
+}
+.text-red{
+    color: red;
+}

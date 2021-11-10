@@ -1,0 +1,11 @@
+{
+  "name": "jquery",
+  "version": "1.12.4",
+  "description": "一个快速、简洁的JavaScript框架，封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。",
+  "keywords": [
+    "jquery",
+    "library"
+  ],
+  "main": "jquery.js",
+  "license": "MIT"
+}

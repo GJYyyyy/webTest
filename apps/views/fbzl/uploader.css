@@ -1,0 +1,70 @@
+/*上传css*/
+
+#uploader .queueList {
+    margin: 20px;
+}
+
+.element-invisible {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+#uploader .placeholder {
+    border: 3px dashed #e6e6e6;
+    min-height: 238px;
+    padding-top: 158px;
+    text-align: center;
+    background: url('../../../images/public/ico-add-img.png') center 93px no-repeat;
+    color: #cccccc;
+    font-size: 18px;
+    position: relative;
+}
+
+#uploader .placeholder .webuploader-pick {
+    font-size: 18px;
+    background: #00b7ee;
+    border-radius: 3px;
+    line-height: 44px;
+    padding: 0 30px;
+    color: #fff;
+    display: inline-block;
+    margin: 20px auto;
+    cursor: pointer;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+#uploader .placeholder .webuploader-pick-hover {
+    background: #00a2d4;
+}
+
+#uploader .placeholder .flashTip {
+    color: #666666;
+    font-size: 12px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 20px;
+}
+
+#uploader .placeholder .flashTip a {
+    color: #0785d1;
+    text-decoration: none;
+}
+
+#uploader .placeholder .flashTip a:hover {
+    text-decoration: underline;
+}
+
+#uploader .placeholder.webuploader-dnd-over {
+    border-color: #999999;
+}
+
+#uploader .placeholder.webuploader-dnd-over.webuploader-dnd-denied {
+    border-color: red;
+}
+
+#uploader .uploadBtn {
+    pointer: cursor;
+}

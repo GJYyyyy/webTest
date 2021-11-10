@@ -1,0 +1,86 @@
+<div id="zzsybnsrdjDiv" data-view-type='form'>
+    <table class="form-table" border='1' cellspacing='0' cellpadding='2' width="100%">
+        <tr>
+            <th>纳税人识别号：</th>
+            <td width="180"><input id="nsrsbhyl" name="nsrsbh" class="mini-textbox" allowInput="false" /></td>
+            <th>纳税人名称：</th>
+            <td colspan='3'><input id="nsrmcyl" name="nsrmc" class="mini-textbox" allowInput="false" /></td>
+        </tr>
+        <tr>
+            <th>法定代表人（负责人、业主）：</th>
+            <td><input id="fddbrxmyl" name="fddbrxm" class="mini-textbox" allowInput="false" /></td>
+            <th>证件号码：</th>
+            <td width="250"><input id="fddbrZjmAndHmyl" name="fddbrsfzjhm" class="mini-textbox" allowInput="false" /></td>
+        
+            <th>联系电话：</th>
+            <td><input id="fddbryddhyl" name="fddbryddh" class="mini-textbox" allowInput="false" /></td>
+        </tr>
+        <tr>
+            <th>财务负责人：</th>
+            <td><input id="cwfzrxmyl" name="cwfzrxm" class="mini-textbox" allowInput="false" /></td>
+            <th>证件号码：</th>
+            <td><input id="cwfzrZjmAndHmyl" name="cwfzrsfzjhm" class="mini-textbox" allowInput="false" /></td>
+            <td style="display:none"><input id="cwfzrsfzjlxDmyl" name="cwfzrsfzjzlmc" class="mini-textbox" allowInput="false" /></td>
+       
+            <th>联系电话：</th>
+            <td><input id="cwfzryddhyl" name="cwfzryddh" class="mini-textbox" allowInput="false" /></td>
+        </tr>
+        <tr>
+            <th>办税人员：</th>
+            <td><input id="bsrxmyl" name="bsrxm" class="mini-textbox" allowInput="false" /></td>
+            <th>证件号码：</th>
+            <td><input id="bsrZjmAndHmyl" name="bsrsfzjhm" class="mini-textbox" allowInput="false" /></td>
+            <td style="display:none"><input id="bsrsfzjlxDmyl" name="bsrsfzjzlmc" class="mini-textbox" allowInput="false" /></td>
+         
+            <th>联系电话：</th>
+            <td><input id="bsryddhyl" name="bsryddh" class="mini-textbox" allowInput="false" /></td>
+        </tr>
+        <tr>
+            <th>税务登记日期：</th>
+            <td colspan='5'><input id="swdjrqyl" name="swdjrq" class="mini-textbox" allowInput="false" /></td>
+        </tr>
+        <tr>
+            <th>生产经营地址：</th>
+            <td colspan='5'><input id="scjydzyl" name="scjydz" class="mini-textbox" allowInput="false" /></td>
+        </tr>
+        <tr>
+            <th>注册地址：</th>
+            <!-- <td colspan='5'><input id="zcdz" name="zcdz" class="mini-textbox" allowInput="false" /></td> -->
+            <td colspan='5'><input id="zcdzyl" name="hsdz" class="mini-textbox" allowInput="false" /></td>
+        </tr>
+        <tr>
+            <th>纳税人类别：</th>
+            <td colspan='5'><div name="nsrlbDm" id="nsrlbDmyl" class="mini-radiobuttonlist"
+                                 repeatItems="4" repeatLayout="table" repeatDirection="horizontal"
+                                 textField="MC" valueField="ID" readOnly="true"
+                                 data="[{'ID':'1','MC':'企业'},{'ID':'2','MC':'非企业性单位'},{'ID':'3','MC':'个体工商户'},{'ID':'9','MC':'其他'}]"></div></td>
+        </tr>
+        <tr>
+            <th>主营业务类别：</th>
+            <td colspan='5'><div name="nsrzyDm" id="nsrzyDmyl" class="mini-radiobuttonlist"
+                                 repeatItems="4" repeatLayout="table" repeatDirection="horizontal"
+                                 textField="MC" valueField="ID" readOnly="true"
+                                 data="[{'ID':'1','MC':'工业'},{'ID':'2','MC':'商业'},{'ID':'3','MC':'服务业'},{'ID':'9','MC':'其他'}]"></div>
+            </td>
+        </tr>
+        <tr>
+            <th>会计核算健全：</th>
+            <td colspan='5'>
+                <div name="kjhsjqbz" id="kjhsjqbzyl" class="mini-radiobuttonlist"
+                     repeatItems="4" repeatLayout="table" repeatDirection="horizontal"
+                     textField="MC" valueField="ID" readOnly="true"
+                     data="[{'ID':'Y','MC':'是'}]"></div>
+            </td>
+        </tr>
+        <tr>
+            <th>一般纳税人资格生效之日：</th>
+
+            <td colspan='5'>
+                <div name="ybnsrzgsxrq" id="ybnsrzgsxrqyl" class="mini-radiobuttonlist"
+                     repeatItems="4" repeatLayout="table" repeatDirection="horizontal"
+                     textField="MC" valueField="ID" readOnly="true" value ="dy"
+                     data="[{'ID':'dy','MC':'当月1日'},{'ID':'cy','MC':'次月1日'}]"></div>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>跨区迁移不通过记录清册</title>
+    <link rel="stylesheet" href="../../../styles/style.css">
+    <link rel="stylesheet" href="../../../../apps/views/dbsx/dbsxcx.css">
+    <link rel="stylesheet" href="./kqqyywjlqc.css">
+    <style lang="">
+        .sbtcgrid {
+            margin: 10px auto 0 !important;
+        }
+
+        .mini-grid-border {
+            width: 100% !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h2 style="text-align: center">跨区迁移不通过记录清册</h2>
+        <div class="search">
+            <div class="searchC">查询条件</div>
+        </div>
+        <div class="search-box-wrap searchBynsrshb">
+            <div class="form-table" id="srarch-form">
+                <table width="100%">
+                    <tr style="height: 40px;">
+                        <td class="txt-r" style="width: 9%">纳税人识别号(统一社会信用代码)：</td>
+                        <td colspan="2" style="width: 15%">
+                            <input name="nsrsbh" type="text" id="nsrsbh" class="mini-textbox" vtype="rangeLength:15,20"
+                                onvalidation="kqqybtgjlqc.nsrsbhValidate" style="width: 100%"
+                                maxLengthErrorText="编号长度不能超过20个字符" minLengthErrorText="编号长度不能低于15个字符" />
+                        </td>
+                        <td class="txt-r" style="width: 8%">迁出税务机关：</td>
+                        <td colspan="2" style="width: 10%">
+                            <input id="qcswjg" name="qcswjg" class="mini-treeselect" style="width: 100%" textfield="MC"
+                                valuefield="ID" parentField="PID" multiSelect="false" allowInput="false"
+                                popupWidth="100%" shownullitem="true" valueFromSelect="true"
+                                url="/dzgzpt-wsys/api/baseCode/get/getQj" />
+                        </td>
+                    </tr>
+                    <tr style="height: 40px;">
+                        <td class="txt-r" style="width: 8%">申请日期：</td>
+                        <td colspan="2" style="width: 10%" nowrap>
+                            <input id="sqrqQ" name="sqrqQ" type="text" class="mini-datepicker" style="width: 47%"
+                                format="yyyy-MM-dd"required requiredErrorText="请选择申请日期起" value="new Date(new Date().setDate(new Date().getDate() - 6))"
+                                onvaluechanged="kqqybtgjlqc.sqrqQChange" />
+                            <span style="display: inline-block;width: 3.5%;text-align: center;">至</span>
+                            <input id="sqrqZ" name="sqrqZ" type="text" class="mini-datepicker" style="width: 47%"
+                                format="yyyy-MM-dd" required requiredErrorText="请选择申请日期止" value="new Date()"
+                                onvaluechanged="kqqybtgjlqc.sqrqZChange" />
+                        </td>
+                        <td class="txt-r" style="width: 8%">迁入税务机关：</td>
+                        <td colspan="2" style="width: 10%">
+                            <input id="qrswjg" name="qrswjg" class="mini-treeselect" style="width: 100%" textfield="MC"
+                                valuefield="ID" parentField="PID" multiSelect="false" allowInput="false"
+                                popupWidth="100%" shownullitem="true" valueFromSelect="true"
+                                url="/dzgzpt-wsys/api/baseCode/get/getQj" />
+                        </td>
+                    </tr>
+                    <tr style="height: 40px;">
+                        <td class="txt-r" style="width: 8%">审核指标：</td>
+                        <td colspan="2" style="width: 15%">
+                            <input id="shzb" name="shzb" type="text" class="mini-combobox" style="width: 100%"
+                                allowInput="false" valueField="ID" textField="MC" valueFromSelect="true" emptyText=" "
+                                url="/dzgzpt-wsys/api/baseCode/get/getSqjk" nullItemText=" " />
+                        </td>
+                        <td class="txt-r" style="width: 8%">迁移状态：</td>
+                        <td colspan="2" style="width: 15%">
+                            <input id="qyzt" name="qyzt" type="text" class="mini-combobox" style="width: 100%"
+                                allowInput="false" valueField="ID" textField="MC" valueFromSelect="true" emptyText=" "
+                                nullItemText=" " data="[{ID:'Y',MC:'迁移成功'},{ID:'N',MC:'迁移失败'}]" value="N" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" style="padding:10px; text-align:center;">
+                            <a id="search" class="mini-button " onclick="kqqybtgjlqc.doSearch(this)">查询</a>
+                            <a class="mini-button " onclick="kqqybtgjlqc.doReset()">重置</a>
+                            <a class="mini-button " onclick="kqqybtgjlqc.doExport()">导出</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="kqqybtgjlqc_grid" class="mini-datagrid sbtcgrid" style="width:100%; height:450px; margin: 0 auto;"
+            allowResize="false" showPager="true" emptyText="暂无数据" showEmptyText="true" sizeList="[30,50,100]"
+            pageSize="30" idField="id">
+            <div property="columns">
+                <div type="indexcolumn" align="center" headeralign="center">序号</div>
+                <div field="wsh" align="center" headeralign="center" width="120">文书号</div>
+                <div field="nsrsbh" align="center" headeralign="center" width="120">纳税人识别号</div>
+                <div field="nsrmc" align="center" headeralign="center" width="120">纳税人名称</div>
+                <div field="qcswjgmc" align="center" headeralign="center" width="120">迁出税务机关</div>
+                <div field="qrswjgmc" align="center" headeralign="center" width="120">迁入税务机关</div>
+                <div field="qcskswjgmc" headeralign="center" align="center" allowsort="false" width="120"> 迁出税务所（科、分局）</div>
+                <div field="ssglymc" headeralign="center" align="center" allowsort="false" width="80"> 专管员</div>
+                <div field="zfjglx" headeralign="center" align="center" allowsort="false" width="80">
+                    总分机构类型
+                </div>
+                <div field="lrrq" align="center" headeralign="center" width="120" dateFormat="yyyy-MM-dd">申请日期</div>
+                <div field="blqd" align="center" headeralign="center" width="80">办理渠道</div>
+                <div field="qyzt" align="center" headeralign="center" width="80" renderer="onActionRendererQkzt">迁移状态
+                </div>
+                <!--<div field="shsr" align="center" headeralign="center" width="80">去年税收收入</div>-->
+                <div field="sxjkmc" align="center" headeralign="center" width="120">审核不通过原因</div>
+                <div field="a10" name="a10" headeralign="center" align="center" allowsort="false"
+                    renderer="onActionRendererYq" width="80">操作</div>
+                <div field="a11" name="a11" headeralign="center" align="center" allowsort="false"
+                    renderer="onActionRendererQksm" width="80">情况说明</div>
+            </div>
+        </div>
+
+        <div class="mini-window" id="sbtcsjqlChangeGly-win" style="width: 600px;height: 360px;display: none" title="请选择"
+            showToolbar="false" allowInput="true">
+            <div class="form-table" id="checkGlyRow-form">
+                <p style="text-align: center">选择待分配的税务人员</p>
+                <table width="80%" height="" style="margin: 0 auto;">
+                    <tr>
+                        <td colspan="2">
+                            <input id="slswry" name="slswry" type="text" class="mini-combobox" style="width: 455px"
+                                required="true" requiredErrorText="请选择待分配的税务人员" emptyText="请选择待分配的税务人员"
+                                placeholder="请选择待分配的税务人员" allowInput="false" valueField="swryDm" textField="swryxm"
+                                valueFromSelect="true" emptyText=" " nullItemText="请选择待分配的税务人员" />
+                        </td>
+                    </tr>
+                </table>
+                <div class="footer ta-center mt80" style="text-align: center;margin-top: 80px">
+                    <a class="mini-button toolBtn-blue" style="padding: 0 25px" onclick="kqqybtgjlqc.checkSwryOk">确定</a>
+                    <a class="mini-button toolBtn-white" style="padding: 0 25px"
+                        onclick="kqqybtgjlqc.checkSwryCancel">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../../../lib/jquery/jquery.js"></script>
+    <script src="../../../scripts/miniui.js"></script>
+    <script src="../../../scripts/efg_water.js"></script>
+    <script src="../../../scripts/gldcommon.js"></script>
+    <script src="./kqqybtgjlqc.js"></script>
+</body>
+
+</html>

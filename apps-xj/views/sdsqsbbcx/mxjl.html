@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>企业所得税清算报备明细</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./sdsqsbbcx.css">
+</head>
+<body style="background:#fff;">
+
+<div id="qymdGrid" class="mini-datagrid" showPager="false" style="width: 99%; height:500px; margin: 0 auto;"
+     sizeList="[30,50,100]" pageSize="30" allowCellWrap="false" allowHeaderWrap="true"
+     emptyText="暂无数据" showEmptyText="true" fitColumns="true" frozenStartColumn="0" frozenEndColumn="1">
+    <div property="columns">
+        <!--<div type="indexcolumn" width="60">序号</div>-->
+        <!--<div field="rwbh"  align="center" align="center" allowsort="false" width="120">任务编号</div>-->
+        <div field="nsrsbh" headeralign="center" align="center" allowsort="false" width="160">统一社会信用代码（纳税人识别号）</div>
+        <div field="nsrmc" headeralign="center" align="center" allowsort="false" width="160">纳税人名称</div>
+        <div field="scjydz" headeralign="center" align="center" allowsort="false" width="160">生产经营地址</div>
+        <div field="fddbrxm" headeralign="center" align="center" allowsort="false" width="120">法定代表人姓名</div>
+        <div field="jbr" headeralign="center" align="center" allowsort="false" width="120">经办人</div>
+        <div field="jbrlxfs" headeralign="center" align="center" allowsort="false" width="120">经办人联系方式</div>
+        <div field="sfzjlx" headeralign="center" align="center" allowsort="false" width="160">办理人员身份证件类型</div>
+        <div field="qsbar" headeralign="center" dateFormat="yyyy-MM-dd" align="center" allowsort="false"
+             width="100">清算备案日
+        </div>
+        <div field="qsjsr" headeralign="center" dateFormat="yyyy-MM-dd" align="center" allowsort="false"
+             width="100">清算结束日
+        </div>
+        <div field="qsyy" headeralign="center" align="center" allowsort="false" width="120">清算原因</div>
+        <div field="qyzt" headeralign="center" align="center" allowsort="false" width="120">企业当下状态</div>
+        <div field="zgswjg" headeralign="center" align="center" allowsort="false" width="120">主管税务机关</div>
+        <div field="blrq" headeralign="center" dateFormat="yyyy-MM-dd" align="center" allowsort="false"
+             width="100">办理日期
+        </div>
+        <div field="blqd" headeralign="center" align="center" allowsort="false" width="120">办理渠道</div>
+        <div field="yxbz" headeralign="center" align="center" allowsort="false" width="100">有效标志</div>
+        <!--<div field="ywbll" headeralign="center" align="center" allowsort="false" width="80" renderer="onActionRendererYq">业务量</div>-->
+    </div>
+</div>
+
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script>
+    function setData(record) {
+        mini.parse();
+        var qymdGrid = mini.get("qymdGrid");
+        // qymdGrid.setData(record.mx ? record.mx : '');
+
+        qymdGrid.setUrl("/dzgzpt-wsys/api/sh/qysdsqsbb/query/qsbbqcByDjxh");
+        qymdGrid.load({
+            djxh:record.djxh
+        }, function (res) {
+            // this.setData(res.data);
+        }, function (data) {
+            var obj = JSON.parse(data.errorMsg);
+            mini.alert(obj.message || "系统异常,请稍后再试。")
+        });
+    }
+</script>
+</html>

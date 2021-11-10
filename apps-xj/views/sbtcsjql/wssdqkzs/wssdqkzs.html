@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>责令限改通知书送达情况</title>
+    <link rel="stylesheet" href="../../../styles/style.css">
+    <link rel="stylesheet" href="../../../../apps/views/dbsx/dbsxcx.css">
+    <link rel="stylesheet" href="../sbtcsjql.css">
+    <style>
+        .searchBtn{
+            padding: 3px 10px;
+        }
+        .searchBtn .mini-button-pressed{
+            padding: 3px 10px;
+        }
+        body a.searchBtn:hover{
+            padding: 3px 10px;
+        }
+        .color-blue{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="search">
+            <div class="searchC">查询条件</div>
+        </div>
+        <div class="search-box-wrap searchBynsrshb">
+            <div class="form-table" id="cxtjForm">
+                <table width="100%" height="">
+                    <tr style="height: 40px;">
+                        <td class="txt-r" style="width: 8%">文书类型：</td>
+                        <td colspan="2" style="width:10%;">
+                            <input id="wslx" name="wslx" type="text" class="mini-combobox" style="width: 100%"
+                                   allowInput="false"  valueField="ID"  textField="MC"
+                                   valueFromSelect="true" emptyText=" "  nullItemText=" " onvaluechanged="wssdqkzs.zsjgChange"/>
+                        </td>
+                        <td class="txt-r" style="width: 8%">登记日期：</td>
+                        <td colspan="2" style="width:10%;">
+                            <input  id="djrq" name="djrq" type="text" class="mini-monthpicker" style="width: 100%"
+                                     format="yyyy-MM" requiredErrorText="请选择登记日期"
+                                    minDateErrorText="登记日期不能小于2019-05" maxDateErrorText="登记日期不能大于当月"
+                                    onvaluechanged="wssdqkzs.djrqChanged"/>
+                        </td>
+                        <td class="txt-r" style="width: 10%">社会信用代码：</td>
+                        <td colspan="2" style="width:15%;">
+                            <input name="shxydm" type="text" id="shxydm" class="mini-textbox" vtype="rangeLength:15,20" onvalidation="wssdqkzs.nsrsbhValidate"
+                                   style="width: 100%" maxLengthErrorText="编号长度不能超过20个字符" minLengthErrorText="编号长度不能低于15个字符"/>
+                        </td>
+                        <td class="txt-r" style="width: 8%">送达情况：</td>
+                        <td colspan="2" style="width:15%;">
+                            <input id="sdqk" name="sdqk" type="text" class="mini-combobox" style="width: 100%"
+                                   allowInput="false"  valueField="ID"  textField="MC"
+                                   valueFromSelect="true" emptyText=" "  nullItemText=" " onvaluechanged="wssdqkzs.zsjgChange"/>
+                        </td>
+                        <td style="padding:10px; text-align:center;">
+                            <a id="search" class="mini-button searchBtn" style="margin-right: 20px;" onclick="wssdqkzs.doSearch">查询</a>
+                            <a id="reset" class="mini-button searchBtn" onclick="wssdqkzs.doReset">重置</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <a class="mini-button toolBtn-blue" style="padding: 6px 25px" onclick="wssdqkzs.exportFpqd">导出</a>
+        <div class="search-box-content" style="margin: 20px 0;">
+            <div id="step_tx_form">
+                <div id="cxtjgrid" class="mini-datagrid" style="width:100%;height:300px;margin: 0 auto;" allowResize="false" showPager="true"
+                     emptyText="暂无数据" showEmptyText="true" pageSize="30" sizeList="[30,50,100]" pageIndex="0" showPageSize="false" autoLoad="false" multiSelect="true" allowSortColumn="false"
+                     idField="id" allowCellSelect="true" allowCellEdit="true" checkSelectionOnly="true">
+                    <div property="columns">
+                        <div type="checkcolumn" width="50"></div>
+                        <div type="indexcolumn" align="center" headeralign="center">序号</div>
+                        <div field="wslx" align="center" headeralign="center">文书类型</div>
+                        <div field="nsrsbh" align="center" headeralign="center">社会信用代码</div>
+                        <div field="nsrmc" align="center" headeralign="center">纳税人名称</div>
+                        <div field="wfxwbh" align="center" headeralign="center">违法行为编号</div>
+                        <div field="wfss" renderer="wfssRenderer" align="center" headeralign="center">违法事实</div>
+                        <div field="djrq" align="center" headeralign="center" dateFormat="yyyy-MM-dd">登记日期</div>
+                        <div field="sdqk" align="center" headeralign="center">送达情况</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="../../../../lib/jquery/jquery.js"></script>
+<script src="../../../scripts/miniui.js"></script>
+<script src="../../../scripts/gldcommon.js"></script>
+<script src="../base64.min.js"></script>
+<script src="./wssdqkzs.js"></script>
+</body>
+</html>

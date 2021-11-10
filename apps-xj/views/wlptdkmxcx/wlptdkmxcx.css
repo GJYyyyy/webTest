@@ -1,0 +1,41 @@
+tr {
+  height: 50px;
+}
+
+th {
+  text-align: right;
+}
+
+.txt-red {
+  color: #f00;
+}
+
+.search {
+  cursor: pointer;
+}
+
+.ableClick {
+  color: #0994dc;
+  cursor: pointer;
+}
+
+.unableClick {
+  color: #e2e2e2;
+}
+
+#dkmxbs-form th,
+#yl-dkmxbs-form th {
+  width: 10%;
+  text-align: center;
+}
+
+#dkmxbs-form td,
+#yl-dkmxbs-form td {
+  width: 200px;
+}
+
+.count {
+  height: 34px;
+  line-height: 22px;
+}
+

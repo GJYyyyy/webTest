@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="应缴税费清册">
+    <meta name="keywords" content="yjsf">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>应缴税费清册</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="yjsfqc.css">
+</head>
+<body>
+<div class="content">
+    <div class="content-title">应缴税费清册</div>
+    <div class="search-box" id="search-box">
+        <table border="0" cellspacing="0" cellpadding="0">
+            <colgroup>
+                <col width="40%">
+                <col width="25%">
+                <col width="25%">
+                <col width="10%">
+            </colgroup>
+            <tr>
+                <td>社会信用代码：<input name="nsrsbh" id="nsrsbh" class="mini-textbox" vtype="nsrsbh" width="300"></td>
+                <td>纳税人状态：<input name="nsrztDm" id="nsrztDm" class="mini-combobox" valueField="ID" textField="MC" allowInput="false" width="150"></td>
+                <td>缴款期限：<input name="jkyf" id="jkyf" class="mini-monthpicker" required="true" format="yyyyMM"
+                                requiredErrorText="缴款期限不能为空" width="150"></td>
+                <td><span class="search-btn" onclick="yjsfqc.search(0, yjsfqc.pageSize)">查询</span></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div style="width: 100%; overflow: auto;">
+    <div class="mini-datagrid" id="yjsf_grid" showpager="true" multiSelect="true" onbeforeload="yjsfqc.beforeLoad"
+         style="width: 100%; min-width: 1200px; height:auto;" sizeList="[30,50,100]" pageSize="30">
+        <div property="columns">
+            <div type="indexcolumn" width="40" headeralign="center" allowsort="true" width="4%">序号</div>
+            <div field="nsrsbh" headeralign="center" align="center" width="10%">社会信用代码</div>
+            <div field="nsrmc" headeralign="center" align="center" width="12%">纳税人名称</div>
+            <div field="nsrztmc" headeralign="center" align="center" width="7%">纳税人状态</div>
+            <div field="fddbryddh" headeralign="center" align="center" width="8%">法人联系方式</div>
+            <div field="cwfzryddh" headeralign="center" align="center" width="10%">财务负责人联系方式</div>
+            <div field="swryxm" headeralign="center" align="center" renderer="yjsfqc.ssglyRender" width="15%">税收管理员</div>
+            <div field="jkqx" headeralign="center" align="center" width="8%">缴款期限</div>
+            <div field="czdm" headeralign="center" align="center" renderer="yjsfqc.czRender" width="7%">操作</div>
+        </div>
+    </div>
+</div>
+<div class="mini-window fixed" id="detail_win" title="明细信息" allowDrag="false" onbeforehide="yjsfqc.beforehide"
+     style="display:none; width: 888px; height: 430px; font-size: 14px;">
+    <div style="text-align: left;margin-top: -20px;">
+    <span class="back-btn" onclick="mini.get('detail_win').hide();yjsfqc.selectedDh = {};">返回上一级</span>
+    </div>
+    <div class="mini-tabs" id="tabs">
+        <div title="缴税（费）明细">
+            <div class="mini-datagrid" id="mx_grid" showPager="false" allowResize="false" height="260">
+                <div property="columns">
+                    <div field="nssbrq" headeralign="center" align="center" width="11%">纳税申报日期</div>
+                    <div field="ybtse" headeralign="center" align="center" width="16%">应补（退）税额</div>
+                    <div field="zsxmMc" headeralign="center" align="center" width="13%">征收项目</div>
+                    <div field="zspmMc" headeralign="center" align="center" width="16%">征收品目</div>
+                    <div field="skssqq" headeralign="center" align="center" width="11%">税款所属期起</div>
+                    <div field="skssqz" headeralign="center" align="center" width="11%">税款所属期止</div>
+                    <div field="jkqx" headeralign="center" align="center" width="11%">缴款期限</div>
+                    <div field="rkrq" headeralign="center" align="center" width="11%">入库日期</div>
+                </div>
+            </div>
+        </div>
+        <div title="管户联系方式">
+            <div><span class="message-btn btn-gray" onclick="yjsfqc.sendMsg()">短信提醒</span></div>
+            <div class="mini-datagrid" id="ghxx_grid" showPager="false" allowResize="false" height="240" multiSelect="true">
+                <div property="columns">
+                    <div type="checkcolumn"></div>
+                    <div field="role" headeralign="center" align="center">身份</div>
+                    <div field="xm" headeralign="center" align="center">姓名</div>
+                    <div field="mobile" headeralign="center" align="center">联系方式</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none"><iframe id="frame" src=""></iframe></div>
+
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/efg_water.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="yjsfqc.js"></script>
+</body>
+</html>

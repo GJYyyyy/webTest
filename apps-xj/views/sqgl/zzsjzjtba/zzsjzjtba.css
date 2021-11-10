@@ -1,0 +1,145 @@
+@charset "UTF-8";
+html, body {
+    height: 100%; }
+
+.wizard > .content > .body input {
+    border: none; }
+
+.w240{
+    width: 240px !important;
+}
+#wcjyzm h2 {
+    text-align: center; }
+
+.form-table {
+    width: 1160px;
+    text-align: center;
+    margin: 25px auto; }
+
+.form-table th {
+    height: 40px;
+    font-size: 14px;
+    color: #393939;
+    text-align: right;
+    font-weight: normal; }
+
+.form-table td {
+    height: 40px;
+    font-size: 14px;
+    color: #999; }
+
+.form-table .mini-textbox-border {
+    border-radius: 4px; }
+
+.form-table .mini-buttonedit-border {
+    border-radius: 4px; }
+
+.form-table2 {
+    width: 1160px;
+    margin: 0 auto;
+    padding-top: 30px;
+    display: block; }
+
+.table_bg {
+    background: #f7f7f7; }
+
+.table_bg .mini-textbox-border {
+    border: none !important;
+    padding-left: 0px;
+    padding-right: 0px; }
+
+.table_bg .mini-textbox-input {
+    border: none !important; }
+
+.table_bg .mini-textbox-disabled, .mini-textbox-disabled input {
+    background: #f7f7f7 !important; }
+
+.htzje .mini-textbox-input {
+    font-weight: bolder;
+    color: #53acf3 !important;
+    padding-top: 2px; }
+
+.wc_tool {
+    width: 1160px;
+    margin: 0 auto;
+    padding-top: 30px; }
+
+.Yltable {
+    padding-top: 20px;
+    padding-bottom: 20px; }
+
+.Yltable td {
+    height: 35px; }
+
+/*.sbbtab {
+  border: 2px solid #000;
+  border-collapse: collapse;
+  line-height: 30px;
+}
+.sbbtab th {
+  text-align: center;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  text-indent: 15px;
+  background: #FDFDFD;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+.sbbtab td {
+  border: 1px solid #000;
+  padding-left: 4px;
+  border-collapse: collapse;
+  color: #666;
+  text-indent: 5px;
+}*/
+/*添加的html*/
+#win1 .addtable {
+    width: 100%; }
+
+#win1 .addtable tr td {
+    height: 50px; }
+
+#win1 .addtable .mini-textbox {
+    /*width: 240px !important;*/
+    /*height: 32px !important;*/
+}
+
+#win1 .addtable .mini-datepicker {
+    width: 240px !important;
+    height: 32px !important; }
+
+#win1 .addtable .mini-combobox {
+    width: 240px !important;
+    height: 32px !important;
+}
+
+#win1 .addtable .mini-textbox-border {
+    /*height: 30px !important;*/
+    border-radius: 4px; }
+
+#win1 .addtable .mini-textbox-border .mini-textbox-input {
+
+}
+
+
+#win1 .addtable .mini-buttonedit-border {
+    /*height: 30px !important;*/
+    border-radius: 4px; }
+
+#win1 .addtable .mini-buttonedit-border .mini-buttonedit-input {
+    /*height: 30px !important; */
+}
+
+#win1 .addtable .mini-buttonedit-buttons {
+    top: 1px; }
+
+.mini-required .mini-textbox-input, .mini-required .mini-buttonedit-input {
+    background: #FFF; }
+
+body .mini-textbox-disabled .mini-textbox-border {
+    background: #f7f7f7; }
+
+#div_htysh{
+    display: none;
+}
+/*# sourceMappingURL=zzsjzjt.css.map */

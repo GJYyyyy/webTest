@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="description" content="电子税务局">
+    <meta name="keywords" content="增值税专用发票最高开票限额申请 税务局">
+    <title>增值税专用发票最高开票限额申请</title>
+    <link rel="stylesheet" href="../../../apps/styles/style.css">
+    <link rel="stylesheet" href="./zzsfpzgkpxesq.css">
+</head>
+
+<body>
+    <div id="kpxesq" class="kpxesq">
+        <table class="kpxesq-form" id="kpxesq-form">
+            <tr>
+                <td class="txt-r" width="220px">纳税人识别号/社会信用代码：</td>
+                <td>
+                    <input id="nsrsbh" name="nsrsbh" class="mini-textbox" required requiredErrorText="纳税人识别号/社会信用代码不能为空"
+                        onvaluechanged="kpxesq.onnsrsbhchanged" />
+                </td>
+                <td class="txt-r" width="180px">纳税人名称：</td>
+                <td>
+                    <input id="nsrmc" name="nsrmc" class="mini-textbox" required requiredErrorText="纳税人名称不能为空"
+                        readonly />
+                </td>
+            </tr>
+        </table>
+        <div class="buttonDiv">
+            <a class="mini-button" style="padding: 0px 10px;border-radius: 5px;margin-right: 10px;"
+                onclick="kpxesq.addRow">增加</a>
+            <a class="mini-button" style="padding: 0px 10px;border-radius: 5px;" onclick="kpxesq.deleteData">删除</a>
+        </div>
+        <div id="kpxesq-grid" class="mini-datagrid" style="width:100%;" allowResize="false" enabled="true"
+            showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+            showEmptyText="true" emptyText="暂无数据" idField="id" checkSelectionOnly="true" allowCellSelect="true"
+            allowCellEdit="true" oncellcommitedit="cellcommitedit">
+            <div property="columns">
+                <div type="checkcolumn" width="50"></div>
+                <div type="indexcolumn" width="50">序号</div>
+                <div field="fpzldm" type="comboboxcolumn">发票种类名称
+                    <input property="editor" class="mini-combobox" style="width:100%;" textField="fpzlmc"
+                        valueField="fpzldm" allowInput="false" valueFromSelect="true" data="kpxesq.fpzlList" />
+                </div>
+                <div field="kpxedm" type="comboboxcolumn">申请最高开票限额
+                    <input property="editor" class="mini-combobox" style="width:100%;" textField="kpxemc"
+                        valueField="kpxedm" allowInput="false" valueFromSelect="true" data="kpxesq.kpxeList" />
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center;margin: 5px 0;">
+            <a class="mini-button" style="padding: 2px 24px;border-radius: 5px;" onclick="kpxesq.handleSearch">查询</a>
+        </div>
+        <div class="title">办理前置</div>
+        <div id="validate-info" class="mini-datagrid" style="width:100%;margin-bottom: 20px;" allowResize="false"
+            enabled="true" allowCellWrap="true" showPager="false" showEmptyText="true" autoLoad="false"
+            multiSelect="true" allowSortColumn="false" idField="id">
+            <div property="columns">
+                <div type="indexcolumn" width="50">序号</div>
+                <div field="mc" width="300" align="center">办理条件</div>
+                <div field="ruleDegree" width="100" align="center" renderer="onRenderDegree">监控类型</div>
+                <div field="result" width="100" align="center" renderer="onRenderResult">监控结果</div>
+                <div field="jksm" width="400">监控说明</div>
+            </div>
+        </div>
+        <div class="title">资料清单</div>
+        <div id="zlqd-info" class="mini-datagrid" style="width:100%;margin-bottom: 20px;" allowResize="false"
+            enabled="true" allowCellWrap="true" showPager="false" showEmptyText="true" autoLoad="false"
+            multiSelect="false" allowSortColumn="false" idField="id">
+            <div property="columns">
+                <div type="indexcolumn" width="50">序号</div>
+                <div field="bltj" width="400" align="center">办理条件</div>
+                <div field="require" width="250" align="center" renderer="onRenderRequire">要求</div>
+                <div field="qbdq" width="250" align="center" renderer="onRenderQbdq">全部带齐</div>
+            </div>
+        </div>
+        <div style="text-align: center;margin: 5px 0;">
+            <a class="mini-button" style="padding: 2px 28px;border-radius: 5px;" onclick="kpxesq.handleNextStep">下一步</a>
+        </div>
+    </div>
+
+    <script src="../../../lib/jquery/jquery.min.js"></script>
+    <script src="../../../apps/scripts/miniui.js"></script>
+    <script src="../../scripts/efg_water.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script src="./zzsfpzgkpxesq.js"></script>
+</body>
+
+</html>

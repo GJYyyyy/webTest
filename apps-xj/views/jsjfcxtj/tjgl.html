@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>减税降费推送户次统计管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./jsjfcxtjBaseCss.css">
+</head>
+<body style="background:#fff;">
+<div class="search">
+    <div class="searchC">查询条件</div>
+</div>
+
+<div id="qymdFrom" class="searchdiv">
+    <table width="96%" border="0" cellspacing="0" cellpadding="0" class="qymdTable" id="qymdTable">
+        <tr>
+            <th style="width: 15%">社会信用代码：</th>
+            <td style="width: 35%">
+                <input name="nsrsbh" type="text" id="nsrsbh" class="mini-textbox" style="width: 100%"
+                       vtype="rangeLength:15,20" onvalidation="nsrsbhValidate"
+                       maxLengthErrorText="编号长度不能超过20个字符" minLengthErrorText="编号长度不能低于15个字符"
+                       requiredErrorText="纳税人识别号不能为空"/>
+            </td>
+
+            <th style="width: 15%;">推送日期：</th>
+            <td style="width: 35%" nowrap>
+                <input id="sqrqQ" name="sqrqQ" type="text" class="mini-datepicker" style="width: 46%"
+                       format="yyyy-MM-dd" requiredErrorText="请选择有效期起"
+                />
+                <span style="display: inline-block;width: 5%;text-align: center;">至</span>
+                <input id="sqrqZ" name="sqrqZ" type="text" class="mini-datepicker" style="width: 46%"
+                       format="yyyy-MM-dd" requiredErrorText="请选择有效期止"
+                />
+            </td>
+        </tr>
+
+        <tr>
+            <th style="width: 15%;padding: 10px 0;">纳税人名称：</th>
+            <td style="width: 35%">
+                <input id="nsrmc" name="nsrmc" class="mini-textbox" style="width:100%;"/>
+            </td>
+            <th style="width: 15%;padding: 10px 0;">管理员名称：</th>
+            <td style="width: 35%">
+                <!--<input id="ssglydm" name="ssglydm" class="mini-combobox blfjbox" textfield="MC" valuefield="ID"-->
+                       <!--shownullitem="false" url="/dzgzpt-wsys/api/baseCode/get/getSsgly"-->
+                       <!--style="width:100%;" valueFromSelect="true" allowInput="false"/>-->
+                <input id="ssglydm" name="ssglydm" class="mini-textbox" style="width:100%;"/>
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="6" style="padding:10px; text-align:center;">
+                <a class="mini-button" onclick="tjgl.doSearch">查询</a>
+                <a class="mini-button" onclick="tjgl.doReset">重置</a>
+        </tr>
+    </table>
+</div>
+<div id="tjglGrid" class="mini-datagrid" showPager="true" style="width: 99%; height:550px; margin: 0 auto;"
+     sizeList="[30,50,100]" pageSize="30" allowCellWrap="false" allowHeaderWrap="true" fitColumns="true"
+     emptyText="暂无数据" showEmptyText="true">
+    <div property="columns">
+        <div type="indexcolumn" width="60">序号</div>
+        <div field="nsrsbh" headeralign="center" align="center" allowsort="false" width="120">社会信用代码（纳税人识别号）</div>
+        <div field="nsrmc" headeralign="center" align="center" allowsort="false" width="120">纳税人名称</div>
+        <div field="swjgmc" headeralign="center" align="center" allowsort="false" width="120">所属机关</div>
+        <div field="ssglymc" headeralign="center" align="center" allowsort="false" width="80">税收管理员</div>
+        <div field="tssj" dateFormat="yyyy-MM-dd" headeralign="center" align="center" allowsort="false"
+             width="100">推送时间
+        </div>
+        <div field="cksj" dateFormat="yyyy-MM-dd" headeralign="center" align="center" allowsort="false"
+             width="100">查看时间
+        </div>
+        <div field="fksj" dateFormat="yyyy-MM-dd" headeralign="center" align="center" allowsort="false"
+             width="100">反馈时间
+        </div>
+        <div field="tsxx" renderer="tjgl.onActionRendererYq" headeralign="center" align="center" allowsort="false"
+             width="60">反馈详情
+        </div>
+    </div>
+</div>
+<div class="mini-window" id="tsxx-win" style="width: 600px;display: none;" title="录入审核结果"
+     showToolbar="false" onbuttonclick="tjgl.tsxxWinClose">
+    <div class="form-table" id="checkGlyRow-form">
+        <!--<p style="text-align: center">录入审核结果</p>-->
+        <table width="100%" height="" style="margin: 0 auto;">
+            <tr>
+                <td style="font-weight: 600;text-indent: -18px;">
+                    推送信息
+                </td>
+            </tr>
+            <tr>
+                <td id="tsxx-inner">
+
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: 600;text-indent: -18px;">
+                    反馈信息
+                </td>
+            </tr>
+            <tr>
+                <td id="fkxx-inner">
+
+                </td>
+            </tr>
+        </table>
+        <div class="footer ta-center mt80" style="text-align: center;margin-top: 10px;">
+            <a class="mini-button toolBtn-white" style="padding: 0 25px" onclick="tjgl.tsxxWinClose">关闭</a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="./tjgl.js"></script>
+</html>

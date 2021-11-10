@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+.header{
+    text-align: center;
+}
+        .contain{
+            width:80%;
+            margin-left: 10%;
+            line-height:30px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h3  style="color: #008000;">增专、增普发票领用操作说明</h3>
+</div>
+
+<div class="contain">
+
+    <div>1.去金三核心征管系统前台完成发票发售操作;</div>
+    <a href='slfplc.html' target='_blank' style='text-decoration:none; '>金三核心征管系统发票发售操作流程</a>
+    <div>2.在本系统中点击《查询金三发票发售信息》按钮，选取上一步在金三系统中发售的记录，然后点击保存按钮;</div>
+    <div>
+        <button onclick="onOK()" style="display: inline-block;width:88px;height: 30px;font-size:16px;background-color: #8fbaea;color:#fff;border:none;cursor:pointer;margin-left:40%">
+            确定
+        </button>
+    </div>
+</div>
+
+</body>
+
+<script>
+    function CloseWindow(action) {
+        if (window.CloseOwnerWindow)
+            return window.CloseOwnerWindow(action);
+        else
+            window.close();
+    }
+
+    function onOK() {
+        CloseWindow("cancel");
+    }
+</script>
+</html>

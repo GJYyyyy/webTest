@@ -1,0 +1,95 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+.sqzl-content{
+    margin: 0 auto;
+}
+.sqzl-content h2{
+    display: none;
+}
+.sqzl-content .mini-grid.mini-datagrid{
+    margin: 0 auto;
+}
+#actions{
+    width: 100%;
+    text-align: center;
+}
+#actions button{
+    font-family: "Microsoft YaHei";
+    border: 1px solid #53acf3;
+    background: #fff;
+    color: #53acf3;
+    padding: 6px 25px;
+    margin: 30px auto;
+    border-radius: 4px;
+}
+#actions button:hover{
+    background: #edf6fc;
+    color: #3e9be5;
+    border-color: #3e9be5;
+}
+
+
+.mini-textbox-readOnly .mini-textbox-border, .mini-textbox-readOnly .mini-buttonedit-border, .mini-buttonedit-readOnly .mini-textbox-border, .mini-buttonedit-readOnly .mini-buttonedit-border {
+    background: #f7f7f7;
+    border:none;}
+.mini-tabs-scrollCt{
+    width: 100% !important;
+}
+
+/*申请资料*/
+.bzzl-content{
+    width: 960px;
+    margin: 0 auto;
+}
+.bzzl-content .title{
+    border: 1px solid #f9d18f;
+    background: #fefaea;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    margin-bottom: 18px;}
+.bzzl-content .title div{
+    padding-left: 40px;
+    display: inline-block;
+    background: url("../../../images/public/ico-title-tip.png") 12px 8px no-repeat;
+    font-size: 16px;
+}
+.bzzl-content .title div a{
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 54px;
+    color: #0995dd;
+}
+#actions  .button-blue{
+    background:#53acf3 ;
+    color: #ffffff;
+}
+#actions .button-blue:hover{
+    background: #3e9be5;
+    color: #ffffff;
+}
+#actions  .button-white{
+    background: #fff;
+}
+.bzzl-content .word-red{
+    color: red;
+}
+.bzzl-content .word-green{
+    color: #00bb00;
+}
+.wh100{
+    width: 100%;
+    height: 100%;
+}
+.lineH36{
+    line-height: 36px;
+}
+.color-blue{
+    color: blue;
+}
+.inlineblock{
+    display: inline-block;
+}

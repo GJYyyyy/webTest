@@ -1,0 +1,19 @@
+{
+  "name": "ds-commonFront",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.12.4",
+    "jquery.cookie": "jquery-cookie#^1.4.1",
+    "sui-miniui": "^1.0.15"
+  }
+}

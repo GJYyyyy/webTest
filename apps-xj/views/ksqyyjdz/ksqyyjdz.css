@@ -1,0 +1,40 @@
+td{
+    height: 50px;
+}
+
+th{
+    text-align: right;
+}
+
+.txt-red{
+    color: #f00;
+}
+
+.search{
+    cursor: pointer;
+}
+
+.ableClick{
+    color: #0994dc;
+    cursor: pointer;
+}
+
+.unableClick{
+    color: #e2e2e2;
+}
+
+#ksqy-form th{
+    width: 15%;
+}
+
+.cancel {
+    border: 1px solid #0994dc !important;
+    border-radius: 2px !important;
+    background: #fff !important;
+    font-size: 12px !important;
+    color: #0994dc !important;
+}
+.cancel:hover {
+    background: #f1faff !important;
+    border: 1px solid #0994dc !important;
+}

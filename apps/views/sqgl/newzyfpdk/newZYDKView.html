@@ -1,0 +1,189 @@
+<!-- 开票信息 --->
+<h2></h2>
+<section>
+	
+	<div class="yl_body" id="step_yl_form" data-view-type="form">
+		
+		<div class="kpxx-title text-center">
+			<div class="big-text">增值税专用发票</div>
+			<div class="small-text">此联不做报销、扣款凭证使用</div>
+		</div>
+		
+		<div class="text-right">
+			开票日期：<div data-view-type="form" id="kprq_form" style="display: inline-block; width: 130px;">
+			<input class="mini-textbox" name="kprq_val" id="kprq_val" readonly="true" />
+			</div>
+		</div>
+		
+		<!-- emptyText="" -->
+		<table cellpadding="0" cellspacing="0" border="0" class="kpxx" style="table-layout: fixed;">
+			<tr>
+				<td class="gray-td vertical-td" style="width: 5%">购<br />买<br />方</td>
+				<td colspan="4" class="bor-right-none company-info">
+					<form id="gh-info" data-view-type="form">
+						<label>购<em class="w_25"></em>买<em class="w_25"></em>方<em class="w_25"></em>名<em class="w_25"></em>称：</label>
+						<input style="width: 80%;;text-overflow: ellipsis;" class="mini-textbox" name="ghfNsrmc" readonly /> <br />
+						
+						<label>税<em class="w4"></em>号：</label>
+						<input style="width: 80%" class="mini-textbox" name="ghfNsrsbh" readonly /><br />
+						
+						<label>电<em class="w_25"></em>话<em class="w_25"></em>及<em class="w_25"></em>地<em class="w_25"></em>址：</label>
+						<input style="width: 40%" class="mini-textbox" name="ghfLxdh" readonly />
+						<input style="width: 40%;;text-overflow: ellipsis" class="mini-textbox" name="ghfDz" readonly /> <br />
+						
+						<label>开户行及账号：</label> <!-- _ghfYhhbDmText -->
+						<input style="width: 40%;text-overflow: ellipsis" class="mini-textbox" name="ghfYhyywdMc" readonly /><!-- ghfYhhbMc -->
+						<input style="width: 40%;text-overflow: ellipsis" class="mini-textbox" name="ghfYhkhzh" readonly />
+					</form>
+				</td>
+				<td colspan="2" class="bor-left-none text-right" style="padding-right: 10px;"></td>
+				<td class="gray-td vertical-td"><label style="display: block; width: 50px;">密<br />码<br />区</label></td>
+				<td colspan="3" style="width: 28%"></td>
+			</tr>
+			
+			<tr>
+				<td colspan="11">
+					<div data-view-type="form" id="yl_zspmDm_form">
+						<span>选择征收品目：</span>
+						<span class="input-box input-nobor" style="width: 300px; display: inline-block;"><input id="zspmDm_yl" name="zspmDm_yl" class="mini-textbox" readonly /></span> <!--  -->
+					</div>
+				</td>
+			</tr>
+					
+			<tr>
+				<td colspan="11" style="padding: 0px; ">
+					<div data-view-type="datagrid">
+						<div id="lwhwYl-grid" class="mini-datagrid"  style="width:100%; height:318px;"
+						     allowCellEdit="true" allowCellSelect="true" multiSelect="true" editNextOnEnterKey="true"  editNextRowCell="true"
+						     idField="id">
+							<div property="columns">
+								<!--必须选一个  <div type="checkcolumn" width="50">选择</div> -->
+								<div field="hwlwmc" width="165">货物或应税劳务、服务名称</div>
+									<!-- <input class="mini-combobox" emptyText="请选择" onvaluechanged="selectChangeLw" /> -->
+								
+								<div field="ggxh">规格型号
+									<!-- <input name="ggxh" class="mini-textbox" emptyText="非必填" /> -->
+								</div>
+								<div field="dwslDm" displayField ="dwslDmText" >单位
+									<!-- <input name="dw" class="mini-combobox" textField="MC" /> -->
+								</div>
+								<div field="hlsl">数量
+									<!-- <input vtype="float" name="hlsl" class="mini-textbox" onvalidation="onFloatValidae" emptyText="非必填" /> slBlur-->
+								</div>
+								<div field="hldj">单价
+									<!-- <input vtype="float" name="hldj"onvalidation="onFloatValidae" class="mini-textbox" />djBlur -->
+								</div>
+								<div field="je" width="129">金额（不含税）
+									 <!-- <input vtype="float" name="je" class="mini-textbox" />jebhsBlur  onvalidation="onFloatValidae" -->
+								</div>
+								<div class="gray-td" field="slv" width="60">税率</div>
+								<div class="gray-td bor-right-none" field="se" dataType="float" width="100" >税额
+									<!-- <input name="se" class="mini-textbox" readonly /> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			
+			</tr>
+			<tbody id="ylHj" data-view-type="form">
+			<tr class="input-nobor hj-td" id="hjse_yl" data-view-type="form">
+				<td class="gray-td" colspan="2">合计</td>
+				<td class="gray-td bor-right-none"></td>
+				<td class="gray-td bor-right-none bor-left-none"></td>
+				<td class="gray-td bor-right-none bor-left-none"></td>
+				<td class="gray-td bor-right-none bor-left-none"></td>
+				<td class="gray-td bor-left-none bor-right-none" colspan="2" width="141px">
+					<!-- <input class="mini-textbox" id="jehsHj" name="jshj" readonly /> -->
+				</td><!-- 金额（含税） 自动计算 -->
+				<td class="gray-td bor-left-none bor-right-none" width="140px">
+					<input class="mini-textbox" id="jebhsHj" name="jehj" readonly />
+				</td><!-- 金额（不含税 ) 合计 自动计算 -->
+				<td class="gray-td bor-left-none bor-right-none" width="69px">——</td>
+				<td class="gray-td bor-left-none" width="119px">
+					<input class="mini-textbox" id="seHj" name="sehj" readonly />
+				</td><!-- 税额 自动计算 -->
+			</tr>
+			<tr id="jshj_yl_view" data-view-type="form">
+				<td class="gray-td" colspan="2">价税合计（大写）</td>
+				<td colspan="9" style="line-height: 24px;" class="input-nobor">
+					<input class="mini-textbox" name="hjdx" style="width: 40%; padding: 0px" readonly value="零元整" />
+					<label style="margin-left: 30%;">（小写）</label>￥
+					<input class="mini-textbox" style="width: 170px; padding: 0px" name="hjxx" readonly />
+				</td>
+			</tr>
+			</tbody>
+			
+			<tbody id="ylxh-form" data-view-type="form">
+				<tr id="xhfxx_yl">
+					<td class="gray-td vertical-td">销<br />售<br />方</td>
+					<td colspan="6" class="company-info">
+						<label>名<em class="w4"></em>称：</label>
+						<input style="width: 80%" class="mini-textbox" name="nsrmc" readonly /> <br />
+						
+						<label>纳税人识别号：</label>
+						<input style="width: 80%" class="mini-textbox" name="nsrsbh" readonly /><br />
+						
+						<label>地<em class="w_25"></em>址<em class="w_25"></em>、<em class="w_25"></em>电<em class="w_25"></em>话：</label>
+						<input style="width: 40%" class="mini-textbox" name="dz" readonly />
+						<input style="width: 40%" class="mini-textbox" name="jbrdh" readonly id="zpdk-skfxx-jbrdh" /><br />
+						
+						<label>开户行及账号：</label>
+						<input name="yhyywdMc" style="width: 40%" class="mini-textbox" readonly /><!-- yhhbmc khyhlbText -->
+						<input name="yhzh" style="width: 40%" class="mini-textbox" readonly />
+					
+					</td>
+					<td class="gray-td vertical-td"><label>备<br />注</label></td>
+					<td colspan="3">
+						<input maxlength="200" style="height: 110px; width: 95%; line-height: 18px;" class="mini-textarea bz-text" name="bz" readonly />
+					</td>
+				</tr>
+			
+				<tr class="bor-none" id="sfrFhfForm_yl">
+					<td colspan="3">
+						<label>收款人：</label>
+						<input class="mini-textbox" name="skr" id="skr" style="width: 150px;" readonly />
+					</td>
+					<td colspan="2">
+						<label>复核人：</label>
+						<input class="mini-textbox" name="fhr" id="fhr" style="width: 150px;" readonly />
+					</td>
+					<td colspan="2">
+						<label>开票人：</label>
+						<input class="mini-textbox" name="kpr" id="kpr"  style="width: 150px;" readonly />
+					</td>
+					<td colspan="4">
+						<label>销售方：</label>（章）
+					</td>
+				</tr>
+			</tbody>
+			
+		</table>
+		
+		<div class="fpqd_box">
+			<div class="title">发票清单</div>
+			<div>
+				<div data-view-type="datagrid">
+					<div id="lwhwViewGrid_yl" class="mini-datagrid" style="width:98%; height:250px; margin: 0 auto;" idField="id" multiSelect="true">
+						<div property="columns">
+							<div field="hwlwmc" width="120" headerAlign="center" allowSort="true">货物或劳务名称</div>
+							<div field="ggxh" width="120" headerAlign="center" allowSort="true">规格型号</div>
+							<div field="dwslDmText" width="70">计量单位</div>
+							<div field="hlsl" width="50">数量</div>
+							<div field="hldj">单价（不含税）</div>
+							<div field="jeHs">金额（含税）</div>
+							<div field="je">金额（不含税）</div>
+							<div field="slv" width="50">税率</div>
+							<div field="se">税额</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	 
+		
+	</div>
+	
+	
+		
+</section>

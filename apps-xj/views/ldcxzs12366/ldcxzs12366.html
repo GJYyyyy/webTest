@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="description" content="电子税务局">
+    <meta name="keywords" content="12366来电查询助手 税务局">
+    <title>12366来电查询助手</title>
+    <!-- 即使将来项目路径改动了也不要改成相对路径，还是改成相应的绝对路径，因为有后端接口使用了请求转发跳转的该页面 -->
+    <link rel="stylesheet" href="/dzgzpt-wsys/dzgzpt-wsys/apps/styles/style.css">
+    <link rel="stylesheet" href="/dzgzpt-wsys/dzgzpt-wsys/apps/views/ldcxzs12366/ldcxzs12366.css">
+</head>
+<body>
+<!-- steps 插件容器 id="wizard" -->
+<div id="wizard"></div>
+
+<div id="ldcxzs" class="ldcxzs">
+    <div class="txt-c"><h2>12366来电查询助手</h2></div>
+    <div class="all-content">
+        <div class="content left-content">
+            <div class="left-content-table">
+                <table class="ldcxzs-form ldcxzs-tbody ldcxzs-form-by-phone" id="ldcxzs-form-by-phone">
+                    <tr>
+                        <td width="55" class="txt-r"><strong class="txt-red">*</strong>电话：</td>
+                        <td width="250">
+                            <input id="phone"
+                                   name="phone"
+                                   class="mini-textbox"
+                                   showClose="false"
+                                   emptyText="电话"
+                                   required="true"
+                                   requiredErrorText="电话不能为空"
+                                   maxlength="30"
+                            />
+                        </td>
+                        <td></td>
+                        <td class="txt-r">
+                            <a class="mini-button toolBtn-blue" id="ldcxzs-left-search" style="padding: 4px 15px;margin-left: 5px" onclick="ldcxzs.handleSearchByPhone">查询</a>
+                        </td>
+                    </tr>
+                </table>
+                <div class="left-result"><span>查询结果</span></div>
+                <div id="ldcxzs-grid-by-phone"
+                     class="mini-datagrid ldcxzs-grid-by-phone"
+                     style="width:100%;height:350px;"
+                     multiSelect="true"
+                     showPager="false"
+                     showEmptyText="true"
+                     idField="id"
+                     checkSelectionOnly="true"
+                     allowCellSelect="true"
+                     allowCellEdit="false"
+                     enabled="true"
+                     allowResize="false"
+                >
+                    <div property="columns">
+                        <div field="nsrmc" headerAlign="center" align="center">纳税人名称</div>
+                        <div field="nsrsbh" headerAlign="center" align="center">纳税人识别号</div>
+                        <div field="zt" width="60" headerAlign="center" align="center">状态</div>
+                        <div field="glrxx" headerAlign="center" align="center">关联人信息</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content right-content">
+            <div class="right-content-table">
+                <table class="ldcxzs-form ldcxzs-tbody ldcxzs-form-by-qyxx" id="ldcxzs-form-by-qyxx">
+                    <tr>
+                        <td width="200" class="txt-r"><strong class="txt-red">*</strong>识别号/信用代码/企业名称：</td>
+                        <td width="280">
+                            <input id="qyxx"
+                                   name="qyxx"
+                                   class="mini-textbox"
+                                   showClose="false"
+                                   emptyText="纳税人识别号/社会信用代码/企业名称"
+                                   required="true"
+                                   requiredErrorText="请输入纳税人识别号/社会信用代码/企业名称"
+                                   maxlength="100"
+                            />
+                        </td>
+                        <td></td>
+                        <td class="txt-r">
+                            <a class="mini-button toolBtn-blue" id="ldcxzs-right-search" style="padding: 4px 15px;margin-left: 5px" onclick="ldcxzs.handleSearchByQyxx">查询</a>
+                        </td>
+                    </tr>
+                </table>
+                <div class="mini-tabs" activeIndex="0">
+                    <div title="一户式">
+                        <table class="ldcxzs-form yhs ldcxzs-table-qyxx mt10 mb10" id="ldcxzs-table-qyxx">
+                            <tr>
+                                <td>企业名称</td>
+                                <td colspan="3" class="data-qymc"></td>
+                            </tr>
+                            <tr>
+                                <td width="120">统一社会信用代码</td>
+                                <td width="200" class="data-nsrsbh data-shxydm data-tyshxydm"></td>
+                                <td width="120">专管员</td>
+                                <td width="150" class="data-zgy"></td>
+                            </tr>
+                            <tr>
+                                <td>主管税务机关</td>
+                                <td colspan="3" class="data-zgswjg"></td>
+                            </tr>
+                            <tr>
+                                <td>纳税人状态</td>
+                                <td class="data-nsrzt"></td>
+                                <td>一般纳税人资格状态</td>
+                                <td class="data-ybnsrzgzt"></td>
+                            </tr>
+                            <tr>
+                                <td>注册地址</td>
+                                <td colspan="3" class="data-zcdz"></td>
+                            </tr>
+                        </table>
+                        <div class="hd-tables">
+                            <div class="mt10">
+                                <div class="left-result"><span>发票核定（有效核定）</span></div>
+                                <div id="ldcxzs-grid-fphd"
+                                     class="mini-datagrid ldcxzs-grid ldcxzs-grid-fphd"
+                                     style="max-height:200px;"
+                                     multiSelect="true"
+                                     showPager="false"
+                                     showEmptyText="true"
+                                     idField="id"
+                                     checkSelectionOnly="true"
+                                     allowCellSelect="true"
+                                     allowCellEdit="false"
+                                     enabled="true"
+                                     allowResize="false"
+                                     onpagechanged="ldcxzs.onpagechanged"
+                                     onbeforeload="ldcxzs.onbeforeload"
+                                     sizeList="[10,20,50]"
+                                >
+                                    <div property="columns">
+                                        <div field="fpzlDm" headerAlign="center" align="center">发票种类代码</div>
+                                        <div field="fpzlmc" width="180" headerAlign="center" align="center">发票种类名称</div>
+                                        <div field="mczggpsl" headerAlign="center" align="center">每次最高购票数量</div>
+                                        <div field="myzggpsl" headerAlign="center" align="center">每月最高购票数量</div>
+                                        <div field="cpzgsl" headerAlign="center" align="center">最高持票数量</div>
+                                        <div field="yxqq" headerAlign="center" align="center">有效期起</div>
+                                        <div field="yxqz" headerAlign="center" align="center">有效期止</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt10">
+                                <div class="left-result"><span>税种核定</span></div>
+                                <div id="ldcxzs-grid-szhd"
+                                     class="mini-datagrid ldcxzs-grid ldcxzs-grid-szhd"
+                                     style="max-height:200px;"
+                                     multiSelect="true"
+                                     showPager="false"
+                                     showEmptyText="true"
+                                     idField="id"
+                                     checkSelectionOnly="true"
+                                     allowCellSelect="true"
+                                     allowCellEdit="false"
+                                     enabled="true"
+                                     allowResize="false"
+                                     onpagechanged="ldcxzs.onpagechanged"
+                                     onbeforeload="ldcxzs.onbeforeload"
+                                     sizeList="[10,20,50]"
+                                >
+                                    <div property="columns">
+                                        <div field="zsxm" headerAlign="center" align="center">征收项目代码（名称）</div>
+                                        <div field="zspm" headerAlign="center" align="center">征收品目代码（名称）</div>
+                                        <div field="rdyxqq" width="80" headerAlign="center" align="center">认定有效期起</div>
+                                        <div field="rdyxqz" width="80" headerAlign="center" align="center">认定有效期止</div>
+                                        <div field="slhdwse" width="40" headerAlign="center" align="center">税率</div>
+                                        <div field="zsl" width="40" headerAlign="center" align="center">征收率</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div title="绑定管理">
+                        <table class="ldcxzs-form bdgl ldcxzs-tbody ldcxzs-form-bdgl" id="ldcxzs-form-bdgl">
+                            <tr>
+                                <td class="txt-r"><strong class="txt-red">*</strong>来电号码：</td>
+                                <td width="250">
+                                    <input id="ldhm"
+                                           name="ldhm"
+                                           class="mini-textbox"
+                                           showClose="false"
+                                           emptyText="来电号码"
+                                           required="true"
+                                           requiredErrorText="来电号码不能为空"
+                                           maxlength="30"
+                                    />
+                                </td>
+                                <td width="5"></td>
+                                <td class="txt-r">
+                                    <a style="padding: 3px;" class="mini-button toolBtn-blue" onclick="ldcxzs.handleSearchByBdglLdhm">查询记录</a>
+                                    <a style="padding: 3px;margin-left: 5px" class="mini-button" onclick="ldcxzs.winIsShow(true)">新增记录</a>
+                                </td>
+                            </tr>
+                        </table>
+                        <div id="ldcxzs-grid-bdgl"
+                             class="mini-datagrid ldcxzs-grid-bdgl"
+                             style="width: 80%;height:273px;"
+                             multiSelect="true"
+                             showPager="true"
+                             showEmptyText="true"
+                             idField="id"
+                             checkSelectionOnly="true"
+                             allowCellSelect="true"
+                             allowCellEdit="false"
+                             enabled="true"
+                             allowResize="false"
+                             onpagechanged="ldcxzs.onpagechangedBdgl"
+                             onbeforeload="ldcxzs.onbeforeload"
+                             sizeList="[10,20,50]"
+                        >
+                            <div property="columns">
+                                <div type="indexcolumn" width="50">序号</div>
+                                <div field="ldhm" headerAlign="center" align="center">来电号码</div>
+                                <div field="lrsj" headerAlign="center" align="center">操作时间</div>
+                                <div field="bdnsrsh" headerAlign="center" align="center">绑定纳税人税号</div>
+                                <div field="bdnsrmc" width="200" headerAlign="center" align="center">绑定纳税人名称</div>
+                                <div field="ldrxm" headerAlign="center" align="center">来电人姓名</div>
+                                <div field="ldrsf" headerAlign="center" align="center">来电人身份</div>
+                            </div>
+                        </div>
+                        <div class="mini-window win-addrow-bdgl"
+                             id="win-addrow-bdgl"
+                             showToolbar="false"
+                             showFooter="false"
+                             showModal="true"
+                             title="新增记录"
+                             style="width: 600px;display: none;"
+                        >
+                            <table class="win-addrow-form-bdgl" id="win-addrow-form-bdgl">
+                                <tr>
+                                    <td width="130" class="txt-r"><strong class="txt-red">*</strong>来电号码：</td>
+                                    <td width="220">
+                                        <input id="_ldhm"
+                                               name="ldhm"
+                                               class="mini-textbox"
+                                               vtype="required;"
+                                               requiredErrorText="来电号码不能为空"
+                                               emptyText="请输入来电号码"
+                                               maxlength="30"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="txt-r"><strong class="txt-red"></strong>绑定纳税人税号：</td>
+                                    <td>
+                                        <input id="_bdnsrsh"
+                                               name="bdnsrsh"
+                                               class="mini-textbox"
+                                               vtype="specialChar;"
+                                               emptyText="请输入绑定人纳税人税号"
+                                               maxlength="20"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="txt-r"><strong class="txt-red"></strong>绑定纳税人名称：</td>
+                                    <td>
+                                        <input id="_bdnsrmc"
+                                               name="bdnsrmc"
+                                               class="mini-textbox"
+                                               vtype="specialChar"
+                                               emptyText="请输入绑定人纳税人名称"
+                                               maxlength="100"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="txt-r"><strong class="txt-red"></strong>来电人姓名：</td>
+                                    <td>
+                                        <input id="_ldrxm"
+                                               name="ldrxm"
+                                               class="mini-textbox"
+                                               vtype="specialChar"
+                                               emptyText="请输入来电人姓名"
+                                               maxlength="100"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="txt-r"><strong class="txt-red"></strong>来电人身份：</td>
+                                    <td>
+                                        <input id="_ldrsf"
+                                               name="ldrsf"
+                                               class="mini-textbox"
+                                               vtype="specialChar"
+                                               emptyText="请输入来电人身份"
+                                               maxlength="100"
+                                        />
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="txt-c mt20">
+                                <a class="mini-button toolBtn-blue mr20" id="add-save" style="padding: 0 20px;" onclick="ldcxzs.handleAddBdglSave">确定</a>
+                                <a class="mini-button toolBtn-blue ml20" id="add-cancel" style="padding: 0 20px;" onclick="ldcxzs.handleAddBdglCancel">取消</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+</div>
+
+<script src="/dzgzpt-wsys/dzgzpt-wsys/lib/jquery/jquery.min.js"></script>
+<script src="/dzgzpt-wsys/dzgzpt-wsys/apps/scripts/miniui.js"></script>
+<script src="/dzgzpt-wsys/dzgzpt-wsys/apps/views/ldcxzs12366/ldcxzs12366.js"></script>
+</body>
+</html>

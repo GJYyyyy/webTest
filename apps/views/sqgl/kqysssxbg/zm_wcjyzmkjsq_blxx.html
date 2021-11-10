@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+    <title>外部信息采集与交换综合服务平台</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="../../../styles/style.css">
+    <link rel="stylesheet" href="zm_wcjyzmkjsq_blxx.css">
+    <script src="../scripts/sqbcommon.js"></script>
+    <script src="zm_wcjyzmkjsq_blxx.js" type="text/javascript"></script>
+</head>
+<body>
+<input name="RoleZgswjDm" id="RoleZgswjDm" class="mini-hidden" value=""/>
+<input name="lcslId" id="lcslId" class="mini-hidden" value=""/>
+<input name="sqxh" id="sqxh" class="mini-hidden" value=""/>
+<input name="rwbh" id="rwbh" class="mini-hidden" value=""/>
+<div class="mini-fit">
+    <div class="editform">
+        <div id="blxxForm" class="editdiv">
+            <h3 class="textCenter">跨区域涉税事项报告信息补录</h3><!--跨区域经营证明开具-->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="edittab">
+                <tr>
+                    <th width="20%" nowrap>经营地行政区划<span class="B_red"></span>：</th>
+                    <td width="30%">
+                        <input id="xzqhszDm" name="xzqhszDm" class="mini-treeselect" textfield="MC" valuefield="ID"
+                               parentField="PID"
+                               shownullitem="true" enabled="false" valueFromSelect="true" vtype="required;"
+                               onbeforenodeselect="beforenodeselect"
+                               url="/dzgzpt-wsys/api/baseCode/get/baseCodeTree/DM_GY_XZQH_GT3" required="true" style="width:90%;"
+                               popupWidth="90%"/>
+                    </td>
+                    <th width="20%" nowrap><span class="B_red">*</span>经营地街道乡镇：</th>
+                    <td width="30%">
+                       <input id="jdxzDm" name="jdxzDm" class="mini-combobox" vtype="required;" required="true"
+                              style="width:90%;" popupWidth="90%" enabled="false"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th width="20%" nowrap><span class="B_red">*</span>跨区域经营地主管税务局：</th>
+                    <td width="30%">
+                        <input id="zgswjDm" name="zgswjDm" class="mini-treeselect" onbeforenodeselect="beforenodeselect"
+                               style="width: 90%" textfield="MC" valuefield="ID" parentField="PID"
+                               multiSelect="false" allowInput="false" required="true" popupWidth="90%"
+                               shownullitem="true" valueFromSelect="true" url="/dzgzpt-wsys/api/baseCode/get/SwjgQx"
+                               vtype="required;" requiredErrorText="跨区域经营地主管税务局不能为空"
+                               onvaluechanged="doZgswjSelected"/>
+                    </td>
+                    <th width="20%" nowrap><span class="B_red">*</span>跨区域经营地分局：</th>
+                    <td width="30%">
+                        <input id="zgswskfjDm" name="zgswskfjDm" required="true" class="mini-treeselect" popupWidth="90%"
+                               vtype="required;" allowInput="true" valueFromSelect="true" textfield="MC" valuefield="ID" parentField="PID"
+                               requiredErrorText="跨区域经营地分局不能为空"
+                               shownullitem="true" style="width:90%;" onvaluechanged="doQxSwjgSelected"/></td>
+                </tr>
+                <tr>
+                    <th width="20%" nowrap>隶属关系<span class="B_red"></span>：</th>
+                    <td width="30%">
+                        <input class="mini-combobox" style="width:90%;"
+                               id="dwlsgxDm" name="dwlsgxDm" textfield="MC" popupWidth="90%"
+                               valuefield="ID" url="/dzgzpt-wsys/api/baseCode/CombSelect/common/DM_GY_DWLSGX"/>
+                    </td>
+                    <th width="20%" nowrap>税务机关联系电话：</th>
+                    <td width="30%">
+                        <input class="mini-textbox" style="width:90%;"
+                               id="swjglxdh" name="swjglxdh" vtype="specialChar;maxLength:40" onvalidation="onLxdhValidation" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <th width="20%" nowrap>地税主管税务机关<span class="B_red">*</span>：</th>
+                    <td width="30%">
+                        <input id="dszgswjDm" name="dszgswjDm" class="mini-treeselect"
+                               style="width: 90%" textfield="MC" valuefield="ID" parentField="PID"
+                               multiSelect="false" allowInput="true" required="true" popupWidth="90%"
+                               shownullitem="true" valueFromSelect="true" url="/dzgzpt-wsys/api/baseCode/get/DsSwjgQx"
+                               onvaluechanged="doDsZgswjSelected"/>
+                    </td>
+                    <th width="20%" nowrap>地税主管税务机关科所<span class="B_red">*</span>：</th>
+                    <td width="30%">
+                        <input id="dszgswskfjDm" name="dszgswskfjDm" required="true" class="mini-treeselect" popupWidth="90%"
+                               allowInput="true" valueFromSelect="true" textfield="MC" valuefield="ID" parentField="PID"
+                               vtype="required;" requiredErrorText="地税主管税务机关科所不能为空"
+                               shownullitem="true" style="width:90%;" onbeforenodeselect="beforenodeselect"/>
+                    </td>
+                </tr>
+                
+                  <tr>
+                    <th width="20%" nowrap>合同有效期起：</th>
+                    <td width="30%">
+                        <input name="zmyxqxq" id="zmyxqxq" class="mini-datepicker" enabled = false
+                               format="yyyy/MM/dd" style="width:90%;"
+                               requiredErrorText="合同有效期起不能为空"/>
+                    </td>
+                    <th width="20%" nowrap>合同有效期止：</th>
+                    <td width="30%">
+                        <input name="zmyxqxz" id="zmyxqxz" class="mini-datepicker" onvaluechanged="onDateChanged"
+                               format="yyyy/MM/dd" style="width:90%;"
+                               requiredErrorText="合同有效期止不能为空"/>
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+    </div>
+</div>
+<div class="open_btdiv textCenter"><a class="mini-button blue font14" onclick="nextShowSwsxtzs()" style="padding:4px 10px;">下一步</a>&nbsp;&nbsp;
+    <a class="mini-button gray font14" onclick="onCancel('cancel')" style="padding:4px 10px;">取消</a></div>
+</body>
+</html>

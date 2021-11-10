@@ -1,0 +1,21 @@
+.page-title {
+  text-align: center;
+  font-size: 18px;
+  line-height: 60px;
+}
+.yqjnskqymd-search {
+  line-height: 100px;
+  padding: 0 20px;
+}
+.yqjnskqymd-search a.mini-button {
+  padding: 5px;
+  width: 90px;
+  margin-left: 8px;
+}
+.yqjnskqymd-search a.mini-button:hover {
+  padding: 5px;
+  width: 90px;
+}
+.text-align-center {
+  text-align: center;
+}

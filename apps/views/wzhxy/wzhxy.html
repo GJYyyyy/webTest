@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="无纸化协议">
+    <title>无纸化协议</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="wzhxy.css">
+    <script src="../../../lib/jquery/jquery.js"></script>
+    <script src="../../scripts/miniui.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script src="wzhxy.js" ></script>
+</head>
+<body>
+<div id="tabs" class="mini-tabs" activeIndex="0" style="width:100%;height:100%;" plain="false">
+	<div title="查询" class="main">
+	    <div class="cx-main">
+	        <table class="table-bg mb20">
+	            <tr>
+	                <th>纳税人识别号：</th>
+	                <td>
+	                	<input id="nsrsbh" class="mini-textbox" emptyText="非必录" width="100%"/>
+	                </td>
+	                <th>所属税务机关：</th>
+	                <td>
+	                	<input id="swjg_gl" name="swjg_gl" class="mini-treeselect" emptyText="-请选择-" 
+						      textField="MC" allowInput="true" valueFromSelect="true"  popupWidth="357px;"
+							  valueField="DM" parentField="PID" showQueryToolBar="false"
+						      style="width: 500px;" onbeforenodeselect="beforenodeselect" />
+	                </td>
+	                <th></th>
+	                <td align="right">
+	                	<a id="queryId" class="mini-button button-grey" >查询</a>
+	    				<a id="resetId" class="mini-button button-grey">重置</a>
+	                </td>
+	            </tr>
+	        </table>
+	    </div>
+	    <div class="mb10">
+	    	<a class="mini-button button-grey" id="addId">增加</a>
+	    	<a class="mini-button button-grey" id="cancelId">删除</a>
+	    </div>	    
+	    <!--
+        	作者：1792319130@qq.com
+        	时间：2017-07-17
+        	描述：div id=addwin 用于弹窗保存
+        -->
+	<div class="mini-window" id="addwin" style="width: 860px;height: 650px;display: none" showToolbar="false" showFooter="true">
+		<div class="mb10">
+	    	<a class="mini-button button-grey" id="addgridId">增加</a>
+	    	<a class="mini-button button-grey" id="cancelgridId">删除</a>
+	    </div>
+		<div id="addgrid" idField="lx" class="mini-datagrid" style="width: 100%; height: 100%;" allowCellSelect="true" allowCellEdit="true" multiSelect="true" allowCellValid="true" oncellvalidation="onCellValidation" dependMerge="true" showPager="false">
+			<div property="columns">
+				<div type="checkcolumn"></div>
+				<div type="indexcolumn" headeralign="center">
+					序号
+				</div>
+				<div field="nsrsbh" headeralign="center" align="center" width="80">
+					纳税人识别号
+					<input property="editor" class="mini-textbox" vtype="rangeChar:15,20"style="width:100%;"/>
+				</div>
+				<div field="nsrmc" headeralign="center" align="center" width="80">
+					纳税人名称
+			</div>
+				<div field="ssswjgmc" headeralign="center" align="center" width="80">
+					所属税务机关名称
+				</div>
+				<div field="qdrq" headeralign="center" align="center" width="80">
+					签订日期
+				</div>
+				<div field="xyyxq" headeralign="center" align="center" width="80">
+					协议有效期
+				</div>
+			</div>
+
+			</div>
+			<div property="footer">
+	        	<a class="mini-button toolBtn-blue" onclick="onOk">保存</a>
+	        	<a class="mini-button toolBtn-white" onclick="onCancel">取消</a>
+	    	</div>
+	</div>
+	 <div id="wzhxyglgrid" class="mini-datagrid" style="width: 100%" dataField="" totalField="" showPager="true" idField="id" multiSelect="true"  allowResize="false" showPageSize="true" sizeList="[10,20,30]" pageSize="10">
+	        <div property="columns">
+	        	<div type="checkcolumn">选择</div> 
+	        	<div type="indexcolumn" width="50">序号</div>
+	            <div field="nsrsbh">纳税人识别号</div>
+	            <div field="nsrmc">纳税人名称</div>
+	            <div field="ssswjgmc">所属税务机关</div>
+	            <div field="qdrq">签订日期</div>
+	            <div field="xyyxq">协议有效日期</div>
+	        </div>
+	    </div>
+	</div>
+	<div title="统计">
+		<div class="cx-main">
+	        <table class="table-bg mb20">
+	                <th>所属税务机关：</th>
+	                <td>
+	                	<input id="swjg_tj" name="swjg_tj" class="mini-treeselect" emptyText="-请选择-" 
+						      textField="MC" allowInput="true" valueFromSelect="true" popupWidth="357px;"
+							  valueField="DM" parentField="PID" showQueryToolBar="false"
+						      style="width: 500px;" onbeforenodeselect="beforenodeselect"  />
+	                	<!--
+	                	<input id="ssswjg_tj" class="mini-buttonedit" emptyText="必录" width="100%" onbuttonclick="onButtonEdit"/> 
+	                	-->
+	                </td>
+	                <th></th>
+	                <td align="right">
+	                	<a id="queryId_tj" class="mini-button button-grey">查询</a>
+	    				<a id="resettjId_tj" class="mini-button button-grey">重置</a>
+	                </td>
+	            </tr>
+	        </table>
+	    </div>
+		<div id="wzhxytjgrid" class="mini-datagrid" style="width: 100%" dataField="" totalField="" showPager="true" idField="id" multiSelect="true"  allowResize="false" showPageSize="true" sizeList="[10,20,30]" pageSize="10">
+	        <div property="columns">
+	        	<div type="indexcolumn" width="50">序号</div>
+	        	<div field="ssswjgdm">所属税务机关代码</div>
+	        	<div field="ssswjgmc">所属税务机关名称</div>
+	            <div field="qyzs">企业总数</div>
+	            <div field="yxqys">有效企业数</div>
+	            <div field="wxqys">无效企业数</div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+</body>
+</html>

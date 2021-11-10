@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="土地增值税项目状态维护">
+    <meta name="keywords" content="tdzzs">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>土地增值税项目状态维护</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="tdzzsxmgl.css">
+</head>
+<body>
+
+<div class="content">
+    <div class="content-title">土地增值税项目状态维护</div>
+    <div class="search-box" id="search-box">
+        <table border="0" cellspacing="0" cellpadding="0">
+            <colgroup>
+                <col width="25%">
+                <col width="25%">
+                <col width="19%">
+                <col width="22%">
+                <col width="9%">
+            </colgroup>
+            <tr>
+                <td><span class="txt-red">*</span>纳税人识别号：<input name="nsrsbh" id="nsrsbh" class="mini-textbox" vtype="nsrsbh" width="200"
+                                              required="true" requiredErrorText="请填写纳税人识别号"
+                                  onvaluechanged="tdzzs.getNsrxx"></td>
+                <td>纳税人名称：<input name="nsrmc" id="nsrmc" class="mini-textbox" enabled="false" width="240"></td>
+
+                <td>项目状态：<input name="tdxmztDm" id="tdxmztDm" class="mini-combobox" valueField="ID" textField="MC" width="140"
+                                onvaluechanged="tdzzs.queryAjax"></td>
+                <td>项目编号：<input name="xmbh" id="xmbh" class="mini-combobox" valueField="tdzzsxmbh" textField="tdzzsxmbh" width="200"></td>
+                <td><span class="search-btn" onclick="tdzzs.search(0, tdzzs.pageSize)">查询</span></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <span class="tips-info"><img src="../../images/public/ico-info.png">单条记录，调整状态后，按对应记录操作列的保存</span>
+    </div>
+</div>
+<div class="mini-fit">
+    <div class="mini-datagrid" id="xmxx_grid" showpager="true" onbeforeload="tdzzs.beforeLoad"
+         allowCellEdit="true" allowCellSelect="true" oncellbeginedit="tdzzs.cellBeginedit"
+         style="width: 100%; height:100%" sizeList="[10,30,50]" pageSize="30" ondrawcell="tdzzs.drawCell">
+        <div property="columns">
+            <div type="indexcolumn" width="40" headeralign="center" allowsort="true">序号</div>
+            <div field="tdxmztDm" type="comboboxcolumn" headeralign="center" align="center">状态
+                <input property="editor" class="mini-combobox" valueField="ID" textField="MC" data="tdzzs.xmztList" style="width:100%;"/>
+            </div>
+            <div field="tdzzsxmbh" headeralign="center" align="center">项目编号</div>
+            <div field="tdzzsxmmc" headeralign="center" align="center">项目名称</div>
+            <div field="xxdz" headeralign="center" align="center">地址</div>
+            <div field="yzl" type="comboboxcolumn" headeralign="center" align="center">预征率
+                <input property="editor" class="mini-combobox" valueField="ID" textField="MC"
+                       data="[{'ID':'0.02','MC':'2%'},{'ID':'0.035','MC':'3.5%'},{'ID':'0.05','MC':'5%'}]" style="width:100%;"/>
+            </div>
+            <div field="cz" headeralign="center" align="center" renderer="tdzzs.czRender">操作</div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="tdzzsxmgl.js"></script>
+</body>
+</html>

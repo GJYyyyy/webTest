@@ -1,0 +1,108 @@
+<!--一般纳税人-->
+<h2>选择票种及数量</h2>
+<section class="first-step">
+    <p>通过系统给您的综合分析，您可通过电子税务局申请的发票如下，如需发票增量，请先完成核定后再进行调整。</p>
+    <div id="pzhdYl">
+        <div id="gzpz_grid_yl" class="mini-datagrid" style="margin: 0 auto;width:100%;"
+             showEmptyText="true" autoLoad="false" allowResize="false" idField="id" showPager="false" multiSelect="true">
+            <div property="columns">
+                <div  field="fpzlmc" width="300" align="center" headerAlign="center"><span class="txt-red">*</span>发票种类名称</div>
+                <div field="dffpzgkpxemc" width="190" align="center" headerAlign="center">单份发票最高开票限额</div>
+                <div field="jldwmc" width="50" align="center" headerAlign="center">单位</div>
+                <div field="myzggpsl" width="150" align="center" headerAlign="center">每月最高购票数量</div>
+                <div field="mczggpsl" width="150" align="center" headerAlign="center">每次最高购票数量</div>
+                <div field="cpzgsl" width="150" align="center" headerAlign="center">持票最高数量</div>
+            </div>
+        </div>
+        <table style="margin: 30px 0">
+            <tr>
+                <td>
+                    <label>定额发票月累计购票金额（如果您核定了定额发票，请填写定额发票月累计购票金额）：</label>
+                </td>
+                <td>
+                    <input id="defpljgpje_yl" class="mini-textbox" allowInput="false"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="lpryl_grid" class="mini-datagrid" style="margin: 0 auto;width:100%;margin-top: 10px" showEmptyText="true" autoLoad="false" allowResize="false" idField="id" showPager="false" multiSelect="false" oncellcommitedit=""
+         allowSortColumn="false" allowCellValid="true" allowCellSelect="true" onlyCheckSelection="true" allowCellEdit="true">
+        <div property="columns">
+            <div field="gprxm" width="150">领票人</div>
+            <div field="zjlxmc" width="150">证件种类</div>
+            <div field="zjhm" width="200">证件号码</div>
+            <div field="mobile" width="150">联系电话</div>
+        </div>
+    </div>
+    <div class="title" style="width: 95%;"><div>温馨提示： 如果您想要添加更多的领票人信息，可以通过“发票票种核定调整”功能单独添加。</div></div>
+
+    <div id="ukey_box_yl" style="display: none;">
+        <table class="form-table" style="width:100%;font-size:12px;">
+            <tr>
+                <td colspan="4">
+                    <p style="font-size: 14px;font-weight: 600;margin-top: 20px;text-align: left;">ukey领取信息<span style="color: red;margin-left: 10px;">(对专业配送的，待受理完成后，暂请电话通知EMS上门领取并配送)</span></p>
+                </td>
+            </tr>
+            <tr>
+                <th width="15%"><strong class="text-red"> *</strong>领取方式：</th>
+                <td colspan="3">
+                    <div style="float: left">
+                        <input id="lqfs_yl" class="mini-radiobuttonlist" repeatItems="2" repeatLayout="table"
+                            textField="MC" valueField="ID" data="[{'MC':'上门领取','ID':'smlq'},{'MC':'专业配送','ID':'zyps'}]"
+                            readonly>
+                        </input>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table id="zyps-info-yl" class="form-table" style="width:100%;font-size:12px;display: none;">
+            <tr>
+                <th width="15%"><strong class="text-red"> *</strong>收件人姓名：</th>
+                <td width="35%">
+                    <input width="70%" class="mini-textbox" name="receiverName" id="receiverName_yl" readonly />
+                </td>
+                <th width="15%"><strong class="text-red"> *</strong>证件号码：</th>
+                <td width="35%">
+                    <input width="70%" class="mini-textbox" name="receiverZjhm" id="receiverZjhm_yl" readonly />
+                </td>
+            </tr>
+            <tr>
+                <th width="15%"><strong class="text-red"> *</strong>联系电话：</th>
+                <td width="35%">
+                    <input width="70%" class="mini-textbox" name="receiverLxdh" id="receiverLxdh_yl" readonly />
+                </td>
+                <th width="15%"><strong class="text-red"> *</strong>邮政编码：</th>
+                <td width="35%">
+                    <input width="70%" class="mini-textbox" name="postcode" id="postcode_yl" readonly />
+                </td>
+            </tr>
+            <tr>
+                <th width="15%"><strong class="text-red"> *</strong>配送地址：</th>
+                <td colspan="3">
+                    <input id="city_yl" name="city" width="20%" class="mini-combobox" textfield="MC"
+                            valuefield="ID" data="[{'MC':'上海市','ID':'310000'}]"
+                            value="310000"
+                            allowInput="false" showClose="false"
+                            readonly/>
+                    <input width="20%" class="mini-textbox" name="county" id="county_yl" readonly />
+                    <input width="47%" class="mini-textbox" name="address" id="address_yl" readonly />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="is-dzptfp" style="display: none;">
+        <span style="float: left;display: none;">申请防伪税控开票设备：</span>
+        <div id="sqfwskkpsb_yl" style="display: none;" class="mini-radiobuttonlist" readonly="true"
+             textField="MC" valueField="ID" data="[{ID:1,MC: '是'},{ID:0,MC:'否'}]">
+        </div>
+        <h4>税控设备类型/服务商</h4>
+        <div id="skfws_yl" class="mini-radiobuttonlist" textField="MC" readonly="true"
+             valueField="ID" data="[{ID:'sw',MC: '税务UKEY（免费）'},{ID:'htxx',MC: '航天信息'},{ID:'bwjf',MC:'百旺金赋'},{ID: 'bwcs', MC: '百望财税'}]">
+        </div>
+        <div  class="title" id="skfwsInfo" style="color:#FF0000;display: none;">
+            <div>温馨提示：领取税务UKEY后，您可访问国家税务总局全国增值税发票查验平台（https://inv-veri.chinatax.gov.cn/xgxz.html）下载开票客户端等相关程序，具体操作详见该页面中“基础驱动及应用客户端安装手册”文件。</div>
+        </div>
+    </div>
+</section>
+

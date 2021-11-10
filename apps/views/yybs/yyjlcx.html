@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="ywy,yyjlcx">
+    <meta name="description" content="预约记录查询">
+    <title>预约记录查询</title>
+    <link href="../../../apps/styles/style.css" rel="stylesheet" />
+    <link href="syjlgl.css" rel="stylesheet" />
+</head>
+<body>
+<div class="main">
+    <div class="hide-btn">隐藏查询条件<span></span></div>
+    <div class="cx-main">
+        <table class="table-bg">
+            <tr>
+                <th>办税大厅：</th>
+                <td><input id="zjswjg" class="mini-combobox" width="100%" valueField="bsdtDm" textField="bsdtMc"/></td>
+                <th>预约日期区间：</th>
+                <td width="350px"><input id="yysjq" class="mini-datepicker" width="45%" onvaluechanged="yyjlcx.dateChanged">至
+                    <input id="yysjz" class="mini-datepicker" width="45%" onvaluechanged="yyjlcx.dateChanged"></td>
+                <th>状态：</th>
+                <td>
+                    <input id="zt" class="mini-combobox" width="48%" valueField="ID" textField="MC" value="" />
+                </td>
+            </tr>
+            <tr>
+                <th>纳税人识别号：</th>
+                <td><input id="nsrsbh" class="mini-textbox" width="100%"/></td>
+                <th>纳税人名称：</th>
+                <td><input id="nsrmc" class="mini-textbox" width="100%"/></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td></td>
+                <th><a class="btn" onclick="yyjlcx.cx()">查询</a></th>
+                <td><a class="btn" onclick="yyjlcx.init()">重置</a></td>
+            </tr>
+        </table>
+    </div>
+    <div id="yyjlcx-grid" class="mini-datagrid" style="width: 100%" dataField="value.data" totalField="value.total" showPager="true" idField="id"  allowResize="false" showPageSize="false" pageSize="10" onbeforeload="yyjlcx.beforeLoad">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="yyuuid">预约申请序号</div>
+            <div field="yysxdm">办税事项代码</div>
+            <div field="ywmc">办税事项名称</div>
+            <div field="nsrsbh">纳税人识别号</div>
+            <div field="nsrmc">纳税人名称</div>
+            <div field="yyrq" renderer="yyjlcx.onRenderTime">预约日期</div>
+            <div field="yysjqz">预约时间起止</div>
+            <div field="realzt">办理状态</div>
+            <div field="cz" renderer="yyjlcx.onRenderOperation">操作</div>
+        </div>
+    </div>
+</div>
+<div class="mini-window" id="win1" style="width: 600px;height: 500px">
+    <div id="tabs1" class="mini-tabs tab-content" activeIndex="0" style="width:100%;height: auto;">
+        <div title="预约申请信息">
+            <div class="yysqxq">
+                <p><span class="xh">1</span>纳税人选择的办税服务厅：<span class="bsdt"></span></p>
+                <p><span class="xh">2</span>办税服务厅地址：<span class="bsdz"></span></p>
+                <p><span class="xh">3</span>选择的办税事项：<span class="bssxmc"></span></p>
+                <!--    <p><span class="xh">4</span>预约的方式：<span class="yyfs"></span></p>-->
+                <p><span class="xh">4</span>预约时间：<span class="yysj"></span></p>
+                <p><span class="xh">5</span>取号时间：<span class="qhsj"></span></p>
+            </div>
+        </div>
+    </div>
+    <div class="winClose" onclick="yyjlcx.winClose()">返回</div>
+</div>
+<script src="../../../lib/jquery/jquery.min.js"></script>
+<script src="../../scripts/miniui.js"></script>
+
+<script src="yyjlcx.js"></script>
+</body>
+</html>

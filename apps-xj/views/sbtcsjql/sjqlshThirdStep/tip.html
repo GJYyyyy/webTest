@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>批量分配纳税人-待催报数据核实终审</title>
+    <link rel="stylesheet" href="../../../styles/style.css">
+    <link rel="stylesheet" href="../../../../apps/views/dbsx/dbsxcx.css">
+    <link rel="stylesheet" href="../sbtcsjql.css">
+</head>
+<body>
+<div class="content">
+    <div class="mini-window" id="tzjstk-win" style="width: 600px;height: 250px;display: none" title="提示"
+         showToolbar="false"  onbuttonclick="sbtcsjql.tzjstkCancel">
+        <div class="form-table" id="tzkstk-form">
+            <p style="text-align: center">请征管科在金三系统中操作应申报统计维护（补偿）。</p>
+            <div class="footer ta-center mt80" style="text-align: center;margin-top: 80px">
+                <a class="mini-button toolBtn-blue" style="padding: 0 25px" onclick="tip.tzjstkOk">去办理</a>
+                <a class="mini-button toolBtn-white" style="padding: 0 25px"  onclick="tip.tzjstkNo">取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../../lib/jquery/jquery.js"></script>
+<script src="../../../scripts/miniui.js"></script>
+<script src="../../../scripts/gldcommon.js"></script>
+<script src="../base64.min.js"></script>
+<script>
+    $(function () {
+        tip.initPage();
+    });
+    var tip = {
+        initPage: function () {
+            mini.get("tzjstk-win").show();
+        },
+        tzjstkOk: function () {
+            $.ajax({
+                url: "/dzgzpt-wsys/api/sh/sbtc/getVdParams",
+                type: "get",
+                async: false,
+                success: function (data) {
+                    var title = data.title;
+                    //格式暂时写死
+                    // title = "&#x5E94;&#x7533;&#x62A5;&#x7EDF;&#x8BA1;&#x7EF4;&#x62A4;&#xFF08;&#x8865;&#x507F;&#xFF09;[&#x65E7;&#x623F;&#x8F6C;&#x8BA9;&#x571F;&#x5730;&#x589E;&#x503C;&#x7A0E;&#x7BA1;&#x7406;&#x5C97;]";
+
+                    var homePage = data.homePage;
+                    var url = data.url;
+                    var gwssswjg = data.gwssswjg;
+                    var gnssgwxh = data.gnssgwxh;
+                    var nodeid = Base64.encode('if(!top.wdinit){setTimeout(function (){var aa = document.createElement("div");  aa.innerHTML=\'<div class="tree-node" id="tree#84886_1-4" leaftype="1" title="' + title + '" ischecked="false" caption="' + title + '" depth="1" gwssswjg="' + gwssswjg + '" showmenutype="seachResult" pathcuyy="0" gnssgwxh="' + gnssgwxh + '" zndm="01" mblx="1" code="A0000001A1300048" type="tree" gt3ywfldm="A13" gndm="A0000001A1300048" path="' + url + '" gt3zyydm="A0000001" cdlx="1" _id="tree#84886_1-4"> <span class="tree-node-wrapper" type="wrapperSpan"><span class="tree-gadjet tree-gadjet-none" type="gadGetSpan">&#8203;</span><span class="tree-icon tree-close-icon" type="iconSpan">&#8203;</span><span class="tree-name tree-highlighter " type="displaySpan">' + title + '</span></span> </div>\'; var bb = aa.childNodes[0]; try{bb.get = function(n){if(n==\'path\'){ return "' + url + '"; } return this.getAttribute(n)}; openTreeNode(bb);top.wdinit=true;}catch(e){top.wdinit=fals;alert(e)};},5000);}');
+
+                    $.ajax({
+                        url: "/api/gt3session/get",
+                        type: "get",
+                        async: false,
+                        success: function (data) {
+                            var id = data && data.success ? data.value.id : '';
+                            var url = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/xinmh/middlePage.html?id=' + id;
+                            window.close();
+                            try {
+                                Form.Show(url + '&jsUrl=' + encodeURIComponent(homePage),
+                                    true, 1000, 700, 'script=' + nodeid + ';HideHeadBar=0;Fixed=1;HideActionButton=0;TaskBarIco=2');
+                            } catch (e) {
+                                window.open(url, '', 'width=' + (window.screen.availWidth) + ',height=' + (window.screen.availHeight - 55) + ',top=0, left=0');
+                            }
+                        },
+                        err: function () {}
+                    });
+                },
+                err: function (err) {
+                    mini.alert(err.message || '接口异常，请稍后重试');
+                }
+            });
+        },
+        tzjstkNo: function () {
+            window.close();
+        }
+    }
+</script>
+</body>
+</html>

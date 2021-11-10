@@ -1,0 +1,79 @@
+<!--
+ * @Author: zhaojn
+ * @Mobile: 17826856905
+ * @Date: 2019-08-10 10:36:52
+ * @LastEditors: zhaojn
+ * @LastEditTime: 2019-08-20 13:31:53
+ * @Description: 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>转跳中..</title>
+</head>
+<body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script>
+    var data={};
+    var route=function () {
+        var query=gldUtil.getParamFromUrl()||{};
+        window.preTaskId="";
+        ajax.get("/workflow/web/workflow/engine/task/relation/by/processInsId/list?processInsId="+query.processInstanceId+"&taskId="+query.taskId,"",function(res){
+            var d=res.data;
+            $.each(d,function (i,v) { 
+                if(v.taskId==query.taskId){
+                    if(v.preTaskId==0){
+                        window.preTaskId=v.taskId;
+                    }else{
+                        window.preTaskId=v.preTaskId;
+                    }
+                    return false;
+                }
+             })
+        });
+
+        if(!window.preTaskId){
+            mini.alert('获取上一环节任务ID失败！');
+            return;
+        }
+
+        ajax.get("/sxsq-wsys/api/sh/zhh/fx/getRwxx?taskId=" + window.preTaskId,"", function(result) {
+            if(result.success && result.value){
+                data = result.value;
+                realRoute();
+            }else{
+                mini.alert(result.message);
+                document.write(result.message);
+            }
+        });
+    };
+    var realRoute=function () {
+        var query=gldUtil.getParamFromUrl()||{};
+        if(data.rwlxDm==='01'&&!(query.zsbz||query.ZSBZ)){
+            window.location.href="./xbTaskCl.html"+window.location.search+'&djxh='+data.djxh+'&fxxxbh='+data.fxxxbh+'&activityCode=true';
+        }else if(data.rwlxDm==='02'&&!(query.zsbz||query.ZSBZ)){
+            window.location.href="./fpTaskCl.html"+window.location.search+'&djxh='+data.djxh+'&fxxxbh='+data.fxxxbh+'&activityCode=true';
+        }else if(data.rwlxDm==='02'&&(query.zsbz==='Y'||query.ZSBZ==='Y')){
+            window.location.href="./fpTaskCl.html"+window.location.search+'&djxh='+data.djxh+'&sh=Y'+'&fxxxbh='+data.fxxxbh+'&activityCode=true';
+        }else if(data.rwlxDm==='01'&&(query.zsbz==='Y'||query.ZSBZ==='Y')){
+            window.location.href="./xbTaskCl.html"+window.location.search+'&djxh='+data.djxh+'&sh=Y'+'&fxxxbh='+data.fxxxbh+'&activityCode=true';
+        }else if(data.rwlxDm==='03'&&!(query.zsbz||query.ZSBZ)){
+            window.location.href="./fpTaskCl.html"+window.location.search+'&djxh='+data.djxh+'&fxxxbh='+data.fxxxbh+'&activityCode=true&rwlxDm=03';
+        }else if(data.rwlxDm==='03'&&(query.zsbz==='Y'||query.ZSBZ==='Y')){
+            window.location.href="./fpTaskCl.html"+window.location.search+'&djxh='+data.djxh+'&sh=Y'+'&fxxxbh='+data.fxxxbh+'&activityCode=true&rwlxDm=03';
+        }else if(data.rwlxDm==='04'&&!(query.zsbz||query.ZSBZ)){
+            window.location.href="./yqTaskCl.html"+window.location.search+'&djxh='+data.djxh+'&fxxxbh='+data.fxxxbh+'&activityCode=true&rwlxDm=04';
+        }else if(data.rwlxDm==='04'&&(query.zsbz==='Y'||query.ZSBZ==='Y')){
+            window.location.href="./yqTaskCl.html"+window.location.search+'&djxh='+data.djxh+'&sh=Y'+'&fxxxbh='+data.fxxxbh+'&activityCode=true&rwlxDm=04';
+        }
+    };
+
+    $(function () {
+        route();
+    });
+</script>
+</body>
+</html>

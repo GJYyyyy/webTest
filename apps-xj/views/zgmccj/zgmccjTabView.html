@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>职工名册信息</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/style.css">
+</head>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="zgmccjCommon.js"></script>
+<script src="zgmccj.js"></script>
+<body>
+    <div id="zgmccjXxGrid" class="mini-datagrid" style="width:100%;height:100%;" idfield="id" allowresize="false"
+             showpager="false" allowCellEdit="false"
+             allowCellSelect="true" multiSelect="true" allowCellValid="true">
+            <div property="columns">
+                <div field="bh" align="center" headeralign="center">编号</div>
+                <div field="zgxm" align="center" headeralign="center">职工姓名</div>
+                <div field="xbdm"  align="center" headeralign="center" type="comboboxcolumn">性别代码
+                     <input class="mini-combobox" style="width:100%;"  property="editor"
+                           valueField="ID"  textField="MC" url="/wszx-web/api/baseCode/get/baseCode2CombSelect/DM_GY_XB"/>
+                </div>
+                <div field="sfzjlxdm"   align="center" headeralign="center" type="comboboxcolumn">身份证件类型代码
+                     <input class="mini-combobox" style="width:100%;"  property="editor"
+                           url="/dzgzpt-wsys/api/baseCode/get/baseCode2CombSelect/DM_GY_SFZJLX_GT3" valueField="ID"  textField="MC" />
+                </div>
+                <div field="sfzjhm" align="center" headeralign="center">身份证件号码</div>
+                <div field="sxsyhrybz" " align="center" headeralign="center" type="comboboxcolumn">是否属享受优惠人员
+                     <input class="mini-combobox" style="width:100%;"  property="editor"
+                           textField="text" valueField="id"  data="sfData" />
+                </div>
+                <div field="xsssyhlxdm" align="center" headeralign="center" type="comboboxcolumn">享受税收优惠类型
+                	 <input class="mini-combobox" style="width:100%;" property="editor"
+                           valueField="ID"  textField="MC" url="/wszx-web/api/baseCode/get/baseCode2CombSelect/XJ_DM_GY_XSSSYHLX" />
+                </div>
+                <div field="xsssyhzjlxdm"  align="center" headeralign="center" type="comboboxcolumn">享受税收优惠证件类型
+                     <input class="mini-combobox" style="width:100%;"  property="editor"
+                           valueField="ID"  textField="MC" url="/wszx-web/api/baseCode/get/baseCode2CombSelect/XJ_DM_GY_XSSSYHZJLX"  />
+                </div>
+                <div field="xsssyhzjhm" align="center" headeralign="center">享受税收优惠证件号码</div>
+                <div field="gljgbz"  align="center" headeralign="center" type="comboboxcolumn">是否工疗机构
+                    <input class="mini-combobox" style="width:100%;"  property="editor"
+                            valueField="id"  textField="text" data="sfData" />
+                </div>
+                <div field="ldhtqsrq" align="center" headeralign="center">劳动合同起始日期</div>
+                <div field="ldhtjsrq" align="center" headeralign="center">劳动合同结束日期</div>
+                <div field="ldhtzh" align="center" headeralign="center">劳动合同证号</div> 
+                <div field="ltxrybz"  align="center" headeralign="center" type="comboboxcolumn">是否离、退休人员
+                    <input class="mini-combobox" style="width:100%;"  property="editor"
+                           valueField="id"  textField="text" data="sfData" />
+                </div> 
+                <div field="shbxfzh" align="center" headeralign="center">社会保险费证号</div> 
+                <div field="cjrlbdm"  align="center" headeralign="center" type="comboboxcolumn">残疾人类别
+                    <input class="mini-combobox" style="width:100%;"  property="editor"
+                           valueField="ID"  textField="MC" url="/wszx-web/api/baseCode/get/baseCode2CombSelect/XJ_DM_GY_CJDJ" />
+                </div> 
+                <div field="bz" align="center" headeralign="center">备注</div> 
+            </div>
+        </div>
+</body>
+</html>

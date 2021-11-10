@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>终审通知书</title>
+    <link rel="stylesheet" href="../../../apps/styles/style.css" />
+    <style>
+        #creBtn {
+            background-color: rgb(22, 155, 213);
+            color: #fff;
+        }
+
+        .tzs {
+            margin: 10px 100px 0;
+        }
+
+        .bottom {
+            clear: both;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+        }
+
+        .title {
+            font-family: "宋体";
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .title1 {
+            font-size: 29.3px;
+        }
+
+        .title2 {
+            font-size: 34.6px;
+        }
+
+        .wszg {
+            text-align: center;
+        }
+
+        .wszg,
+        .main,
+        .footer {
+            font-family: "仿宋_GB2312";
+            font-size: 21.3px;
+        }
+
+        .tzs .main .content {
+            text-indent: 2em;
+            display: none;
+        }
+
+        .footer {
+            margin-top: 1em;
+            float: right;
+        }
+
+        .main {
+            line-height: 2em;
+            /* height: 2em; */
+        }
+
+        .mini-textarea .mini-textbox-border {
+            height: 148px;
+        }
+
+        #tableGrid tbody tr td {
+            text-align: left !important;
+            background: #fff;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body style="background:#fff;">
+    <div class="tzs" id="tzs">
+        <div class="title">
+            <p class="title1" id="swjgmc"></p>
+            <p class="title2">税务事项通知书</p>
+        </div>
+        <div class="wszg">
+            <p>
+                <input id="wszg" name="wszg" class="mini-textbox" style="width: 100px;" required="true"
+                    onvalidation="zstzs.onValidation(e,'字轨')" /><span id="wszgTxt">税</span>
+                <input id="jdzd" name="jdzd" class="mini-textbox" style="width: 50px;" /> <span id="jdzdTxt">通</span>〔
+                <input id="nh" name="nh" class="mini-textbox" style="width: 100px;" required="true"
+                    onvalidation="zstzs.onValidation(e,'年号')" />
+                〕
+                <input id="wh" name="wh" class="mini-textbox" style="width: 100px;" required="true"
+                    onvalidation="zstzs.onValidation(e,'文号')" />
+                号
+            </p>
+        </div>
+        <div class="main">
+            <div class="nsrxx">
+                <span>
+                    <span id="nsrmc"></span>：（纳税人识别号：<span id="nsrsbh"></span>
+                    ）</span>
+            </div>
+            <div class="content" id='byjsznjCon'>
+                <div>事由：<span>不予加收滞纳金</span></div>
+                <div>
+                    依据：<span>《中华人民共和国税收征收管理法》、《中华人民共和国税收征收管理法实施细则》等相关文件。</span>
+                </div>
+                <div id='tytznr_byjsznj' style="display: none;">
+                    通知内容：<span>你（单位）申请的不予加收滞纳金（<input id="tywsh" name="tywsh" class="mini-textbox"
+                            style="min-width: 120px;width: auto;" onvalidation="zstzs.onValidation(e,'文书号')"
+                            required="true" />）已审核通过，请于<input id="jkrq" name="jkrq" class="mini-datepicker"
+                            format="yyyy年MM月dd日" required="true" onvalidation="zstzs.onValidation(e,'缴款日期')"
+                            style="width:180px;" />24时前完成税费缴款，逾期未缴的从次日起按日加收滞纳税款万分之五的滞纳金。</span>
+                </div>
+                <div id='btytznr_byjsznj' style="display: none;">
+                    通知内容：<span>经税务机关审核，你（单位）申请的不予加收滞纳金（<input name="btywsh" id="btywsh_byjsznj" class="mini-textbox"
+                            style="min-width: 120px;width: auto;" onvalidation="zstzs.onValidation(e,'文书号')"
+                            required="true" />）审核未通过。</span>
+                </div>
+            </div>
+            <div class="content" id="yxfstsCon">
+                <div>事由：<span>石脑油、燃料油消费税退税</span></div>
+                <div>
+                    依据：<span>《财政部 中国人民银行 国家税务总局关于延续执行部分石脑油、燃料油消费税政策的通知
+                        》(财税〔2011〕87号)和《国家税务总局关于发布〈用于生产乙烯、芳烃类化工产品的石脑油、燃料油退（免）消费税暂行办法〉的公告》（国家税务总局公告2012年第36号）</span>
+                </div>
+                <div id='tytznr_yxfsts' style="display: none;">
+                    <p>通知内容：<span>你（单位）申请的石脑油、燃料油消费税退税（<input id="tywsh_yxfsts" name="tywsh" class="mini-textbox"
+                                style="min-width: 120px;width: auto;" onvalidation="zstzs.onValidation(e,'文书号')"
+                                required="true" />）已审核通过,详情如下:</span></p>
+                    <p>退税金额：<input id="tsje" name="tsje" class="mini-textbox" style="width: 200px;" required="true"
+                            onvalidation="zstzs.onValidation(e,'退税金额')" /></p>
+                    <p>办理退库时《税收收入退还书》的字号: <input id="tkzh" name="tkzh" class="mini-textbox" style="width: 200px;"
+                            required="true" onvalidation="zstzs.onValidation(e,'办理退库时《税收收入退还书》的字号')" /></p>
+                    <p>身份证件号码：<input id="sfzjhm" name="sfzjhm" class="mini-textbox" style="width: 200px;"
+                            required="true" onvalidation="zstzs.onValidation(e,'身份证件号码')" /></p>
+                    <p>取款银行名称：<input id="qkyhmc" name="qkyhmc" class="mini-textbox" style="width: 200px;"
+                            required="true" onvalidation="zstzs.onValidation(e,'取款银行名称')" /></p>
+                    <p>取款银行地址：<input id="qkyhdz" name="qkyhdz" class="mini-textbox" style="width: 200px;"
+                            required="true" onvalidation="zstzs.onValidation(e,'取款银行地址')" /></p>
+                </div>
+                <div id='btytznr_yxfsts' style="display: none;">
+                    通知内容：<span>经税务机关审核，你（单位）申请的石脑油、燃料油消费税退税（<input id="btywsh_yxfsts" name="btywsh" class="mini-textbox"
+                            style="min-width: 120px;width: auto;" onvalidation="zstzs.onValidation(e,'文书号')"
+                            required="true" />）审核未通过。</span>
+                </div>
+            </div>
+            <div class="content" id="ssyhzgCon">
+                <div>事由：<span>《税务事项通知书》（税收优惠资格取消通知）</span></div>
+                <div>
+                    依据：<span>《中华人民共和国税收征收管理法》（中华人民共和国主席令〔2001〕第49号）</span>
+                </div>
+                <div id='tytznr_ssyhzg' style="display: none;">
+                    <p>
+                        通知内容：<span>你（单位）已不满足税收优惠条件或原税收优惠政策失效，经税务机关审核后，停止享受下列税收优惠事项。</span>
+                    </p>
+                    <div id="tableGrid" idField="tableGrid" class="mini-datagrid" allowHeaderWrap="true"
+                        showPager="false" style="width: 100%; height:180px;">
+                        <div property="columns">
+                            <div field="swsxmc">税收优惠事项</div>
+                            <div field="yyxqq">原有效期起</div>
+                            <div field="yyxqz">原有效期止</div>
+                            <div field="ssyhzgqxyymc">取消原因</div>
+                            <div field="qxrq">停止享受日期</div>
+                        </div>
+                    </div>
+                </div>
+                <div id='btytznr_ssyhzg' style="display: none;">
+                    <p>通知内容：你（单位）于<span id="sqsj"></span>申请的
+                        税收优惠资格取消,经查验，不符合受理的条件，决定不予受理，特此通知。</p>
+                    <p>不予受理理由如下：</p>
+                    <p>
+                        <textarea class="mini-textarea" id="byslly" name="byslly" style="width: 80%;height: 150px;"
+                            required="true" onvalidation="zstzs.onValidation(e,'不予受理理由')"></textarea>
+                    </p>
+                </div>
+                <div>
+                    <span>
+                        如对本通知不服，可自收到本通知之日起六十日内依法向国家税务总局上海市税务局申请行政复议，或者自收到本通知之日起六个月内依法向人民法院起诉。
+                    </span>
+                </div>
+            </div>
+            <div class="content" id="jwsfrdsCon">
+                <div id='tytznr_jwsfrds' style="display: none;">
+                    <p>根据《国家税务总局上海市（市、自治区）税务局关于确认
+                        <span id="jwsfrdsnsrmc"></span>为境外注册中资控股居民企业的函》（ <input id="sh" name="sh" class="mini-textbox"
+                            style="width: 100px;" required="true" onvalidation="zstzs.onValidation(e,'税函')" /> 税函[<input
+                            id="hh" name="hh" class="mini-textbox" style="width: 100px;" required="true"
+                            onvalidation="zstzs.onValidation(e,'函号')" />]号），你公司属于《中华人民共和国企业所得税法》第二条规定的居民企业，应当从<input
+                            id="nd" name="nd" class="mini-textbox" style="width: 100px;" required="true"
+                            onvalidation="zstzs.onValidation(e,'年度')" />年度开始，按照我国居民企业所得税管理规定及《境外注册中资控股居民企业所得税管理办法（试行）》的规定办理有关税收事项。
+                    </p>
+                    <p>你公司的主管税务机关是：<span id="jwsfrdsswjgmc"></span> 。</p>
+                    <p><span>
+                            如你公司居民身份认定条件发生变化，应当按照有关规定自变化之日起15日内报告主管税务机关。
+                        </span></p>
+                    <p>联系人： <input id="lxrxm" name="lxrxm" class="mini-textbox" style="width: 30%;" required="true"
+                            onvalidation="zstzs.onValidation(e,'联系人')" />联系电话：<input id="lxrdh" name="lxrdh"
+                            class="mini-textbox" style="width: 30%;" required="true"
+                            onvalidation="zstzs.onValidation(e,'联系电话')" /></p>
+                </div>
+                <div id='btytznr_jwsfrds' style="display: none;">
+                    <div>事由：<span>境外注册中资控股居民企业认定申请不予认定通知 </span></div>
+                    <div>
+                        依据：<span>《中华人民共和国税收征收管理法》、《中华人民共和国税收征收管理法实施细则》</span>
+                    </div>
+                    <div>
+                        通知内容：<span>你单位于<span></span>提出的境外注册中资控股居民企业认定申请收悉，经审核，不符合<input id="bfhgd" name="bfhgd"
+                                class="mini-textbox" style="min-width: 400px;width: auto;"
+                                onvalidation="zstzs.onValidation(e,'不符合规定')" required="true" />的规定，不予认定。</span>
+                    </div>
+                    <div>
+                        <span>
+                            如对本通知不服，可自收到本通知之日起六十日内依法向国家税务总局上海市税务局申请行政复议，或者自收到本通知之日起六个月内依法向人民法院起诉。
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- 增值税留抵欠税 -->
+            <div class="content" id="zzsldqsCon">
+                <div id='tytznr_zzsldqs' style="display: none;">
+                    <div> 你单位至<span id="zzsshsj"></span>止，增值税欠缴税额为<input id="zzsqjse" name="zzsqjse"
+                            class="mini-textbox" style="width: 200px;" required="true"
+                            onvalidation="zstzs.onValidation(e,'增值税欠缴税额')" />元，应缴滞纳金为 <input id="yjznj" name="yjznj"
+                            class="mini-textbox" style="width: 200px;" required="true"
+                            onvalidation="zstzs.onValidation(e,'应缴滞纳金')" />元，增值税进项留抵税额为<input id="zzsjxldse"
+                            name="zzsjxldse" class="mini-textbox" style="width: 200px;" required="true"
+                            onvalidation="zstzs.onValidation(e,'增值税进项留抵税额')" />
+                        元。根据《国家税务总局关于増值税发票综合服务平台一般纳税人用进行留抵税额抵减增值税欠税问题的通知》（国税发[2004]112号）规定，现将你单位增值税留抵税额<input
+                            id="zzsldse" name="zzsldse" class="mini-textbox" style="width: 200px;" required="true"
+                            onvalidation="zstzs.onValidation(e,'增值税留抵税额')" />元抵减欠缴税额<input id="djqjse" name="djqjse"
+                            class="mini-textbox" style="width: 200px;" required="true"
+                            onvalidation="zstzs.onValidation(e,'抵减欠缴税额')" />元，抵减滞纳金<input id="djznj" name="djznj"
+                            class="mini-textbox" style="width: 200px;" required="true"
+                            onvalidation="zstzs.onValidation(e,'抵减滞纳金')" />元。尚余增值税留抵税额<input id="syzzsldse"
+                            name="syzzsldse" class="mini-textbox" style="width: 200px;" required="true"
+                            onvalidation="zstzs.onValidation(e,'尚余增值税留抵税额')" />元。</div>
+                    <div>请你单位据此通知对相关会计账务进行调整。</div>
+                </div>
+                <div id='btytznr_zzsldqs' style="display: none;">
+                    <div>事由：<span>增值税留抵欠税</span></div>
+                    <div>
+                        依据：<span>《税务登记管理办法》</span>
+                    </div>
+                    <p>通知内容：你（单位）于<span id="zzssqsj"></span>申请的
+                        增值税留抵欠税,经查验，不符合受理的条件，决定不予受理，特此通知。</p>
+                    <p>不予受理理由如下：</p>
+                    <p>
+                        <textarea class="mini-textarea" id="zzsByslly" name="zzsByslly"
+                            style="width: 80%;height: 150px;" required="true"
+                            onvalidation="zstzs.onValidation(e,'不予受理理由')"></textarea>
+                    </p>
+                    <div>
+                        <span>
+                            如对本通知不服，可自收到本通知之日起六十日内依法向国家税务总局上海市税务局申请行政复议，或者自收到本通知之日起六个月内依法向人民法院起诉。
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- 非居民企业间接转让财产事项报告事项 -->
+            <div class="content" id="fjmqyjjzrccCon">
+                <div id='tytznr_fjmqyjjzrcc' style="display: none;">
+                    <div>事由：<span>《税务事项通知书》（受理通知）</span></div>
+                    <div>
+                        依据：<span>《国家税务总局关于加强非居民企业股权转让所得企业所得税管理的通知》（国税函〔2009〕698号）全文（第五条、第六条已废止）、《国家税务总局关于非居民企业间接转让财产企业所得税若干问题的公告》（国家税务总局公告〔2015〕第7号）全文</span>
+                    </div>
+                    <p>通知内容：你单位于<span id="fjmqysqsj"></span>申请的
+                        非居民企业间接转让财产事项报告事项,经审核，符合受理的条件，准予受理。特此通知。</p>
+                    <p>特此通知。</p>
+                    <p>相关说明如下:</p>
+                    <p>
+                        <textarea class="mini-textarea" id="xgsm" name="xgsm" style="width: 80%;height: 150px;"
+                            required="true" onvalidation="zstzs.onValidation(e,'相关说明如')"></textarea>
+                    </p>
+                </div>
+                <div id='btytznr_fjmqyjjzrcc' style="display: none;">
+                    <div>事由：<span>《税务事项通知书》（不予受理通知）</span></div>
+                    <div>
+                        依据：<span>《国家税务总局关于加强非居民企业股权转让所得企业所得税管理的通知》（国税函〔2009〕698号）全文（第五条、第六条已废止）、《国家税务总局关于非居民企业间接转让财产企业所得税若干问题的公告》（国家税务总局公告〔2015〕第7号）全文</span>
+                    </div>
+                    <p>通知内容：你单位于<span id="fjmsqsj"></span>申请的
+                        非居民企业间接转让财产事项报告事项,经查验，不符合受理的条件，决定不予受理，特此通知。</p>
+                    <p>不予受理理由如下：</p>
+                    <p>
+                        <textarea class="mini-textarea" id="fjmbyslly" name="fjmbyslly"
+                            style="width: 80%;height: 150px;" required="true"
+                            onvalidation="zstzs.onValidation(e,'不予受理理由')"></textarea>
+                    </p>
+                    <div>
+                        <span>
+                            如对本通知不服，可自收到本通知之日起六十日内依法向国家税务总局申请行政复议，或者自收到本通知之日起六个月内依法向人民法院起诉。
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- 无欠税证明 -->
+            <div class="content" id="kjwqszmCon">
+                <div id='tytznr_kjwqszm' style="display: none;">
+                    <div class="wqszm">有效证件类型：<span id='yxzjlx' name='yxzjlx'></span>，有效证件号码<span id='yxzjhm' name='yxzjhm'></span>
+                        经查询税收征管信息系统，截至<input id="wqsNd" name="wqsNd" class="mini-combobox" required="true"
+                            onvalidation="zstzs.onValidation(e,'年度')" valueField="code" textField="value"
+                            allowInput="false" style="width:125px;"
+                            data="[{code:'2010',value:'2010'},{code:'2011',value:'2011'},{code:'2012',value:'2012'},{code:'2013',value:'2013 '},{code:'2014',value:'2014'},{code:'2015',value:'2015'},{code:'2016',value:'2016'},{code:'2017',value:'2017'},{code:'2018',value:'2018'},{code:'2019',value:'2019'},{code:'2020',value:'2020'},
+                            {code:'2021',value:'2021'},{code:'2022',value:'2022'},{code:'2023',value:'2023 '},{code:'2024',value:'2024'},{code:'2025',value:'2025'},{code:'2026',value:'2026'},{code:'2027',value:'2027'},{code:'2028',value:'2028'},{code:'2029',value:'2029'},{code:'2030',value:'2030'}]" />年<input
+                            id="wqsYd" name="wqsYd" class="mini-combobox" style="width: 125px;" required="true"
+                            onvalidation="zstzs.onValidation(e,'月份')" valueField="code" textField="value" data="[{code:'1',value:'1'},{code:'2',value:'2'},{code:'3',value:'3'},{code:'4',value:'4 '},{code:'5',value:'5'},{code:'6',value:'6'},{code:'7',value:'7'},{code:'8',value:'8'},{code:'9',value:'9'},{code:'10',value:'10'},{code:'11',value:'11'},
+                            {code:'12',value:'12'}]" allowInput="false"/>月<input id="wqsR" name="wqsR" class="mini-combobox"
+                            style="width: 125px;" required="true" onvalidation="zstzs.onValidation(e,'日')"
+                            valueField="code" textField="value"
+                            data="[{code:'1',value:'1'},{code:'2',value:'2'},{code:'3',value:'3'},{code:'4',value:'4 '},{code:'5',value:'5'},{code:'6',value:'6'},{code:'7',value:'7'},{code:'8',value:'8'},{code:'9',value:'9'},{code:'10',value:'10'},{code:'11',value:'11'},
+                            {code:'12',value:'12'},{code:'13',value:'13'},{code:'14',value:'14'},{code:'15',value:'15'},{code:'16',value:'16'},{code:'17',value:'17'},{code:'18',value:'18'},{code:'19',value:'19'},{code:'20',value:'20'},{code:'21',value:'21'},{code:'22',value:'22'},{code:'23',value:'23'},{code:'24',value:'24'},{code:'25',value:'25'},{code:'26',value:'26'},
+                            {code:'27',value:'27'},{code:'28',value:'28'},{code:'29',value:'29'},{code:'30',value:'30'},{code:'31',value:'31'}]" allowInput="false"/>日，未发现有欠税情形。
+                    </div>
+                    <p>特此证明。</p>
+                </div>
+                <div id='btytznr_kjwqszm' style="display: none;">
+                    <div>事由：<span>《税务事项通知书》（不予受理通知）</span></div>
+                    <div>
+                        依据：<span>《中华人民共和国税收征收管理法》、《中华人民共和国税收征收管理法实施细则》</span>
+                    </div>
+                    <p>通知内容：你单位于<span id="kjwsqsj"></span>申请的
+                        开具无欠税证明事项，经查验，不符合受理的条件，决定不予受理。</p>
+                    <p>不予受理原因如下：</p>
+                    <p>
+                        <textarea class="mini-textarea" id="qszmbyslly" name="qszmbyslly"
+                            style="width: 80%;height: 150px;" required="true"
+                            onvalidation="zstzs.onValidation(e,'不予受理原因')"></textarea>
+                    </p>
+                    <div>
+                        <span>
+                            如对本通知不服，可自收到本通知之日起六十日内依法向国家税务总局申请行政复议，或者自收到本通知之日起六个月内依法向人民法院起诉。
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>税务机关（签章）</p>
+            <p id="today"></p>
+        </div>
+        <div style="clear: both;font-size: 18px;" id="zs" style="display: none;">
+            注：本认定书一式二份，一份送达纳税人，一份由税务机关留存。
+        </div>
+    </div>
+    <div class="bottom">
+        <a id="cancel" class="mini-button" onclick="zstzs.cancel()" style="margin-right:10px;">取消</a>
+        <a id="creBtn" class="mini-button" onclick="zstzs.sendTzs()">制发通知书</a>
+    </div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="./zstzs.js"></script>
+
+</html>

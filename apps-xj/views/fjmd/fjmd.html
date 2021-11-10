@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>分局关注名单</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../styles/style.css" />
+  <style>
+    #mxcx-form tr {
+      height: 50px;
+    }
+
+    #mxcx-form th {
+      text-align: right;
+    }
+
+    .txt-red {
+      color: #f00;
+    }
+
+    .search {
+      cursor: pointer;
+    }
+  </style>
+
+</head>
+
+<body style="background: #fff;">
+  <div class="search" data-show="yes">
+    <div class="searchC">隐藏查询条件</div>
+  </div>
+  <div id="mxcx-form" class="searchdiv" style="margin-bottom: 20px;">
+    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 20px ;">
+      <tr>
+        <th style="width: 20%;">纳税人识别号：</th>
+        <td style="width: 30%;">
+          <input id="nsrsbh" name="nsrsbh" class="mini-textbox" required="false" />
+        </td>
+        <th style="width:20%;">纳税人名称：</th>
+        <td style="width: 30%;">
+          <input id="nsrsmc" name="nsrmc" class="mini-textbox" required="false" />
+        </td>
+      </tr>
+      <tr>
+        <th><i class="txt-red">*</i>主管税务机关：</th>
+        <td>
+          <input id="zgswjgDm" name="zgswjgDm" class="mini-treeselect" textfield="swjgmc" valuefield="swjgdm"
+            parentField="sjswjgdm" popupWidth="374" showNullItem="true" nullItemText="--请选择--" allowInput="true"
+            valueFromSelect="true" required="true" requiredErrorText="主管税务机关不能为空" />
+        </td>
+        <th><i class="txt-red">*</i>触发日期：</th>
+        <td nowrap>
+          <input id="cfrqQ" name="cfrqQ" class="mini-datepicker" format="yyyy-MM-dd" showClose="true"
+            style="width: 47%;" onvaluechanged="mxcx.onDateValidate" required="true" requiredErrorText="触发日期起不能为空" />
+          至
+          <input id="cfrqZ" name="cfrqZ" class="mini-datepicker" format="yyyy-MM-dd" showClose="true"
+            style="width: 47%;" onvaluechanged="mxcx.onDateValidate" required="true" requiredErrorText="触发日期止不能为空" />
+        </td>
+      </tr>
+      <tr>
+        <th>关注名单：</th>
+        <td>
+          <input id="gzmdMc" name="gzmdMc" class="mini-textbox" required="false" />
+        </td>
+        <th>触发事项：</th>
+        <td>
+          <input id="swsxDm" name="swsxDm" class="mini-combobox" required="false" textfield="mc" valuefield="id"
+            shownullitem="false" style="width:100%;" multiSelect="true" />
+        </td>
+      </tr>
+    </table>
+    <div style="text-align: center;">
+      <a id="search" class="mini-button" onclick="mxcx.doSearch">查询</a>
+      <a class="mini-button" onclick="mxcx.doReset">重置</a>
+      <a class="mini-button" onclick="mxcx.exportData">导出</a>
+    </div>
+  </div>
+  <div id="mxcx-grid" class="mini-datagrid self-datagrid" multiSelect="true" checkSelectionOnly="true" showPager="true"
+    showEmptyText="true" allowResize="false" allowCellSelect="true" allowCellEdit="false" allowHeaderWrap="true"
+    onpagechanged="mxcx.onPageChanged" onbeforeload="mxcx.onbeforeload" onbeforeselect="isShowCheck" pageSize="30"
+    sizeList="[30,50,100]" style="width: 100%;  height: 400px;">
+    <div property="columns">
+      <div type="indexcolumn">序号</div>
+      <div field="nsrsbh" headeralign="center" align="center" allowsort="false" width="120">
+        纳税人识别号
+      </div>
+      <div field="nsrmc" headeralign="center" align="center" allowsort="false" width="100">
+        纳税人名称
+      </div>
+      <div field="zgswksjkMc" headeralign="center" align="center" allowsort="false" width="150">
+        主管税务机关（科所）
+      </div>
+      <div field="ssglyMc" headeralign="center" align="center" allowsort="false" width="120">
+        税管员
+      </div>
+      <div field="gzmdMc" headeralign="center" align="center" allowsort="false" width="80">
+        关注名单
+      </div>
+      <div field="cfsx" headeralign="center" align="center" allowsort="false">
+        触发事项
+      </div>
+      <div field="jklx" headeralign="center" align="center" allowsort="false" width="80">
+        监控类型
+      </div>
+      <div field="cfrq" headeralign="center" align="center" allowsort="false" width="80" dateFormat="yyyy-MM-dd">
+        触发日期
+      </div>
+      <div field="blqd" headeralign="center" align="center" allowsort="false" width="80">
+        办理渠道
+      </div>
+      <div field="hjgllcBh" headeralign="center" align="center" allowsort="false" width="80">
+        后续管理流程编号
+      </div>
+    </div>
+  </div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/efg_water.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="fjmd.js" type="text/javascript"></script>
+
+</html>

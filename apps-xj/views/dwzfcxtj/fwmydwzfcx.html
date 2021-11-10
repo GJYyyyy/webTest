@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>支付备案电子化查询统计</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./dwzfBass.css">
+</head>
+
+<body style="background:#fff;">
+    <div class="search">
+        <div class="searchC">查询条件</div>
+    </div>
+
+    <div id="qymdFrom" class="searchdiv">
+        <table width="96%" border="0" cellspacing="0" cellpadding="0" class="qymdTable" id="qymdTable">
+            <tr>
+                <th style="width: 10%">支付方纳税人识别号：</th>
+                <td style="width: 15%"><input name="zffnsrsbh" type="text" id="zffnsrsbh" class="mini-textbox"
+                        style="width: 100%" vtype="rangeLength:15,20" onvalidation="nsrsbhValidate"
+                        maxLengthErrorText="编号长度不能超过20个字符" minLengthErrorText="编号长度不能低于15个字符"
+                        requiredErrorText="纳税人识别号不能为空" /></td>
+                <th style="width: 10%">支付方名称：</th>
+                <td style="width: 15%"><input id="zffmc" name="zffmc" class="mini-textbox" style="width:100%;" /></td>
+                <th style="width: 10%" nowrap>
+                    主管税务机关：
+                </th>
+                <td style="width: 15%">
+                    <input id="zgswjgDm" name="zgswjgDm" allowInput="true" valueFromSelect="true"
+                        onvaluechanged="swbacx.doZgswjSelected" class="mini-treeselect" textfield="MC" valuefield="ID"
+                        parentField="PID" shownullitem="true" popupWidth="350" style="width:100%;" required
+                        requiredErrorText="主管税务机关不能为空" />
+                    <!--<input id="zgswjDmText" name="zgswjDmText" class="mini-textbox" style="width:100%;"/>-->
+                    <!--<input id="zgswjgDm" name="zgswjgDm" style="display:none;" class="mini-textbox"/>-->
+                </td>
+                <th style="width: 10%" nowrap>
+                    主管税务所（科）：
+                </th>
+                <td style="width: 15%">
+                    <input id="zgswskfjDm" name="zgswskfjDm" class="mini-treeselect" allowInput="true"
+                        valueFromSelect="true" textfield="MC" valuefield="ID" parentField="PID" shownullitem="true"
+                        popupWidth="350" style="width:100%;" />
+                </td>
+            </tr>
+            <tr>
+                <th style="padding: 5px 0;">申请日期：</th>
+                <td nowrap>
+                    <input id="barqq" name="barqq" type="text" class="mini-datepicker" style="width: 46%"
+                        format="yyyy-MM-dd" requiredErrorText="请选择有效期起" allowInput="false" />
+                    <span style="display: inline-block;width: 5%;text-align: center;">至</span>
+                    <input id="barqz" name="barqz" type="text" class="mini-datepicker" style="width: 46%"
+                        format="yyyy-MM-dd" requiredErrorText="请选择有效期止" allowInput="false" />
+                </td>
+                <th style="padding: 5px 0;">查验日期：</th>
+                <td nowrap>
+                    <input id="cyrqq" name="cyrqq" type="text" class="mini-datepicker" style="width: 46%"
+                        format="yyyy-MM-dd" requiredErrorText="请选择有效期起" allowInput="false" />
+                    <span style="display: inline-block;width: 5%;text-align: center;">至</span>
+                    <input id="cyrqz" name="cyrqz" type="text" class="mini-datepicker" style="width: 46%"
+                        format="yyyy-MM-dd" requiredErrorText="请选择有效期止" allowInput="false" />
+                </td>
+                <th>付汇银行营业网点：</th>
+                <td><input id="fhyhyywd" name="fhyhyywd" class="mini-textbox" style="width:100%;" /></td>
+                <th>收款方国家或地区：</th>
+                <td><input id="skfgjhdq" name="skfgjhdq" class="mini-textbox" style="width:100%;" /></td>
+            </tr>
+            <tr>
+                <th style="padding: 5px 0;">境外收款方名称：</th>
+                <td><input id="jwskfmc" name="jwskfmc" class="mini-textbox" style="width:100%;" /></td>
+                <th>支付备案编号：</th>
+                <td><input id="zfbabh" name="zfbabh" class="mini-textbox" style="width:100%;" /></td>
+                <th>申请渠道：</th>
+                <td>
+                    <input id="sqqd" name="sqqd" type="text" class="mini-combobox" style="width: 100%"
+                        allowInput="false" valueField="ID" textField="MC" valueFromSelect="true" emptyText=""
+                        popupMinHeight="20" nullItemText=" " />
+                </td>
+                <th>办理状态：</th>
+                <td>
+                    <input id="blzt" name="blzt" type="text" class="mini-combobox" style="width: 100%"
+                        allowInput="false" valueField="ID" textField="MC" valueFromSelect="true" emptyText=""
+                        popupMinHeight="20" nullItemText=" " data="[{'ID':'01','MC':'审核通过'},{'ID':'02','MC':'审核不通过'},{'ID':'03','MC':'作废'},{'ID':'04','MC':'待审核'},{'ID':'05','MC':'撤销'}]"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8" style="padding:10px; text-align:center;">
+                    <a id="search" class="mini-button" onclick="swbacx.doSearch()">查询</a>
+                    <a class="mini-button" onclick="swbacx.doReset()">重置</a>
+                    <a class="mini-button" onclick="swbacx.exportFpqd()">导出</a>
+            </tr>
+        </table>
+    </div>
+
+    <div id="qymdGrid" class="mini-datagrid" showPager="true" style="width: 99%; height:500px; margin: 0 auto;"
+        sizeList="[30,50,100]" pageSize="30" allowCellWrap="false" allowHeaderWrap="true" fitColumns="true"
+        emptyText="暂无数据" showEmptyText="true" onpagechanged="swbacx.onpagechanged" onbeforeload="swbacx.onbeforeload">
+        <div property="columns">
+            <!--<div type="indexcolumn" width="60">序号</div>-->
+            <!--<div field="rwbh"  align="center" align="center" allowsort="false" width="120">任务编号</div>-->
+            <div field="zfbabh" headeralign="center" align="center" allowsort="false" width="120">支付备案编号</div>
+            <div field="htdjbh" headeralign="center" align="center" allowsort="false" width="120">合同登记编号</div>
+            <div field="barq" headeralign="center" align="center" allowsort="false" width="120" dateFormat="yyyy-MM-dd">
+                申请日期</div>
+            <div field="cyrq" headeralign="center" align="center" allowsort="false" width="120" dateFormat="yyyy-MM-dd">
+                查验日期</div>
+            <div field="blzt" headeralign="center" align="center" allowsort="false" width="120"
+                renderer="onActionRendererBlzt">办理状态</div>
+            <div field="htmc" headeralign="center" align="center" allowsort="false" width="120">合同名称</div>
+            <div field="jnzffmc" headeralign="center" align="center" allowsort="false" width="120">境内支付方名称</div>
+            <div field="jnfkfnsrsbh" headeralign="center" align="center" allowsort="false" width="200"
+                renderer="onActionRendererXz">
+                境内付款方纳税人识别号</div>
+            <div field="jwskfmc" headeralign="center" align="center" allowsort="false" width="120">境外收款方名称</div>
+            <div field="skfgjhdq" headeralign="center" align="center" allowsort="false" width="120">收款方国家或地区</div>
+            <div field="jnzfrfhzh" headeralign="center" align="center" allowsort="false" width="120">境内支付人付汇账号</div>
+            <div field="fhdxzqh" headeralign="center" align="center" allowsort="false" width="120">付汇地行政区划</div>
+            <div field="fhyh" headeralign="center" align="center" allowsort="false" width="120">付汇银行</div>
+            <div field="fhyhyywd" headeralign="center" align="center" allowsort="false" width="120">付汇银行营业网点</div>
+            <div field="htbz" headeralign="center" align="center" allowsort="false" width="120">合同（协议或支付凭证）币种
+            </div>
+            <div field="htzjehzfbz" headeralign="center" align="center" allowsort="false" width="120">
+                合同（协议或支付凭证）总金额或支付标准
+            </div>
+            <div field="bcfhje" headeralign="center" align="center" allowsort="false" width="120">本次付汇金额</div>
+            <div field="bcfhjebz" headeralign="center" align="center" allowsort="false" width="120">本次付汇金额币种</div>
+            <div field="fhjezrmb" headeralign="center" align="center" allowsort="false" width="120">付汇金额折人民币</div>
+            <div field="sqqd" headeralign="center" align="center" allowsort="false" width="120"
+                renderer="onActionRendererYq">申请渠道
+            </div>
+            <div field="zgswjgMc" headeralign="center" align="center" allowsort="false" width="240">主管税务机关</div>
+            <div field="zgswskfjMc" headeralign="center" align="center" allowsort="false" width="240">主管税务所（科、分局）</div>
+        </div>
+    </div>
+    <div class="mini-window" id="baxx-win" style="width: 600px;height: auto;display: none" title="备案信息"
+        showToolbar="false">
+        <div class="form-table" id="checkGlyRow-form">
+            <table width="80%" style="margin: 0 auto;">
+                <tr id="tr-baslbh">
+                    <th style="width: 50%" nowrap>
+                        备案受理编号
+                    </th>
+                    <td id="win-baslbh">
+
+                    </td>
+                </tr>
+                <tr>
+                    <th nowrap>
+                        备案人
+                    </th>
+                    <td id="win-bar">
+
+                    </td>
+                </tr>
+                <tr>
+                    <th nowrap>
+                        备案人联系电话
+                    </th>
+                    <td id="win-barlxdh">
+
+                    </td>
+                <tr>
+                    <th id="tr-slr">
+                        受理人
+                    </th>
+                    <td id="win-slr">
+
+                    </td>
+                </tr>
+                <tr id="tr-slswjg">
+                    <th nowrap>
+                        受理税务机关
+                    </th>
+                    <td id="win-slswjg">
+
+                    </td>
+                </tr>
+                <tr id="tr-hyjrjg">
+                    <th nowrap>
+                        核验金融机构
+                    </th>
+                    <td id="win-hyjrjg">
+
+                    </td>
+                </tr>
+                <tr id="tr-hyry">
+                    <th nowrap>
+                        核验人员
+                    </th>
+                    <td id="win-hyry">
+
+                    </td>
+                </tr>
+                <tr id="tr-hysj">
+                    <th nowrap>
+                        核验时间
+                    </th>
+                    <td id="win-hysj">
+
+                    </td>
+                </tr>
+                <tr id="tr-sczl">
+                    <th nowrap>
+                        上传资料
+                    </th>
+                    <td id="win-sczl">
+                        <a href="javascript:;" style="margin-right: 20px;" onclick="swbacx.openSczlWin(false)">预览</a>
+                        <a href="javascript:;" onclick="swbacx.openSczlWin(true)">下载</a>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <div class="mini-window" id="sczl-win" style="width: 300px;height: auto;display: none" title="上传资料"
+        showToolbar="false">
+        <ol class="sczlFiles">
+        </ol>
+    </div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/efg_water.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="./fwmydwzfcx.js"></script>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业重组特殊性税务处理</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./common.css">
+    <link rel="stylesheet" href="./qycztsxswcl.css">
+</head>
+<body>
+
+    <form id="enterprise_info_form">
+        <table>
+            <tbody>
+                <tr style="height:80px;">
+                    <td>
+                        <span class="field-required">统一社会信用代码<span>*</span>：</span>
+                        <input id="enterprise_name" name="enterprise_name" class="mini-textbox" style="width:200px;"
+                            vtype="required;maxLength:50;" maxLengthErrorText="输入过长，请重新输入"
+                        />
+                    </td>
+                    <td class="btn-set">
+                        <button class="mini-button submit">提交</button>
+                        <button class="mini-button delete">删除</button>
+                        <button class="mini-button add" onclick="qycztsxswcl.openAddtionWindow">新增</button>
+                        <button class="mini-button query" onclick="qycztsxswcl.queryEnterprise">查询</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="disabled-field">
+                        <span>
+                            <span>纳税人名称：</span>
+                            <input class="mini-textbox" readonly style="width: 120px;">
+                        </span>
+                        <span>
+                            <span>主管税务机关：</span>
+                            <input class="mini-textbox" readonly style="width: 120px;">
+                        </span>
+                        <span>
+                            <span>专管员：</span>
+                            <input class="mini-textbox" readonly style="width: 120px;">
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <script src="../../../lib/jquery/jquery.js"></script>
+    <script src="../../scripts/miniui.js"></script>
+    <script src="./qycztsxswcl.js"></script>
+</body>
+</html>

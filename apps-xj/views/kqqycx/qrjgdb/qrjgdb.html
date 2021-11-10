@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>跨区迁移业务税务事项报告</title>
+    <link rel="stylesheet" href="../../../styles/style.css">
+    <link rel="stylesheet" href="../../../../apps/views/dbsx/dbsxcx.css">
+    <link rel="stylesheet" href="../kqqyqyswsxbg.css">
+</head>
+<body>
+<div class="content">
+    <div class="search-box-content" style="margin: 20px 0;">
+        <div id="tabs1" class="mini-tabs tab-content" activeIndex="0" style="width:100%;height: auto;">
+            <div title="申请表">
+                <h2 style="text-align: center">跨区迁移业务税务事项报告</h2>
+                <table class="Yltable table_bg form-table" cellspacing="0" border="1" style="width: 80%;margin: 0 auto;">
+                    <tr>
+                        <th style="width:200px;">纳税人识别号：</th>
+                        <td width="35%" style="width:250px;" id="nsrsbh">
+
+                        </td>
+                        <th style="width:200px;">纳税人名称：</th>
+                        <td style="width:250px;" id="nsrmc">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width:200px;">办税人员：</th>
+                        <td style="width:250px;" id="jbrmc">
+
+                        </td>
+                        <th style="width:200px;">证件号码：</th>
+                        <td style="width:250px;" id="zjhm">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width:200px;">联系人电话：</th>
+                        <td style="width:250px;" id="sjhm">
+                        </td>
+                        <th style="width:200px;">出口退税类型：</th>
+                        <td style="width:250px;" id="cktslx">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width:200px;" rowspan="2">经营地址变更情况：</th>
+                        <td style="width:200px;">迁出地地址：</td>
+                        <td style="width:250px;" id="qcdzcdzxzqhszDm">
+
+                        </td>
+                        <td style="width:250px;" id="qcdzcdz">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:200px;" rowspan="2">迁入地地址：</td>
+                        <td style="width:250px;" id="qrdzcdzxzqhszDm">
+
+                        </td>
+                        <td style="width:250px;" id="qrdzcdz">
+
+                        </td>
+                    </tr>
+                </table>
+                <div class="tstx">
+                    <p>需税务人员办理户管注册手续：</p>
+                    <p>
+                        1.划分主管科所；
+                    </p>
+                    <p>
+                        2.调整税费种认定（城建等附加税率）；
+                    </p>
+                    <p>
+                        3.开通电子申报账户;
+                    </p>
+                    <p>
+                        4.重新签订财税库银协议;
+                    </p>
+                    <p>
+                        5.接受出口退（免）税备案变更流程并完成信息转化;
+                    </p>
+                    <p>
+                        6.变更发行税控设备;
+                    </p>
+                    <p>
+                        7.发票领用;
+                    </p>
+                </div>
+            </div>
+            <div title="附报资料">
+                <div>
+                    <div id="fbzl-grid" class="mini-datagrid" style="width:100%;" allowResize="false" enabled="true" showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false" idField="id" checkSelectionOnly="true" allowCellSelect="true"
+                         allowCellEdit="true">
+                        <div property="columns">
+                            <div type="indexcolumn" width="50">序号</div>
+                            <div field="fbzlMc" class="xxxxx">资料名称</div>
+                            <div field="scCount">上传数量</div>
+                            <div field="bslxDm" renderer="onRenderApply">要求</div>
+                            <!-- <div field="status" renderer="onRenderStatus">状态</div> -->
+                            <div field="status" renderer="ylonRenderOpearte" align="center">操作</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dbsx-actions">
+            <!--<a id="sxbjBtn" class="mini-button">事项办结</a>
+            <a id="shbjBtn" class="mini-button">事项办结</a>
+            <a id="bzzlBtn" class="mini-button" style="width:124px">补正资料（补正）</a>
+            <a id="byslBtn" class="mini-button" style="width:124px">不予受理（撤回）</a>
+            <a id="newSwjgBtn" style="width: 148px;" class="mini-button">重新指定报验地税务机关</a>
+            <a id="sqbPrintBtn" class="mini-button" onclick="sqbPrint()">打印申请表</a>
+            <a id="yclBtn" class="mini-button">已处理</a>-->
+            <a class="mini-button" onclick="window.history.go(-1)" id="backBtn">返回</a>
+        </div>
+    </div>
+</div>
+<script src="../../../../lib/jquery/jquery.js"></script>
+<script src="../../../scripts/miniui.js"></script>
+<script src="../../../scripts/gldcommon.js"></script>
+<script src="qrjgdb.js"></script>
+</body>
+</html>

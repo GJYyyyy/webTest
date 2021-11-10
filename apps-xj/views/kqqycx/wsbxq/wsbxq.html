@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="description" content="网上税务局,网上办税服务厅">
+    <meta name="keywords" content="网上税务局,网上办税服务厅">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../images/public/favicon.ico" rel="icon" type="image/x-icon"/>
+    <title>不通过详情</title>
+    <link rel="stylesheet" href="../../../styles/style.css">
+    <link rel="stylesheet" href="../validation.css">
+    <style>
+        html, body {
+            min-width: 1000px;
+        }
+    </style>
+</head>
+<body>
+<div id="bzzl-content" style="width: 960px;" class="bzzl-content">
+    <div id="btgxq-info" class="mini-datagrid" style="width:960px;height:360px;" allowResize="false"
+         enabled="true" allowCellWrap="true"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="true">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="zsxmMc" align="center">征收项目</div>
+            <div field="zspmMc" align="center">征收品目</div>
+            <div field="skssqq" align="center">税款所属期起</div>
+            <div field="skssqz" align="center">税款所属期止</div>
+            <div field="sbqx" align="center">申报期限</div>
+            <!--<div field="sbzt" width="150" align="center">申报状态</div>-->
+        </div>
+    </div>
+    <div id="actions" class="wc-button">
+        <button id="iknowBtn" class="button-blue" style="padding: 7px 30px;font-size: 14px">我知道了</button>
+    </div>
+</div>
+<script src="../../../../lib/jquery/jquery.js"></script>
+<script src="../../../scripts/miniui.js"></script>
+<script src="../../../scripts/gldcommon.js"></script>
+<script src="wsbxq.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>税控盘统计</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../../apps/views/dbsx/dbsxcx.css">
+    <link rel="stylesheet" href="../../../apps/views/skpgm/skpgm.css">
+</head>
+<body>
+<div class="content">
+    <div class="search-box-wrap">
+        <table width="96%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <th>税务机关：</th>
+                <td>
+                    <input id="swjg" name="swjg" class="mini-treeselect"
+                           style="width: 90%" textfield="MC" valuefield="ID" parentField="PID"
+                           multiSelect="false" popupWidth="90%" allowInput="true"
+                           shownullitem="false" valueFromSelect="true" url="/dzgzpt-wsys/api/baseCode/get/getSwjgQxBySwryjg"/>
+                </td>
+                <th>开始时间：</th>
+                <td><input id="kssj" name="kssj" class="mini-datepicker" allowInput="false" emptyText="--请选择--" format="yyyy-MM-dd" style="width:100%;"/></td>
+                <th>结束时间：</th>
+                <td><input id="jssj" name="jssj" class="mini-datepicker" allowInput="false" emptyText="--请选择--" format="yyyy-MM-dd" style="width:100%;"/></td>
+                <td style="padding:10px; text-align:center;">
+                    <a id="search" class="mini-button">查询</a>
+            </tr>
+        </table>
+    </div>
+    <div class="search-box-content">
+        <div class="mini-fit">
+            <div id="tj_grid" class="mini-datagrid" autoLoad="false" dataField="value.data" totalField="value.total"
+                 style="width: 100%; height:400px;" onbeforeload="beforeLoad"
+                 showPager="true" pageSize="20" showEmptyText="true"
+                 emptyText="<span style= 'color:#ff0000;'>没有查询到相应数据</span>">
+                <div property="columns">
+                    <div field="swjgmc" width="120" align="center" headerAlign="center">税务机关名称</div>
+                    <div field="fwsmc" width="70" align="center">服务商</div>
+                    <div field="djcs" width="70" align="center">点击次数</div>
+                    <div field="gmcs" width="70" align="center">购买次数</div>
+                    <div field="gmcgPercent" width="70" align="center">购买占比(%)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="skpgm_tj.js"></script>
+</body>
+</html>

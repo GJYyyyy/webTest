@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="description" content="网上税务局,网上办税服务厅">
+    <meta name="keywords" content="网上税务局,网上办税服务厅">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../images/public/favicon.ico" rel="icon" type="image/x-icon" />
+    <title>模板维护</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../validation.css">
+    <style>
+        #nsrjbxx tr{
+            line-height: 24px;
+        }
+        #btgyy-info{
+            text-indent: 80px;
+            margin-bottom: 80px;
+        }
+        h4 {
+            text-indent: 25px;
+            margin-bottom: 10px;
+        }
+        a:hover.toolBtn-blue:hover{
+            padding: 6px 25px;
+        }
+        .toolBtn-blue{
+            margin: 15px;
+            padding: 6px 25px;
+            font-size:14px;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false">
+
+<div class="mini-fit">
+    <!--欠税信息-->
+    <a class="mini-button toolBtn-blue" onclick="xqcx.openWin">新增模板</a>
+    <div id="qsxx-info" class="mini-datagrid" style="width:98%;margin: 0 auto;" allowResize="false"
+         enabled="true" allowCellWrap="true" emptyText="暂无数据"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="true">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="clyjValue" align="center">处理意见类型</div>
+            <div field="clyjMb" align="center" width="160">处理意见模板</div>
+            <div field="ybtse" align="center" renderer="onActionRenderer" width="60">操作</div>
+        </div>
+    </div>
+</div>
+<div class="mini-window" id="bjmb-win" style="width: 750px;height: 450px;display: none" title="编辑模板"
+     showToolbar="false" >
+    <div class="form-table" id="checkGlyRow-form">
+        <table width="80%" style="margin: 0 auto;">
+            <tr>
+                <th colspan="2">
+                    处理意见类型：
+                </th>
+                <td colspan="2">
+                    <input id="clyjlx" name="clyjlx" type="text" maxLength="30" maxLengthErrorText="允许最多输入30个字符" class="mini-textarea" style="width: 455px" height="30px" required="false"
+                           emptyText=""  nullItemText=" "/>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    处理意见模板：
+                </th>
+                <td colspan="2" style="padding-top: 10px">
+                    <input id="esyjsm" name="esyjsm" type="text" maxLength="500" maxLengthErrorText="允许最多输入500个字符" class="mini-textarea" style="width: 455px" height="200px" required="false"
+                           emptyText=""  nullItemText=" "/>
+                </td>
+            </tr>
+        </table>
+        <div class="footer ta-center mt80" style="text-align: center;margin-top: 20px">
+            <a class="mini-button toolBtn-blue" style="padding: 0 25px" onclick="xqcx.checkSwryOk">确定</a>
+            <a class="mini-button toolBtn-white" style="padding: 0 25px"  onclick="xqcx.checkSwryCancel">取消</a>
+        </div>
+    </div>
+</div>
+
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script>
+
+    var xqcx = {
+        init: function () {
+            this.bjmbWin = mini.get("bjmb-win");
+            this.qymdGrid = mini.get("qsxx-info");
+            this.query();
+        },
+        query: function () {
+            $.ajax({
+                url: "/workflow/web/workflow/form/gddj/queryClyj",
+                async: false,
+                type:"get",
+                success: function (data) {
+                    xqcx.qymdGrid.setData(data.data);
+                },
+                error: function (e) {
+                    mini.alert(data.message || "接口异常，请稍候再试");
+                }
+            });
+
+            // xqcx.qymdGrid.setUrl("/workflow/web/workflow/form/gddj/queryClyj");
+            // xqcx.qymdGrid.load({"timestamp": new Date()}, function (res) {
+            //     // this.setData(res.data);
+            // }, function (data) {
+            //     var obj = JSON.parse(data.errorMsg);
+            //     mini.alert(obj.message || "系统异常,请稍后再试。")
+            // });
+        },
+        openWin: function (record) {
+            xqcx.bjmbWin.show();
+            xqcx.winrecord = record.type == "click" ? '' : record;
+            mini.get("clyjlx").setValue(record.clyjValue);
+            mini.get("esyjsm").setValue(record.clyjMb);
+        },
+        delectRow: function (record) {
+            mini.alert("删除后不可恢复模板，确认删除？确认后删除对应模板。", "提示", function (e) {
+                if (e == "ok") {
+                    $.ajax({
+                        url: "/workflow/web/workflow/form/gddj/deleteClyj?clyjId=" + record.clyjId,
+                        async: false,
+                        type:"get",
+                        success: function (data) {
+                            (data.code === "SUCCESS") && mini.alert("删除成功。");
+                            xqcx.query();
+                        },
+                        error: function (data) {
+                            mini.alert(data.message || "接口异常，请稍候再试");
+                        }
+                    });
+                }
+            });
+
+        },
+        checkSwryOk: function () {
+            var clyjId = xqcx.winrecord ? xqcx.winrecord.clyjId : '';
+            var clyjValue = mini.get("clyjlx").getValue();
+            var clyjMb = mini.get("esyjsm").getValue();
+                $.ajax({
+                    url: "/workflow/web/workflow/form/gddj/saveClyj?clyjId=" + clyjId
+                    + "&clyjValue=" + clyjValue + "&clyjMb=" + clyjMb,
+                    async: false,
+                    type:"get",
+                    success: function (data) {
+                        if (data.code === "SUCCESS") {
+                            xqcx.bjmbWin.hide();
+                            xqcx.query();
+                        } else {
+                            mini.alert(data.message || "接口异常，请稍候再试");
+                        }
+                    },
+                    error: function (e) {
+                        mini.alert(data.message || "接口异常，请稍候再试");
+                    }
+                });
+        },
+        checkSwryCancel: function () {
+            xqcx.bjmbWin.hide();
+        }
+    };
+
+    function setData(data){
+        var data = mini.decode(data);
+
+    }
+
+    function closeWin() {
+        Owner.closeWin();
+    }
+
+    function onActionRenderer(e) {
+        var record = e.record;
+
+        var s =  ' <a class="Edit_Button" onclick="xqcx.openWin(record)" href="#">编辑</a>'
+            + '<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>' + ' <a class="Delete_Button" onclick="xqcx.delectRow(record)" href="#">删除</a>';
+        return s;
+    }
+
+    function getQueryString(name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return unescape(r[2]);
+        }
+        return null;
+    }
+
+    $(function () {
+        xqcx.init()
+    });
+</script>
+
+</body>
+
+</html>

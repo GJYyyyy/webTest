@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>智能推荐采信率查询统计</title>
+    <link rel="stylesheet" href="../../../apps/styles/style.css">
+    <link rel="stylesheet" href="./cxlCxtj.css">
+</head>
+
+<body style="background:#fff;">
+    <div class="search">
+        <div class="searchC">显示查询条件</div>
+
+    </div>
+    <div id="cxtjForm" class="searchdiv">
+        <table width="96%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 10px;height: 120px">
+            <tr>
+                <th align="right" style="width:20%">主管税务机关：</th>
+                <td nowrap style="width:30%">
+                    <input id="zgswjgDm" name="zgswjgDm" class="mini-treeselect" textField="swjgmc" valueField="swjgdm"
+                        parentField="sjswjgdm" allowInput="false" required="true" requiredErrorText="主管税务机关不能为空"
+                        valueFromSelect="true" />
+                </td>
+                <th align="right" style="width:20%">纳税人社会信用码（纳税人税号）：</th>
+                <td style="width:30%"><input id="nsrsbh" name="nsrsbh" class="mini-textbox" style="width:100%;" /></td>
+            </tr>
+            <tr>
+                <th align="right">受理日期起：</th>
+                <td nowrap><input id="slrqQ" name="slrqQ" class="mini-datepicker" format="yyyy-MM-dd"
+                        style="width: 100%" required="true" requiredErrorText="受理日期起不能为空" />
+                <th align="right">受理日期止：</th>
+                <td nowrap><input id="slrqZ" name="slrqZ" class="mini-datepicker" format="yyyy-MM-dd"
+                        style="width: 100%" required="true" requiredErrorText="受理日期止不能为空" />
+            </tr>
+            <tr>
+                <th align="right">申请日期起：</th>
+                <td nowrap><input id="sqrqQ" name="sqrqQ" class="mini-datepicker" format="yyyy-MM-dd"
+                        style="width: 100%" />
+                <th align="right">申请日期止：</th>
+                <td nowrap><input id="sqrqZ" name="sqrqZ" class="mini-datepicker" format="yyyy-MM-dd"
+                        style="width: 100%" />
+            </tr>
+            <tr>
+                <th align="right">是否采用推荐：</th>
+                <td><input id="sfcytj" name="sfcytj" class="mini-combobox" textfield="text" valuefield="id" data="[{text: '全部',id: ''},
+						{id: 'Y', text: '是'},
+						{id: 'N', text: '否'}]" popupMinHeight="20" shownullitem="false" style="width:100%;" value=""
+                        onvaluechanged="onValueChanged" />
+                </td>
+                <th align="right">不采用原因：</th>
+                <td><input id="jjyyDm" name="jjyyDm" class="mini-combobox" textfield="MC" valuefield="ID"
+                        shownullitem="false" style="width:100%;" onvaluechanged="onCxlValueChanged" /></td>
+            </tr>
+            <tr>
+                <th align="right">文书号：</th>
+                <td><input id="wsh" name="wsh" class="mini-textbox" style="width:100%;" /></td>
+            </tr>
+            <tr>
+                <td colspan="4" style="padding:10px; text-align:center;">
+                    <a id="search" class="mini-button" onclick="doSearch()">查询</a>
+                    <a class="mini-button" onclick="doReset()">重置</a>
+            </tr>
+        </table>
+    </div>
+    <div class="mini-fit" id='grid1'>
+        <div id="tableGrid1" idField="tableGrid1" class="mini-datagrid" allowHeaderWrap="true" showPager="true"
+            style="width: 100%; height:600;" sizeList="[10,30,50,100]" pageSize="10"
+            emptyText="<span style= 'color:#ff0000;'>没有数据</span>">
+            <div property="columns">
+                <div type="indexcolumn" width="50">序号</div>
+                <div field="swjgmc" renderer="onActionRenderer" headeralign="center" align="center" allowsort="false"
+                    width="250">主管税务机关</div>
+                <div field="sql" headeralign="center" align="center" allowsort="false" width="100">申请量
+                </div>
+                <div field="sll" headeralign="center" align="center" allowsort="false" width="110">受理量</div>
+                <div field="wcytjl" headeralign="center" align="center" allowsort="false" width="110">未采用推荐量</div>
+                <div field="cxl" headeralign="center" align="center" allowsort="false" width="160">
+                    采信率(=受理量-未采用推荐量)，按百分比展现，2位小数
+                </div>
+                <div header="偏差原因">
+                    <div property="columns">
+                        <div field="fpyltjgd" headeralign="center" align="center" allowsort="false" width="110">发票用量推荐过大
+                        </div>
+                        <div field="fpyltjgx" headeralign="center" align="center" allowsort="false" width="110">发票用量推荐过小
+                        </div>
+                        <div field="zgkpxggd" headeralign="center" align="center" allowsort="false" width="110">
+                            最高开票限额推荐过大
+                        </div>
+                        <div field="zgkpxggx" headeralign="center" align="center" allowsort="false" width="110">
+                            最高开票限额推荐过小
+                        </div>
+                        <div field="fjflddcw" headeralign="center" align="center" allowsort="false" width="110">分级分类定档错误
+                        </div>
+                        <div field="qtyy" headeralign="center" align="center" allowsort="false" width="110">其他原因</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mini-fit" id='grid2' style="display: none;">
+        <div id="tableGrid2" idField="tableGrid2" class="mini-datagrid" allowHeaderWrap="true" showPager="true"
+            style="width: 100%; height:600;" sizeList="[10,30,50,100]" pageSize="10"
+            emptyText="<span style= 'color:#ff0000;'>没有数据</span>">
+            <div property="columns">
+                <div type="indexcolumn" width="50">序号</div>
+                <div field="wsh" headeralign="center" align="center" allowsort="false" width="180">文书号
+                </div>
+                <div field="nsrsbh" headeralign="center" align="center" allowsort="false" width="180">纳税人社会信用码（纳税人税号）
+                </div>
+                <div field="nsrmc" headeralign="center" align="center" allowsort="false" width="180">纳税人名称
+                </div>
+                <div field="zgswjgMc" headeralign="center" align="center" allowsort="false" width="200">主管税务机关（显示到所，简称）
+                </div>
+                <div field="ssglyxm" headeralign="center" align="center" allowsort="false" width="140">税收管理员</div>
+                <div field="sqrq" headeralign="center" align="center" allowsort="false" dateFormat="yyyy-MM-dd"
+                    width="120">申请日期</div>
+                <div field="slrq" headeralign="center" align="center" allowsort="false" dateFormat="yyyy-MM-dd"
+                    width="120">受理日期</div>
+                <div field="sfcytj" headeralign="center" align="center" allowsort="false" width="80">是否采用推荐</div>
+                <div field="jjyyMc" headeralign="center" align="center" allowsort="false" width="140">不采用推荐原因</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="./cxlCxtj.js"></script>
+
+</html>

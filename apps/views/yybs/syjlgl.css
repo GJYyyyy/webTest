@@ -1,0 +1,85 @@
+@charset "UTF-8";
+.textRight {
+  text-align: right; }
+
+.main {
+  width: 1200px;
+  margin: 0 auto; }
+  .main .table-bg {
+    background-color: #f7f7f7;
+    width: 1000px;
+    margin: 25px auto; }
+  .main table tr {
+    line-height: 50px; }
+    .main table tr th {
+      width: 150px; }
+  .main table .btn {
+    display: inline-block;
+    width: 100px;
+    padding: 2px 0;
+    text-align: center;
+    background-color: #fccc1e;
+    color: #fff;
+    line-height: 26px;
+    border-radius: 2px; }
+  .main table .zf {
+    color: #458aeb; }
+
+/*
+* 预约记录查询
+* 俞韦宇 2017年5月12日13:40:28
+*/
+.hide-btn {
+  width: 110px;
+  padding: 5px;
+  border: 1px solid #ccd8f0;
+  cursor: pointer;
+  margin-bottom: 10px; }
+  .hide-btn span {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-left: 10px solid #fccc1e;
+    border-bottom: 5px solid transparent;
+    margin-left: 10px; }
+
+.cx-main {
+  width: 100%; }
+  .cx-main .table-bg {
+    width: 100%;
+    background-color: #fff;
+    margin-top: 10px; }
+    .cx-main .table-bg .btn {
+      background-color: #fccc1e; }
+
+/*
+* 预约申请详情
+* ywy 2017年5月12日14:50:52
+*/
+.yysqxq span {
+  color: #458aeb; }
+.yysqxq .xh {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #458aeb;
+  color: #fff;
+  margin-right: 10px; }
+
+.winClose {
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 14px;
+  color: #fff;
+  background-color: #458aeb;
+  cursor: pointer;
+  border-radius: 2px; }
+
+/*# sourceMappingURL=syjlgl.css.map */

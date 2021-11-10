@@ -1,0 +1,79 @@
+html, body {
+  height: 100%;
+  font-family: "MicroSoft YaHei"; }
+
+.wizard > .content > .body {
+  position: relative; }
+
+.wizard > .content > .body input {
+  border: none; }
+
+.h5 {
+  font-size: 14px; }
+
+.first-step .title {
+  text-align: Center;
+  font-size: 16px;
+  font-weight: bold; }
+.first-step .text-green {
+  color: #69AA46; }
+.first-step .text-orange {
+  text-align: left;
+  color: #ed6c00; }
+.first-step > table {
+  width: 90%;
+  margin: 0 auto; }
+.first-step input {
+  display: inline-block;
+  border: none;
+  color: #333333; }
+.first-step .item-right {
+  text-align: right; }
+.first-step .search-item {
+  width: 10%;
+  color: #5b5b5b;
+  text-align: right;
+  white-space: nowrap;
+  padding: 6px 2px 6px 10px; }
+.first-step .search-item-control {
+  text-align: left;
+  white-space: nowrap;
+  padding: 6px 2px 6px 0px; }
+.first-step .button {
+  margin-left: 11%;
+  margin-top: 20px;
+  margin-bottom: 40px; }
+  .first-step .button button {
+    width: 90px;
+    height: 30px;
+    text-align: center;
+    line-height: 26px;
+    border: 1px solid #0995dd;
+    border-radius: 2px;
+    font-family: "MicroSoft YaHei"; }
+  .first-step .button .bg-white {
+    background: #ffffff;
+    margin-right: 10px;
+    color: #0995dd; }
+  .first-step .button .bg-blue {
+    background: #0995dd;
+    color: #ffffff; }
+
+.th-r {
+  text-align: right;
+  width: 230px;
+  border: 1px solid black; }
+
+.tddata {
+  text-align: left;
+  border: 1px solid black; }
+
+.mini-textbox-readOnly .mini-textbox-border {
+  border: none;
+  background: #fff; }
+
+.mini-textbox-readOnly .mini-textbox-border .mini-textbox-input {
+  border: none;
+  background: #fff; }
+
+/*# sourceMappingURL=zzsybnsrzgrd.css.map */

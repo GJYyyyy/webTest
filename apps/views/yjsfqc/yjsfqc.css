@@ -1,0 +1,51 @@
+.content-title {
+    text-align: center;
+    font-size: 18px;
+    line-height: 60px;
+}
+.search-box table {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.search-box table td {
+    padding: 3px 0;
+}
+.search-btn, .message-btn {
+    width: 80px;
+    height: 28px;
+    line-height: 28px;
+    display: inline-block;
+    color: #fff;
+    background-color: #53ACF3;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+}
+.message-btn{
+    float: right;
+    margin-bottom: 5px;
+}
+.mini-window.fixed {
+    position: fixed !important;
+    top: 0 !important;
+}
+.detail-title{
+    border-left:4px solid #53ACF3;
+    padding: 0 0 0 10px;
+    margin: 10px 0;
+}
+.btn-gray{
+    background-color: #dcdcdc;
+    color: #333;
+    cursor: not-allowed;
+}
+
+/*覆写mini样式*/
+.mini-datepicker.mini-error .mini-buttonedit-border {
+    border: 1px solid red;
+}
+.mini-datepicker .mini-errorIcon {
+    display: none !important;
+}

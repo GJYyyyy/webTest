@@ -1,0 +1,368 @@
+<div class="mini-tabs tab-content" activeIndex="0">
+    <div title="行政许可申请表">
+
+        <table border="" cellspacing="" style="width: 80%" cellpadding="" data-view-type="form"
+               id="swxzxk-yltj">
+            <h4 class="swxzxk-yltj-h4">税务行政许可申请表</h4>
+            <tr>
+                <td style="border: none" colspan="4">
+                    <input class="mini-textbox mini-textbox-border swxzxk-date" name="sqrq" readonly="true">
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="8" width="80">申请人</th>
+                <th>申请人名称</th>
+                <td colspan="3">
+                    <input class="mini-textbox mini-textbox-border" name="sqrmc" readonly="true">
+                </td>
+            </tr>
+            <tr>
+                <th>统一社会信用代码 <br/> （纳税人识别号）
+                </th>
+                <td colspan="3">
+                    <input class="mini-textbox mini-textbox-border mini-required" name="nsrsbh" readonly="true">
+                </td>
+            </tr>
+            <tr>
+                <th>法定代表人<br/>(负责人)</th>
+                <td colspan="3">
+                    <input class="mini-textbox mini-textbox-border mini-required" name="fddbr" readonly="true"
+                    >
+                </td>
+            </tr>
+            <tr>
+                <th>地址和邮政编码</th>
+                <td colspan="3">
+                    <input class="mini-textbox mini-textbox-border" name="dzyzbm"
+                           readonly="true">
+                </td>
+            </tr>
+            <tr>
+                <th width="140">经办人</th>
+                <td width="220">
+                    <input class="mini-textbox" name="jbr" readonly="true">
+                </td>
+                <th width="140">身份证件号码</th>
+                <td width="220">
+                    <input class="mini-textbox" name="jbr_sfzh" readonly="true"/>
+                </td>
+            </tr>
+            <tr>
+                <th width="140">联系电话</th>
+                <td width="220">
+                    <input class="mini-textbox" readonly="true" name="jbr_lxdh"
+                    >
+                </td>
+                <th width="140">联系地址</th>
+                <td width="220">
+                    <input class="mini-textbox" required="true" name="jbr_lxdz"
+                           readonly="true">
+                </td>
+            </tr>
+            <tr>
+                <th width="140">委托代理人</th>
+                <td width="220">
+                    <input class="mini-textbox" name="wtdlr" readonly="true">
+                </td>
+                <th width="140">身份证号</th>
+                <td width="220">
+                    <input class="mini-textbox" name="wtdlr_sfzh" readonly="true"
+                    >
+                </td>
+            </tr>
+            <tr>
+                <th width="140">联系电话</th>
+                <td width="220">
+                    <input class="mini-textbox mini-textbox-border mini-required" name="wtdlr_lxdh"
+                           readonly="true">
+                </td>
+                <th width="140">联系地址</th>
+                <td width="220">
+                    <input class="mini-textbox mini-textbox-border mini-required" name="wtdlr_lxdz"
+                           readonly="true">
+                </td>
+            </tr>
+            <tr>
+                <th>申请事项</th>
+                <td colspan="4">
+                    <div class="mini-checkboxlist sqsx-yl" repeatDirection="vertical" repeatItems="8"
+                         repeatLayout="table" enabled="false" name="sqsx" value="5"
+                         textField='text' valueField="ID" onload="onload" data="[{'ID':'1', 'text':'一、企业印制发票审批'},
+                     {'ID':'2', 'text':'二、对纳税人延期申报的核准'},
+                     {'ID':'3', 'text':'三、对纳税人延期缴纳税款的核准','enabled':false},
+                     {'ID':'4', 'text':'四、对纳税人变更纳税定额的核准'},
+                     {'ID':'5', 'text':'五、增值税专用发票（增值税税控系统）最高开票限额审批'},
+                     {'ID':'6', 'text':'六、对采取实际利润额预缴以外的其他企业所得税预缴方式的核定'},
+                     {'ID':'7', 'text':'七、非居民企业选择由其主要机构场所汇总缴纳企业所得税的审批'}]"
+
+                    ></div>
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="7">申请材料</th>
+                <td colspan="4" id="sqcl-block">
+                    <p class="info">除提供经办人身份证件外,应根据申请事项提供以下相应材料:</p>
+                    <!--申请材料-1-->
+                    <h4>一、企业印制材料审批</h4>
+                    <div name="sqcl-1" class="mini-checkboxlist sqsx-yl" repeatDirection="vertical"
+                         repeatItems="8"
+                         repeatLayout="table"
+                         textField='text' valueField="ID" value="ID,text" onload="onload" data="[{'ID':'011','text':'1.公安部门颁发的特种行业许可证'},
+                         {'ID':'012','text':'2.本市税务发票印制资格中标通知书'},
+                         {'ID':'013','text':'3.企业内部的生产责任、保密、质量检验、保管相关制度文本'},
+                         {'ID':'014','text':'4.守法经营且无不良社会诚信记录承诺书'},
+                         {'ID':'015','text':'5.上海市新闻出版局核发的印刷业许可证'}]"
+                         enabled="false"></div>
+                    <!--申请材料-2-->
+                    <h4>二、对纳税人延期申报的核准</h4>
+                    <div name="sqcl-2" class="mini-checkboxlist sqsx-yl" repeatDirection="vertical"
+                         repeatItems="8"
+                         repeatLayout="table"
+                         textField='text' valueField="ID" value="ID,text" onload="onload" data="[{'ID':'031','text':'1.纳税人确有困难不能正常缴纳税款的情况证明'}]"
+                         enabled="false"></div>
+                    <!--申请材料-3-->
+                    <h4>三、对纳税人延期缴税税款的核准</h4>
+                    <div name="sqcl-3" class="mini-checkboxlist sqsx-yl" repeatDirection="vertical"
+                         repeatItems="8"
+                         repeatLayout="table"
+                         textField='text' valueField="ID" value="ID,text" onload="onload" data="[{'id':'021','text':'1.资产负债表（纳税人已报送财务报表的，取消重复报送）'},
+                         {'ID':'022','text':'2.纳税人申请延期缴纳税款报告'},
+                         {'ID':'023','text':'3.应付职工工资和社会保险费等税务机关要求提供的支出预算'},
+                         {'ID':'024','text':'4.当期货币资金余额情况'},
+                         {'ID':'025','text':'5.所有银行存款账户的对账单复印件'
+                         }]"
+                         enabled="false"></div>
+                    <!--申请材料-4-->
+                    <h4>四、对纳税人变更税定额的核准</h4>
+                    <div name="sqcl-4" class="mini-checkboxlist sqsx-yl" repeatDirection="vertical"
+                         repeatItems="8"
+                         repeatLayout="table"
+                         textField='text' valueField="ID" value="ID,text" onload="onload"
+                         data="[{'ID':'041','text':'1.申请变更纳税定额的证明材料'}]"
+                         enabled="false"></div>
+                    <!--申请材料-5-->
+                    <h4>五、增值税专用发票(增值税税控系统)最高开票限额审批</h4>
+                    <div name="sqcl-5" class="mini-checkboxlist sqsx-yl" repeatDirection="vertical"
+                         repeatItems="8"
+                         repeatLayout="table" value=""
+                         textField='text' valueField="ID" value="ID,text" onload="onload"
+                         data="[{'ID':'0','text':'无需申请材料'}]"
+                         enabled="false"></div>
+                    <!--申请材料-6-->
+                    <h4>六、对采取实际利润额预缴以外的其他企业所得税预缴方式的核定</h4>
+                    <div name="sqcl-6" class="mini-checkboxlist sqsx-yl" repeatDirection="vertical"
+                         repeatItems="8"
+                         repeatLayout="table"
+                         textField='text' valueField="ID" value="ID,text" onload="onload"
+                         data="[{'ID':'061','text':'1.纳税人确有困难不能按照月度或者季度的实际利润额预缴企业所得税的情况证明'}]"
+                         enabled="false"></div>
+                    <!--申请材料-7-->
+                    <!-- <h4>七、非居民企业选择由其主要机构场所汇总缴纳企业所得税的审批</h4>
+                    <div name="sqcl-7" class="mini-checkboxlist sqsx-yl" repeatDirection="vertical"
+                         repeatItems="8"
+                         repeatLayout="table"
+                         textField='text' valueField="ID" value="ID,text" onload="onload" data="[{'ID':'071','text':'1.汇总缴纳企业所得税的机构、场所对其他机构、场所负有管理责任的证明材料'},
+                         {'ID':'072','text':'2.设有完整的账簿、凭证，能够准确反映各机构、场所的收入、成本、费用和盈亏情况的证明材料'}]"
+                         enabled="false"></div> -->
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+    <div title="居民企业所得税调整核定申请表">
+        <div id="txsqxx-yl" data-view-type="form" class="jmqytz-table">
+            <!--内容2开始-->
+            <!-- <h1 class="form-title">居民企业所得税调整核定申请表</h1> -->
+            <h4 class="text-left">基本信息</h4>
+            <!-- <div style="float:right">申请日期:<span id="sqrq-yl"></span></div> -->
+            <!-- <div style="float:right"><div style="display:inline-flex;"><span style="width:100px;">申请日期:</span><span id="sqrq-yl" name="sqrq" class="mini-textbox mini-textbox-border" readonly="true"></span></div></div> -->
+            <table class="form-table">
+                <tr>
+                    <th width="15%">纳税人识别号</th>
+                    <td width="35%"><span id="nsrsbh-yl" name="nsrsbh" class="mini-textbox mini-textbox-border"
+                                          readonly="true"></span></td>
+                    <th width="15%"><span>纳税人名称</span></th>
+                    <td width="35%"><span id="nsrmc-yl" name="nsrmc" class="mini-textbox mini-textbox-border"
+                                          readonly="true"></span></td>
+                </tr>
+                <tr>
+                    <th width="15%"><span style="color: red;">*</span>申请人</th>
+                    <td width="35%"><input id="sqr-yl" name="sqrText" class="mini-textbox" readonly="true"/></td>
+                    <th width="15%"><span style="color: red;">*</span><span
+                            title="法定代表人（负责人）姓名">法定代表人（负责人）姓名</span></th>
+                    <td width="35%"><input id="fddbrmc-yl" name="fddbrmc" class="mini-textbox" readonly="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th width="16%"><span style="color: red;">*</span><span
+                            title="申请人（经办人）签字日期">申请人（经办人）签字日期</span></th>
+                    <td width="35%"><input id="sqrqzrq-yl" name="sqrqzrq" class="mini-datepicker"
+                                           readonly="true"/></td>
+                    <th width="18%"><span style="color: red;">*</span><span
+                            title="法定代表人（负责人）签字日期">法定代表人（负责人）签字日期</span>
+                    </th>
+                    <td width="35%"><input id="fddbrqzrq-yl" name="fddbrqzrq" class="mini-datepicker"
+                                           readonly="true"/></td>
+                </tr>
+                <tr>
+                    <th width="15%">行业类别</th>
+                    <td width="35%"><input id="hylb-yl" name="hylb" class="mini-textbox" readonly="true"
+                                           readonly="true"/></td>
+                    <th width="15%"></th>
+                    <td width="35%"></td>
+                </tr>
+                <tr>
+                    <th width="15%"><span title="本期应纳税所得额或应纳税额与上期核定额变动情况">本期应纳税所得额或应纳税额与上期核定额变动情况</span></th>
+                    <td width="35%"><input id="ynsdse-yl" name="ynsdse" class="mini-textbox" readonly="true"/>
+                    </td>
+					<th width="15%"><span title="生产经营范围（主营业务）变动情况">生产经营范围（主营业务）变动情况</span></th>
+                    <td width="35%"><input id="scjyfw-yl" name="scjyfw" class="mini-textbox" readonly="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th width="15%">上年收入总额</th>
+                    <td width="35%"><input id="snsrze-yl" name="snsrze" class="mini-moneybox"
+                                           vtype="range:0,99999999999999.99;" digit="2" readonly="true"/></td>
+                    <th width="15%"><span>上年成本费用总额</span></th>
+                    <td width="35%"><input id="sncbye-yl" name="sncbye" class="mini-moneybox"
+                                           vtype="range:0,99999999999999.99;" digit="2" readonly="true"/></td>
+                </tr>
+                <tr>
+                    <th width="15%">上年注册资本</th>
+                    <td width="35%"><input id="zczb-yl" vtype="float" name="zczb" class="mini-moneybox"
+                                           vtype="range:0,99999999999999.99;" digit="2" readonly="true"/></td>
+                    <th width="15%"><span title="上年原材料耗费量（额）采集">上年原材料耗费量（额）</span></th>
+                    <td width="35%"><input id="yclhfl-yl" name="yclhfl" class="mini-moneybox"
+                                           vtype="range:0,99999999999999.99;" digit="2" readonly="true"/></td>
+                </tr>
+                <tr>
+                    <th width="15%">上年职工人数</th>
+                    <td width="35%"><input id="zgrs-yl" name="zgrs" vtype="int;maxLength:9" class="mini-textbox"
+                                           readonly="true"/></td>
+                    <th width="15%"><span title="上年燃料（动力）耗费量（额）">上年燃料（动力）耗费量（额）</span></th>
+                    <td width="35%"><input id="rlhfl-yl" name="rlhfl" class="mini-moneybox"
+                                           vtype="range:0,99999999999999.99;" digit="2" readonly="true"/></td>
+                </tr>
+                <tr>
+                    <th width="15%">上年固定资产原值</th>
+                    <td width="35%"><input id="gdzcyz-yl" class="mini-moneybox"
+                                           vtype="range:0,99999999999999.99;" digit="2" name="gdzcyz"
+                                           readonly="true"/></td>
+                    <th width="15%"><span>上年商品销售量（额）</span></th>
+                    <td width="35%"><input id="spxsl-yl" name="spxsl" class="mini-moneybox"
+                                           vtype="range:0,99999999999999.99;" digit="2" readonly="true"/></td>
+                </tr>
+                <tr>
+                    <th width="15%">上年所得税额</th>
+                    <td width="35%"><input id="snsdse-yl" name="snsdse" class="mini-moneybox"
+                                           vtype="range:0,999999999999.99;" digit="2" readonly="true"/></td>
+                    <th width="15%"><span>上年征收方式</span></th>
+                    <td width="35%"><input id="snzsfs-yl" class="mini-textbox" name="snzsfsText"
+                                           readonly="true"/></td>
+                </tr>
+            </table>
+            <h4 class="text-left">征收方式</h4>
+            <div id="zsfsylForm">
+                <table class="form-table">
+                    <tr>
+                        <th width="25%" align="center">1</th>
+                        <td width="25%">账簿设置情况</td>
+                        <td width="50%"><input id="zbszqk-yl" readonly="true" name="zbszqkText"
+                                               class="mini-textbox"/></td>
+                    </tr>
+                    <tr>
+                        <th align="center">2</th>
+                        <td width="15%"><span>收入核算情况</span></td>
+                        <td width="35%"><input id="srhsqk-yl" readonly="true" name="srhsqkText"
+                                               class="mini-textbox"/></td>
+                    </tr>
+                    <tr>
+                        <th align="center">3</th>
+                        <td width="15%">成本费用核算情况</td>
+                        <td width="35%"><input id="fyhsqk-yl" readonly="true" name="fyhsqkText"
+                                               class="mini-textbox"/></td>
+                    </tr>
+                    <tr>
+                        <th align="center">4</th>
+                        <td width="15%"><span>纳税申报情况</span></td>
+                        <td width="35%"><input id="nssbqk-yl" readonly="true" name="nssbqkText"
+                                               class="mini-textbox"/></td>
+                    </tr>
+                    <tr>
+                        <th align="center">5</th>
+                        <td width="15%">履行纳税义务情况</td>
+                        <td width="35%"><input id="nsywqk-yl" readonly="true" name="nsywqkText"
+                                               class="mini-textbox"/></td>
+                    </tr>
+                    <tr>
+                        <th align="center">6</th>
+                        <td width="15%"><span>其他情况</span></td>
+                        <td width="35%"><input id="qtqk-yl" readonly="true" name="qtqkText"
+                                               class="mini-textbox"/></td>
+                    </tr>
+                </table>
+            </div>
+            <h4 class="text-left">申请内容</h4>
+            <div id="sqnr">
+                <table class="form-table">
+                    <tr>
+                        <th>申请核定期限起</th>
+                        <td><input id="sqhdqxq-yl" readonly="true" name="sqhdqxq"
+                                   class="mini-datepicker lineh-32"/></td>
+                        <th><span>申请核定期限止</span></th>
+                        <td><input id="sqhdqxz-yl" readonly="true" name="sqhdqxz"
+                                   class="mini-datepicker lineh-32"/></td>
+                    </tr>
+                    <tr>
+                        <th>核定方法</th>
+                        <td><input id="hdfs-yl" name="hdfsText" class="mini-textbox" enabled="false"/></td>
+                        <th>征收子目（经营项目）</th>
+                        <td><input id="zszm-yl" name="zszmText" class="mini-textbox" enabled="false"/></td>
+                    </tr>
+                    <tr>
+                        <th><span>上限值</span></th>
+                        <td><input id="sxz-yl" name="sxz" class="mini-textbox" enabled="false"
+                                   value="0.150000"/></td>
+                        <th>下限值</th>
+                        <td><input id="xxz-yl" name="xxz" class="mini-textbox" enabled="false"
+                                   value="0.040000"/></td>
+                    </tr>
+                    <tr>
+                        <th><span style="color: red;">*</span>企业所得税预缴期限</th>
+                        <td><input id="qysdsyjqx-yl" name="qysdsyjqxText" readonly="true" class="mini-textbox"/>
+                        </td>
+                        <th><span style="color: red;">*</span>企业所得税预缴方式</th>
+                        <td><input id="qysdsyjfs-yl" name="qysdsyjfsText" class="mini-textbox" readonly="true"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>年核定应纳所得税额</th>
+                        <td><input id="nhdynsdse-yl" name="nhdynsdse" class="mini-moneybox"
+                                   vtype="range:0,999999999999.99;" digit="2" readonly="true"/></td>
+                        <th>税率</th>
+                        <td><input id="sl-yl" name="sl" vtype="float" class="mini-textbox" readonly="true"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>年核定所得税额</th>
+                        <td><input id="nhdsdse-yl" name="nhdsdse" class="mini-moneybox"
+                                   vtype="range:0,999999999999.99;" digit="2" class="mini-textbox"
+                                   readonly="true"/></td>
+                        <th>按成本费用核定应税所得率</th>
+                        <td><input id="acbfyhd-yl" vtype="float" name="acbfyhd" class="mini-textbox"
+                                   readonly="true"/></td>
+                    </tr>
+                    <tr>
+                        <th>按收入核定</th>
+                        <td><input id="asrhd-yl" name="asrhd" class="mini-moneybox"
+                                   vtype="range:0,999999999999.9999;" digit="4" readonly="true"/></td>
+                        <th></th>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="../sqgl/xzspJmqyhdtz/jmqyhdtz.css">

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>事项受理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="swsxtzs.css">
+    <style>
+        #nsrjbxx tr{
+            line-height: 24px;
+        }
+        #btgyy-info{
+            padding-left: 60px;
+            line-height: 24px;
+            margin-bottom: 80px;
+        }
+        h4 {
+            text-indent: 25px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false">
+<div class="mini-fit">
+    <div class="editform">
+        <h3 style="margin: 3px auto; text-align: center;"><span id="swsxMc"></span>跨区迁移同意迁移但未划户</h3>
+        <div class="width970 infodiv" style="margin-top: -10px;padding-top: 0; line-height: 24px;">
+            <fieldset class="bor" style="padding-bottom: 3px; margin-top: 10px;">
+                <legend><h3>基本信息</h3></legend>
+                <table id="nsrjbxx" width="100%" border="0" cellspacing="0" cellpadding="0" class="infotab"
+                       style="line-height: 18px">
+                    <tr>
+                        <th>任务来源：</th>
+                        <td>电子税务局</td>
+                        <th>证件号码：</th>
+                        <td><span id="sqr"></span></td>
+                        <th>纳税人名称：</th>
+                        <td><span id="nsrmc"></span></td>
+                        <th class="kqysxfk" style="display: none">联系电话：</th>
+                        <td class="kqysxfk" style="display: none"><span id="lxdh"></span></td>
+                    </tr>
+                    <tr>
+                        <th>提交日期：</th>
+                        <td><span id="cjsj"></span></td>
+                        <th>受理期限：</th>
+                        <td ><span id="blqx"></span></td>
+                        <th>文书号：</th>
+                        <td><span id="wsh"></span></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <br>
+        </div>
+    </div>
+
+    <!--不通过原因-->
+    <h4>同意迁移但未划户原因</h4>
+    <div id="btgyy-info"></div>
+
+</div>
+<div class="dbsx-actions">
+    <a id="sqbPrintBtn" class="mini-button" onclick="sxbj()">事项办结</a>
+    <a class="mini-button" onclick="closeWin()" id="backBtn">返回</a>
+</div>
+
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="../../scripts/gldbfslkz.js"></script>
+<script>
+    var whh = {
+        'sqxh': 0,
+        'qyjglx': 0,
+        initPage: function(){
+        }
+    };
+    function setData(record){
+        $("#sqr").text(record.nsrsbh);
+        $("#nsrmc").text(record.nsrmc);
+        $("#cjsj").text(record.lrsj);
+        $("#blqx").text(record.blqx);
+        $("#wsh").text(record.wsh);
+
+        whh.sqxh = record.sqxh;
+        whh.qyjglx = record.qyjglx;
+        $.ajax({
+            url: '/dzgzpt-wsys/api/sh/kqqytjbb/query/jkxq/' + whh.sqxh,
+            type: 'post',
+            data: {
+                "sqxh" : record.sqxh
+            },
+            success: function (data, textStatus, request) {
+                if (data) {
+                    var resData = mini.decode(data);
+                    var tex = resData.qtjkxq ? resData.qtjkxq.replace(/(;)/g, '<br/>') : '';
+                    $("#btgyy-info").html(tex);
+                } else{
+                    mini.alert(data.message || '接口异常，请稍后重试');
+                }
+            },
+            error:function(error){
+                mini.alert(error.message || '接口异常，请稍后重试');
+            }
+        });
+    }
+
+    function closeWin(){
+        // var userAgent = navigator.userAgent;
+        // if (userAgent.indexOf("Firefox") != -1 || userAgent.indexOf("Chrome") != -1 || isIE11 || isIE10 ||isIE9 ||isIE8 ) {
+        //     top.close();//直接调用JQUERY close方法关闭
+        // } else {
+        //     window.opener = null;
+        //     window.open("", "_self");
+        //     window.close();
+        // }
+        Owner.closeWin();
+    }
+    function sxbj() {
+        if (whh.qyjglx == "99") {
+            mini.confirm("确认已经完成该企业的分支机构的迁移工作？","提示",function (action) {
+                if(action === "ok") {
+                    // var messageId = mini.mask({
+                    //     el: document.body,
+                    //     cls: 'mini-mask-loading',
+                    //     html: '推送中, 请稍等 ...'
+                    // });
+                    var messageId = mini.loading("办结中, 请稍等 ...", "提示");
+
+                    setTimeout(function () {
+                        $.ajax({
+                            url: "/hgzx-gld/api/hgzx/kqqyqy/updateJkrqKz/" + whh.sqxh,
+                            type: "get",
+                            async: false,
+                            success: function (data) {
+                                var resultData = mini.decode(data);
+                                if (resultData.success) {
+                                    mini.hideMessageBox(messageId);
+                                    mini.alert("办结成功！","提示",function (e) {
+                                        closeWin("true");
+                                    });
+                                } else {
+                                    mini.hideMessageBox(messageId);
+                                    mini.alert("该纳税人的主管税务机关尚未分配，请处理之后再进行推送！", "提示");
+                                }
+                            },
+                            error: function (data) {
+                                mini.hideMessageBox(messageId);
+                                mini.alert(data.message || '请求错误，请稍候再试',"错误信息");
+                            }
+                        });
+                    },200);
+                }
+            });
+        } else {
+            mini.confirm("确认已经完成该纳税人主管税务机关的分配？","提示",function (action) {
+                if(action === "ok") {
+                    // var messageId = mini.mask({
+                    //     el: document.body,
+                    //     cls: 'mini-mask-loading',
+                    //     html: '推送中, 请稍等 ...'
+                    // });
+                    var messageId = mini.loading("推送中, 请稍等 ...", "推送中");
+
+                    setTimeout(function () {
+                        $.ajax({
+                            url: "/hgzx-gld/api/hgzx/kqqyqy/autoBjsx/" + whh.sqxh,
+                            type: "get",
+                            async: false,
+                            success: function (data) {
+                                var resultData = mini.decode(data);
+                                if (resultData.success) {
+                                    mini.hideMessageBox(messageId);
+                                    mini.alert("推送成功！","提示",function (e) {
+                                        closeWin("true");
+                                    });
+                                } else {
+                                    mini.hideMessageBox(messageId);
+                                    mini.alert("该纳税人的主管税务机关尚未分配，请处理之后再进行推送！", "提示");
+                                }
+                            },
+                            error: function (data) {
+                                mini.hideMessageBox(messageId);
+                                mini.alert(data.message || '请求错误，请稍候再试',"错误信息");
+                            }
+                        });
+                    },200);
+                }
+            });
+        }
+
+        // $.ajax({
+        //     url: '/dzgzpt-wsys/api/sh/kqqytjbb/sxbj/' + whh.sqxh,
+        //     type: 'post',
+        //     data: {
+        //         "sqxh" : whh.sqxh
+        //     },
+        //     success: function (data, textStatus, request) {
+        //         if (data.success) {
+        //             mini.alert("事项办结成功！","提示",function (action) {
+        //                 if(action === 'ok') {
+        //                     closeWin();
+        //                 }
+        //             });
+        //         } else{
+        //             mini.alert(data.message || '接口异常，请稍后重试');
+        //         }
+        //     },
+        //     error:function(error){
+        //         mini.alert(error.message || '接口异常，请稍后重试');
+        //     }
+        // });
+    }
+    function getQueryString(name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return unescape(r[2]);
+        }
+        return null;
+    }
+
+    // $("#actions").on('click','#iknowBtn',function(){
+    //     if (window.CloseOwnerWindow) {
+    //         return window.CloseOwnerWindow();
+    //     }
+    //     else {
+    //         closeWin();
+    //     }
+    // });
+
+    $(function () {
+        whh.initPage()
+    });
+</script>
+</body>
+</html>

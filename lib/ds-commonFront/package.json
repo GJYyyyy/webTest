@@ -1,0 +1,20 @@
+{
+  "name": "ds-commonFront",
+  "version": "1.0.0",
+  "description": "",
+  "author": "lizm",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-minify-css": "^1.2.3",
+    "gulp-minify-html": "^1.0.5",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev-collector": "^1.0.2",
+    "gulp-uglify": "^1.5.4"
+  }
+}

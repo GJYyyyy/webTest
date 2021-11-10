@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>查看详情</title>
+  <link rel="stylesheet" href="../../styles/style.css">
+  <link rel="stylesheet" href="cxtj_sxgz.css">
+</head>
+<body style="background:#fff;" oncontextmenu="return false">
+<div class="mini-fit">
+<div class="editform">
+  <h3 style="margin: 3px auto; text-align: center;"><span id="swsxMc"></span>查看</h3>
+   <div class="width970 infodiv" style="margin-top: -10px;padding-top: 0">
+            <fieldset class="bor" style="padding-bottom: 3px; margin-top: 10px;">
+                <legend><h3>基本信息</h3></legend>
+                <table id="nsrjbxx" width="100%" border="0" cellspacing="0" cellpadding="0" class="infotab"
+                       style="line-height: 18px">
+                    <tr>
+                        <th>任务来源：</th>
+                        <td>电子税务局</td>
+                        <th>证件号码：</th>
+                        <td><span id="sqr"></span></td>
+                        <th>纳税人名称：</th>
+                        <td><span id="nsrmc"></span></td>
+                    </tr>
+                    <tr>
+                        <th>提交日期：</th>
+                        <td><span id="cjsj"></span></td>
+                        <th>办理期限：</th>
+                        <td ><span id="blqx"></span></td>
+                        <th>受理流水号：</th>
+                        <td ><span id="sllsh"></span></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <br>
+            <div id="tabs-sxgz" class="mini-tabs tab-content" activeIndex="0" style="width:100%;height: auto;">
+                <div title="申请表">
+                    <div id="dbsx_content"></div>
+                </div>
+                <div title="附报资料">
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+  <div class="btdiv">
+    <a id="zzsjzjtDownLoadBtn" class="mini-button gray font14 pngbg" onclick="download()" style="padding-right:14px;width: auto;" >下载备案通知书</a>
+    <a class="mini-button gray font14 pngbg" onclick="doBack()" id="backBtn" style="padding-right:14px"iconCls="ico-return pngbg">返回</a>
+  </div>
+
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="sxgz_ckxq.js"></script>
+<script src="../dbsx/sqzlView.js"></script>
+</body>
+
+</html>

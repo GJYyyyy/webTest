@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <title>云厅事项受理</title>
+     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="swsxtzs.css">
+</head>
+<body oncontextmenu="return false">
+<div class="mini-fit">
+    <div class="editform">
+        <h3 style="margin: 3px auto; text-align: center;"><span id="swsxMc"></span>受理</h3>
+        <div class="width970 infodiv" style="margin-top: -10px;padding-top: 0">
+            <fieldset class="bor" style="padding-bottom: 3px; margin-top: 10px;">
+                <legend><h3>基本信息</h3></legend>
+                <table id="nsrjbxx" width="100%" border="0" cellspacing="0" cellpadding="0" class="infotab"
+                       style="line-height: 18px">
+                    <tr>
+                        <th>任务来源：</th>
+                        <td>云办税厅2.0</td>
+                        <th>证件号码：</th>
+                        <td><span id="sqr"></span></td>
+                        <th>纳税人名称：</th>
+                        <td><span id="nsrmc"></span></td>
+                    </tr>
+                    <tr>
+                        <th>提交日期：</th>
+                        <td><span id="cjsj"></span></td>
+                        <th>受理日期：</th>
+                        <td ><span id="blqx"></span></td>
+                        <th>受理流水号：</th>
+                        <td ><span id="sllsh"></span></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <br>
+            <div id="tabs" class="mini-tabs tab-content" activeIndex="0" style="width:100%;height: auto;">
+                <div title="申请表">
+                    <div id="dbsx_content"></div>
+                </div>
+                <div title="附报资料">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dbsx-actions">
+    <a id="sxbjBtn" class="mini-button">事项办结</a>
+    <a id="shbjBtn" class="mini-button">事项办结</a>
+    <a id="bzzlBtn" class="mini-button">补正资料</a>
+    <a id="byslBtn" class="mini-button">不予受理</a>
+    <a id="subSqbPrintBtn" class="mini-button" onclick="sqbPrint()">打印申请表</a>
+    <a class="mini-button" onclick="doBack()" id="backBtn">返回</a>
+</div>
+
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="sxsl_service.js"></script>
+<script src="sub_sxsl_common.js"></script>
+<script src="dbsx_sub_sxsl.js"></script>
+<script src="sub_sqzlView.js"></script>
+</body>
+</html>

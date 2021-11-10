@@ -1,0 +1,12 @@
+.page-title {
+  text-align: center;
+  font-size: 18px;
+  line-height: 60px;
+}
+#filterForm tr {
+  height: 40px;
+}
+#filterForm .qymdTable {
+  width: 96%;
+  margin: 0 auto;
+}

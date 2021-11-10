@@ -1,0 +1,449 @@
+{
+  "110101": {
+    "name": "税务登记信息补录(适用于单位纳税人)",
+    "ylView": "../../views/sqgl/swdjxxbldw/YlTjView.html",
+    "ylJs": "",
+    "blxx": "../../views/sqgl/swdjxxbldw/dj_sldj_blxx.html"
+  },
+  "110121": {
+    "name": "税务登记信息补录(适用于个人)",
+    "ylView": "../../views/sqgl/swdjxxblgr/viewData.html",
+    "ylJs": "",
+    "blxx": "../../views/sqgl/swdjxxbldw/dj_sldj_blxx.html"
+  },
+  "110132": {
+    "name": "外出经营户报验登记",
+    "ylView": "../../views/sqgl/wcjybydj/WcjyylView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "110207": {
+    "name": "票种核定",
+    "ylView": "../../views/sqgl/pzhd/pzhdYlView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "110209": {
+    "name": "纸质发票领用",
+    "ylView": "../../views/fplygl-bz/fplyglblxx.html",
+    "ylJs": "../../views/fplygl-bz/fplyglblxx.js",
+    "blxx": ""
+  },
+  "110221": {
+    "name": "电子发票领用",
+    "ylView": "../../views/fplygl-bz/fplyglblxx.html",
+    "ylJs": "../../views/fplygl-bz/fplyglblxx.js",
+    "blxx": ""
+  },
+  "110401": {
+    "name": "增值税税收优惠减免备案",
+    "ylView": "../../views/zzsssjmbabl/zzsjmbablxx.html",
+    "ylJs": "",
+    "blxx": "../../views/zzsssjmbabl/zzsjmbablxxView.html"
+  },
+  "110402": {
+    "name": "一般纳税人简易办法征收备案申请",
+    "ylView": "../../views/sqgl/ybnsrjyzsrd/zsrdylView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "110403": {
+    "name": "选择按小规模纳税人纳税纳税登记管理",
+    "ylView": "../../views/sqgl/xzaxgmnsrns/xzaxgmylView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "110407": {
+    "name": "增值税即征即退备案",
+    "ylView": "../../views/sqgl/zzsjzjtba/zzsjzjtbaYl.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "110409": {
+    "name": "企业所得税优惠事项备案",
+    "ylView": "../../views/sqgl/qysdsyhsxba/qysdsyhsxbaylView.html",
+    "ylJs": "",
+    "blxx": "../../views/qysdsyhsxbabl/qysdsyhsxbabl.html"
+  },
+  "110408": {
+    "name": "税务行政许可申请",
+    "ylView": "../../views/sqgl/swxzxk/swxzxkyltj.html",
+    "ylJs": "../../views/sqgl/swxzxk/swxzxkyltj.js",
+    "blxx": ""
+  },
+  "110410": {
+    "name": "消费税税收减免备案",
+    "ylView": "../../views/xfsssjmba/xfsssjmbablxx.html",
+    "ylJs": "",
+    "blxx": "../../views/xfsssjmba/xfsssjmbablxxView.html"
+  },
+  "110801": {
+    "name": "外出经营证明开具",
+    "ylView": "../../views/sqgl/wcjyzmkj/WcjyylView.html",
+    "ylJs": "",
+    "blxx": "../../views/sqgl/wcjyzmkj/zm_wcjyzmkjsq_blxx.html"
+  },
+  "110208": {
+    "name": "票种核定调整",
+    "ylView": "../../views/sqgl/pzhdtz/pzhdtzYlView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "110123": {
+    "name": "个体工商户定额核定",
+    "ylView": "../../views/sqgl/gtgshdehd/dehdxxcjylView.html",
+    "ylJs": "../../views/sqgl/gtgshdehd/dehdxxcj.js",
+    "blxx": ""
+  },
+  "110212": {
+    "name": "专用发票代开",
+    "ylView": "../../views/sqgl/newzyfpdk/newZYDKView.html",
+    "ylJs": "../../views/sqgl/newzyfpdk/newZYDKView.js",
+    "blxx": "../../views/sqgl/newzyfpdk/xjzzszyfpdk_blxx.html"
+  },
+  "110112": {
+    "name": "财务会计制度备案",
+    "ylView": "../../views-gs/sqgl/cwkjzdba/cwkjzdbaYlView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "110111": {
+    "name": "存款账户账号备案",
+    "ylView": "../../views/sqgl/ckzhzhbg/ckzhzhbgYlView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "110104": {
+    "name": "税务变更登记",
+    "ylView": "../../views/sqgl/bgdj/YlView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "110802": {
+    "name": "外出经营证明核销",
+    "ylView": "../../views/sqgl/wcjyzmhx/WcjyylView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "110133": {
+    "name": "外出经营活动申报",
+    "ylView": "../../views/sqgl/wcjyhdsb/WcjyylView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "110001": {
+    "name": "新开户一键办税",
+    "ylView": "",
+    "ylJs": "",
+    "blxx": "../../views/xkhnsryjbs/xknsryjbscx.html"
+  },
+  "110113": {
+    "name": "增值税一般纳税人登记",
+    "ylView": "../../views/sqgl/zzsybnsrzgrd/yltjView.html",
+    "ylJs": "../../views/sqgl/zzsybnsrzgrd/yltjView.js",
+    "blxx": ""
+  },
+  "110804": {
+    "name": "跨区域涉税事项报告",
+    "ylView": "../../views/sqgl/kqysssxbg/WcjyylView.html",
+    "ylJs": "",
+    "blxx": "../../views/sqgl/kqysssxbg/zm_wcjyzmkjsq_blxx.html"
+  },
+  "110805": {
+    "name": "跨区域涉税事项报验登记",
+    "ylView": "../../views/sqgl/kqysssxby/WcjyylView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "30010415": {
+    "name": "跨区域涉税事项信息反馈",
+    "ylView": "../../views/sqgl/kqysssxfk/WcjyylView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "110213": {
+    "name": "小规模纳税人增值税普通发票代开",
+    "ylView": "../../views/sqgl/xjnewptfpdk/newPTDKView.html",
+    "ylJs": "../../views/sqgl/xjnewptfpdk/newPTDKView.js",
+    "blxx": ""
+  },
+  "110218": {
+    "name": "发票挂失损毁报案",
+    "ylView": "../../views/sqgl/fpgsshbb/YlView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "110107": {
+    "name": "注销税务登记",
+    "ylView": "../../views/sqgl/zxswdj/secondView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "110108": {
+    "name": "注销税务登记",
+    "ylView": "../../views/sqgl/zxdj/zxdjYl.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "200001": {
+    "name": "纸质发票领用",
+    "ylView": "../../views/sqgl/newFply/fply.html",
+    "ylJs": "../../views/sqgl/newFply/fply.js",
+    "blxx": ""
+  },
+  "200002": {
+    "name": "电子发票领用",
+    "ylView": "../../views/sqgl/newFply/fply.html",
+    "ylJs": "../../views/sqgl/newFply/fply.js",
+    "blxx": ""
+  },
+  "200005": {
+    "name": "发票挂失损毁报告",
+    "ylView": "../../views/sqgl/newFpgssh/YlView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "200006": {
+    "name": "票种核定",
+    "ylView": "../../views/sqgl/newPzhd/pzhdYlView.html",
+    "ylJs": "../../views/sqgl/newPzhd/pzhdTz.js",
+    "blxx": ""
+  },
+  "700006": {
+    "name": "票种核定",
+    "ylView": "../../views/sqgl/newPzhd/pzhdYlView.html",
+    "ylJs": "../../views/sqgl/newPzhd/pzhdTz.js",
+    "blxx": ""
+  },
+  "200007": {
+    "name": "票种核定调整",
+    "ylView": "../../views/sqgl/newPzhdtz/pzhdtzYlView.html",
+    "ylJs": "../../views/sqgl/newPzhdtz/pzhdTz.js",
+    "blxx": ""
+  },
+  "30090107": {
+    "name": "非居民企业选择由其主要机构场所汇总缴纳企业所得税的审批",
+    "ylView": "../../views/sqgl/xzspFjmhzqysds/fjmhzqysdsYlView.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "30090105": {
+    "name": "增值税专用发票（增值税税控系统）最高开票限额审批",
+    "ylView": "../../views/sqgl/xzspKpzgxe/yl.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "60090105": {
+    "name": "增值税专用发票（增值税税控系统）最高开票限额审批",
+    "ylView": "../../views/sqgl/xzspKpzgxe/yl.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "30090102": {
+    "name": "对纳税人延期申报的核准",
+    "ylView": "../../views/sqgl/xzspYqsbhz/yqsbhz_yl.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "60090102": {
+    "name": "对纳税人延期申报的核准",
+    "ylView": "../../views/sqgl/xzspYqsbhz/yqsbhz_yl.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "30090106": {
+    "name": "对采取实际利润额预缴以外的其他企业所得税预缴方式的核定",
+    "ylView": "../../views/sqgl/xzspJmqyhdtz/jmqyhdtz_yl.html",
+    "ylJs": "",
+    "blxx": ""
+  },
+  "110809": {
+    "name": "跨区迁移业务税务事项报告",
+    "ylView": "../../views/sqgl/kqqyqyswsxbg/zsrdylView.html",
+    "ylJs": "../../views/sqgl/kqqyqyswsxbg/kqqyqyswsxbg.js",
+    "blxx": ""
+  },
+  "11000201": {
+    "name": "新办纳税人综合套餐申请",
+    "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/xbnsrtcsqSlView.html",
+    "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/xbnsrtcsqSlView.js",
+    "blxx": "",
+    "pack": "Y",
+    "subSwsxList": {
+      "200006": {
+        "name": "票种核定",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcPzhd/xbtcPzhdYl.html",
+        "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcPzhd/xbtcPzhdYl.js",
+        "blxx": "",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcPzhd/xbtcPzhdYl.html"
+      },
+      "700006": {
+        "name": "票种核定",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcPzhd/xbtcPzhdYl.html",
+        "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcPzhd/xbtcPzhdYl.js",
+        "blxx": "",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcPzhd/xbtcPzhdYl.html"
+      },
+      "110101": {
+        "name": "税务登记信息补录（单位）",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblDw/swdjxxblDwView.html",
+        "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblDw/swdjxxblDw.js",
+        "blxx": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblDw/dj_sldj_blxx.html",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblDw/swdjxxblDwView.html"
+      },
+      "110121": {
+        "name": "税务登记信息补录（个体）",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblGr/swdjxxblGrView.html",
+        "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblGr/swdjxxblGr.js",
+        "blxx": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblGr/dj_sldj_blxx.html",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblGr/swdjxxblGrView.html"
+      },
+      "110113": {
+        "name": "增值税资格认定",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcYbnsrzgdjYl.html",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcYbnsrzgdjYl.html",
+        "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/template/ybnsrdjyl.js"
+      },
+      "110112": {
+        "name": "财务会计制度备案",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcCwkjzdbaYl.html",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcCwkjzdbaYl.html",
+        "ylJs": ""
+      },
+      "110111": {
+        "name": "存款账户账号报告",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcCkzhzhbgYl.html",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcCkzhzhbgYl.html",
+        "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcCkzhzhbg.js"
+      },
+      "110701": {
+        "name": "三方协议",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcWtkkxysYl.html"
+      },
+      "30010108": {
+        "name": "扣缴税款登记",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcKjsqdjYl.html",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcKjsqdjYl.html"
+      },
+      "11010201": {
+        "name": "税（费）种认定推荐",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/sfzrdtj/sfzrdtj.html",
+        "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/template/sfzrdtj/sfzrdtj.js"
+      },
+      "151000": {
+        "name": "CA证书开户",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcCazskhYl.html",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcCazskhYl.html",
+        "ylJs": ""
+      }
+    }
+  },
+  "11000202": {
+    "name": "新办纳税人综合套餐申请",
+    "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/xbnsrtcsqSlView.html",
+    "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/xbnsrtcsqSlView.js",
+    "blxx": "",
+    "pack": "Y",
+    "subSwsxList": {
+      "200006": {
+        "name": "票种核定",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcPzhd-cxb/xbtcPzhdYl.html",
+        "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcPzhd-cxb/xbtcPzhdYl.js",
+        "blxx": "",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcPzhd-cxb/xbtcPzhdYl.html"
+      },
+      "700006": {
+        "name": "票种核定",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcPzhd-cxb/xbtcPzhdYl.html",
+        "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcPzhd-cxb/xbtcPzhdYl.js",
+        "blxx": "",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcPzhd-cxb/xbtcPzhdYl.html"
+      },
+      "110101": {
+        "name": "税务登记信息补录（单位）",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblDw/swdjxxblDwView.html",
+        "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblDw/swdjxxblDw.js",
+        "blxx": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblDw/dj_sldj_blxx.html",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblDw/swdjxxblDwView.html"
+      },
+      "110121": {
+        "name": "税务登记信息补录（个体）",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblGr/swdjxxblGrView.html",
+        "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblGr/swdjxxblGr.js",
+        "blxx": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblGr/dj_sldj_blxx.html",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/swdjxxblGr/swdjxxblGrView.html"
+      },
+      "110113": {
+        "name": "增值税资格认定",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcYbnsrzgdjYl.html",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcYbnsrzgdjYl.html",
+        "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/template/ybnsrdjyl.js"
+      },
+      "110112": {
+        "name": "财务会计制度备案",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcCwkjzdbaYl.html",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcCwkjzdbaYl.html",
+        "ylJs": ""
+      },
+      "110111": {
+        "name": "存款账户账号报告",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcCkzhzhbgYl.html",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcCkzhzhbgYl.html",
+        "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcCkzhzhbg.js"
+      },
+      "110701": {
+        "name": "三方协议",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcWtkkxysYl.html"
+      },
+      "30010108": {
+        "name": "扣缴税款登记",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcKjsqdjYl.html",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcKjsqdjYl.html"
+      },
+      "11010201": {
+        "name": "税（费）种认定推荐",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/sfzrdtj/sfzrdtj.html",
+        "ylJs": "../../views/sqgl/xbnsrzhtcsq_wrt/template/sfzrdtj/sfzrdtj.js"
+      },
+      "151000": {
+        "name": "CA证书开户",
+        "view": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcCazskhYl.html",
+        "ylView": "../../views/sqgl/xbnsrzhtcsq_wrt/template/xbtcCazskhYl.html",
+        "ylJs": ""
+      }
+    }
+  },
+  "130101": {
+    "name": "房土一体化管理-项目注销申请",
+    "ylView": "../../views/sqgl/ftythgl/xmzxsqYl.html",
+    "ylStyle": ""
+  },
+  "130102": {
+    "name": "房土一体化管理-预征率调整申请",
+    "ylView": "../../views/sqgl/ftythgl/yzltzsqYl.html",
+    "ylStyle": ""
+  },
+  "11041502": {
+    "name": "境外旅客购物离境退税商店申请",
+    "ylView": "../../views/sqgl/ljtssdbasq/tsylView.html",
+    "ylJs": "../../views/sqgl/ljtssdbasq/tsylView.js",
+    "ylStyle": ""
+  },
+  "110110": {
+    "name": "本市分支机构独立纳税信息确认",
+    "ylView": "../../views/sqgl/fzjgnsxxqr/sqylView.html",
+    "ylStyle": ""
+  },
+  "11041601": {
+    "name": "网络平台代开资格申请",
+    "ylView": "../../views/sqgl/wlptdkzgsq/ylb.html",
+    "ylStyle": "../../views/sqgl/wlptdkzgsq/wlptdksq.css",
+    "ylJs": ""
+  },
+  "110418": {
+    "name": "开具无欠税证明",
+    "ylView": "../../views/sqgl/kjwqszm/tsylView.html",
+    "ylStyle": "",
+    "ylJs": ""
+  }
+}

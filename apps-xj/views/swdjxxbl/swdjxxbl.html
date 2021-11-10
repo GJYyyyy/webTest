@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>税务登记信息补录</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../../apps/views/dbsx/dbsxcx.css">
+</head>
+<body>
+<div class="tab-bar">
+    <a id="sydb" onclick="doSearch(this)" class="active">税务登记信息补录</a>
+</div>
+<div class="search">
+    <div class="searchC">显示查询条件</div>
+</div>
+<div id="cxtjForm" class="searchdiv">
+
+    <table width="96%" border="0" cellspacing="0" cellpadding="0" class="cxtjTable">
+
+        <tr>
+            <th>纳税人识别号：</th>
+            <td><input id="nsrsbh" name="nsrsbh" class="mini-textbox" style="width:100%;" /></td>
+        </tr>
+
+        <tr style="line-height: 40px;">
+            <th>办理期限：</th>
+            <td nowrap ><input id="blqxQ" name="blqxQ" class="mini-datepicker" format="yyyy-MM-dd" style="width:46%" emptytext=""/>
+                <span style="margin: 0 5px;">至</span>
+                <input id="blqxZ" name="blqxZ" class="mini-datepicker" format="yyyy-MM-dd" style="width:47%" emptytext=""/></td>
+        </tr>
+        <tr>
+            <td colspan="4" style="padding:10px; text-align:center;">
+                <a id="search" class="mini-button" onclick="swdjxxbl.doSearch()">查询</a>
+                <a class="mini-button" onclick="doReset()">重置</a>
+        </tr>
+    </table>
+</div>
+<div class="mini-fit">
+    <div id="swdjxxblGrid" idField="lx" class="mini-datagrid" showPager="true" style="width: 100%; height:100%;" multiSelect="true" sizeList="[30,50,100]" pageSize="30" onbeforeload="swdjxxbl.beforeLoad">
+        <div property="columns">
+            <div type="indexcolumn">序号</div>
+            <div field="rwbh" headeralign="center" align="center" allowsort="false" width="80">任务编号</div>
+            <div field="ywlb" headeralign="center" align="center" allowsort="false" width="80">业务类别</div>
+            <div field="swsxmc" headeralign="center" align="center" allowsort="false" width="120">任务名称</div>
+            <div field="nsrsbh" headeralign="center" align="center" allowsort="false" width="120">纳税人识别号</div>
+            <div field="nsrmc" headeralign="center" align="center" allowsort="false" width="120">纳税人名称</div>
+            <div field="sqsj" headeralign="center" align="center" allowsort="false" width="80">收到日期</div>
+            <div field="blqx" headeralign="center" align="center" allowsort="false" width="80">办理期限</div>
+            <div field="rwztmc" headeralign="center" align="center" allowsort="false" width="80">受理状态</div>
+            <div field="a10" name="a10" headeralign="center" align="center" allowsort="false" renderer="czRenderer" width="80">操作</div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="swdjxxbl.js"></script>
+</body>
+</html>

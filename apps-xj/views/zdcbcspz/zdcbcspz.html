@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>自动催报参数配置</title>
+    <link rel="stylesheet" href="../../../apps/styles/style.css">
+</head>
+
+<body style="background:#fff;">
+    <div class="mini-fit">
+        <div id="cxGrid" idField="cxGrid" class="mini-datagrid" allowHeaderWrap="true" showPager="false"
+            style="width: 98%;margin: 20px auto; height: 600px;" showEmptyText="true"
+            emptyText="<span style= 'color:#ff0000;'>没有数据</span>">
+            <div property="columns">
+                <div type="indexcolumn" width="50">序号</div>
+                <div field="swjgmc" headeralign="center" align="center" allowsort="false" width="160">税务机关</div>
+                <div field="dqny" headeralign="center" align="center" allowsort="false">应用年月
+                </div>
+                <div field="xqgzsj" width="160" headeralign="center" align="center" allowSort="false"
+                    dateFormat="yyyy-MM-dd HH:mm:ss">责令限期改正期限
+                    <input property="editor" class="mini-datepicker" style="width:100%;" timeFormat="HH:mm:ss"
+                        format="yyyy-MM-dd HH:mm:ss" showTime="true" />
+                </div>
+                <div field="ggrq" width="100" headeralign="center" align="center" allowSort="false"
+                    dateFormat="yyyy-MM-dd">公告日期
+                    <input property="editor" class="mini-datepicker" style="width:100%;" />
+                </div>
+                <div field="wssdrq" width="100" headeralign="center" align="center" allowSort="false"
+                    dateFormat="yyyy-MM-dd">送达日期
+                    <input property="editor" class="mini-datepicker" style="width:100%;" />
+                </div>
+                <div field="ggdz" width="120" headerAlign="center" allowSort="false">公告地点
+                    <input property="editor" class="mini-textbox" style="width:100%;" />
+                </div>
+                <div field="action" renderer="onActionRenderer" headeralign="center" align="center" allowsort="false"
+                    width="160">操作
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mini-window" id="history-win" style="width: 90%;height: 600px;display: none" title="历史记录"
+        showModal="true">
+        <div class="mini-fit">
+            <div id="historyGrid" idField="historyGrid" class="mini-datagrid" allowHeaderWrap="true" showPager="false"
+                showEmptyText="true" emptyText="<span style= 'color:#ff0000;'>没有数据</span>">
+                <div property="columns">
+                    <div type="indexcolumn" width="50">序号</div>
+                    <div field="swjgmc" headeralign="center" align="center" allowsort="false" width="160">税务机关</div>
+                    <div field="dqny" headeralign="center" align="center" allowsort="false">应用年月</div>
+                    <div field="xqgzsj" width="160" allowSort="false">责令限期改正期限</div>
+                    <div field="ggrq" width="100" allowSort="false">公告日期</div>
+                    <div field="wssdrq" width="100" allowSort="false">送达日期</div>
+                    <div field="ggdz" width="120" headerAlign="center" allowSort="false">公告地点</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="./zdcbcspz.js"></script>
+
+</html>

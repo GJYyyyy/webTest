@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    overflow: visible;
+}
+.place {
+    height: 0;
+}
+.tab-bar{
+    background: #eee;
+    padding-top: 5px;
+    border-bottom: 1px #bbb solid;
+    height: 25px;
+    overflow: visible;
+}
+.tab-bar a{
+    background: #ddd;
+    border: 1px #bbb solid;
+    padding: 5px 10px;
+}
+.tab-bar a:first-child{
+    margin-left: 15px;
+}
+.tab-bar a:hover{
+    background: #eee;
+    cursor: pointer;
+}
+.tab-bar a.active{
+    background: #fff;
+    border-bottom: 1px #fff solid;
+}
+#cxtjForm .cxtjTable{
+	text-align:center;
+	width: 95%;
+	margin: 0 auto;
+}
+.searchC{
+    cursor: pointer;
+}
+td {
+  margin-right: 10px;
+  text-align:left;
+}
+th { text-align:right;} 
+a {
+    text-decoration:underline;
+}

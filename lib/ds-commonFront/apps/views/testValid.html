@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title></title>
+	<link href="../../lib/sui-miniui/themes/icons.min.css" rel="stylesheet">
+	<link href="../../lib/sui-miniui/themes/default/miniui.min.css" rel="stylesheet">
+	<script src="../../lib/jquery/jquery.min.js"></script>
+	<script src="../../lib/jquery-validation/jquery.validate.js"></script>
+	<script src="../scripts/jquery.validate.extend.js"></script>
+	<script src="../../lib/sui-miniui/mini-all-min.js"></script>
+	<style>
+		.error{
+			color: red;
+		}
+		.border{
+			border: 1px solid #ddd;
+		}
+	</style>
+</head>
+<body>
+<div class="border">
+	<form id="form">
+		<h1>form1,直接配置在页面中(id不是必须的)</h1>
+		<p><label for="requiredInput">required必填：</label><input id="requiredInput" name="requiredInput" type="text" required="true"></p>
+		<p><label for="remoteInput">通过ajax校验：</label><input id="remoteInput" name="remoteInput" type="text" remote="remote.text"></p>
+		<p><label for="emailInput">email校验：</label><input id="emailInput" name="emailInput" type="text" email="true"></p>
+		<p><label for="urlInput">网址url校验：</label><input id="urlInput" name="urlInput" type="text" url="true"></p>
+		<p><label for="dateInput">date校验：</label><input id="dateInput" name="dateInput" type="text" date="true"></p>
+
+		<p><label for="dateISOInput">dateISO校验：</label><input id="dateISOInput" name="dateISOInput" type="text" dateISO="true"></p>
+		<p><label for="numberInput">number校验：</label><input id="numberInput" name="numberInput" type="text" number="true"></p>
+		<p><label for="nonNegativeIntInput">nonNegativeIntInput校验：</label><input id="nonNegativeIntInput" name="nonNegativeIntInput" type="text" nonNegativeInt="true"></p>
+		<p><label for="creditcardInput">creditcard校验：</label><input id="creditcardInput" name="creditcardInput" type="text" creditcard="true"></p>
+		<p><label for="equalToInput">equalTo校验：</label><input id="equalToInput" name="equalToInput" type="text" equalTo="#requiredInput"></p>
+		<p><label for="acceptInput">accept校验：</label><input id="acceptInput" name="acceptInput" type="file" accept=".txt"></p>
+		<p><label for="maxlengthInput">maxlength校验：</label><input id="maxlengthInput" name="maxlengthInput" type="text" maxlength="5"></p>
+		<p><label for="minlengthInput">minlength校验：</label><input id="minlengthInput" name="minlengthInput" type="text" minlength="5"></p>
+		<p><label for="rangelengthInput">rangelength校验：</label><input id="rangelengthInput" name="rangelengthInput" type="text" rangelength="[5,10]"></p>
+		<p><label for="rangeInput">range校验：</label><input id="rangeInput" name="rangeInput" type="text" range="[5,10]"></p>
+		<p><label for="maxInput">max校验：</label><input id="maxInput" name="maxInput" type="text" max="5"></p>
+		<p><label for="minInput">min校验：</label><input id="minInput" name="minInput" type="text" min="5"></p>
+
+		<p><label for="myCheckInput">自定义myCheck校验：</label><input id="myCheckInput" name="myCheckInput" type="text" mycheck="5" tip="this is a tip"></p>
+
+		<button type="submit">submit</button>
+	</form>
+</div>
+<div class="border">
+	<h1>form2，配置在js中</h1>
+	<form id="form2">
+		<p><input type="checkbox" id="cc">是否选中</p>
+		<p><label for="number1">number1：</label><input type="text" id="number1" name="number1"></p>
+		<p><label for="number2">number2：</label><input type="text" id="number2" name="number2"></p>
+		<p><label for="number3">number3：</label><input type="text" id="number3" name="number3"></p>
+		<p><label for="number4">number4：</label><input type="text" id="number4" name="number4"></p>
+		<p><label for="number5">number5：</label><input type="text" id="number5" name="number5"></p>
+		<button type="submit">submit</button>
+	</form>
+</div>
+<div class="border">
+	<h1>form3，同时配置在页面和js中</h1>
+	<form id="form3">
+		<p><label for="emailInput3">emailInput3：</label><input type="text" id="emailInput3" name="emailInput3" email="true"></p>
+		<p><label for="numberInput3">numberInput3：</label><input type="text" id="numberInput3" name="numberInput3" required="true"></p>
+	</form>
+</div>
+<div class="border">
+	<h1>form4,改变error位置</h1>
+	<form id="form4">
+		<p class="errorPlace"></p>
+		<p><label for="number4Input">number4Input：</label><input type="text" id="number4Input" name="number4Input" number="true" min="5"></p>
+		<p><label for="number4_1Input">number4_1Input：</label><input type="text" id="number4_1Input" name="number4_1Input" number="true" min="5"></p>
+	</form>
+</div>
+<div class="border">
+	<h1>form5,使用miniui报错</h1>
+	<form id="form5">
+		<p class="errorPlace"></p>
+		<p><label for="number5Input">number5Input：</label><input type="text" id="number5Input" name="number5Input" number="true" min="5"></p>
+		<p><label for="number5_1Input">number5_1Input：</label><input type="text" id="number5_1Input" name="number5_1Input" number="true" min="5"></p>
+		<button type="submit">submit</button>
+	</form>
+</div>
+<div class="border">
+	<form id="form6">
+		<input type="text" id="idCard" name="idCard" identityCard="true">
+	</form>
+</div>
+
+	<script>
+		var form1_validator;
+		$.validator.setDefaults({
+			submitHandler: function() {
+				alert("提交事件!");
+			}
+		});
+		var myCheck = function () {
+			console.log('in myCheck!');
+			return false;
+		};
+		$.validator.addMethod('mycheck',myCheck,'myCheck wrong.');
+		var myRequired = function () {
+			if($('#number1').val()){
+				return true;
+			}
+			return false;
+		};
+		$(function () {
+			form1_validator = $('#form').validate();
+			$('#form2').validate(
+					{
+						rules:{
+							number1: 'required',
+							number2: {
+								required:true,
+								min: 5
+							},
+							number3: {
+								required:'#cc:checked',
+								minlength: 5
+							},
+							number4: {
+								required:myRequired,//方法名
+								minlength: 5
+							}
+
+						},
+						messages:{
+							number2:{
+								min:'要不小于5，你懂？'
+							}
+						},
+						submitHandler: function () {
+							alert('you click the submit button');
+						}
+					}
+			);
+			$('#form3').validate({
+				rules: {
+					numberInput3:{
+						number:true,
+						required: true
+					}
+				},
+				messages:{
+					numberInput3:{
+						number:'jjjdjjjsjds'
+					}
+				}
+			});
+			$('#form4').validate({
+				errorElement: 'p',
+				errorLabelContainer: '#form4 .errorPlace'
+			});
+			$('#form5').validate({
+				errorPlacement: function (error, element) {
+					mini.alert(error.html());
+				}
+			});
+			$('#form6').validate();
+		});
+
+	</script>
+</body>
+</html>

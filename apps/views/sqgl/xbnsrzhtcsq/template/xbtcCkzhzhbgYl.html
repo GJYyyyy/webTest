@@ -1,0 +1,94 @@
+<div class="form-table ckzhzhbg-form" id="ckzhzhbg-yltj-form" data-view-type= 'form'>
+    <table width="100%" height="470">
+        <tr>
+            <th colspan="6" class="td-border-bottom">账号信息</th>
+        </tr>
+        <tr>
+            <td width="100" colspan="3" >缴税账号：
+                <input name="sxjszhbz" class="mini-radiobuttonlist" textField="MC" valueField="ID" required="true"
+                       requiredErrorText="请选择缴税账号" data='[{"ID":"Y","MC":"是"},{"ID":"N","MC":"否"}]' readonly="true"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">账户性质：
+                <input name="ckzhzhbg-yhzhxzDmText"  class="mini-textbox" style="width: 505px;"  readonly="true"/>
+            </td>
+
+            <td colspan="3">账户名称：
+                <input name="zhmc" id="_zhmc" type="text" class="mini-textbox" style="width: 255px;"
+                       requiredErrorText="账户名称不能为空"  readonly="true"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">行政区划：
+                <input  name="ckzhzhbg-xzqhszDmText" class="mini-textbox" type="text"  style="width: 505px" required="true" readonly="true"/>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="6" class="td-border-bottom">银行账户信息</th>
+        </tr>
+        <tr height="15"><!--占位--></tr>
+        <tr id="hzh-tr">
+            <td colspan="3" class="pd-l-1em">核准号：
+                <input name="yhkhdjzh"  class="mini-textbox" style="width: 505px"  readonly="true"/>
+            </td>
+            <td class="txt-r">发证日期：</td>
+            <td>
+                <input name="ffrq" type="text"  class="mini-datepicker"   readonly="true"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">开户银行：
+                <input name="ckzhzhbg-yhhbDmText"  class="mini-textbox" required="true" style="width: 220px"  readonly="true" />
+
+                <input name="ckzhzhbg-yhyywdDmText" class="mini-textbox" allowInput="true"  readonly="true"  style="width: 280px"/>
+            </td>
+
+            <td class="txt-r">开户日期：</td>
+            <td>
+                <input name="khrq" type="text"  class="mini-datepicker"  readonly="true" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">银行账号：
+                <input name="yhzh" class="mini-textbox"   readonly="true" style="width: 505px"/></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="pd-l-2em" colspan="6">币种：
+                <input  class="mini-radiobuttonlist" vtype="required" textField="MC" valueField="ID" name="bzName"
+                        required="true" onvaluechanged="ckzhzhbg.changeBZRadio" requiredErrorText="请选择币种" value="156" readonly="true"
+                        data='[{"ID":"156","MC":"人民币元"},{"ID":"840","MC":"美元"},{"ID":"978","MC":"欧元"},{"ID":"0","MC":"其他"}]' />
+
+                <input  class="mini-combobox" style="width:162px" onvaluechanged="ckzhzhbg.changeBZCombox"  readonly="true"
+                        allowInput="true" valueFromSelect="true" enabled="false" requiredErrorText="请选择币种"/>
+
+                <input id="hbszDm" name="hbszDm" class="mini-hidden" />
+            </td>
+        </tr>
+        <tr>
+            <th colspan="6" class="td-border-bottom">退税信息</th>
+        </tr>
+        <tr height="15"><!--占位--></tr>
+        <tr>
+            <td colspan="3">出口退税账号：
+                <input  name="cktszhbz"   readonly="true"
+                        class="mini-radiobuttonlist" textField="MC" valueField="ID"  value="N"
+                        data='[{"ID":"Y","MC":"是"},{"ID":"N","MC":"否"}]' />
+                <span style="margin-left:10px;font-size: 12px;color: #999">
+                        <!-- 注：涉及出口退税业务的选择是，且同一单位有且只有一个出口退税账户；其他选择否 --></span>
+            </td>
+            <!--  </tr>
+             <tr> -->
+            <td colspan="3">是否退税账号：
+                <input  name="tszhbz"  readonly="true"
+                        class="mini-radiobuttonlist" textField="MC" valueField="ID"  data='[{"ID":"Y","MC":"是"},{"ID":"N","MC":"否"}]' />
+                <span style="margin-left:10px;font-size: 12px;color: #999">
+                        <!-- 注：建议选择是，但同时有多个存款账户的只能选择一个作为退税账户 --></span>
+            </td>
+
+        </tr>
+    </table>
+</div>

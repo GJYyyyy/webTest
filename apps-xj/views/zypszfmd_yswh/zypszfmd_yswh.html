@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="description" content="电子税务局">
+    <meta name="keywords" content="预算维护 税务局">
+    <title>预算维护</title>
+    <link rel="stylesheet" href="../../../apps/styles/style.css">
+    <link rel="stylesheet" href="zypszfmd_yswh.css">
+</head>
+
+<body>
+    <div id="yswh" class="yswh">
+        <table class="yswh-form ml5 mb10" id="yswh-form">
+            <tr>
+                <td><strong class="txt-red">*</strong>预算所属税务机关：</td>
+                <td width="220">
+                    <input id="_ysssswjgDm" name="ysssswjgDm" class="mini-treeselect" textfield="MC" valuefield="ID"
+                        parentField="PID" shownullitem="true" allowInput="false" valueFromSelect="true" required="true"
+                        requiredErrorText="预算所属税务机关不能为空" showClose="false" />
+                </td>
+                <td>事项名称：</td>
+                <td width="220">
+                    <input id="swsxdm" name="swsxdm" class="mini-combobox" textfield="swsxmc" valuefield="swsxdm"
+                        allowInput="false" valueFromSelect="true" />
+                </td>
+                <td width="20"></td>
+                <td class="txt-r">
+                    <a class="mini-button toolBtn-blue" id="yswh-search" style="padding: 4px 15px;"
+                        onclick="yswh.handleSearch">查询</a>
+                </td>
+            </tr>
+        </table>
+        <div class="ml5 mb10 operate">
+            <a class="mini-button toolBtn-blue" iconCls="icon-add" onclick="yswh.handleAddRow">增加</a>
+            <a class="mini-button" iconCls="icon-edit" onclick="yswh.handleEditRow">修改</a>
+            <!-- <a class="mini-button" iconCls="icon-remove" onclick="yswh.handleRemoveRow">删除</a> -->
+        </div>
+    </div>
+    <div id="yswh-grid" class="mini-datagrid" style="width:100%;height:100%;" multiSelect="true" showPager="true"
+        showEmptyText="true" idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="false"
+        enabled="true" allowResize="false" onpagechanged="yswh.onpagechanged" onbeforeload="yswh.onbeforeload"
+        onbeforeselect="isShowCheck" sizeList="[10,20,50]">
+        <div property="columns">
+            <div type="checkcolumn" width="50"></div>
+            <div field="ysssswjgJc" headerAlign="center" align="center">预算所属税务机关</div>
+            <div field="swsxmc" headerAlign="center" align="center">事项名称</div>
+            <!-- <div field="sfps" headerAlign="center" align="center" renderer="onRenderSfps">是否启动配送</div> -->
+            <div field="ysrqq" headerAlign="center" align="center">预算日期起</div>
+            <div field="ysrqz" headerAlign="center" align="center">预算日期止</div>
+            <div field="ysje" headerAlign="center" align="center">预算总金额</div>
+            <div field="yzxysje" headerAlign="center" align="center">已执行预算金额</div>
+            <div field="syysje" headerAlign="center" align="center">剩余预算金额</div>
+            <div field="dzxysje" headerAlign="center" align="center">待执行预算金额</div>
+            <div field="yjje" headerAlign="center" align="center">预警金额</div>
+            <div field="whrsjh" headerAlign="center" align="center">维护人手机号码</div>
+            <div field="lrry" headerAlign="center" align="center">修改人</div>
+            <div field="xgrq" headerAlign="center" align="center">修改日期</div>
+            <div field="zt" headerAlign="center" align="center">状态</div>
+        </div>
+    </div>
+    <div class="mini-window yswh-addrow-win" id="yswh-addrow-win" showToolbar="false" showFooter="false"
+        showModal="true" title="新增" style="width: 600px;display: none;">
+        <table class="win-addrow-form" id="win-addrow-form">
+            <tr style="display: none;">
+                <td class="txt-r"></td>
+                <td>
+                    <input id="ysssswjgJc" name="ysssswjgJc" value="" class="mini-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <td width="135" class="txt-r"><strong class="txt-red">*</strong>预算所属税务机关：</td>
+                <td width="250">
+                    <input id="ysssswjgDm" name="ysssswjgDm" class="mini-treeselect" textfield="MC" valuefield="ID"
+                        parentField="PID" shownullitem="true" allowInput="false" valueFromSelect="true"
+                        showClose="false" required="true" requiredErrorText="预算所属税务机关不能为空"
+                        onbeforenodeselect="yswh.beforenodeselect" onvaluechanged="yswh.zgswjgValueChanged"
+                        emptyText="-请选择-" />
+                </td>
+            </tr>
+            <tr>
+                <td width="135" class="txt-r"><strong class="txt-red">*</strong>事项名称：</td>
+                <td width="250">
+                    <input id="sxdm" name="sxdm" class="mini-combobox" textfield="swsxmc" valuefield="swsxdm"
+                        allowInput="false" valueFromSelect="true" showClose="false" required="true"
+                        requiredErrorText="事项名称不能为空" emptyText="-请选择-" />
+                </td>
+            </tr>
+            <tr>
+                <td width="135" class="txt-r"><strong class="txt-red">*</strong>是否启动配送：</td>
+                <td width="250">
+                    <input class="mini-radiobuttonlist" textField="MC" valueField="ID" name="sfps" id="sfps"
+                        required="true" requiredErrorText="是否启动配送不能为空" value="N"
+                        data='[{"ID":"Y","MC":"是"},{"ID":"N","MC":"否"}]' />
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-r"><strong class="txt-red">*</strong>预算日期起：</td>
+                <td>
+                    <input id="ysrqq" name="ysrqq" class="mini-datepicker" format="yyyy-MM-dd" required="true"
+                        requiredErrorText="预算日期起不能为空" onblur="yswh.validDate" emptyText="-请选择-" allowInput="false" />
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-r"><strong class="txt-red">*</strong>预算日期止：</td>
+                <td>
+                    <input id="ysrqz" name="ysrqz" class="mini-datepicker" format="yyyy-MM-dd" required="true"
+                        requiredErrorText="预算日期止不能为空" onblur="yswh.validDate" emptyText="-请选择-" allowInput="false" />
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-r"><strong class="txt-red">*</strong>预算金额：</td>
+                <td>
+                    <input id="ysje" name="ysje" class="mini-textbox" vtype="required;int_14_digit_2"
+                        requiredErrorText="预算金额不能为空" int_14_digit_2ErrorText="请输入最大14位整数2位小数" onblur="yswh.validMoney"
+                        onfocus="yswh.moneyOnfocus" emptyText="-请填写-" />
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-r"><strong class="txt-red">*</strong>预警金额：</td>
+                <td>
+                    <input id="yjje" name="yjje" class="mini-textbox" vtype="required;int_14_digit_2"
+                        requiredErrorText="预警金额不能为空" int_14_digit_2ErrorText="请输入最大14位整数2位小数" onblur="yswh.validMoney"
+                        onfocus="yswh.moneyOnfocus" emptyText="-请填写-" />
+                </td>
+            </tr>
+            <tr style="display: none;">
+                <td class="txt-r"><strong class="txt-red">*</strong>已执行预算金额：</td>
+                <td>
+                    <input id="yzxysje" name="yzxysje" class="mini-textbox" value="0" readOnly="true"
+                        emptyText="-请填写-" />
+                </td>
+            </tr>
+            <tr style="display: none;">
+                <td class="txt-r"><strong class="txt-red">*</strong>待执行预算金额：</td>
+                <td>
+                    <input id="dzxysje" name="dzxysje" class="mini-textbox" value="0" readOnly="true"
+                        emptyText="-请填写-" />
+                </td>
+            </tr>
+            <tr style="display: none;">
+                <td class="txt-r"><strong class="txt-red">*</strong>剩余预算金额：</td>
+                <td>
+                    <input id="syysje" name="syysje" class="mini-textbox" readOnly="true" emptyText="-请填写-" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-r">维护人手机号：</td>
+                <td>
+                    <input id="whrsjh" name="whrsjh" class="mini-textbox" vtype="mobilePhone" emptyText="-请填写-" />
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-r"><strong class="txt-red">*</strong>修改日期：</td>
+                <td>
+                    <input id="xgrq" name="xgrq" class="mini-datepicker" allowInput="false" format="yyyy-MM-dd"
+                        value="" />
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-r"><strong class="txt-red">*</strong>修改人：</td>
+                <td>
+                    <input id="lrry" name="lrry" class="mini-textbox" value="" />
+                </td>
+            </tr>
+            <tr style="display: none;">
+                <td class="txt-r"><strong class="txt-red">*</strong>预算维护编号：</td>
+                <td>
+                    <input name="yswhId" class="mini-textbox" readOnly="true" value="" />
+                </td>
+            </tr>
+        </table>
+        <div class="txt-c mt20">
+            <a class="mini-button toolBtn-blue mr20" id="add-save" style="padding: 0 20px;"
+                onclick="yswh.handleSave">保存</a>
+            <a class="mini-button toolBtn-blue ml20" id="add-cancel" style="padding: 0 20px;"
+                onclick="yswh.handleCancel">取消</a>
+        </div>
+    </div>
+
+    <script src="../../../lib/jquery/jquery.min.js"></script>
+    <script src="../../../apps/scripts/miniui.js"></script>
+    <script src="../../scripts/efg_water.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script src="zypszfmd_yswh.js"></script>
+</body>
+
+</html>

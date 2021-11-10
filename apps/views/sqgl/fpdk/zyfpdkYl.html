@@ -1,0 +1,172 @@
+<!-- 开票信息 --->
+<h2></h2>
+<section>
+	<div id="tabs1" class="mini-tabs tab-content" activeIndex="0">
+		<div title="发票信息">
+			<div class="yl_body">
+				
+				<div class="kpxx-title text-center">
+					<div class="big-text">增值税专用发票</div>
+					<div class="small-text">此联不做报销、扣款凭证使用</div>
+				</div>
+				
+				<!-- emptyText="" -->
+				<table cellpadding="0" cellspacing="0" border="0" class="kpxx">
+					<tr>
+						<td class="gray-td vertical-td"><div style="width: 51px;">购<br />买<br />方</div></td>
+						<td colspan="4" class="bor-right-none company-info">
+							<form id="showTxl_yl" data-view-type="form">
+								<label>名<em class="w4"></em>称：</label>
+								<input style="width: 80%;text-overflow: ellipsis;" class="mini-textbox" name="ghfNsrmc" readonly /> <br />
+								
+								<label>税<em class="w4"></em>号：</label>
+								<input style="width: 80%" class="mini-textbox" name="ghfNsrsbh" readonly /><br />
+								
+								<label>电<em class="w_25"></em>话<em class="w_25"></em>及<em class="w_25"></em>地<em class="w_25"></em>址：</label>
+								<input style="width: 67%" class="mini-textbox" name="ghfLxdh" readonly />
+								<input style="width: 40%;text-overflow: ellipsis;" class="mini-textbox" name="ghfDz" readonly /> <br />
+								
+								<label>开户行及账号：</label>
+								<input style="width: 86%;text-overflow: ellipsis;" class="mini-textbox" name="ghfYhhbMc" readonly />
+								<input style="width: 40%;text-overflow: ellipsis;" class="mini-textbox" name="ghfYhkhzh" readonly />
+							</form>
+						</td>
+						<td colspan="2" class="bor-left-none text-right" style="padding-right: 10px;"></td>
+						<td class="gray-td vertical-td"><label style="display: block; width: 50px;">密<br />码<br />区</label></td>
+						<td colspan="3">
+							<div style="width: 312px;">&nbsp;</div>
+						</td>
+					</tr>
+					
+					<tr>
+						<td colspan="11" style="padding: 0px; ">
+							<div data-view-type="datagrid">
+								<div id="lwhwxx-yl-grid" class="mini-datagrid" style="width:100%; height:318px;"
+								     allowCellEdit="true" allowCellSelect="true" multiSelect="true" editNextOnEnterKey="true"  editNextRowCell="true"
+								     idField="id">
+									<div property="columns">
+										<!--必须选一个  <div type="checkcolumn" width="50">选择</div> -->
+										<!--<div field="hwlwmc" displayField="hwlwmc" type="mini-textbox">货物或劳务名称-->
+											<!--&lt;!&ndash; <input class="mini-combobox" emptyText="请选择" onvaluechanged="selectChangeLw" /> &ndash;&gt;-->
+										<!--</div>-->
+										<div field="MC">货物或劳务名称</div>
+										
+										<div field="ggxh">规格型号
+											<!-- <input name="ggxh" class="mini-textbox" emptyText="非必填" /> -->
+										</div>
+										<div field="dwslDmText">计量单位
+											<!-- <input name="dw" class="mini-combobox" textField="MC" /> -->
+										</div>
+										<div field="hlsl">数量
+											<!-- <input vtype="float" name="hlsl" class="mini-textbox" onvalidation="onFloatValidae" emptyText="非必填" /> slBlur-->
+										</div>
+										<div field="hldj">单价（不含税）
+											<!-- <input vtype="float" name="hldj"onvalidation="onFloatValidae" class="mini-textbox" />djBlur -->
+										</div>
+										<div field="jeHs">金额（含税）
+											 <!-- <input vtype="float" name="jeHs" class="mini-textbox" onvalidation="onFloatValidae" />jsjebhs -->
+										</div>
+										<div field="je" width="129">金额（不含税）
+											 <!-- <input vtype="float" name="je" class="mini-textbox" />jebhsBlur  onvalidation="onFloatValidae" -->
+										</div>
+										<div class="gray-td" field="slv" width="60">税率</div>
+										<div class="gray-td bor-right-none" field="se" dataType="float" width="100" >税额
+											<!-- <input name="se" class="mini-textbox" readonly /> -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</td>
+					
+					</tr>
+					
+					<tr class="input-nobor hj-td" id="hjse_yl" data-view-type="form">
+						<td class="gray-td" colspan="2">合计</td>
+						<td class="gray-td bor-right-none"></td>
+						<td class="gray-td bor-right-none bor-left-none"></td>
+						<td class="gray-td bor-right-none bor-left-none"></td>
+						<td class="gray-td bor-right-none bor-left-none"></td>
+						<td class="gray-td bor-left-none text-center" colspan="2" width="141px">
+							<input class="mini-textbox text-center" id="jehsHj" name="jehsHj" readonly />
+						</td><!-- 金额（含税） 自动计算 -->
+						<td class="gray-td" width="140px">
+							<input class="mini-textbox" id="jebhsHj" name="jebhsHj" readonly />
+						</td><!-- 金额（不含税 ) 合计 自动计算 -->
+						<td class="gray-td" width="69px">——</td>
+						<td class="gray-td" width="119px">
+							<input class="mini-textbox" id="seHj" name="seHj" readonly />
+						</td><!-- 税额 自动计算 -->
+					</tr>
+					<tr id="jshj_yl_view" data-view-type="form">
+						<td class="gray-td" colspan="2">价税合计（大写）</td>
+						<td colspan="9" style="line-height: 24px;" class="input-nobor">
+							<input class="mini-textbox" name="hjdx" style="width: 40%; padding: 0px" readonly value="零元整" />
+							<label style="margin-left: 30%;">（小写）</label>￥
+							<input class="mini-textbox" style="width: 170px; padding: 0px" name="hjxx" readonly />
+						</td>
+					</tr>
+					
+					<tr id="xhfxx_yl" data-view-type="form">
+						<td class="gray-td vertical-td">销<br />售<br />方</td>
+						<td colspan="6" class="company-info">
+							<label>名<em class="w4"></em>称：</label>
+							<input style="width: 80%" class="mini-textbox" name="nsrmc" readonly /> <br />
+							
+							<label>税<em class="w4"></em>号：</label>
+							<input style="width: 80%" class="mini-textbox" name="nsrsbh" readonly /><br />
+							
+							<label>电<em class="w_25"></em>话<em class="w_25"></em>及<em class="w_25"></em>地<em class="w_25"></em>址：</label>
+							<input style="width: 110px" class="mini-textbox" name="jbrdh" readonly id="zpdk-skfxx-jbrdh" />
+							<input style="width: 30%" class="mini-textbox" name="scjydz" readonly /><br />
+							
+							<label>开户行及账号：</label>
+							<input name="yhhbmc" style="width: 110px" class="mini-textbox" name="" readonly />
+							<input name="yhzh" style="width: 40%" class="mini-textbox" name="" readonly />
+						
+						</td>
+						<td class="gray-td vertical-td"><label>备<br />注</label></td>
+						<td colspan="3">
+							<input maxlength="200" style="height: 110px; width: 95%; line-height: 18px;" class="mini-textarea bz-text" name="bz" readonly emptyText="请输入备注" />
+						</td>
+					</tr>
+					
+					<tr class="bor-none" id="sfrFhfForm_yl" data-view-type="form">
+						<td colspan="3">
+							<label>收款人：</label>
+							<input class="mini-textbox" name="skr" id="skr" style="width: 150px;" readonly />
+						</td>
+						<td colspan="2">
+							<label>复核人：</label>
+							<input class="mini-textbox" name="fhr" id="fhr" style="width: 150px;" readonly />
+						</td>
+						<td colspan="2">
+							<label>开票人：</label>
+							<input class="mini-textbox" name="kpr"  style="width: 150px;" readonly />
+						</td>
+						<td colspan="4">
+							<label>销售方：</label>（章）
+						</td>
+					</tr>
+				</table>
+				
+			</div>
+		</div>
+		
+		<div title="附报资料">
+			<div data-view-type="datagrid">
+				<div id="fbzl-yl-grid" class="mini-datagrid" style="width:1160px;height:260px;" allowResize="false" enabled="true" showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false" idField="id" checkSelectionOnly="true" allowCellSelect="true"
+				     allowCellEdit="true" emptyText="该事项不需要上传附报资料">
+					<div property="columns">
+						<div type="indexcolumn" width="50">序号</div>
+						<div field="fbzlMc" class="xxxxx">资料名称</div>
+						<div field="scCount">上传数量</div>
+						<div field="bslxDm" renderer="onRenderApply">要求</div>
+						<!-- <div field="status" renderer="onRenderStatus">状态</div> -->
+						<div field="status" renderer="ylonRenderOpearte" align="center">操作</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+</section>

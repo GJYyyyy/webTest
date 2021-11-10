@@ -1,0 +1,40 @@
+.searchC {
+  cursor: pointer;
+}
+#qymdFrom .qymdTable {
+  width: 96%;
+  margin: 0 auto;
+}
+#qymdFrom .qymdTable tr {
+  height: 40px;
+}
+.searchdiv th {
+  text-align: right;
+}
+.searchC {
+  cursor: pointer;
+}
+.mini-datagrid th {
+  font-size: 12px !important;
+}
+.mini-datagrid td {
+  font-size: 12px !important;
+}
+#t-win table {
+  border-collapse:collapse;
+  border: 1px solid black;
+}
+#t-win tr {
+  height: 35px;
+}
+#t-win th {
+  border: 1px solid black;
+  text-indent: 5px;
+}
+#t-win td {
+  border: 1px solid black;
+  text-indent: 5px;
+}
+#t-win .mini-panel-body {
+  height: auto !important;
+}

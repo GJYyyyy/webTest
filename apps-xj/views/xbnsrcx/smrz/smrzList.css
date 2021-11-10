@@ -1,0 +1,16 @@
+.qyryxxForm, .qyryxxGrid {
+    margin: 0 10px;
+}
+.qyryxxForm {
+    padding: 15px;
+}
+.qyryxxForm table {
+    width: 100%;
+}
+.qyryxxForm table th {
+    text-align: right;
+}
+.qyryxxGrid {
+    width: 90%;
+    margin: 0 auto;
+}

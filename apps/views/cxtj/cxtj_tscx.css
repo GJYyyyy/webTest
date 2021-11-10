@@ -1,0 +1,26 @@
+table {
+    margin: 0 auto;
+}
+
+td {
+    padding: 5px 0;
+}
+
+.db {
+    display: block;
+}
+
+.p30 {
+    padding: 30px 0
+}
+
+table[id=mini-grid-table-headtscxGrid]{
+    margin: 0 !important;
+}
+
+
+#search {
+    width: 150px;
+    border-radius: 5px;
+    padding: 5px 0;
+}

@@ -1,0 +1,142 @@
+.content {
+  padding: 10px; }
+.content .search-box-wrap {
+  margin: 20px 0; }
+.table_div table th{
+  text-align: right;
+}
+.txyzm-tr .imgCode-box {
+  display: inline-block;
+  width: 120px;
+  height: 32px;
+  vertical-align: middle;
+}
+.txyzm-tr .imgCode{
+  display: block;
+}
+
+.form1-table {
+  margin: 0 auto; }
+.form1-table tr th {
+  text-align: right; }
+
+.first-table {
+  width: 500px;
+  font-size: 17px;
+}
+.first-table tr {
+  line-height: 60px; }
+
+.submitValidate .foot-bar{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  text-align: center;
+}
+#scjydzxzqhszDm,.scjydzxzqhszDm{
+  width: 250px !important;
+}
+#bghscjydz,.bghscjydz{
+  float: none !important;
+  width: 300px !important;
+}
+.ynnsr-table{
+  width: 100%;
+}
+.gzAndRq{
+  text-align: right;
+}
+/*.mini-grid-body{*/
+/*overflow-x: hidden;*/
+/*}*/
+.mini-grid-border{
+  width: 99%;
+}
+.ynnsr-table-yl{
+  width: 100%;
+}
+.longTd{
+  width: 300px;
+}
+.jkjg{
+  color: #3399FF;
+}
+.colorRed{
+  color: red;
+}
+.searchBynsrshb{
+  margin: 20px 0;
+}
+.search-box-content{
+  margin: 20px 0;
+}
+
+/*.search-box-content table{
+    width: 100% !important;
+}*/
+.mini-grid-border {
+  width: 100% !important;
+}
+
+.Yltable th,.Yltable td{
+  padding: 8px;
+}
+.w120 .mini-buttonedit,.w120 .mini-textbox{
+  width: 120px !important;
+}
+.w120 .mini-textbox-border{
+  padding: 0;
+}
+.w10p{
+  width: 10%;
+}
+.w15p{
+  width: 15%;
+}
+.ta-center{
+  text-align: center;
+}
+.mt80{
+  margin-top: 80px;
+}
+.color-blue{
+  color: blue;
+}
+.mini-grid-emptyText{
+  text-align: center;
+}
+.inlineblock{
+  display: inline-block;
+}
+.wh100{
+  width: 100%;
+  height: 100%;
+}
+.lineH36{
+  line-height: 36px;
+}
+.checkGlyRow-form tr{
+  height: 36px;
+}
+.mini-textbox-border{
+  padding-left: 0;
+}
+.step_tx_form_third .mini-grid-body{
+  overflow-x: scroll;
+}
+.searchBtn{
+  padding: 3px 10px;
+}
+.searchBtn .mini-button-pressed{
+  padding: 3px 10px;
+}
+body a.searchBtn:hover{
+  padding: 3px 10px;
+}
+.searchdiv{
+  margin-top: 20px;
+}
+.searchdiv th {
+  text-align: right;
+}

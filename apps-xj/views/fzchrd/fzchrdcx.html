@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>非正常户认定查询</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./fzchrdBaseCss.css">
+</head>
+<body style="background:#fff;">
+<div class="search">
+    <div class="searchC">查询条件</div>
+</div>
+
+<div id="qymdFrom" class="searchdiv">
+    <table width="96%" border="0" cellspacing="0" cellpadding="0" class="qymdTable" id="qymdTable">
+        <tr>
+            <th style="width: 15%;text-align: right">纳税人识别号：</th>
+            <td style="width: 35%;padding-bottom: 10px;"><input name="nsrsbh" type="text" id="nsrsbh" class="mini-textbox" style="width: 100%"
+                                          vtype="rangeLength:15,20" onvalidation="nsrsbhValidate"
+                                          maxLengthErrorText="编号长度不能超过20个字符" minLengthErrorText="编号长度不能低于15个字符"
+                                          requiredErrorText="纳税人识别号不能为空"/></td>
+            <th style="width: 15%;text-align: right">非正常户认定日期：</th>
+            <td nowrap style="width: 35%">
+                <input id="rdrqQ" name="rdrqQ" type="text" class="mini-datepicker" style="width: 46%"
+                       format="yyyy-MM-dd" requiredErrorText="请选择有效期起"
+                       onvaluechanged="fzchrdcx.sqrqQChange"/>
+                <span style="display: inline-block;width: 5%;text-align: center;">至</span>
+                <input id="rdrqZ" name="rdrqZ" type="text" class="mini-datepicker" style="width: 46%"
+                       format="yyyy-MM-dd" requiredErrorText="请选择有效期止"
+                       onvaluechanged="fzchrdcx.sqrqZChange"/>
+            </td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 0;text-align: right">主管税务机关：</th>
+            <td>
+                <!--<input id="zgswjg" name="zgswjg" class="mini-combobox" textfield="swjgmc" valuefield="swjgdm"-->
+                <!--url="../../../../api/xj/wtgl/cxtj/getSxtjSwjg" shownullitem="false"-->
+                <!--style="width:100%;" valueFromSelect="true" allowInput="false" requiredErrorText="主管税务机关不能为空"/>-->
+                <input id="zgswjg" name="zgswjg" class="mini-treeselect"
+                       emptyText="--请选择--" textField="jgMc" allowInput="true"
+                       valueFromSelect="true" popupWidth="357px;" valueField="jgDm"
+                       parentField="PID" showQueryToolBar="false" style="width:100%;"
+                       required="true" requiredErrorText="主管税务机关不能为空"/>
+            </td>
+            <th style="text-align: right">检查人员：</th>
+            <td>
+                <input id="jcrydm" name="jcrydm" type="text" class="mini-combobox" style="width: 100%"
+                       allowInput="false" textfield="swrymc" valuefield="swrydm"
+                       valueFromSelect="true" emptyText=" " url="/dzgzpt-wsys/api/sh/fzchrd/get/dcry"
+                       nullItemText=" " onvaluechanged="fzchrdcx.wtdlChange"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" style="padding:10px; text-align:center;">
+                <a id="search" class="mini-button" onclick="fzchrdcx.doSearch">查询</a>
+                <a class="mini-button" onclick="fzchrdcx.doReset">重置</a>
+                <!--<a class="mini-button" onclick="fzchrdcx.exportFpqd">导出</a>-->
+        </tr>
+    </table>
+</div>
+
+<div id="qymdGrid" class="mini-datagrid" showPager="true" style="width: 99%; height:500px; margin: 0 auto;"
+     sizeList="[30,50,100]" pageSize="30" allowCellWrap="false" allowHeaderWrap="true" fitColumns="true">
+    <div property="columns">
+        <div type="indexcolumn" width="60">序号</div>
+        <!--<div field="rwbh"  align="center" align="center" allowsort="false" width="120">任务编号</div>-->
+        <div field="nsrsbh" align="center" headeralign="center" width='120'>社会信用代码</div>
+        <div field="nsrmc" align="center" headeralign="center" width='120'>纳税人名称</div>
+        <div field="sfqs" renderer="sfqsRenderer" align="center" headeralign="center" width='100'>是否存在欠税（不含罚款）</div>
+        <div field="jcry" align="center" headeralign="center" width='80'>检查人员</div>
+        <div field="jcrq" align="center" headeralign="center" width='80' dateFormat="yyyy-MM-dd">检查时间</div>
+        <div field="sfysysksb" renderer="sfysysksbRenderer" align="center" headeralign="center" width='100'>是否已使用税控设备</div>
+        <div field="jcqkmc" renderer="jcqkRenderer" align="center" headeralign="center" width='100'>检查情况及结果</div>
+        <div field="ysyj" align="center" renderer="ysyjRenderer" headeralign="center" width='120'>实施部门所长审核意见</div>
+        <div field="ysyjsm" align="center" headeralign="center" width='120'>实施部门所长意见说明</div>
+        <div field="esyj" align="center" renderer="esyjRenderer" headeralign="center" width='120'>征管科（处）负责人审核意见</div>
+        <div field="esyjsm" align="center" headeralign="center" width='120'>征管科（处）负责人意见说明</div>
+        <div field="rdrq" headeralign="center" dateFormat="yyyy-MM-dd" align="center" allowsort="false"
+             width="100">认定日期
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="./fzchrdcx.js"></script>
+</html>

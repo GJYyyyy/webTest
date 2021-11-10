@@ -1,0 +1,263 @@
+<section class="forth-step">
+    <div class="sczl">
+        <div id="tabsPzhd" class="mini-tabs tab-content" activeIndex="0">
+            <div title="核定申请信息" name="hesqxx">
+                <div class="lprxx-area">
+                    <h3>领票人信息</h3>
+                    <div data-view-type="datagrid">
+                        <div id="pzhdlprxx" class="mini-datagrid" style="width:100%;height:143px;"
+                             allowResize="false"
+                             enabled="true" showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true"
+                             allowSortColumn="false" idField="id" checkSelectionOnly="true" allowCellSelect="true"
+                             allowCellEdit="false" style="width:100%;height:143px;">
+                            <div property="columns">
+                                <div field="gprxm" class="xxxxx" align="center">领票人姓名</div>
+                                <div field="mobile" align="center">联系电话</div>
+                                <div field="zjlxmc" align="center">证件类型</div>
+                                <div field="zjhm" align="center">证件号码</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pzhd-area">
+                    <h3>纳税人领用发票票种核定表</h3>
+                    <div data-view-type="datagrid">
+                        <div id="pzhdhdbxx" class="mini-datagrid" style="width:100%;height:143px;"
+                             allowresize="false" showpager="false" allowCellValid="true"
+                             allowCellSelect="true" allowCellEdit="true">
+                            <div property="columns">
+                                <div field="fpzlDm" headerAlign="center" align="center" width="80">发票种类代码</div>
+                                <div field="fpzlmc" headerAlign="center" align="center" width="180">发票种类名称</div>
+                                <div field="dffpzgkpxe" headerAlign="center" align="center" style="width:200%;">
+                                    单份发票最高开票限额
+                                </div>
+                                <div field="jldwmc" headerAlign="center" align="center" width="50">单位</div>
+                                <div field="myzggpsl" headerAlign="center" align="center" width="85">每月最高领票数量</div>
+                                <div field="cpzgsl" headerAlign="center" align="center" width="70">每月最高持票量</div>
+                                <div field="mczggpsl" headerAlign="center" align="center" width="85">每次最高领用数量</div>
+                                <div field="fpgpfsDm" type="comboboxcolumn" autoShowPopup="true" align="center"
+                                     headerAlign="center" readonly="true" width="70">购票方式
+                                    <input property="editor" class="mini-combobox" style="width:100%;"
+                                           data="[{ID: '1', MC: '验旧领新'}]"/>
+                                </div>
+                                <div field="lxkpsx" headerAlign="center" vtype="int;bigThanZero" align="center" width="85" bigThanZeroErrorText="离线开票时限不能为负数">离线开票时限
+                                    <input property="editor" class="mini-textbox"/>
+                                </div>
+                                <div field="lxkpljxe" headerAlign="center" vtype="int;bigThanZero" align="center" width="85" bigThanZeroErrorText="离线开票限额不能为负数">离线开票限额
+                                    <input property="editor" class="mini-textbox"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div title="最高开票限额审批表" name="zgkpxesq" visible="false">
+                <div id="zgkpxespb" data-view-type="form">
+                    <table class="sp-table">
+                        <thead>
+                        <tr>
+                            <td class="title" colspan="5">税务行政许可申请表</td>
+                        </tr>
+                        <tr>
+                            <td class="txt-l">申请日期：</td>
+                            <td colspan="4"><input name="sqrq" class="mini-textbox" readonly/></td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td rowspan="8">申请人</td>
+                            <td>申请人名称</td>
+                            <td colspan="3"><input name="nsrmc" class="mini-textbox" readonly/></td>
+                        </tr>
+                        <tr>
+                            <td>统一社会信用代码（纳税人识别号）</td>
+                            <td colspan="3"><input name="shxydm" class="mini-textbox" readonly/></td>
+                        </tr>
+                        <tr>
+                            <td>法定代表人（负责人）</td>
+                            <td colspan="3"><input name="fddbrmc" class="mini-textbox" readonly/></td>
+                        </tr>
+                        <tr>
+                            <td>地址及邮政编码</td>
+                            <td colspan="3"><input name="dzjyzbm" class="mini-textbox" readonly/></td>
+                        </tr>
+                        <tr>
+                            <td>经办人</td>
+                            <td><input name="bsrmc" class="mini-textbox" readonly/></td>
+                            <td>身份证件号码</td>
+                            <td><input name="bsrsfzjhm" class="mini-textbox" readonly/></td>
+                        </tr>
+                        <tr>
+                            <td>联系电话</td>
+                            <td><input name="bsryddh" class="mini-textbox" readonly/></td>
+                            <td>联系地址</td>
+                            <td><input name="scjydz" class="mini-textbox" readonly/></td>
+                        </tr>
+                        <tr>
+                            <td>受托代理人</td>
+                            <td><input name="stdlrxm" class="mini-textbox" readonly/></td>
+                            <td>身份证件号码</td>
+                            <td><input name="stdlrsfzjhm" class="mini-textbox" readonly/></td>
+                        </tr>
+                        <tr>
+                            <td>联系电话</td>
+                            <td><input name="stdlryddh" class="mini-textbox" readonly/></td>
+                            <td>联系地址</td>
+                            <td><input name="stdlrlxdz" class="mini-textbox" readonly/></td>
+                        </tr>
+                        <tr>
+                            <td>申请事项</td>
+                            <td colspan="4">
+                                <input class="mini-radiobuttonlist" repeatItems="7" repeatLayout="table" repeatDirection="vertical"
+                                       textField="text" valueField="id" name="sqsx"
+                                       data="[{id: '01', text: '一、企业印制发票审批'},{id: '02', text: '二、对纳税人延期缴纳税款的核准'},
+                             {id: '03', text: '三、对纳税人延期申报的核准'},{id: '04', text: '四、对纳税人变更纳税定额的核准'}
+                             ,{id: '05', text: '五、增值税专用发票（增值税税控系统）最高开票限额审批'},{id: '06', text: '六、对采取实际利润额预缴以外的其他企业所得税预缴方式的核定'}
+                             ,{id: '07', text: '七、非居民企业选择由其主要机构场所汇总缴纳企业所得税的审批'}]" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>申请材料</td>
+                            <td colspan="4" class="txt-l">
+                                <p>除提供经办人身份证件（<input type="checkbox" readonly>）,应根据申请事项提供以下相应材料：</p>
+                                <h3>一、企业印制发票审批</h3>
+                                <input class="mini-checkboxlist" repeatItems="5" repeatLayout="table" repeatDirection="vertical"
+                                       textField="text" valueField="id"
+                                       data="[{id: '01', text: '1、税务登记证件'},{id: '02', text: '2、《印刷经营许可证》或《其他印刷品印刷许可证》'},
+                             {id: '03', text: '3、生产设备、生产流程及安全管理制度'},{id: '04', text: '4、生产工艺及产品检验制度'}
+                             ,{id: '05', text: '5、保存、运输及交付相关制度'}]" readonly>
+                                <h3>二、对纳税人延期缴纳税款的核准</h3>
+                                <input class="mini-checkboxlist" repeatItems="7" repeatLayout="table" repeatDirection="vertical"
+                                       textField="text" valueField="id"
+                                       data="[{id: '01', text: '1、《延期缴纳税款申请审批表》'},{id: '02', text: '2、纳税人申请延期缴纳税款报告（详细说明申请原因，人员工资、社会保险费支出情况、连续三个月缴纳税款情况）'},
+                             {id: '03', text: '3、当期货币资金余额情况及所有银行存款账户的对账单'},{id: '04', text: '4、应付职工工资和社会保险费等省税务机关要求提供的支出预算'}
+                             ,{id: '05', text: '5、所有银行存款账户的对账单原件'},{id: '06', text: '6、《资产负债表》'},
+                             {id: '07', text: '7、因不可抗力，导致纳税人发生较大损失，正常生产经营活动受到较大影响的，应报送因不可抗力的灾情报告或公安机关出具的事故证明。'}]" readonly>
+                                <h3>三、对纳税人延期申报的核准</h3>
+                                <input class="mini-checkboxlist" repeatItems="6" repeatLayout="table" repeatDirection="vertical"
+                                       textField="text" valueField="id"
+                                       data="[{id: '01', text: '1、《延期申报申请核准表》'},{id: '02', text: '2、《资产负债表》'},
+                             {id: '03', text: '3、当期货币资金余额情况及所有银行存款账户的对账单'},
+                             {id: '04', text: '4、应付职工工资和社会保险费等省税务机关要求提供的支出预算'},
+                             {id: '05', text: '5、纳税人申请延期缴纳税款报告（详细说明申请原因，人员工资、社会保险费支出情况、连续三个月缴纳税款情况）'},
+                             {id: '06', text: '6、因不可抗力，导致纳税人发生较大损失，正常生产经营活动受到较大影响的，应报送因不可抗力的灾情报告或公安机关出具的事故证明。'}]" readonly>
+                                <h3>四、对纳税人变更纳税定额的核准</h3>
+                                <input class="mini-checkboxlist" repeatItems="1" repeatLayout="table" repeatDirection="vertical"
+                                       textField="text" valueField="id" data="[{id: '01', text: '1、申请变更纳税定额的相关证明材料'}]" readonly>
+                                <h3>五、增值税专用发票（增值税税控系统）最高开票限额审批</h3>
+                                <input id="zgkpxeCheckbox" name="zgkpxeCheckbox" class="mini-checkboxlist" repeatItems="1" repeatLayout="table" repeatDirection="vertical"
+                                       textField="text" valueField="id" data="[{id: '01', text: '1、增值税专用发票最高开票限额申请单'}]" readonly>
+                                <h3>六、对采取实际利润额预缴以外的其他企业所得税预缴方式的核定</h3>
+                                <input class="mini-checkboxlist" repeatItems="1" repeatLayout="table" repeatDirection="vertical"
+                                       textField="text" valueField="id" data="[{id: '01', text: '1、按照月度或者季度的实际利润额预缴确有困难的证明材料'}]" readonly>
+                                <h3>七、非居民企业选择由其主要机构场所汇总缴纳企业所得税的审批</h3>
+                                <input class="mini-checkboxlist" repeatItems="2" repeatLayout="table" repeatDirection="vertical"
+                                       textField="text" valueField="id" data="[{id: '01', text: '1、汇总缴纳企业所得税的机构、场所对其他机构、场所负有管理责任的证明材料'},
+                               {id: '02', text: '2、设有完整的账簿、凭证，能够准确反应各机构、场所的收入、成本、费用和盈亏情况的证明材料'}]" readonly>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div title="最高开票限额申请单" name="zgkpxesqd" visible="false">
+                <div id="zgkpxesqd" data-view-type="form">
+                    <table class="sp-table">
+                        <thead>
+                        <tr>
+                            <td class="title" colspan="4">增值税专用发票最高开票限额申请单</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="txt-r">纳税人识别号：</td>
+                            <td><input name="nsrsbh" class="mini-textbox" readonly/></td>
+                            <td class="txt-r">纳税人名称：</td>
+                            <td><input name="nsrmc" class="mini-textbox" readonly/></td>
+                        </tr>
+                        <tr>
+                            <td class="txt-r">地址：</td>
+                            <td colspan="3"><input name="scjydz" class="mini-textbox" readonly/></td>
+                        </tr>
+                        <tr>
+                            <td class="txt-r">联系电话：</td>
+                            <td colspan="3"><input name="scjydlxdh" class="mini-textbox" readonly/></td>
+                        </tr>
+                        <tr>
+                            <td class="txt-r">申请最高开票限额（增值税）：</td>
+                            <td colspan="3"><input class="mini-radiobuttonlist" repeatItems="8"
+                                                   textField="text" valueField="id" name="checkValue"
+                                                   data="[{id: '7', text: '一百元'},{id: '6', text: '一千元'},{id: '5', text: '一万元'},
+                     {id: '4', text: '十万元'},{id: '3', text: '一百万元'}
+                     ,{id: '2', text: '一千万元'},{id: '1', text: '一亿元'}
+                     ,{id: '', text: '未选择'}]" readonly></td>
+                        </tr>
+                        <tr>
+                            <td class="txt-r">申请理由：</td>
+                            <td colspan="3"><input name="sqly" class="mini-textarea" width="100%" readonly></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style type="text/css">
+    .txt-l {
+        text-align: left !important; }
+    .txt-r {
+        text-align: right !important; }
+    #zgkpxesp-form .sp-table, #zgkpxespb .sp-table, #zgkpxesqd-form .sp-table, #zgkpxesqd .sp-table {
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse; }
+    #zgkpxesp-form .sp-table tr, #zgkpxespb .sp-table tr, #zgkpxesqd-form .sp-table tr, #zgkpxesqd .sp-table tr {
+        line-height: 30px; }
+    #zgkpxesp-form .sp-table thead td, #zgkpxespb .sp-table thead td, #zgkpxesqd-form .sp-table thead td, #zgkpxesqd .sp-table thead td {
+        border: none; }
+    #zgkpxesp-form .sp-table thead td.title, #zgkpxespb .sp-table thead td.title, #zgkpxesqd-form .sp-table thead td.title, #zgkpxesqd .sp-table thead td.title {
+        font-size: 18px;
+        font-weight: bold; }
+    #zgkpxesp-form .sp-table td, #zgkpxespb .sp-table td, #zgkpxesqd-form .sp-table td, #zgkpxesqd .sp-table td {
+        border: 1px solid #ccc;
+        text-align: center; }
+    #zgkpxesp-form .sp-table td.mini-radiobuttonlist-td, #zgkpxespb .sp-table td.mini-radiobuttonlist-td, #zgkpxesqd-form .sp-table td.mini-radiobuttonlist-td, #zgkpxesqd .sp-table td.mini-radiobuttonlist-td {
+        text-align: left;
+        border: none; }
+    #zgkpxesp-form .sp-table td .mini-radiobuttonlist-table tr, #zgkpxespb .sp-table td .mini-radiobuttonlist-table tr, #zgkpxesqd-form .sp-table td .mini-radiobuttonlist-table tr, #zgkpxesqd .sp-table td .mini-radiobuttonlist-table tr {
+        line-height: 22px; }
+    #zgkpxesp-form .sp-table td .mini-radiobuttonlist-table tr .mini-radiobuttonlist-item, #zgkpxespb .sp-table td .mini-radiobuttonlist-table tr .mini-radiobuttonlist-item, #zgkpxesqd-form .sp-table td .mini-radiobuttonlist-table tr .mini-radiobuttonlist-item, #zgkpxesqd .sp-table td .mini-radiobuttonlist-table tr .mini-radiobuttonlist-item {
+        height: 22px; }
+    #zgkpxesp-form .sp-table td.mini-checkboxlist-td, #zgkpxespb .sp-table td.mini-checkboxlist-td, #zgkpxesqd-form .sp-table td.mini-checkboxlist-td, #zgkpxesqd .sp-table td.mini-checkboxlist-td {
+        text-align: left;
+        border: none; }
+    #zgkpxesp-form .sp-table td.mini-checkboxlist-td .mini-checkboxlist-item label span, #zgkpxespb .sp-table td.mini-checkboxlist-td .mini-checkboxlist-item label span, #zgkpxesqd-form .sp-table td.mini-checkboxlist-td .mini-checkboxlist-item label span, #zgkpxesqd .sp-table td.mini-checkboxlist-td .mini-checkboxlist-item label span {
+        margin-left: 5px;
+        color: #0594db; }
+    #zgkpxesp-form .sp-table td input[type=text], #zgkpxespb .sp-table td input[type=text], #zgkpxesqd-form .sp-table td input[type=text], #zgkpxesqd .sp-table td input[type=text] {
+        width: 100%;
+        height: 30px;
+        outline: none; }
+    #zgkpxesp-form .sp-table td .mini-checkboxlist.mini-readonly, #zgkpxespb .sp-table td .mini-checkboxlist.mini-readonly, #zgkpxesqd-form .sp-table td .mini-checkboxlist.mini-readonly, #zgkpxesqd .sp-table td .mini-checkboxlist.mini-readonly {
+        color: #ccc; }
+    #zgkpxesp-form .sp-table td .mini-checkboxlist.mini-readonly#zgkpxeCheckbox, #zgkpxespb .sp-table td .mini-checkboxlist.mini-readonly#zgkpxeCheckbox, #zgkpxesqd-form .sp-table td .mini-checkboxlist.mini-readonly#zgkpxeCheckbox, #zgkpxesqd .sp-table td .mini-checkboxlist.mini-readonly#zgkpxeCheckbox {
+        color: #000; }
+    #zgkpxesp-form .sp-table td .mini-checkboxlist tr, #zgkpxespb .sp-table td .mini-checkboxlist tr, #zgkpxesqd-form .sp-table td .mini-checkboxlist tr, #zgkpxesqd .sp-table td .mini-checkboxlist tr {
+        line-height: 22px; }
+    #zgkpxesp-form .sp-table td .mini-checkboxlist tr .mini-checkboxlist-item, #zgkpxespb .sp-table td .mini-checkboxlist tr .mini-checkboxlist-item, #zgkpxesqd-form .sp-table td .mini-checkboxlist tr .mini-checkboxlist-item, #zgkpxesqd .sp-table td .mini-checkboxlist tr .mini-checkboxlist-item {
+        height: 22px; }
+    #zgkpxesp-form .sp-table td .mini-textbox-readOnly .mini-textbox-border, #zgkpxespb .sp-table td .mini-textbox-readOnly .mini-textbox-border, #zgkpxesqd-form .sp-table td .mini-textbox-readOnly .mini-textbox-border, #zgkpxesqd .sp-table td .mini-textbox-readOnly .mini-textbox-border {
+        background: #fff; }
+    #zgkpxesp-form .sp-table td .mini-textbox-readOnly .mini-textbox-border .mini-textbox-input, #zgkpxespb .sp-table td .mini-textbox-readOnly .mini-textbox-border .mini-textbox-input, #zgkpxesqd-form .sp-table td .mini-textbox-readOnly .mini-textbox-border .mini-textbox-input, #zgkpxesqd .sp-table td .mini-textbox-readOnly .mini-textbox-border .mini-textbox-input {
+        background: #fff !important; }
+    #zgkpxesp-form .sp-table td .mini-textbox-border, #zgkpxespb .sp-table td .mini-textbox-border, #zgkpxesqd-form .sp-table td .mini-textbox-border, #zgkpxesqd .sp-table td .mini-textbox-border {
+        border: none; }
+    #zgkpxesp-form .sp-table td .mini-invalid .mini-textbox-border, #zgkpxespb .sp-table td .mini-invalid .mini-textbox-border, #zgkpxesqd-form .sp-table td .mini-invalid .mini-textbox-border, #zgkpxesqd .sp-table td .mini-invalid .mini-textbox-border {
+        border: 1px solid red !important; }
+    #zgkpxesp-form .sp-table td p, #zgkpxespb .sp-table td p, #zgkpxesqd-form .sp-table td p, #zgkpxesqd .sp-table td p {
+        margin: 0; }
+    #zgkpxesp-form .sp-table td h3, #zgkpxespb .sp-table td h3, #zgkpxesqd-form .sp-table td h3, #zgkpxesqd .sp-table td h3 {
+        margin: 0;
+        font-size: 14px; }
+</style>

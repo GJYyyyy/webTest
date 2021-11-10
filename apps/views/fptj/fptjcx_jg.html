@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发票领用查询</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="fptjcx.css">
+</head>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="../../../lib/lodop/lodopPrint.js"></script>
+<script src="fptjcx_common.js"></script>
+<script src="fptjcx_jg.js"></script>
+<body>
+<div class="tab-bar">
+    <a id="szcx" onclick="doSearchOrder('0')" class="active">税局查询</a>
+</div>
+<div id="cxtjForm" class="searchdiv" style="margin:10px 0px 15px 0px;">
+    <table width="96%" border="0" cellspacing="0" cellpadding="0" class="cxtjTable">
+        <tr>
+            <th>受理状态：</th>
+            <td width="100px">
+                <input id="combox_status" class="mini-combobox" style="width:80%;" onvaluechanged="onChanged" textField="text" valueField="id" 
+                value="%" showNullItem="false" showClose="false"/> 
+            </td>
+            <th>纳税人识别号：</th>
+            <td width = "180px">
+                <input id="nsrsbh_s" name="nsrsbh_s" class="mini-textbox" style="width:90%;"/>
+            </td>
+            <th>纳税人名称：</th>
+            <td width = "200px">
+                <input id="nsrmc_s" name="nsrmc_s" class="mini-textbox" style="width:95%;"/>
+            </td>            
+            <th>查询时间：</th>
+            <td nowrap>
+                <input id="cxqxQ" name="blqxQ" class="mini-datepicker" format="yyyy-MM-dd" style="width:150px;" allowInput="false"  ondrawdate="onDrawStartDate"/>
+                <span style="margin: 0 5px;">至</span>
+                <input id="cxqxZ" name="blqxZ" class="mini-datepicker" format="yyyy-MM-dd" style="width:150px;" allowInput="false" ondrawdate="onDrawEndDate"/>
+            </td>
+            <td>
+                <a id="search" class="mini-button" onclick="doSearchOrder('0')" style="width:50px; margin:0 0 0 10px;">查询</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="mini-fit">
+    <div id="jgxxGrid" idField="lx" class="mini-datagrid" style="width: 100%; height:100%; margin:auto;"  sizeList="[10,30,50,100]" showPager="true" pageSize = '100' allowCellWrap="true" url = "../../../../api/gs/wtgl/fptjgl/query_detail">
+        <div property="columns">
+            <div type="indexcolumn" width = "60">序号</div>
+            <div field="swjgdm" headeralign="center" align="center" allowsort="false" width="120">税务机关代码</div>
+            <div field="swjgmc" headeralign="center" align="center" allowsort="false" width="120">所属税务机关</div>
+   			<div field="nsrsbh" headeralign="center" align="center" allowsort="false" width="180">纳税人识别号</div>
+            <div field="nsrmc" headeralign="center" align="center" allowsort="false" width="140">纳税人名称</div>
+            <div field="sqsj" headeralign="center" align="center" allowsort="false" width="120">申请时间</div>
+            <div field="slsj" headeralign="center" align="center" allowsort="false" width="120">受理时间</div>
+            <div field="clzt" headeralign="center" align="center" allowsort="false" width="80">办理状态</div>
+            <div field="slrmc" headeralign="center" align="center" allowsort="false" width="70">受理人</div>
+            <div field="fs" headeralign="center" align="center" allowsort="false" width="60">领用份数</div>
+            <div field="fpzlmc" headeralign="center" align="center" allowsort="false" width="200">领用发票种类</div>
+            <div field="lqfs" headeralign="center" align="center" allowsort="false" width="80">领取方式</div>
+            <div field="operation" headeralign="center" align="center" allowsort="false" width="60" renderer="onAddDetailLink">操作</div>
+        </div>
+    </div>
+</div>
+<div style="margin:10px 0px 10px 0px;height:34px;">
+    <div id="Bottom-button" style="margin:0 auto; width:30%;text-align:center; height:100%;">
+        <a id="export" class="mini-button" onclick="doSearchOrder('1')" style="width:50px; margin:0 10px; text-align:center; padding: 5px;">导出</a>
+        <a id="print" class="mini-button" onclick="doPrint()" style="width:50px; margin:0 10px; text-align:center; padding: 5px;">打印</a>
+    </div>
+</div>
+</body>
+</html>

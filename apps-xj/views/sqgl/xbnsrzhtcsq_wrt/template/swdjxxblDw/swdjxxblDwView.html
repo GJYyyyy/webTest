@@ -1,0 +1,386 @@
+<style>
+    .break-title{
+        display: inline-block;
+        width: 10%;
+        font-weight: bold;
+    }
+    .break-line{
+        display: inline-block;
+        width: 90%;
+        height: 1px;
+        margin-bottom: 5px;
+        border-bottom: 1px #ddd solid;
+    }
+    .form-table tr td:nth-child(2n+1),
+    .form-table tr th:nth-child(2n+1){
+        text-align: right;
+    }
+    .form-table{
+        width: 98%;
+    }
+    .mini-textbox-input {
+        text-overflow: ellipsis;
+    }
+</style>
+<div id="djxxbl-yl" data-view-type='form'>
+    <div id="tabs1" class="mini-tabs" activeIndex="0" style="width:100%;" plain="false">
+        <div title="纳税人基本信息">
+            <div id="nsrjbxxForm" data-view-type='form' style="margin-top: 10px;">
+                <table class="form-table" width="100%">
+                    <tr>
+                        <th width="20%" style="text-align:right">社会信用代码：
+                        </th>
+                        <td width="30%">
+                            <input name="shxydm" readonly="true"
+                                   class="mini-textbox" style="width:100%;"/>
+                        </td>
+                        <th width="20%" style="text-align:right">纳税人名称：</th>
+                        <td width="30%">
+                            <input ReadOnly="true" name="nsrmc" class="mini-textbox"
+                                   style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        
+                        <th width="20%" style="text-align:right">开业（设立）日期：
+                        </th>
+                        <td width="30%">
+                            <input readonly="true" name="kyslrq" class="mini-datepicker" style="width:100%;" format="yyyy-MM-dd" showTime="true"/>
+                        </td>
+                        <th width="20%" style="text-align:right">批准设立机关类型：
+                        </th>
+                        <td width="30%">
+                            <input ReadOnly="true" name="pzsljglxdmName" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">批准设立机关：</th>
+                        <td width="30%">
+                            <input readonly="true" name="pzsljgdmName" required="true" class="mini-textbox" style="width:100%;" />
+                        </td>
+                        <th width="20%" style="text-align:right">生产经营期限起：</th>
+                        <td width="30%">
+                            <input readonly="true" name="scjyqxq" class="mini-datepicker" style="width:100%;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">生产经营期限止：
+                        </th>
+                        <td width="30%">
+                            <input readonly="true" name="scjyqxz" class="mini-datepicker" style="width:100%;"/>
+                        </td>
+                        <th width="20%" style="text-align:right">注册地行政区划：</th>
+                        <td width="30%">
+                            <input readonly="true" name="zcdzxzqhdmText" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">注册地地址：
+                        </th>
+                        <td width="30%">
+                            <input readonly="true" id="zcdz" name="zcdz" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                        <!-- <th width="20%" style="text-align:right">生产经营地邮政编码11：</th>
+                        <td width="30%">
+                            <input readonly="true" name="scjydyzbm" class="mini-textbox" style="width:100%;"/>
+                        </td> -->
+                        <th width="20%" style="text-align:right">注册地联系电话：</th>
+                        <td width="30%">
+                            <input readonly="true" name="zcdlxdh" class="mini-textbox" style="width:100%;"/>
+                          </td>
+                    </tr>
+                    <tr>
+                       
+                        <th width="20%" style="text-align:right">生产经营地行政区划：
+                        </th>
+                        <td width="30%">
+                            <input readonly="true" name="scjydzxzqhszDmText" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                        <th width="20%" style="text-align:right">生产经营地地址：
+                        </th>
+                        <td width="30%">
+                            <input readonly="true" id="scjydz" name="scjydz" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        
+                        <!-- <th width="20%" style="text-align:right">注册地邮政编码：
+                        </th>
+                        <td width="30%">
+                            <input readonly="true" name="zcdyzbm" class="mini-textbox" style="width:100%;"/>
+                        </td> -->
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">生产经营地联系电话：
+                        </th>
+                        <td width="30%">
+                            <input readonly="true"  name="scjydlxdh" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                        <th width="20%" style="text-align:right">经营范围：</th>
+                        <td width="30%">
+                            <input id="jyfw" readonly="true" name="jyfw" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">国标行业主：</th>
+                        <td width="30%">
+                            <input readonly="true" name="hyDmText" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                        <th width="20%" style="text-align:right">国标行业附：</th>
+                        <td width="30%">
+                            <input readonly="true" name="fshyDm1Text" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">核算方式：</th>
+                        <td width="30%">
+                            <input readonly="true" name="hsfsDmText" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                        <!-- <th width="20%" style="text-align:right">登记注册类型：</th>
+                        <td width="30%">
+                            <input readonly="true" name="djzclxdmText" class="mini-textbox" style="width:100%;"/>
+                        </td> -->
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div title="负责人信息">
+            <div id="fzrxxForm" data-view-type='form' style="margin-top: 10px;">
+                <table class="form-table" style="width:100%">
+                    <tr>
+                        <th width="22%" style="text-align:right">法定代表人（负责人）姓名：</th>
+                        <td width="28%">
+                            <input class="mini-textbox"
+                                   style="width:100%;" readonly="true"
+                                   requiredErrorText="法定代表人（负责人）姓名不能为空" name="fddbrxm"/></td>
+                        <th width="22%" style="text-align:right">法定代表人（负责人）身份证件种类：</th>
+                        <td width="28%">
+                            <input style="width:100%;" name="fddbrsfzjzlText" readonly class="mini-textbox"/>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th style="text-align:right">法定代表人（负责人）身份证件号码：</th>
+                        <td><input class="mini-textbox" name="fddbrsfzjhm" readonly="true"
+                                   style="width:100%;"/></td>
+                        <th style="text-align:right">法定代表人（负责人）固定电话：</th>
+                        <td><input class="mini-textbox" readonly
+                                   name="fddbrgddh" style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align:right">法定代表人（负责人）移动电话：</th>
+                        <td><input class="mini-textbox" name="fddbryddh" readonly style="width:100%;"/></td>
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">财务负责人姓名：</th>
+                        <td width="30%"><input class="mini-textbox" readonly style="width:100%;" name="cwfzrxm"/></td>
+                        <th width="20%" style="text-align:right">财务负责人身份证件种类：</th>
+                        <td width="30%">
+                            <input readonly class="mini-textbox" name="cwfzrsfzjzlText" style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align:right">财务负责人身份证件号码：</th>
+                        <td><input class="mini-textbox" readonly name="cwfzrsfzjhm" style="width:100%;"/></td>
+                        <th style="text-align:right">财务负责人固定电话：</th>
+                        <td><input class="mini-textbox" readonly name="cwfzrgddh" style="width:100%;"/></td>
+                    </tr>
+                    <tr>
+                        <th style="text-align:right">财务负责人移动电话：</th>
+                        <td><input class="mini-textbox" readonly name="cwfzryddh" style="width:100%;"/></td>
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">办税人姓名：</th>
+                        <td width="30%"><input class="mini-textbox" readonly style="width:100%;" name="bsrxm"/></td>
+                        <th width="20%" style="text-align:right">办税人身份证件种类：</th>
+                        <td width="30%">
+                            <input readonly class="mini-textbox" style="width:100%;"  name="bsrsfzjzlText"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align:right">办税人身份证件号码：</th>
+                        <td><input class="mini-textbox" readonly
+                                   name="bsrsfzjhm" style="width:100%;"/></td>
+                        <th style="text-align:right">办税人固定电话：</th>
+                        <td><input class="mini-textbox" readonly
+                                   name="bsrgddh"
+                                   style="width:100%;"/></td>
+                    </tr>
+                    <tr>
+                        <th style="text-align:right">办税人移动电话：</th>
+                        <td><input class="mini-textbox" readonly name="bsryddh"
+                                   style="width:100%;"/></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div title="总分机构信息">
+            <div id="zfjgxxForm" data-view-type='form'>
+                <div>
+                    <table class="form-table" style="width:100%">
+                        <tr  height="60">
+                            <td colspan="4" style="text-align:left"><h4>纳税人补充信息</h4></td>
+                            <!--------------------------------------------------------------------------------------------------------->
+                        </tr>
+                        <tr>
+                            <td align="right" width="20%">总分机构类型：</td>
+                            <td><input class="mini-textbox" style="width:100%;" ReadOnly="true" name="zfjglxDmText"/></td>
+                        </tr>
+                    </table>
+                    <div id="ylzjgxxForm" style="display: none;">
+                        <table style="width:100%">
+                            <tr>
+                                <td>总机构纳税人识别号：</td>
+                                <td><input class="mini-textbox" ReadOnly="true" style="width:100%;" name="zjgnsrsbh"/></td>
+                                <td>总机构名称：</td>
+                                <td><input class="mini-textbox" ReadOnly="true" style="width:100%;" name="zjgmc"/></td>
+                            </tr>
+                            <tr>
+                                <td width="20%">总机构注册地址：</td>
+                                <td width="30%"><input class="mini-textbox" ReadOnly="true" style="width:100%;"
+                                                       name="zjgzcdz"/></td>
+                                <!-- <td width="20%">总机构注册地邮政编码：</td>
+                                <td width="30%"><input class="mini-textbox" ReadOnly="true" style="width:100%;"
+                                                       name="zjgzcdzyzbm"/></td> -->
+                                <td width="20%">总机构法定代表人姓名：</td>
+                                <td width="30%"><input class="mini-textbox" ReadOnly="true" style="width:100%;"
+                                                       name="zjgfddbrxm"/></td>
+                            </tr>
+                            <tr>
+                                <td width="20%">总机构联系电话：</td>
+                                <td width="30%"><input class="mini-textbox" ReadOnly="true" style="width:100%;"
+                                                       name="zjglxdh"/></td>
+
+                                <td width="20%">总机构经营范围：</td>
+                                <td width="30%"><input class="mini-textbox" ReadOnly="true" name="zjgjyfw" style="width:100%;"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="ylfzjgxx" data-view-type="datagrid" style="display: none;">
+                        <div id="ylfzjgxxGrid" class="mini-datagrid" style="width:100%" multiSelect="true"
+                             showPager="false" showEmptyText="true" idField="id" checkSelectionOnly="true"
+                             allowCellSelect="true" allowCellEdit="true">
+                            <div property="columns">
+                                <div width="25" type="checkcolumn"></div>
+                                <div field="fzjgnsrsbh"><span class="txt-red">*</span>
+                                    分支机构纳税人识别号
+                                </div>
+                                <div field="fzjgmc"><span class="txt-red">*</span>
+                                    分支机构名称
+                                </div>
+                                <div field="fzjgzcdz"><span class="txt-red">*</span>
+                                    分支机构注册地址
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div title="注册资本和投资方信息">
+            <div id="tzfxxForm">
+                <h4>注册资本</h4>
+                <div class="grid-toolbar mb10" data-bind-grid="zczbGrid">
+                    <div class="grid-title dis-inb-fr" data-view-type="form" id="zczbForm">注册资本：
+                        <input class="mini-moneybox" width="200" name="zczb" readonly="true"/>
+                    </div>
+                </div>
+                <div data-view-type='datagrid'>
+                    <div id="ylzczbGrid" class="mini-datagrid" style="width:100%;height:150px;" enabled="false"
+                         allowresize="false" showpager="false" allowCellValid="true"
+                         allowCellEdit="false" allowCellSelect="true" multiSelect="true">
+                        <div property="columns">
+                            <div field="zczbbz" displayField="zczbbzText" align="center"
+                                 width="120" headeralign="center"
+                                 allowsort="false">
+                                币种
+                            </div>
+                            <div field="zczbbzje" width="120" align="center"
+                                 headeralign="center" allowsort="false">
+                                金额
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h4>投资总额</h4>
+                <div class="grid-toolbar mb10" data-bind-grid="tzzeGrid" data-view-type="form" id="tzzeForm">
+                    <div class="grid-title dis-inb-fr">投资总额：
+                        <input class="mini-moneybox" width="200"
+                               value="0" readonly="true"
+                               name="tzze"/>
+                    </div>
+                </div>
+                <div data-view-type='datagrid'>
+                    <div id="yltzzeGrid" class="mini-datagrid" enabled="false"
+                         style="width:100%;height:150px;" idfield="id"
+                         allowresize="false" showpager="false" allowCellValid="true"
+                         allowCellEdit="false" allowCellSelect="true" multiSelect="true"
+                    >
+                        <div property="columns">
+                            <div field="tzzebz" displayField="tzzebzText" headeralign="center" align="center">
+                                币种
+                            </div>
+                            <div field="tzzebzje" width="120"
+                                 headeralign="center" align="center" allowsort="false">
+                                金额
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h4>投资方信息</h4>
+                <div data-view-type='datagrid'>
+                    <div id="yltzfxxGrid" class="mini-datagrid"
+                         style="width:100%;height:150px;" idfield="id" oncellcommitedit="doTzfxxZjlxChange"
+                         allowresize="false" showpager="false" allowCellEdit="false"
+                         allowCellSelect="true" multiSelect="true">
+                        <div property="columns">
+                            <div field="tzfhhhrzjzlDm" displayField="tzfhhhrzjzlDmText" headeralign="center">
+                                证件类型
+                            </div>
+                            <div field="tzfzjhm" width="100" headeralign="center">
+                                证件号码
+                            </div>
+                            <div field="tzfmc" width="120" headeralign="center">
+                                投资方名称
+                            </div>
+                            <div field="tzfjjxz" displayField="tzfjjxzText" width="120" headeralign="center">
+                                投资方经济性质
+                            </div>
+                            <div field="tzje" width="150" headeralign="center" >
+                                投资方投资金额(<span style="color: red">万元</span>)
+                            </div>
+                            <div field="tzbl" width="100" headeralign="center" allowsort="false">
+                                投资比例(%)
+                            </div>
+                            <div field="tzfgj" displayField="tzfgjText" width="100" headeralign="center">
+                              投资方所在地
+                            </div>
+                            <div field="tzfdz" width="100" headeralign="center" allowsort="false">
+                                地址
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-view-type='form' id="allTzbl-form">
+                    <table width="100%">
+                        <tr>
+                            <td align="right">自然人投资比例：</td>
+                            <td><input class="mini-textbox" style="width:50%;" ReadOnly="true"
+                                       id="zrrtzbl" name="zrrtzbl"/>%</td>
+                            <td align="right">外资投资比例：</td>
+                            <td><input class="mini-textbox" style="width:50%;" ReadOnly="true"
+                                       id="wztzbl" name="wztzbl"/>%</td>
+                            <td align="right">国有投资比例：</td>
+                            <td><input class="mini-textbox" style="width:50%;" ReadOnly="true"
+                                       id="gytzbl" name="gytzbl"
+                            />%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

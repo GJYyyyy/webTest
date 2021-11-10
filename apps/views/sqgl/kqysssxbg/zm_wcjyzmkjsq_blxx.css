@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+html .sbbtab th {
+    text-align: right;
+    padding: 1px 5px;
+    background: #F5F5F5
+}
+
+html .sbbtab td {
+    color: #727272
+}
+
+.sbbtab, html .sbbtab th, html .sbbtab td {
+    border: 1px dotted #ccc
+}
+
+hr {
+    margin: 10px 0
+}
+.B_red{
+    color: #f00;
+}
+.textCenter{
+    text-align: center;
+}
+.edittab th{
+    text-align: right;
+}
+.edittab tr{
+    line-height: 60px;
+}

@@ -1,0 +1,175 @@
+.nsrxxContainer{
+    margin:10px auto;
+    width: 95%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.nsrxxContainer p{
+    height: 24px;
+    line-height: 24px;
+    text-indent: 2em;
+}
+.nsrxxContainer span{
+    float: left;
+    width: 33%;
+    text-align: left;
+}
+
+.fxclContainner{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin:10px auto;
+    width: 95%;
+    /*border: 1px solid #ccc;*/
+}
+
+.fxclContainner>p{
+    line-height: 30px;
+    height: 30px;
+
+
+}
+.fxclContainner .showFx::after{
+    content: '';
+    /*height: 10px;*/
+    display: block;
+    clear: both;
+}
+.fxclContainner .showFx div{
+    float: left;
+    height: 74px;
+}
+.fxclContainner .showFx div:nth-of-type(1){
+    width: 96px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+.fxclContainner .showFx div:nth-of-type(1) span{
+    line-height: 74px;
+    height: 74px;
+}
+.fxclContainner .showFx div:nth-of-type(2){
+    width: 80%;
+    border: 1px solid #ccc;
+    height: 72px;
+    padding-left: 30px;
+}
+.fxclContainner .showFx div:nth-of-type(2) span{
+    width: 50%;
+    float: left;
+    line-height: 37px;
+    height: 37px;
+}
+
+
+.fx1{
+    background: #FC5541;
+}
+.fx2{
+    background: #FF9900;
+}
+.fx3{
+    background: #31C37C;
+}
+
+.fxclContainner>p span{
+    width: 24%;
+    float: left;
+    text-align: center;
+}
+table{
+    border-collapse: collapse;
+    text-align: center;
+}
+td textarea{
+    width: 98%;
+    resize: none;
+    outline: none;
+    border: none;
+    height: 36px;
+    /*margin-top: 2px;*/
+}
+.box2 .enable{
+    background: #f2f8ff!important;
+}
+.enable input,.enable textarea,.enable .mini-textbox-border{
+    background: #f2f8ff!important;
+}
+input[disabled][type="input"]{
+    background: #f0f0f0;;
+}
+textarea[disabled]{
+    background: #f0f0f0;;
+}
+
+.bhcdxContainner div{
+    text-align: center;
+}
+
+.shContainner textarea{
+    width: 60%;
+    vertical-align: text-top;
+    height: 100px;
+    resize: none;
+    outline: none;
+}
+.fxhcsh{
+    padding-left: 17%;
+}
+.fxhcsh>span,.fxhcsh>div{
+    /*float: left;*/
+}
+.fxhctable{
+    overflow: hidden;
+    clear: both;
+
+}
+.btn-group span{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+}
+.fhContainner{
+    display: none;
+}
+.expaned{
+    position: absolute;
+    color: #0b77c5;
+    right: 20px;
+    top: 25px;
+}
+.expaned:visited{
+    color: #0b77c5;
+}
+
+h2{
+    text-align: left!important;
+    background: #EEEEEE;
+    text-indent: 1em;
+    height: 36px;
+    line-height: 36px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 0;
+}
+thead td{
+    height: 36px;
+    background: #F7F7F7;
+}
+table{
+    border:none;
+
+}
+table td{
+    border-color: #ccc;
+    padding: 5px;
+}
+
+.divOverflow{
+    overflow: hidden;
+}
+.fixedWindowTop0{
+    top:0px!important;
+}

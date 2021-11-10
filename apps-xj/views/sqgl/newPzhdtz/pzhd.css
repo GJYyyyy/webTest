@@ -1,0 +1,65 @@
+.txt-l {
+    text-align: left !important; }
+
+.txt-r {
+    text-align: right !important; }
+
+/*.wizard {
+  .content{
+      height: 2000px !important;
+  }
+}*/
+#zgkpxesp-form .sp-table, #zgkpxesp-yl-form .sp-table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse; }
+#zgkpxesp-form .sp-table tr, #zgkpxesp-yl-form .sp-table tr {
+    line-height: 30px; }
+#zgkpxesp-form .sp-table thead td, #zgkpxesp-yl-form .sp-table thead td {
+    border: none; }
+#zgkpxesp-form .sp-table thead td.title, #zgkpxesp-yl-form .sp-table thead td.title {
+    font-size: 18px;
+    font-weight: bold; }
+#zgkpxesp-form .sp-table td, #zgkpxesp-yl-form .sp-table td {
+    border: 1px solid #ccc;
+    text-align: center; }
+#zgkpxesp-form .sp-table td.mini-radiobuttonlist-td, #zgkpxesp-yl-form .sp-table td.mini-radiobuttonlist-td {
+    text-align: left;
+    border: none; }
+#zgkpxesp-form .sp-table td .mini-radiobuttonlist-table tr, #zgkpxesp-yl-form .sp-table td .mini-radiobuttonlist-table tr {
+    line-height: 22px; }
+#zgkpxesp-form .sp-table td .mini-radiobuttonlist-table tr .mini-radiobuttonlist-item, #zgkpxesp-yl-form .sp-table td .mini-radiobuttonlist-table tr .mini-radiobuttonlist-item {
+    height: 22px; }
+#zgkpxesp-form .sp-table td.mini-checkboxlist-td, #zgkpxesp-yl-form .sp-table td.mini-checkboxlist-td {
+    text-align: left;
+    border: none; }
+#zgkpxesp-form .sp-table td.mini-checkboxlist-td .mini-checkboxlist-item label span, #zgkpxesp-yl-form .sp-table td.mini-checkboxlist-td .mini-checkboxlist-item label span {
+    margin-left: 5px;
+    color: #0594db; }
+#zgkpxesp-form .sp-table td input[type=text], #zgkpxesp-yl-form .sp-table td input[type=text] {
+    width: 100%;
+    height: 30px;
+    outline: none; }
+#zgkpxesp-form .sp-table td .mini-checkboxlist.mini-readonly, #zgkpxesp-yl-form .sp-table td .mini-checkboxlist.mini-readonly {
+    color: #ccc; }
+#zgkpxesp-form .sp-table td .mini-checkboxlist.mini-readonly#zgkpxeCheckbox, #zgkpxesp-yl-form .sp-table td .mini-checkboxlist.mini-readonly#zgkpxeCheckbox {
+    color: #000; }
+#zgkpxesp-form .sp-table td .mini-checkboxlist tr, #zgkpxesp-yl-form .sp-table td .mini-checkboxlist tr {
+    line-height: 22px; }
+#zgkpxesp-form .sp-table td .mini-checkboxlist tr .mini-checkboxlist-item, #zgkpxesp-yl-form .sp-table td .mini-checkboxlist tr .mini-checkboxlist-item {
+    height: 22px; }
+#zgkpxesp-form .sp-table td .mini-textbox-readOnly .mini-textbox-border, #zgkpxesp-yl-form .sp-table td .mini-textbox-readOnly .mini-textbox-border {
+    background: #fff; }
+#zgkpxesp-form .sp-table td .mini-textbox-readOnly .mini-textbox-border .mini-textbox-input, #zgkpxesp-yl-form .sp-table td .mini-textbox-readOnly .mini-textbox-border .mini-textbox-input {
+    background: #fff !important; }
+#zgkpxesp-form .sp-table td .mini-textbox-border, #zgkpxesp-yl-form .sp-table td .mini-textbox-border {
+    border: none; }
+#zgkpxesp-form .sp-table td .mini-invalid .mini-textbox-border, #zgkpxesp-yl-form .sp-table td .mini-invalid .mini-textbox-border {
+    border: 1px solid red !important; }
+#zgkpxesp-form .sp-table td p, #zgkpxesp-yl-form .sp-table td p {
+    margin: 0; }
+#zgkpxesp-form .sp-table td h3, #zgkpxesp-yl-form .sp-table td h3 {
+    margin: 0;
+    font-size: 14px; }
+
+/*# sourceMappingURL=pzhd.css.map */

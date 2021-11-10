@@ -1,0 +1,14 @@
+
+
+正式入库到bower服务器之后，
+
+每次修改common-front里面的js文件后，请重新在 Terminal 下运行 ‘gulp’ 命令
+
+然后使用 git Bush 或者 webStorm 的git插件 提交到公司的 git 服务器，
+
+同时说明修改内容，建议每一版修改都重新设置 tag 标签，tag 标准格式为： v1.0.0
+
+tag 打法 可以参考阅读 http://192.168.2.98/bbs/forum.php?mod=viewthread&tid=40842&highlight=%E7%89%88%E6%9C%AC%E5%8F%B7
+
+每一次修改后都更新版本号可以确保bower服务器上的common-front.js始终是与公司git服务器上的文件是同步的。
+

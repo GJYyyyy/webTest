@@ -1,0 +1,108 @@
+<!--
+ * @Author: zhaojn
+ * @Mobile: 17826856905
+ * @Date: 2019-08-19 16:20:41
+ * @LastEditors: zhaojn
+ * @LastEditTime: 2019-08-20 13:04:03
+ * @Description: 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=\p, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+     .containner{
+       padding-left: 2%;
+     }
+    .containner span {
+      display: block;
+      width: 32%;
+      text-align: left;
+      float: left;
+      line-height: 30px;
+      /* color: red; */
+    }
+
+    .containner:nth-of-type(2) {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <h4>风险任务核查信息</h4>
+  <div class="containner">
+    <span>纳税人名称：</span>
+    <span>纳税人识别号：</span>
+    <span>风险任务类型：</span>
+  </div>
+  <div class="containner">
+    <span class="nsrmc"></span>
+    <span class="nsrsbh"></span>
+    <span class="fxlx"></span>
+  </div>
+  <script src="../../../lib/jquery/jquery.js"></script>
+  <script src="../../scripts/miniui.js"></script>
+  <script src="../../scripts/gldcommon.js"></script>
+  <script>
+    var data = {};
+    var getFxData = function () {
+      var query = gldUtil.getParamFromUrl() || {};
+      ajax.get("/sxsq-wsys/api/sh/zhh/fx/getRwxx?taskId=" + query.taskId, "", function (
+        result) {
+        if (result.success && result.value) {
+          data = result.value;
+          render();
+        } else {
+          mini.alert(result.message);
+        }
+      });
+    };
+    var render = function () {
+      var query = gldUtil.getParamFromUrl() || {};
+      if (data.rwlxDm === '01') {
+        $(".fxlx").text('新办风险');
+      }
+      if (data.rwlxDm === '02') {
+        $(".fxlx").text('发票风险');
+      }
+      if (data.rwlxDm === '03') {
+        $(".fxlx").text('严重失信纳税人核查');
+      }
+      if (data.rwlxDm === '04') {
+        $(".fxlx").text('逾期风险');
+      }
+      initNsrData();
+    };
+
+    var initNsrData = function () {
+      var d = {};
+      var query = gldUtil.getParamFromUrl() || {};
+      /* 接口获取纳税人信息 */
+      ajax.get("/sxsq-wsys/api/sh/zhh/fx/getNsrxx" + '?djxh=' + data.djxh, "", function (result) {
+        if (result.success && result.value) {
+          d = result.value;
+        } else {
+          mini.alert(result.message);
+        }
+      });
+
+      $(".nsrsbh").text(d.nsrsbh || '');
+      $(".nsrmc").text(d.nsrmc || '');
+    };
+
+    $(function () {
+      getFxData();
+    });
+
+    window.saveData=function (params) {
+      return true;
+    }
+  </script>
+</body>
+
+</html>

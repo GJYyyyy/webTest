@@ -1,0 +1,19 @@
+{
+
+  "name": "sui-miniui",
+  "version": "1.0.20",
+  "authors": [
+    "zhaomd"
+  ],
+  "main": "./mini-all-min.js",
+  "description": "基于jquery的webUI库-公司版miniui",
+  "keywords": [
+    "jquery",
+    "miniui",
+    "webUI"
+  ],
+  "dependencies": {
+    "jquery": "^1.6.2"
+   }
+
+}

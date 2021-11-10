@@ -1,0 +1,99 @@
+<!--一般纳税人-->
+<h2>选择票种及数量</h2>
+<section class="first-step">
+    <p>通过系统给您的综合分析，您可通过云厅申请的发票如下，如需发票增量，请先完成核定后再进行调整。</p>
+    <div id="pzhdYl">
+        <script type="text/html" id="pzhdYl-template">
+            {{if nsrlxDm=='04'}}
+            <div data-view-type="datagrid">
+                <div id="gzpz_gridYl1" class="mini-datagrid" style="margin: 0 auto;width:1155px;" showEmptyText="true" autoLoad="false" allowResize="false" idField="id" showPager="false" multiSelect="false" oncellcommitedit=""
+                     allowSortColumn="false" allowCellValid="true" allowCellSelect="true" onlyCheckSelection="true" allowCellEdit="true">
+                    <div property="columns">
+                        <div type="checkcolumn" class="gridInput" width="40"></div>
+                        <div type="indexcolumn" width="50">序号</div>
+                        <div field="fpzlmc" width="380">
+                            发票种类<div class="mini-textbox" readonly="true"></div>
+                        </div>
+                        <div field="fpzlDm"  visible="false"></div>
+                        <div field="fpbs" visible="false"></div>
+                        <div field="fpme" width="220">
+                            单份发票最高开票限额（版面）<div class="mini-textbox" readonly="true"></div>
+                        </div>
+                        <div field="cpzgsl" width="260">最高持票量</div>
+                        <div field="mbjfs" width="100" vtype="int">
+                            每本/卷分数<div class="mini-textbox" readonly="true"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div data-view-type="datagrid">
+                <div id="gzpz_gridYl1" class="mini-datagrid" style="margin: 0 auto;width:1155px;" showEmptyText="true" autoLoad="false" allowResize="false" idField="id" showPager="false" multiSelect="false" oncellcommitedit=""
+                     allowSortColumn="false" allowCellValid="true" allowCellSelect="true" onlyCheckSelection="true" allowCellEdit="true">
+                    <div property="columns">
+                        <div type="checkcolumn" class="gridInput" width="40"></div>
+                        <div type="indexcolumn" width="50">序号</div>
+                        <div field="fpzlmc" width="380">
+                            发票种类<div class="mini-textbox" readonly="true"></div>
+                        </div>
+                        <div field="fpzlDm"  visible="false"></div>
+                        <div field="fpbs" visible="false"></div>
+                        <div field="fpme" width="220">
+                            单份发票最高开票限额（版面）<div class="mini-textbox" readonly="true"></div>
+                        </div>
+                        <div field="cpzgsl" width="260">最高持票量</div>
+                        <div field="mbjfs" width="100" vtype="int">
+                            每本/卷分数<div class="mini-textbox" readonly="true"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-view-type="datagrid">
+                <div id="gzpz_gridYl2" class="mini-datagrid" style="margin: 0 auto;width:1155px;" showEmptyText="true" autoLoad="false" allowResize="false" idField="id" showPager="false" multiSelect="false" oncellcommitedit=""
+                     allowSortColumn="false" allowCellValid="true" allowCellSelect="true" onlyCheckSelection="true" allowCellEdit="true">
+                    <div property="columns">
+                        <div type="checkcolumn" class="gridInput" width="40"></div>
+                        <div type="indexcolumn" width="50">序号</div>
+                        <div field="fpzlmc" width="380">
+                            发票种类<div class="mini-textbox" readonly="true"></div>
+                        </div>
+                        <div field="fpzlDm"  visible="false"></div>
+                        <div field="fpbs" visible="false"></div>
+                        <div field="fpme" width="220">
+                            单份发票最高开票限额（版面）<div class="mini-textbox" readonly="true"></div>
+                        </div>
+                        <div field="cpzgsl" width="260">最高持票量</div>
+                        <div field="mbjfs" width="100" vtype="int">
+                            每本/卷分数<div class="mini-textbox" readonly="true"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+        </script>
+    </div>
+    <div id="lpryl_grid" class="mini-datagrid" style="margin: 0 auto;width:1155px;margin-top: 10px" showEmptyText="true" autoLoad="false" allowResize="false" idField="id" showPager="false" multiSelect="false" oncellcommitedit=""
+         allowSortColumn="false" allowCellValid="true" allowCellSelect="true" onlyCheckSelection="true" allowCellEdit="true">
+        <div property="columns">
+            <div field="gprxm" width="300">
+                领票人<div class="mini-textbox" readonly="true"></div>
+            </div>
+            <div field="zjzl" width="300">
+                证件种类<div class="mini-textbox" readonly="true"></div>
+            </div>
+            <div field="sfzhm" width="260">
+                证件号码<div class="mini-textbox" readonly="true"></div>
+            </div>
+            <div field="lxdh" width="100">
+                联系电话<div class="mini-textbox" readonly="true"></div>
+            </div>
+        </div>
+    </div>
+    <div class="title"><div>温馨提示： 如果您想要添加更多的领票人信息，可以通过“发票票种核定调整”功能单独添加。</div></div>
+    <div>
+        <span style="float: left">申请防伪税控开票设备：</span>
+        <div id="sqfwskkpsbyl" class="mini-radiobuttonlist" readonly="true" textField="MC" valueField="ID" value="1" data="[{ID:1,MC: '是'},{ID:0,MC:'否'}]">
+        </div>
+    </div>
+</section>
+

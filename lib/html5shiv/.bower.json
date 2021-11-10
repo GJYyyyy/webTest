@@ -1,0 +1,24 @@
+{
+  "name": "html5shiv",
+  "version": "3.7.2",
+  "main": [
+    "dist/html5shiv.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "composer.json",
+    "test",
+    "build",
+    "src",
+    "build.xml"
+  ],
+  "_release": "3.7.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.7.2",
+    "commit": "28f135cc8876f584bf1a8820ab198e1060193cdd"
+  },
+  "_source": "http://192.168.2.107/sfr/html5shiv-bower.git",
+  "_target": "^3.7.2",
+  "_originalSource": "html5shiv"
+}

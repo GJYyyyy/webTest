@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>国有土地使用权出让费源信息查询</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <style>
+        .main {
+            width: 96%;
+            margin: 0 auto;
+        }
+
+        #cxtjForm table {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .searchdiv table th {
+            width: 10%;
+            text-align: right;
+        }
+
+        .searchdiv table td {
+            width: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="searchdiv" style="border-bottom:1px solid #000;padding-bottom:30px;">
+            <h2>1.利率查询</h2>
+            <table width="60%" border="0" cellspacing="10" cellpadding="0">
+                <tr>
+                    <th>日期：</th>
+                    <td>
+                        <input id="cxrq" name="cxrq" class="mini-datepicker" format="yyyy-MM-dd" value="new Date()" />
+                    </td>
+                    <th>
+                        <a class=" mini-button" onclick="queryTdcrjLl()">查询</a>
+                    </th>
+                    <th>利率：</th>
+                    <td>
+                        <input id="llNum" name='llNum' class="mini-textbox" width="100%" readonly />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="searchdiv" id="cxtjForm">
+            <h2>2.费源查询</h2>
+            <table width="100%" border="0" cellspacing="10" cellpadding="0">
+                <tr>
+                    <th>统一社会信用代码：</th>
+                    <td>
+                        <input id="tyshxydm" name='tyshxydm' class="mini-textbox" width="100%" />
+                    </td>
+                    <th>缴费人名称：</th>
+                    <td>
+                        <input id="jfrmc" name="jfrmc" class="mini-textbox" width="100%" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>主合同编号：</th>
+                    <td>
+                        <input id="zhtbh" name="zhtbh" class="mini-textbox" width="100%" />
+                    </td>
+                    <th>传输时间：</th>
+                    <td>
+                        <input id="cssjq" name="cssjq" class="mini-datepicker" format="yyyy-MM-dd" style="width:45%" />
+                        <span style="width: 5%; display: inline-block;">至</span>
+                        <input id="cssjz" name="cssjz" class="mini-datepicker" format="yyyy-MM-dd" style="width:45%"
+                            value="new Date()" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>签订日期：</th>
+                    <td>
+                        <input id="htqdrq" name="htqdrq" class="mini-datepicker" format="yyyy-MM-dd"
+                            style="width:100%" />
+                    </td>
+                    <th>主管税务机关：</th>
+                    <td>
+                        <input id="swjgdm" name="swjgdm" class="mini-treeselect" style="width:100%;" textfield="swjgmc"
+                            valuefield="swjgdm" parentField="sjswjgdm" popupWidth="574"
+                            url="../../../../api/xj/wtgl/cxtj/getSxtjSwjg" showNullItem="true" nullItemText="--请选择--"
+                            allowInput="true" valueFromSelect="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>有效标志：</th>
+                    <td>
+                        <input name="yxbz" id="yxbz" class="mini-combobox" valueField="ID" textField="MC"
+                            allowInput="true" style="width:100%;" value="Y"
+                            data="[{ID:'',MC:'全部'},{ID:'Y',MC:'有效'},{ID:'N',MC:'作废'}]" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center" style="padding-top:10px;">
+                        <a class="mini-button" onclick="search();">查询</a>
+                        &nbsp;<a class="mini-button" onclick="exportFpqd();">导出</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="dataGrid" class="mini-datagrid" allowHeaderWrap="true" showPager="false"
+            style="width: 100%; height:400px;" showEmptyText="true"
+            emptyText="<span style= 'color:#ff0000;'>没有数据</span>" allowCellWrap="true">
+            <div property="columns">
+                <div field="tyshxydm" width="200" headerAlign="center" align="center">统一社会信用代码</div>
+                <div field="jfrmc" width="150" headerAlign="center" align="center">缴费人名称</div>
+                <div field="fddbr" width="120" headerAlign="center" align="center">法定代表人</div>
+                <div field="lxdh" width="120" headerAlign="center" align="center">联系电话</div>
+                <div field="zhtbh" width="200" headerAlign="center" align="center">主合同编号</div>
+                <div field="bchtbh" width="150" headerAlign="center" align="center">补充合同编号</div>
+                <div field="zbs" width="60" headerAlign="center" align="center">总笔数</div>
+                <div field="jfbs" width="80" headerAlign="center" align="center">缴费笔数</div>
+                <div field="gdjt" width="120" headerAlign="center" align="center">轨道交通基金</div>
+                <div field="sjsr" width="120" headerAlign="center" align="center">市级收入</div>
+                <div field="qjsr" width="120" headerAlign="center" align="center">区级收入</div>
+                <div field="bbjfjeCn" width="350" headerAlign="center" align="center">本笔缴费金额</div>
+                <div field="jfqx" width="120" headerAlign="center" align="center">缴费期限</div>
+                <div field="lxbz" width="80" headerAlign="center" align="center">利息标志</div>
+                <div field="ywlb" width="150" headerAlign="center" align="center">业务类别</div>
+                <div field="tdcrzjkCn" width="350" headerAlign="center" align="center">土地出让总价款</div>
+                <div field="crzdmj" width="120" headerAlign="center" align="center">出让宗地面积</div>
+                <div field="htqdrq" width="120" headerAlign="center" align="center">合同签订日期</div>
+                <div field="xzqhmc" width="150" headerAlign="center" align="center">土地所在行政区划名称</div>
+                <div field="crrmc" width="150" headerAlign="center" align="center">出让人名称</div>
+                <div field="cssjc" width="180" headerAlign="center" align="center">传输时间戳</div>
+                <div field="ywlsh" width="200" headerAlign="center" align="center">业务流水号</div>
+                <div field="yxbzStr" width="100" headerAlign="center" align="center">有效标志</div>
+                <div field="lssjbzStr" width="120" headerAlign="center" align="center">历史数据标志</div>
+                <!-- <div field="tdqsdcbgbh" width="150" headerAlign="center" align="center">土地权属调查报告编号</div>
+                <div field="ywlsh" width="210" headerAlign="center" align="center">业务流水号</div>
+                <div field="fddbr" width="150" headerAlign="center"   align="center">法定代表人</div>
+                <div field="lxdh" width="150" headerAlign="center" align="center">联系电话</div>
+                <div field="xzqhdm" width="150" headerAlign="center" align="center">土地所在行政区划代码</div>
+                <div field="jfnd" width="150" headerAlign="center" align="center">缴费年度</div>
+                <div field="crrdm" width="150" headerAlign="center" align="center">出让人代码</div>
+                <div field="sjcslx" width="150" headerAlign="center" align="center">数据传输类型</div> -->
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../../apps/scripts/miniui.js"></script>
+<script src="../../../apps/scripts/gldcommon.js"></script>
+<script src="gytdsyqcrfyxxcx.js" type="text/javascript"></script>
+
+</html>

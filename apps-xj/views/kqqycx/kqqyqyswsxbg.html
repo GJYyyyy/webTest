@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>跨区迁移业务税务事项报告</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../../apps/views/dbsx/dbsxcx.css">
+    <link rel="stylesheet" href="kqqyqyswsxbg.css">
+</head>
+
+<body>
+    <div class="content">
+        <h2 style="text-align: center">跨区迁移业务税务事项报告</h2>
+        <div class="search-box-wrap searchBynsrshb">
+            <table width="96%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <th>纳税人识别号：</th>
+                    <td><input id="nsrsbh-search" name="nsrsbh" class="mini-textbox" emptyText="请输入纳税人识别号"
+                            style="width:100%;" /></td>
+                    <td style="padding:10px; text-align:center;">
+                        <a id="search" class="mini-button" style="margin-right: 20px;">查询</a>
+                        <a id="reset" class="mini-button">重置</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="search-box-content" style="margin: 20px 0;">
+            <table class="Yltable table_bg form-table" cellspacing="0" border="1" style="width: 100%;">
+                <tr>
+                    <th style="width:200px;">纳税人识别号：</th>
+                    <td width="35%" style="width:250px;" id="nsrsbh">
+                        <!--<input name="nsrsbh" id="nsrsbh" class="mini-textbox" width="100%" readonly/>-->
+                    </td>
+                    <th style="width:200px;">纳税人名称：</th>
+                    <td style="width:250px;" id="nsrmc">
+                        <!--<input name="nsrmc" id="nsrmc" class="mini-textbox" width="100%" readonly/>-->
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width:200px;">办税人员：</th>
+                    <td style="width:250px;">
+                        <input id="bsry" property="editor" class="mini-combobox" valueFromSelect="true"
+                            emptyText="--请选择办税人员--" showNullItem="false" textfield="jbrmc" valuefield="jbrmc"
+                            autoload="false" required="true" onvaluechanged='kqqyqyswsxbg.jbrChanged'
+                            requiredErrorText="请选择办税人员" nullItemText="请选择办税人员" />
+                    </td>
+                    <th style="width:200px;">证件号码：</th>
+                    <td style="width:250px;" id="zjhm">
+                        <!--<input name="zjhm" id="zjhm" class="mini-textbox" width="100%"  readonly/>-->
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width:200px;">联系人电话：</th>
+                    <td style="width:250px;" id="lxrdh">
+                        <!--<input name="lxrdh" id="lxrdh" class="mini-textbox" width="100%" readonly/>-->
+                    </td>
+                    <th style="width:200px;">出口退税类型：</th>
+                    <td style="width:250px;" id="cktslx">
+                        <!--<input name="cktslx" id="cktslx" class="mini-textbox" width="100%"  readonly/>-->
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width:200px;" rowspan="2">经营地址变更情况：</th>
+                    <td style="width:200px;">迁出地地址：</td>
+                    <td style="width:250px;" id="bgqXzqh">
+                        <!--<input name="qcddz" id="bgqXzqh" class="mini-textbox" width="100%" readonly/>-->
+                    </td>
+                    <td style="width:250px;" id="qcddz">
+                        <!--<input name="qcddz" id="qcddz" class="mini-textbox" width="100%" readonly/>-->
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:200px;">迁入地地址：</td>
+                    <td style="width:250px;">
+                        <input id="bghXzqh" name="bghXzqh" class="mini-combobox scjydzxzqhszDm" width="100%"
+                            textfield="xzqhMc" valuefield="xzqhDm" multiSelect="false"
+                            onvaluechanged="kqqyqyswsxbg.zgswjgDmChanged" allowInput="false" required="true"
+                            requiredErrorText="请选择行政区划" emptyText="--请选择行政区划--" popupWidth="200"
+                            onbeforenodeselect="kqqyqyswsxbg.beforeNodeSelect" showClose="true" />
+                    </td>
+                    <td style="width:250px;">
+                        <input name="qrddz" id="qrddz" class="mini-textbox" width="100%" />
+                    </td>
+                </tr>
+            </table>
+            <div style="margin-top: 10px;height: 60px;">
+                <span class="f-left display-block">
+                    主管税务机关：
+                </span>
+                <input id="zgswjgDm" name="zgswjgDm" disabled readonly class="mini-combobox f-left w300"
+                    vtype="required" required="true" textField="swjgMc" valueField="swjgDm" width="100%" />
+            </div>
+        </div>
+        <div class="dbsx-actions">
+            <a id="slBtn" class="mini-button" style="width: 120px;">受理</a>
+            <a id="dysltzsBtn" class="mini-button" style="width: 120px;">打印受理通知书</a>
+            <a id="dysxbgdBtn" class="mini-button" style="width: 120px;">打印事项报告单</a>
+            <a id="dybysltzsBtn" class="mini-button" style="width: 150px;">打印不予受理通知书</a>
+            <!--<a class="mini-button" onclick="doBack()" id="backBtn" style="width: 120px;">返回</a>-->
+        </div>
+    </div>
+    <script src="../../../lib/jquery/jquery.js"></script>
+    <script src="../../scripts/miniui.js"></script>
+    <script src="../../scripts/efg_water.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script src="kqqyqyswsxbg.js"></script>
+</body>
+
+</html>

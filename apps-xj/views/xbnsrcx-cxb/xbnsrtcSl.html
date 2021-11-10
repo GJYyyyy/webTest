@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>事项受理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./xbnsrcx.css">
+    <style>
+        .mini-grid-row-selected {
+            background: #ecedef !important;
+        }
+        .tips {
+            color: red;
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false">
+    <div class="mini-fit">
+        <div class="editform">
+            <h3 style="margin: 3px auto; text-align: center;">
+                <span id="swsxMc"></span>受理</h3>
+            <div class="width970 infodiv" style="margin-top: -10px;padding-top: 0">
+                <fieldset class="bor" style="padding-bottom: 3px; margin-top: 10px;">
+                    <legend>
+                        <h3>基本信息</h3>
+                    </legend>
+                    <table id="nsrjbxx" width="100%" border="0" cellspacing="0" cellpadding="0" class="infotab" style="line-height: 18px">
+                        <tr>
+                            <th>任务来源：</th>
+                            <td id="rwly"></td>
+                            <th>纳税人识别号：</th>
+                            <td>
+                                <span id="sqr"></span>
+                            </td>
+                            <th>纳税人名称：</th>
+                            <td>
+                                <span id="nsrmc"></span>
+                            </td>
+                            <th class="kqysxfk" style="display: none">联系电话：</th>
+                            <td class="kqysxfk" style="display: none">
+                                <span id="lxdh"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>提交日期：</th>
+                            <td>
+                                <span id="cjsj"></span>
+                            </td>
+                            <th>办理期限：</th>
+                            <td>
+                                <span id="blqx"></span>
+                            </td>
+                            <th>申请人：</th>
+                            <td>
+                                <span id="jbrmc"></span>
+                                <span style="display:none;" id="sjhm"></span>
+                            </td>
+                            
+                        </tr>
+                        <tr style="display:none;">
+                            <th>申请序号：</th>
+                            <td>
+                                <span id="sqxh"></span>
+                            </td>
+                            <th>文书号：</th>
+                            <td>
+                                <span id="wsh"></span>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <br>
+                <div id="dbsx_content"></div>
+            </div>
+        </div>
+    </div>
+    <div class="dbsx-actions">
+        <div id="tishi" style="padding-bottom: 10px;color: red">
+
+        </div>
+        <a id="dbBtn" class="mini-button" onclick="actionMethods.showdbWin()" style="display: none">调拨</a>
+        <a id="dbBtnGray" class="mini-gray-button" style="display: none">调拨</a>
+        <a id="slBtn" class="mini-button" onclick="actionMethods.slMethodsValidate()" style="display: none">受理</a>
+        <a id="slBtnGray" class="mini-gray-button" style="display: none">受理</a>
+        <a id="byslBtn" class="mini-button" onclick="actionMethods.byslClick()" style="display: none">不予受理</a>
+        <a id="byslBtnGray" class="mini-gray-button" style="display: none">不予受理</a>
+        <a id="yjbcBtn" class="mini-button" onclick="actionMethods.showyjbcWin('open')" style="display: none">一键保存</a>
+        <a id="yjbcBtnGray" class="mini-gray-button" style="display: none">一键保存</a>
+        <a id="bjBtn" class="mini-button" onclick="actionMethods.bjClick()" style="display: none">办结</a>
+        <a id="bjBtnGray" class="mini-gray-button" style="display: none">办结</a>
+        <a id="smrzBtn" class="mini-button" onclick="actionMethods.smrzMethods()" style="display: none">实名认证</a>
+        <a id="smrzBtnGray" class="mini-gray-button" style="display: none">实名认证</a>
+        <a id="cazskhBtn" class="mini-button" onclick="actionMethods.cazskhMethods()" style="display: none">CA证书开户</a>
+        <a id="cazskhBtnGray" class="mini-gray-button" style="display: none">CA证书开户</a>
+        <a id="ffBtn" class="mini-button" onclick="actionMethods.ffMethods()" style="display: none">发放</a>
+        <a id="ffBtnGray" class="mini-gray-button" style="display: none">发放</a>
+        <a id="sqbdyBtn" class="mini-button" onclick="actionMethods.sqbdyMethods()" style="display: none">申请表打印</a>
+        <a id="sqbdyBtnGray" class="mini-gray-button" style="display: none">申请表打印</a>
+        <a id="closeSearchWin" class="mini-button" onclick="actionMethods.closeSearchWin()" style="display: none">关闭</a>
+    </div>
+    <div id="dbWin" class="mini-window" title="调拨" style="width:500px;height:300px;display: none" showMaxButton="true" showToolbar="true"
+        showFooter="true" showModal="true" allowResize="true" allowDrag="true">
+        <div>
+            <table>
+                <tr>
+                    <td>调拨至税务机关：</td>
+                    <td>
+                        <input id="dbswjg" name="dbswjg" class="mini-combobox" style="width:150px;" textField="swjgmc" valueField="swjgdm" showNullItem="true"
+                        />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div property="footer" style="text-align: center">
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.dbMethods()">确认</a>
+        </div>
+    </div>
+    <div id="byslWin" class="mini-window" title="不予受理" style="width:500px;height:320px;display: none" showMaxButton="true" showToolbar="true"
+        showFooter="true" showModal="true" allowResize="true" allowDrag="true">
+        <div>
+            <table style="width:100%">
+                <tr>
+                    <td><i class="txt-red ml3">*</i>请输入不予受理原因</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="reason" name="reason" class="mini-textarea" style="width:100%;height:100px" required="true"
+                        />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div property="footer" style="text-align: center">
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.byslWinClick()">确认</a>
+        </div>
+    </div>
+    <div id="slWin" class="mini-window" title="受理" style="width:900px;height:100%;display: none" showMaxButton="true" showToolbar="true"
+        showFooter="true" showModal="true" allowResize="true" allowDrag="true">
+        <table>
+            <tr>
+                <td>
+                    <label>*组织机构代码</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+                <td>
+                    <label>*单位性质</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="dwxz" class="mini-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>*证件名称</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+                <td>
+                    <label>*证照号码</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="dwxz" class="mini-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>*国标行业</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+                <td>
+                    <label>*国标行业（附）1</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="dwxz" class="mini-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>*国标行业（附）2</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+                <td>
+                    <label>*国标行业（附）3</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="dwxz" class="mini-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>*纳税人所处街乡</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+                <td>
+                    <label>*国有控股类型</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="dwxz" class="mini-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>*课征主题类型</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+                <td>
+                    <label>*隶属关系</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="dwxz" class="mini-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>*主管税务机关</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+                <td>
+                    <label>*主管税务所（科、分局）</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="dwxz" class="mini-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>*核算方式</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+            </tr>
+        </table>
+        <div property="footer" style="text-align: center">
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.slMethods()">确定</a>
+            <a id="cancelBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.closeWin()">取消</a>
+        </div>
+    </div>
+    <div id="yjbcWin" class="mini-window" title="一键保存" style="width:600px;height:450px;display: none" showMaxButton="true" showToolbar="true"
+        showFooter="true" showModal="true" allowResize="true" allowDrag="true">
+        <div>
+            <table class="table">
+                <tr>
+                    <td>事项名称</td>
+                    <td>操作</td>
+                </tr>
+            </table>
+        </div>
+        <div property="footer" style="text-align: center">
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.closeWin()">确认</a>
+        </div>
+    </div>
+    <!-- <div id="smrzWin" class="mini-window" title="实名认证" style="width:900px;height:500px;display: none" showMaxButton="true" showToolbar="true"
+        showFooter="true" showModal="true" allowResize="true" allowDrag="true">
+        <div>
+            <table>
+                <tr>
+                    <td>不予受理</td>
+                   
+                </tr>
+            </table>
+        </div>
+        <div property="footer" style="text-align: center">
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.closeWin()">确认</a>
+        </div>
+    </div> -->
+    <div id="fsdxWin" class="mini-window" title="发送短信" style="width:500px;height:450px;display: none" showMaxButton="true" showToolbar="true"
+        showFooter="true" showModal="true" allowResize="true" allowDrag="true">
+        <div>
+            <table style="width: 100%">
+                <!-- <tr>
+                    <td>经办人：</td>
+                    <td>
+                        <input class="mini-textbox" id="jbr" name="jbr" readOnly />
+                    </td>
+                </tr>
+                <tr>
+                    <td>手机号码：</td>
+                    <td>
+                        <input class="mini-textbox" id="sjhm" name="sjhm" readOnly />
+                    </td>
+                </tr> -->
+                <tr>
+                    <td>短信内容：</td>
+                    <td>
+                        <input id="dxnr" class="mini-textarea" vtype="chinese" style="width: 100%;height:200px" emptyText="请输入短信内容"
+                               onvaluechanged="actionMethods.textChange" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style=" color: #fff;">0</td>
+                    <td>
+                        <p id="checkNum" style="text-align: right;margin: 0;">
+                            <span id="tips" style="color: red; display: none; float: left;">短信内容超过60字</span>
+                            <span id="showNumber">0</span>/<span>60<span></span></span>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div property="footer" style="text-align: center">
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.fsdxMethods()">确认</a>
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.closeWin()">取消</a>
+        </div>
+    </div>
+    <div id="sfzrdWin" class="mini-window" title="税（费）种认定信息" style="width:100%;height:100%;display: none" showMaxButton="true" showToolbar="true"
+         showFooter="true" showModal="true" allowResize="true" allowDrag="true">
+        <h4 style="margin: 0;">税费种认定基本信息</h4>
+        <div id="sfzrdForm" data-view-type='form' style="margin-top: 10px;">
+            <table class="form-table" style="width:100%">
+                <tr>
+                    <th width="22%" style="text-align:right">纳税人识别号：</th>
+                    <td width="28%">
+                        <input class="mini-textbox" style="width:100%;" readonly="true" name="nsrsbh"/></td>
+                    <th width="22%" style="text-align:right">纳税人姓名</th>
+                    <td width="28%">
+                        <input style="width:100%;" name="nsrmc" readonly class="mini-textbox"/>
+                    </td>
+
+                </tr>
+                <tr>
+                    <th style="text-align:right">登记注册类型：</th>
+                    <td><input class="mini-textbox" name="djzclxdmText" readonly="true" style="width:100%;"/></td>
+                    <th style="text-align:right">生产经营地址：</th>
+                    <td><input class="mini-textbox" readonly name="scjydz" style="width:100%;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align:right">生产经营地行政区分：</th>
+                    <td><input class="mini-textbox" name="scjydzxzqhszDmText" readonly style="width:100%;"/></td>
+                    <th style="text-align:right">纳税人所处街乡：</th>
+                    <td><input class="mini-textbox" name="jdxzDm" readonly style="width:100%;"/></td>
+                </tr>
+                <tr>
+                    <th style="text-align:right">隶属关系：</th>
+                    <td ><input class="mini-textbox" readonly style="width:100%;" name="dwlsgxDm"/></td>
+                </tr>
+                <tr>
+                    <th style="text-align:right">增值税经营类别：</th>
+                    <td><input class="mini-textbox" readonly name="zzsjylbmc" style="width:100%;"/></td>
+                    <th style="text-align:right">增值税纳税人类型：</th>
+                    <td><input class="mini-textbox" readonly name="zzsnsrlxmc" style="width:100%;"/></td>
+                </tr>
+                <tr>
+                    <th style="text-align:right">营改增纳税人类型：</th>
+                    <td><input class="mini-textbox" readonly name="ygznsrlxmc" style="width:100%;"/></td>
+                    <th style="text-align:right">增值税企业类型：</th>
+                    <td><input class="mini-textbox" readonly name="zzsqylxmc" style="width:100%;"/></td>
+                </tr>
+                <tr>
+                    <th width="20%" style="text-align:right">经营范围：</th>
+                    <td width="30%"><input class="mini-textarea" readonly style="width:100%;" name="jyfw"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="grid-toolbar" data-bind-grid="sfzrdGrid" style="margin-bottom: 10px;">
+            <div class="dis-inb-fl">
+                <a class="mini-button toolBtn-blue grid-add"
+                   onclick="actionMethods.addSfzrd">增加</a>
+                <a class="mini-button grid-remove" iconCls="icon-remove"
+                   onclick="actionMethods.removeRow">删除</a>
+            </div>
+        </div>
+        <div id="sfzrdGrid" class="mini-datagrid" style="width:100%;height:250px;"
+             allowresize="false" showpager="false"
+             allowCellEdit="true" allowCellSelect="true" multiSelect="true"
+             oncellcommitedit="actionMethods.OnCellCommitEdit"
+             oncellbeginedit="actionMethods.OnCellBeginEdit">
+            <div property="columns"><!-- renderer="swdjxxbldw.bzRenderer"-->
+                <div type="indexcolumn"></div>
+                <div type="checkcolumn" width="50"></div>
+                <div name="zsxmDm" field="zsxmDm" displayField="zsxmmc" type="comboboxcolumn" align="center"
+                     width="120" vtype="required" headeralign="center"
+                     allowsort="false">
+                    <span class="tips">*</span>征收项目 <input property="editor" class="mini-combobox" allowInput="true"
+                              valueFromSelect="true"
+                              style="width:100%;" textField="MC" valueField="ID" data="actionMethods.zsxmData"
+                              required="true" requiredErrorText="征收项目不能为空"
+                />
+                </div>
+                <div field="zfsbz" type="comboboxcolumn" align="center"
+                     width="120" vtype="required" headeralign="center"
+                     allowsort="false">
+                    <span class="tips">*</span>主附税标志 <input property="editor" class="mini-combobox" allowInput="true"
+                                valueFromSelect="true"
+                                style="width:100%;" textField="MC" valueField="ID" data="actionMethods.zfsbzData"
+                                required="true" requiredErrorText="主附税标志不能为空"
+                />
+                </div>
+                <div field="zsdlfsDm" displayField="zsdlfsmc" type="comboboxcolumn" align="center"
+                     width="120" vtype="required" headeralign="center"
+                     allowsort="false">
+                    <span class="tips">*</span>征收代理方式 <input property="editor" class="mini-combobox" allowInput="true"
+                                 valueFromSelect="true"
+                                 style="width:100%;" textField="MC" valueField="ID" data="actionMethods.zsdlfsData"
+                                 required="true" requiredErrorText="征收代理方式不能为空"
+                />
+                </div>
+                <div field="hyDm" displayField="hyMc" align="center"
+                     width="120" vtype="required" headeralign="center" allowsort="false" readonly="true">
+                    <span class="tips">*</span>行业 <input property="editor" class="mini-combobox" allowInput="true"
+                              valueFromSelect="true"
+                              style="width:100%;" textField="MC" valueField="ID" data="actionMethods.hyData"
+                              required="true" requiredErrorText="行业不能为空"
+                />
+                </div>
+                <div field="zgswskfjDm" displayField="zgswskfjMc" align="center"
+                     width="120" vtype="required" headeralign="center" allowsort="false" readonly="true">
+                    <span class="tips">*</span>主管税务机关 <input property="editor" class="mini-treeselect" allowInput="true"
+                              valueFromSelect="true"
+                              style="width:100%;" textField="MC" valueField="ID" data="actionMethods.zgswskfjData"
+                              required="true" requiredErrorText="主管税务机关不能为空"
+                />
+                </div>
+                <div field="rdyxqq" displayField="rdyxqq" align="center"
+                     width="120" vtype="required" headeralign="center" allowsort="false">
+                    <span class="tips">*</span>认定有效期起 <input property="editor" class="mini-datepicker"
+                                  style="width:100%;" required="true" requiredErrorText="认定有效期起不能为空"
+                />
+                </div>
+                <div field="rdyxqz" displayField="rdyxqz" align="center"
+                     width="120" vtype="required" headeralign="center" allowsort="false">
+                    <span class="tips">*</span>认定有效期止 <input property="editor" class="mini-datepicker"
+                                  style="width:100%;" required="true" requiredErrorText="认定有效期止不能为空"
+                />
+                </div>
+                <div field="nsqxDm" displayField="nsqxmc" align="center"
+                     width="120" vtype="required" headeralign="center" allowsort="false">
+                    <span class="tips">*</span>纳税期限 <input property="editor" class="mini-combobox" allowInput="true"
+                                  valueFromSelect="true"
+                                  style="width:100%;" textField="MC" valueField="ID" data="actionMethods.nsqxData"
+                                  required="true" requiredErrorText="纳税期限不能为空"
+                />
+                </div>
+                <div field="sbqxDm" displayField="sbqxmc" align="center"
+                     width="120" vtype="required" headeralign="center" allowsort="false">
+                    <span class="tips">*</span>申报期限 <input property="editor" class="mini-combobox" allowInput="true"
+                                valueFromSelect="true"
+                                style="width:100%;" textField="MC" valueField="ID" data="actionMethods.sbqxData"
+                                required="true" requiredErrorText="申报期限不能为空"
+                />
+                </div>
+                <div field="jkqxDm" displayField="jkqxmc" align="center"
+                     width="120" vtype="required" headeralign="center" allowsort="false">
+                    <span class="tips">*</span>缴款期限 <input property="editor" class="mini-combobox" allowInput="true"
+                                valueFromSelect="true"
+                                style="width:100%;" textField="MC" valueField="ID" data="actionMethods.jkqxData"
+                                required="true" requiredErrorText="缴款期限不能为空"
+                />
+                </div>
+                <div field="zspmDm" displayField="zspmmc" align="center"
+                     width="120" vtype="required" headeralign="center" allowsort="false">
+                    <span class="tips">*</span>征收品目 <input property="editor" class="mini-combobox" allowInput="true"
+                                valueFromSelect="true"
+                                style="width:100%;" textField="MC" valueField="ID" data="actionMethods.zspmData"
+                                required="true" requiredErrorText="征收品目不能为空"
+                />
+                </div>
+                <div field="sfzyzspm" align="center" type="comboboxcolumn"
+                     width="120" headeralign="center" allowsort="false">
+                    是否是主营征收品目 <input property="editor" class="mini-combobox" allowInput="true"
+                                valueFromSelect="true"
+                                style="width:100%;" textField="MC" valueField="ID" data="actionMethods.sfzyzsData"
+                />
+                </div>
+                <div field="zszmDm" displayField="zszmMc" align="center"
+                     width="120" headeralign="center" allowsort="false">
+                    征收子目 <input property="editor" class="mini-combobox" allowInput="true"
+                                     valueFromSelect="true"
+                                     style="width:100%;" textField="MC" valueField="ID" data="actionMethods.zszmData"
+                />
+                </div>
+                <div field="slhdwse" align="center"
+                     width="120" vtype="required" headeralign="center" allowsort="false" readonly="true">
+                    税率或单位税额 <input property="editor" class="mini-textbox"
+                                   style="width:100%;"
+                />
+                </div>
+                <div field="zsl" align="center"
+                     width="120" vtype="required" headeralign="center" allowsort="false" readonly="true">
+                    征收率 <input property="editor" class="mini-textbox"
+                                   style="width:100%;"
+                />
+                </div>
+                <div field="yskmDm" displayField="yskmmc" align="center"
+                     width="120" vtype="required" headeralign="center" allowsort="false">
+                    <span class="tips">*</span>预算科目 <input property="editor" class="mini-treeselect" allowInput="true"
+                                valueFromSelect="true" showQueryToolBar="true"
+                                style="width:100%;" textField="MC" valueField="ID" data="actionMethods.yskmData"
+                                required="true" requiredErrorText="预算科目不能为空"
+                />
+                </div>
+                <div field="ysfpblDm" displayField="ysfpblmc" align="center"
+                     width="120" vtype="required" headeralign="center" allowsort="false">
+                    <span class="tips">*</span>预算分配比例 <input property="editor" class="mini-combobox" allowInput="true"
+                                valueFromSelect="true"
+                                style="width:100%;" textField="MC" valueField="ID" data="actionMethods.ysfpblData"
+                                required="true" requiredErrorText="预算分配比例不能为空"
+                />
+                </div>
+                <div field="skgkDm" displayField="skgkmc" align="center"
+                     width="120" vtype="required" headeralign="center" allowsort="false">
+                    <span class="tips">*</span>税款国库 <input property="editor" class="mini-combobox" allowInput="true"
+                                valueFromSelect="true"
+                                style="width:100%;" textField="MC" valueField="ID" data="actionMethods.skgkData"
+                                required="true" requiredErrorText="税款国库不能为空"
+                />
+                </div>
+            </div>
+        </div>
+        <div property="footer" style="text-align: center">
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.sfzrdSave()">确认</a>
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.sfzrdWinClose()">取消</a>
+        </div>
+    </div>
+    <div id="nsrztWin" class="mini-window" title="请选择纳税主体" style="width:800px;height:450px;display: none" showMaxButton="true" showToolbar="true"
+        showFooter="true" showModal="true" allowResize="true" allowDrag="true">
+        <p class="tips">请确认是否是同一纳税主体，勾选一个主体后点击“确定”将会对登记信息进行并档处理，新登记信息将完全覆盖原纳税人信息；不勾选，点击“取消”后，会在核心征管中新增一个主体，请务必慎重选择！</p>
+        <div id="nsrztWindatagrid" class="mini-datagrid" style="height:300px;" 
+            idField="id"
+            allowResize="true" showPager="false" checkSelectionOnly="true"
+            allowCellSelect="true" multiSelect="false" allowCellEdit="true"
+            >
+            <div property="columns">
+                <div field="selectOne" vtype="required;" requiredErrorText="选择项不能为空" type="checkcolumn" trueValue="1" falseValue="0" width="50" headerAlign="center">选项</div>  
+                <div field="nsrsbh" width="170" headerAlign="center">纳税人识别号</div>
+                <div field="nsrmc" width="170" >纳税人名称</div>
+                <div field="kzztdjlxmc" width="170">课征主体登记类型</div>
+                <div field="djzclxmc" width="170">登记注册类型</div>
+                <div field="nsrztmc" width="170">纳税人状态</div>
+                <div field="zgswskfjmc" width="170">主管税务所科分局</div>
+                <div field="fddbrxm" width="170">法定代表人姓名</div>
+                <div field="fddbrsfzjlxMc" width="230">法定代表人（负责人）身份证件种类</div>
+                <div field="fddbrsfzjhm" width="230">法定代表人（负责人）身份证件号码</div>
+                <div field="zzjgDm" width="170">组织机构代码</div>
+            </div>
+        </div>
+        <div property="footer" style="text-align: center">
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.slMethodsSelectConfirm()">确认</a>
+            <a id="cancelBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.slMethodsSelectCancel()">取消</a>
+        </div>
+    </div>
+    <div id="pzhdWin" class="mini-window" title="票种核定信息" style="width:100%;height:100%;display: none" showMaxButton="true" showToolbar="true"
+    showFooter="true" showModal="true" allowResize="true" allowDrag="true">
+        <h2>选择票种及数量</h2>
+        <section class="first-step">
+            <p>通过系统给您的综合分析，您可通过电子税务局申请的发票如下，如需发票增量，请先完成核定后再进行调整。</p>
+            <p style="color: red;display: none;" id="kpxe-tip">注意：因系统识别该纳税人发生走逃概率高，系统已限制发票用量和最高开票限额。</p>
+            <div class="grid-toolbar" data-bind-grid="gzpz_grid" style="background: transparent;margin-bottom:20px">
+                <a class="mini-button toolBtn-blue grid-add" style="padding:0 20px" onclick="gzpz.addfdeFp">增加</a>
+                <a class="mini-button grid-remove" style="padding:0 20px" onclick="gzpz.deletefdeFp">删除</a>
+            </div>
+            <div id="gzpz_gridfde" class="mini-datagrid" style="margin: 0 auto;width:100%;"
+                showEmptyText="true" autoLoad="false" allowResize="false" idField="id" showPager="false" multiSelect="true" allowCellValid="true"
+                allowSortColumn="false" allowCellSelect="true" checkSelectionOnly="true" allowCellEdit="true" oncellbeginedit="gzpz.cellbeginedit"
+                ondrawcell="gzpz.drawcell" oncellcommitedit="gzpz.cellcommitedit" oncellendedit="gzpz.cellendedit">
+                <div property="columns">
+                    <div type="checkcolumn" width="50" align="center" headerAlign="center"></div>
+                    <div  field="fpzlDm" type="comboboxcolumn" width="300" align="center" headerAlign="center"><span class="txt-red">*</span>发票种类名称
+                        <input id="fbzl_comboxfde" allowInput="false" showClose="false" property="editor" class="mini-combobox"
+                               style="width:100%;" data="gzpz.fpzlListfde" onvaluechanged="gzpz.changedZzsFpzl"/>
+                    </div>
+                    <div field="dffpzgkpxeDm" type="comboboxcolumn" width="190" align="center" headerAlign="center">
+                        <span class="txt-red">*</span>单份发票最高开票限额
+                        <input id="fbzl_combox_kpxe" allowInput="false" showClose="false" property="editor" class="mini-combobox"
+                               valueField="dffpzgkpxeDm" textField="dffpzgkpxemc" data="gzpz.dffpzgkpxeList"/>
+                    </div>
+                    <div field="jldwmc" width="50" align="center" headerAlign="center">单位</div>
+                    <div field="myzggpsl" width="150" align="center" headerAlign="center">
+                        每月最高购票数量<input property="editor" class="mini-textbox" vtype="int"/>
+                    </div>
+                    <div field="mczggpsl" width="150" align="center" headerAlign="center">
+                        每次最高购票数量<input property="editor" class="mini-textbox" vtype="int"/>
+                    </div>
+                    <div field="cpzgsl" width="150" align="center" headerAlign="center">
+                        持票最高数量<input property="editor" class="mini-textbox" vtype="int"/>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="xgly" style='display:none;'>
+                修改推荐值理由：<input type="text" style="width:800px;height: 24px;" id="xgly" />
+            </div>
+
+            <table style="margin: 30px 0">
+                <tr>
+                    <td>
+                        <label>定额发票月累计购票金额（如果您核定了定额发票，请填写定额发票月累计购票金额）：</label>
+                    </td>
+                    <td>
+                        <input id="defpljgpje_yl_bl" class="mini-textbox" allowInput="false" />
+                    </td>
+                </tr>
+            </table>
+            <div id="lpryl_grid_bl" class="mini-datagrid" style="margin: 0 auto;width:100%;margin-top: 10px" showEmptyText="true"
+                autoLoad="false" allowResize="false" idField="id" showPager="false" multiSelect="false" oncellcommitedit=""
+                allowSortColumn="false" allowCellValid="true" allowCellSelect="true" onlyCheckSelection="true"
+                allowCellEdit="true">
+                <div property="columns">
+                    <div field="gprxm" width="150">领票人</div>
+                    <div field="zjlxmc" width="150">证件种类</div>
+                    <div field="zjhm" width="200">证件号码</div>
+                    <div field="mobile" width="150">联系电话</div>
+                </div>
+            </div>
+            <div class="title" style="width: 95%;">
+                <div>温馨提示： 如果您想要添加更多的领票人信息，可以通过“发票票种核定调整”功能单独添加。</div>
+            </div>
+
+            <div id="ukey_box_yl_bl" style="display: none;">
+                <table class="form-table" style="width:100%;font-size:12px;">
+                    <tr>
+                        <td colspan="4">
+                            <p style="font-size: 14px;font-weight: 600;margin-top: 20px;text-align: left;">ukey领取信息<span style="color: red;margin-left: 10px;">(对专业配送的，待受理完成后，暂请电话通知EMS上门领取并配送)</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="15%"><strong class="text-red"> *</strong>领取方式：</th>
+                        <td colspan="3">
+                            <div style="float: left">
+                                <input id="lqfs_yl_bl" class="mini-radiobuttonlist" repeatItems="2" repeatLayout="table"
+                                    textField="MC" valueField="ID" data="[{'MC':'上门领取','ID':'smlq'},{'MC':'专业配送','ID':'zyps'}]"
+                                    readonly>
+                                </input>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <table id="zyps-info-yl-bl" class="form-table" style="width:100%;font-size:12px;display: none;">
+                    <tr>
+                        <th width="15%"><strong class="text-red"> *</strong>收件人姓名：</th>
+                        <td width="35%">
+                            <input width="70%" class="mini-textbox" name="receiverName" id="receiverName_yl_bl" readonly />
+                        </td>
+                        <th width="15%"><strong class="text-red"> *</strong>证件号码：</th>
+                        <td width="35%">
+                            <input width="70%" class="mini-textbox" name="receiverZjhm" id="receiverZjhm_yl_bl" readonly />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="15%"><strong class="text-red"> *</strong>联系电话：</th>
+                        <td width="35%">
+                            <input width="70%" class="mini-textbox" name="receiverLxdh" id="receiverLxdh_yl_bl" readonly />
+                        </td>
+                        <th width="15%"><strong class="text-red"> *</strong>邮政编码：</th>
+                        <td width="35%">
+                            <input width="70%" class="mini-textbox" name="postcode" id="postcode_yl_bl" readonly />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="15%"><strong class="text-red"> *</strong>配送地址：</th>
+                        <td colspan="3">
+                            <input id="city_yl_bl" name="city" width="20%" class="mini-combobox" textfield="MC"
+                                    valuefield="ID" data="[{'MC':'上海市','ID':'310000'}]"
+                                    value="310000"
+                                    allowInput="false" showClose="false"
+                                    readonly/>
+                            <input width="20%" class="mini-textbox" name="county" id="county_yl_bl" readonly />
+                            <input width="47%" class="mini-textbox" name="address" id="address_yl_bl" readonly />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="is-dzptfp-bl" style="display: none;">
+                <span style="float: left;display: none;">申请防伪税控开票设备：</span>
+                <div id="sqfwskkpsb_yl_bl" style="display: none;" class="mini-radiobuttonlist" readonly="true" textField="MC"
+                    valueField="ID" data="[{ID:1,MC: '是'},{ID:0,MC:'否'}]">
+                </div>
+                <h4>税控设备类型/服务商</h4>
+                <div id="skfws_yl_bl" class="mini-radiobuttonlist" textField="MC" readonly="true" valueField="ID"
+                    data="[{ID:'sw',MC: '税务UKEY（免费）'},{ID:'htxx',MC: '航天信息'},{ID:'bwjf',MC:'百旺金赋'},{ID: 'bwcs', MC: '百望财税'}]">
+                </div>
+                <div class="title" id="skfwsInfo" style="color:#FF0000;display: none;">
+                    <div>
+                        温馨提示：领取税务UKEY后，您可访问国家税务总局全国增值税发票查验平台（https://inv-veri.chinatax.gov.cn/xgxz.html）下载开票客户端等相关程序，具体操作详见该页面中“基础驱动及应用客户端安装手册”文件。
+                    </div>
+                </div>
+            </div>
+            <div property="footer" style="text-align: center;margin-top:40px">
+                <a class="mini-button" style="background: #0994dc;padding:0 20px" onclick="actionMethods.pzhdConfirm">确认</a>
+                <a class="mini-button" style="background: #0994dc;padding:0 20px" onclick="actionMethods.closeWin">取消</a>
+            </div>
+        </section>
+    </div>
+    <script src="../../../lib/jquery/jquery.js"></script>
+    <script src="../../scripts/miniui.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script src="../../scripts/gldbfslkz.js"></script>
+    <script src="../dbsx/sxsl_service.js"></script>
+    <script src="../dbsx/sxsl_common.js"></script>
+    <script src="./printThis.js"></script>
+    <script src="../dbsx/sqzlView.js"></script>
+    <script src="./actionMethods.js"></script>
+    <script src="./wssqUtil.js"></script>
+    <script src="./baseCode.js"></script>
+    <script src="./xbnsrtcSl.js"></script>
+</body>
+
+</html>

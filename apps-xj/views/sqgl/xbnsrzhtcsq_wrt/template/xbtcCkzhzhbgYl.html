@@ -1,0 +1,141 @@
+<style>
+    .ckzhzhbg-form tr td:nth-child(2n+1), .ckzhzhbg-form tr th:nth-child(2n+1){
+        text-align: left;
+    }
+</style>
+<div class="form-table ckzhzhbg-form" id="ckzhzhbg-yltj-form" data-view-type= 'form'>
+    <table width="100%" height="470">
+        <tr>
+            <th colspan="6" class="td-border-bottom" style="text-align: left;">账号信息</th>
+        </tr>
+        <tr>
+            <td width="100" colspan="3" >缴税账号：
+                <input name="sxjszhbz" class="mini-radiobuttonlist" textField="MC" valueField="ID" required="true"
+                       requiredErrorText="请选择缴税账号" data='[{"ID":"Y","MC":"是"},{"ID":"N","MC":"否"}]' readonly="true"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">账户性质：
+                <input name="ckzhzhbg-yhzhxzDmText"  class="mini-textbox" style="width: 505px;"  readonly="true"/>
+            </td>
+
+            <td colspan="3">账户名称：
+                <input name="zhmc" id="_zhmc" type="text" class="mini-textbox" style="width: 255px;"
+                       requiredErrorText="账户名称不能为空"  readonly="true"/>
+            </td>
+        </tr>
+        <tr>
+            <!--<td colspan="3">行政区划：
+                <input  name="ckzhzhbg-xzqhszDmText" class="mini-textbox" type="text"  style="width: 505px" required="true" readonly="true"/>
+            </td>-->
+        </tr>
+        <tr>
+            <th colspan="6" class="td-border-bottom" style="text-align: left;">银行账户信息</th>
+        </tr>
+        <tr height="15"><!--占位--></tr>
+        <tr id="hzh-tr">
+            <td colspan="3" class="">基本存款账户编号：
+                <input name="yhkhdjzh"  class="mini-textbox" style="width: 445px"  readonly="true"/>
+            </td>
+            <td colspan="3" class="txt-l">发证日期：<input name="ffrq" type="text"  class="mini-datepicker"   readonly="true" width="255"/></td>
+        </tr>
+        <tr>
+            <td colspan="3">开户银行：
+                <!--<input name="ckzhzhbg-yhhbDmText"  class="mini-textbox" required="true" style="width: 220px"  readonly="true" />-->
+
+                <input name="ckzhzhbg-yhyywdDmText" id="ckzhzhbg-yhyywdDmText" class="mini-textbox" allowInput="true"  style="width: 505px" readonly="true" />
+            </td>
+
+            <td colspan="3" class="txt-l">开户日期：<input name="khrq" type="text"  class="mini-datepicker"  readonly="true" width="255"/></td>
+        </tr>
+        <tr>
+            <td colspan="3">银行账号：
+                <input name="yhzh" class="mini-textbox"   readonly="true" style="width: 505px"/></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="pd-l-2em" colspan="6">币种：
+                <input  class="mini-radiobuttonlist" vtype="required" textField="MC" valueField="ID" name="bzName"
+                        required="true" requiredErrorText="请选择币种" value="156" readonly="true"
+                        data='[{"ID":"156","MC":"人民币元"},{"ID":"840","MC":"美元"},{"ID":"978","MC":"欧元"},{"ID":"0","MC":"其他"}]' />
+
+                <input  class="mini-textbox" style="width:162px" readonly="true" name="bzComboxText"/>
+
+                <input id="hbszDm" name="hbszDm" class="mini-hidden" />
+            </td>
+        </tr>
+        <tr>
+            <th colspan="6" class="td-border-bottom" style="text-align: left;">退税信息</th>
+        </tr>
+        <tr height="15"><!--占位--></tr>
+        <tr>
+            <td colspan="3">出口退税账号：
+                <input  name="cktszhbz"   readonly="true"
+                        class="mini-radiobuttonlist" textField="MC" valueField="ID"  value="N"
+                        data='[{"ID":"Y","MC":"是"},{"ID":"N","MC":"否"}]' />
+                <span style="margin-left:10px;font-size: 12px;color: #999">
+                        <!-- 注：涉及出口退税业务的选择是，且同一单位有且只有一个出口退税账户；其他选择否 --></span>
+            </td>
+            <!--  </tr>
+             <tr> -->
+            <td colspan="3">是否退税账号：
+                <input  name="tszhbz"  readonly="true"
+                        class="mini-radiobuttonlist" textField="MC" valueField="ID"  data='[{"ID":"Y","MC":"是"},{"ID":"N","MC":"否"}]' />
+                <span style="margin-left:10px;font-size: 12px;color: #999">
+                        <!-- 注：建议选择是，但同时有多个存款账户的只能选择一个作为退税账户 --></span>
+            </td>
+
+        </tr>
+        <tr>
+            <th colspan="6" class="td-border-bottom" style="text-align: left;">三方协议信息</th>
+        </tr>
+        <tr height="15"><!--占位--></tr>
+        <td colspan="3">是否签订三方协议信息：
+            <input id="sfqdsfxy" name="sfqdsfxy"  readonly="true"
+                    class="mini-radiobuttonlist" textField="MC" valueField="ID"  data='[{"ID":"Y","MC":"是"},{"ID":"N","MC":"否"}]' />
+            <span style="margin-left:10px;font-size: 12px;color: #999">
+                    <!-- 注：建议选择是，但同时有多个存款账户的只能选择一个作为退税账户 --></span>
+        </td>
+    </table>
+    <table id="sfxyxxViewDataYl" class="hide-sfxyxx" style="width: 100%">
+        <!-- <tr>
+            <th colspan="6" class="td-border-bottom">三方协议信息</th>
+        </tr> -->
+        <tr height="15"><!--占位--></tr>
+        <tr>
+            <!--<td colspan="3">行政区划：
+                <input name="xzqh" type="text" class="mini-textbox" style="width: 80%" readOnly />
+            </td>-->
+            <td colspan="3">缴款帐户名称：
+                <input name="jkzhmc" type="text" class="mini-textbox" style="width: 80%" readOnly />
+            </td>
+            <td colspan="3">银行营业网点：
+                <input name="yhyywdText" type="text" class="mini-textbox" style="width: 80%" readOnly />
+            </td>
+        </tr>
+        <!--<tr>
+            <td colspan="3">银行行别：
+                <input name="yhhbText" type="text" class="mini-textbox" style="width: 80%" readOnly />
+            </td>
+
+        </tr>-->
+        <tr>
+            <td colspan="3">清算银行号：
+                <input name="qsyhhh" type="text" class="mini-textbox" style="width: 80%" readOnly />
+            </td>
+            <td colspan="3">开户银行行号：
+                <input name="khyhhh" type="text" class="mini-textbox" style="width: 80%" readOnly />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">缴款帐户：
+                <input name="jkzh" type="text" class="mini-textbox" style="width: 80%" readOnly />
+            </td>
+            <td colspan="3">批扣标志：
+                <input name="pkbz" type="text" class="mini-textbox" style="width: 80%" readOnly />
+            </td>
+        </tr>
+    </table>
+</div>

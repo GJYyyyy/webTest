@@ -1,0 +1,54 @@
+td {
+  height: 50px;
+}
+
+th {
+  text-align: right;
+}
+
+.txt-red {
+  color: #f00;
+}
+
+.search {
+  cursor: pointer;
+}
+
+.ableClick {
+  color: #0994dc;
+  cursor: pointer;
+}
+
+.unableClick {
+  color: #e2e2e2;
+}
+
+.operateBtn {
+  background-color: #169bd5 !important;
+  color: #fff !important;
+  border-radius: 3px;
+}
+
+.box {
+  display: inline-block;
+  width: 33.33%;
+  position: relative;
+}
+
+.imgBox,
+.img_name {
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  position: relative;
+}
+
+.imgBox > img {
+  width: 100%;
+  height: 100%;
+}
+
+.img_name > span {
+  color: #666;
+  font-size: 14px;
+}

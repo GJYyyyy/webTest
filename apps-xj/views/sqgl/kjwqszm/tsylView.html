@@ -1,0 +1,80 @@
+<style>
+    #sqbylForm {
+        height: 360px;
+    }
+
+    .mini-radiobuttonlist-table {
+        width: 40%;
+    }
+</style>
+<h2>预览申请表</h2>
+<section>
+    <div id="sqbylForm" data-view-type="form">
+        <table style="margin:0 auto;width: 100%;">
+            <tbody>
+                <tr>
+                    <th colspan="4" align="left">
+                        <h3>基本信息</h3>
+                    </th>
+                </tr>
+                <!-- <tr>
+                    <th width="15%" align="right"><span style="color: red;">*</span>纳税人类型</th>
+                    <td colspan="3">
+                        <div class="mini-radiobuttonlist" repeatItems="2" repeatLayout="table" name="nsrlx"
+                            textField="text" style="width: 100%" valueField="id"
+                            data="[{text:'组织',id:'zz'},{text:'自然人',id:'zrr'}]" required requiredErrorText="纳税人类型不能为空"
+                            readonly="true">
+                        </div>
+                    </td>
+                </tr> -->
+                <tr>
+                    <th align="right" width="15%"><span style="color: red;">*</span>纳税人识别号（统一社会信用代码）</th>
+                    <td width="35%"><input name="nsrsbh" class="mini-textbox" width="100%" readonly required
+                            requiredErrorText="纳税人识别号（统一社会信用代码）不能为空" /></td>
+                    <th align="right" width="15%"><span style="color: red;">*</span>纳税人名称</th>
+                    <td width="35%"><input name="nsrmc" class="mini-textbox" width="100%" readonly required
+                            requiredErrorText="纳税人名称不能为空" />
+                    </td>
+                </tr>
+                <tr>
+                    <th align="right"><span style="color: red;">*</span>有效证件类型</th>
+                    <td><input name="zzlxText" class="mini-textbox" width="100%" required requiredErrorText="有效证件类型不能为空"
+                            readonly />
+                    </td>
+                    <th align="right"><span style="color: red;">*</span>有效证件号码</th>
+                    <td>
+                        <input name="zzhm" class="mini-textbox" width="100%" required requiredErrorText="有效证件号码不能为空"
+                            readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="4" align="left">
+                        <h3>经办人信息</h3>
+                    </th>
+                </tr>
+                <tr>
+                    <th align="right"><span style="color: red;">*</span>经办人姓名</th>
+                    <td><input name="jbrmc" textfield="jbrmc" valuefield="jbrmc" class="mini-textbox" width="100%"
+                            required requiredErrorText="经办人姓名不能为空" readonly />
+                    </td>
+                    <th align="right"><span style="color: red;">*</span>经办人联系方式</th>
+                    <td>
+                        <input name="sjhm" class="mini-textbox" width="100%" required requiredErrorText="经办人联系方式不能为空"
+                            readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <th align="right"><span style="color: red;">*</span>经办人身份证件类型</th>
+                    <td>
+                        <input name="zjlx" class="mini-textbox" width="100%" required requiredErrorText=经办人身份证件类型不能为空"
+                            readonly />
+                    <th align="right"><span style="color: red;">*</span>经办人身份证件号码</th>
+                    <td>
+                        <input name="zjhm" class="mini-textbox" width="100%" required requiredErrorText="经办人身份证件号码不能为空"
+                            readonly />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

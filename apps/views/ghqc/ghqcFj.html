@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="应申报清册">
+    <meta name="keywords" content="ghqc">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>应申报清册</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="ghqccx.css">
+</head>
+<body>
+
+<div class="content">
+    <div class="content-title">应申报清册</div>
+</div>
+<div class="ml20 back-btn-box">
+    <a id="back" class="back-btn" onclick= "history.back()" style="width:160px; margin:10px; text-align:center; padding: 5px;">返回上级</a>
+</div>
+<div>
+    <div class="mini-datagrid" id="ghqc_fj_grid" showpager="false" multiSelect="true"
+         style="width: 100%; height:auto;" sizeList="[30,50,100]" pageSize="30">
+        <div property="columns">
+            <div field="swjgDm" headeralign="center" align="center" renderer="ghqc.swjgRender">科所</div>
+            <div field="yingsb" headeralign="center" align="center">应申报纳税人总数</div>
+            <div field="ysbhs" headeralign="center" align="center">已申报纳税人总数</div>
+            <div field="wsbhs" headeralign="center" align="center">未申报纳税人总数</div>
+            <div field="sbl" headeralign="center" align="center" renderer="ghqc.ysbblRender">已申报比例</div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="ghqcFj.js"></script>
+</body>
+</html>

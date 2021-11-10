@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>房土两税困难减免查询</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <style>
+        .cxtjTable table {
+            margin: 0 auto;
+        }
+
+        .cxtjTable th {
+            text-align: right;
+        }
+
+        .cxtjTable td {
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body style="background:#fff;">
+    <div id="cxtjForm" class="cxtjTable">
+        <input name="shxydm" id="shxydm" class="mini-hidden" value="" />
+        <table width="96%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <th>社会信用代码（纳税人识别号）：</th>
+                <td><input id="nsrsbh" name="nsrsbh" class="mini-textbox" style="width:95%;" /></td>
+                <th>纳税人名称：</th>
+                <td><input id="nsrmc" name="nsrmc" class="mini-textbox" style="width:95%;" /></td>
+            </tr>
+            <tr>
+                <th>主管税务机关：</th>
+                <td><input id="zgswjgdm" name="zgswjgdm" class="mini-treeselect" emptyText="--请选择--" textField="swjgJC"
+                        allowInput="true" valueFromSelect="true" popupWidth="357px;" valueField="swjgDM"
+                        parentField="PID" showQueryToolBar="false" style="width:95%;" />
+                </td>
+                <th>减免税备案事项：</th>
+                <td><input id="jmsbasx" name="jmsbasx" class="mini-combobox" textfield="val" valuefield="key"
+                        shownullitem="false" style="width:95%;" value="all" required="true"
+                        requirederrortext="减免税备案事项不能为空" />
+            </tr>
+            <tr>
+                <th>城镇土地使用税税额标准：</th>
+                <td><input id="cztdsyssebz" name="cztdsyssebz" class="mini-combobox" textfield="value" valuefield="code"
+                        shownullitem="false" style="width:95%;" value="all" required="true"
+                        requirederrortext="城镇土地使用税税额标准不能为空" />
+                <th>减免原因：</th>
+                <td><input id="jmyy" name="jmyy" class="mini-combobox" textfield="value" valuefield="code"
+                        shownullitem="false" style="width:95%;" value="all" required="true"
+                        requirederrortext="减免原因不能为空" />
+            </tr>
+            <tr>
+                <th>减免有效期：</th>
+                <td><input id="jmyxqq" name="jmyxqq" type="text" class="mini-monthpicker" style="width: 45%"
+                        format="yyyy-MM" onvaluechanged="ftlsknObj.dateChanged" />
+                    至
+                    <input id="jmyxqz" name="jmyxqz" type="text" class="mini-monthpicker" style="width: 45%"
+                        format="yyyy-MM" onvaluechanged="ftlsknObj.dateChanged" /></td>
+                <th>征用时间：</th>
+                <td><input id="zysjq" name="zysjq" type="text" class="mini-monthpicker" format="yyyy-MM"
+                        style="width:45%;" onvaluechanged="ftlsknObj.dateChanged" />
+                    至
+                    <input id="zysjz" name="zysjz" type="text" class="mini-monthpicker" format="yyyy-MM"
+                        style="width:45%;" onvaluechanged="ftlsknObj.dateChanged" /></td>
+            </tr>
+            <tr>
+                <th>减免租金时间：</th>
+                <td><input id="jmzjsjq" name="jmzjsjq" type="text" class="mini-monthpicker" format="yyyy-MM"
+                        style="width:45%;" onvaluechanged="ftlsknObj.dateChanged" />
+                    至
+                    <input id="jmzjsjz" name="jmzjsjz" type="text" class="mini-monthpicker" format="yyyy-MM"
+                        style="width:45%;" onvaluechanged="ftlsknObj.dateChanged" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" class="but" style="padding:10px; text-align:center;">
+                    <a id="search" class="mini-button" onclick="ftlsknObj.doSearch">查询</a>
+                    <a class="mini-button" onclick="ftlsknObj.doReset">重置</a>
+                    <a class="mini-button" onclick="ftlsknObj.doExport">导出</a>
+            </tr>
+        </table>
+    </div>
+    </div>
+    <div class="mini-fit">
+        <div id="ftlsknGrid" idField="ftlsknGrid" class="mini-datagrid" showPager="true"
+            style="width: 100%; height:100%;" multiSelect="true" dependMerge="true" sizeList="[20,30,50,100]"
+            onpagechanged="ftlsknObj.onpagechanged" onbeforeload="ftlsknObj.onbeforeload" showEmptyText="true"
+            emptyText="<span>没有数据</span>" pageSize="20" allowHeaderWrap='true'>
+            <div property="columns">
+                <div type="indexcolumn" width="60">序号</div>
+                <div field="nsrsbh" width="" headeralign="center" align="center" allowsort="false" width="100">
+                    社会信用代码（纳税人识别号）</div>
+                <div field="nsrmc" headeralign="center" align="center" allowsort="false" width="120">纳税人名称</div>
+                <div field="jmsbasx" headeralign="center" align="center" allowsort="false" width="120">减免税备案事项</div>
+                <div field="jmyxqq" headeralign="center" align="center" allowsort="false" width="120">减免有效期起</div>
+                <div field="jmyxqz" headeralign="center" align="center" allowsort="false" width="120">减免有效期止</div>
+                <div field="jmyy" headeralign="center" align="center" allowsort="false" width="120">减免原因</div>
+                <div field="zyfczmyz" headeralign="center" align="center" allowsort="false" width="120">征用房产账面原值（元）
+                </div>
+                <div field="zyfcystdmj" headeralign="center" align="center" allowsort="false" width="120">征用房产应税土地面积（平米）
+                </div>
+                <div field="cztdsyssebz" headeralign="center" align="center" allowsort="false" width="120">城镇土地使用税税额标准
+                </div>
+                <div field="zysjq" headeralign="center" align="center" allowsort="false" width="120">征用时间起</div>
+                <div field="zysjz" headeralign="center" align="center" allowsort="false" width="120">征用时间止</div>
+                <div field="jmzjze" headeralign="center" align="center" allowsort="false" width="120">减免租金总额（元）</div>
+                <div field="jmzjfcynzj" headeralign="center" align="center" allowsort="false" width="120">减免租金房产原年租金（元）
+                </div>
+                <div field="jmzjfcystdmj" headeralign="center" align="center" allowsort="false" width="120">
+                    减免租金房产应税土地面积（平米）
+                </div>
+                <div field="cztdsyssebz" headeralign="center" align="center" allowsort="false" width="120">城镇土地使用税税额标准
+                </div>
+                <div field="jmzjsjq" headeralign="center" align="center" allowsort="false" width="120">减免租金时间起</div>
+                <div field="jmzjsjz" headeralign="center" align="center" allowsort="false" width="120">减免租金时间止</div>
+            </div>
+        </div>
+    </div>
+    <div style="display: none"><iframe id="frame" src=""></iframe></div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/efg_water.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="ftlsknjmcx.js"></script>
+
+</html>

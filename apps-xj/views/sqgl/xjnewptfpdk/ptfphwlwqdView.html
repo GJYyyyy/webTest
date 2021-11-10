@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>税务事项</title>
+    <link rel="stylesheet" href="../../../styles/style.css">
+    <link rel="stylesheet" href="ptfphwlwqdView.css">
+</head>
+<body>
+<div class="mini-fit">
+    <div id="dbsxGrid" idField="lx" class="mini-datagrid" showPager="true" style="width: 100%; height:100%;" multiSelect="true" sizeList="[30,50,100]" pageSize="30">
+        <div property="columns">
+            <div type="indexcolumn">序号</div>
+            <!--必须选一个  <div type="checkcolumn" width="50">选择</div> -->
+									<div field="hwlwmc" displayField="hwlwmc" type="mini-textbox">货物或劳务名称
+										<!-- <input class="mini-combobox" emptyText="请选择" onvaluechanged="selectChangeLw" /> -->
+									</div>
+									<div field="ggxh">规格型号
+										<!-- <input name="ggxh" class="mini-textbox" emptyText="非必填" /> -->
+									</div>
+									<div field="jldwmc">计量单位
+										<!-- <input name="dw" class="mini-combobox" textField="MC" /> -->
+									</div>
+									<div field="hlsl">数量
+										<!-- <input vtype="float" name="hlsl" class="mini-textbox" onvalidation="onFloatValidae" emptyText="非必填" /> slBlur-->
+									</div>
+									<div field="bhshldj">单价（不含税）
+										<!-- <input vtype="float" name="hldj"onvalidation="onFloatValidae" class="mini-textbox" />djBlur -->
+									</div>
+									<div field="xse">金额（含税）
+										 <!-- <input vtype="float" name="jeHs" class="mini-textbox" onvalidation="onFloatValidae" />jsjebhs -->
+									</div>
+									<div field="je" width="129">金额（不含税）
+										 <!-- <input vtype="float" name="je" class="mini-textbox" />jebhsBlur  onvalidation="onFloatValidae" -->
+									</div>
+									<div class="gray-td" field="slv" width="60">税率</div>
+									<div class="gray-td bor-right-none" field="se" dataType="float" width="100" >税额
+										<!-- <input name="se" class="mini-textbox" readonly /> -->
+									</div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../../lib/jquery/jquery.js"></script>
+<script src="../../../../lib/sui-miniui/mini-all-min.js"></script>
+<script src="../../../../lib/ds-commonFront/build/common-front.js"></script>
+<script src="../../../scripts/gldcommon.js"></script>
+<script src="ptfphwlwqdView.js"></script>
+</body>
+</html>

@@ -1,0 +1,1036 @@
+
+var grid;
+var gridUrl;
+var tohgCxbPath;
+var formData;
+
+$(function () {
+	gldUtil.addWaterInPages();
+});
+
+/**
+ * @desc 获取事项类型
+ */
+function getSwsxDm() {
+    var target = mini.get("swsxDm");
+    if (!target) return;
+    ajax.get('/dzgzpt-wsys/api/baseCode/get/getSwsx', '', function (res) {
+        if (res) {
+            var temp = [];
+            for (var i = 0, len = res.length; i < len; i += 1) {
+                var item = res[i];
+                if (item.ID === '30090110') continue; /* 企业所得税核定30090110 */
+                if (item.ID === '30010116') continue; /* 不显示：指定扣缴义务人30010116 */
+                if (item.ID === '30010225') continue; /* 不显示：电子发票服务平台初始备案30010225 */
+                if (item.ID === '30010226') continue; /* 不显示：电子发票服务平台变更备案30010226 */
+                temp.push(item);
+            }
+            target.setData(temp);
+        } else {
+            mini.alert("系统异常,请稍后再试。");
+        }
+    });
+}
+
+/**
+ * @desc 获取跳转创新版路径
+ */
+function getTohgCxbPath() {
+    tohgCxbPath = [];
+    $.ajax({
+        url: "/hgzx-gld/static/lib/tohgCxbPath.json",
+        type: "get",
+        async: false,
+        success: function (res) {
+            tohgCxbPath = res.sh;
+        }
+    });
+}
+
+/**
+ * @desc 初始化ing
+ */
+function initing() {
+
+    //收到日期
+    var sdrqQ = mini.get("sdrqQ");
+    var sdrqZ = mini.get("sdrqZ");
+    var now = new Date();
+    var beforeDate = new Date(new Date().setDate(new Date().getDate() - 9))
+    sdrqQ.setValue(mini.formatDate(beforeDate, 'yyyy-MM-dd'));
+    sdrqQ.setMaxDate(now);
+    sdrqZ.setValue(mini.formatDate(now, 'yyyy-MM-dd'));
+    sdrqZ.setMinDate(sdrqQ.getValue());
+    sdrqZ.setMaxDate(now);
+
+    //获取缓存的ip、用户id、tableid进行判断
+    var cip = mini.Cookie.get("cip");
+    var ctableid = mini.Cookie.get("ctableid");
+    var cuserid = mini.Cookie.get("cuserid");
+    //获取当前登录账号及ip地址
+    var loginuserid = getSession().userId;
+    var ip = window.location.host;
+
+    if (cuserid == "undefined" || cuserid == null || cuserid == "") {
+        $.extend({
+            id: 'sydb'
+        });
+    }
+    //判断账号是否一致
+    if (loginuserid == cuserid) {
+        //账号一致判断ip号是否一致
+        if (cip == ip) {
+            var form = new mini.Form("#cxtjForm");
+            formData = mini.decode(mini.Cookie.get(loginuserid + "searchConditionDbsxcx"));
+            form.setData(formData ? formData : {});
+            //若一直存入缓存的值
+            $.extend({
+                id: ctableid
+            });
+        } else {
+            //若ip不一致则存，则存入所有代办
+            $.extend({
+                id: 'sydb'
+            });
+        }
+    } else {
+        //若前后登录的账号不一致，则存入所有代办 并且将新的查询条件存入
+        var form = new mini.Form("#cxtjForm");
+        formData = form.getData(true);
+        mini.Cookie.set(loginuserid + "searchConditionDbsxcx", mini.encode(formData));
+        $.extend({
+            id: 'sydb'
+        });
+    }
+
+    doSearch($, formData);
+    getcswsx();
+    getSwsxDm();
+}
+
+/**
+ * @desc 初始化
+ */
+function init() {
+    mini.parse();
+
+    getTohgCxbPath();
+    initing();
+
+}
+
+function doSearch(th, formData) {
+    var tabid = th.id;
+    if (tabid !== 'search') {
+        $('.tab-bar .active').removeClass('active');
+        /* 防止cookie被修改 */
+        if (document.getElementById(tabid)) {
+            document.getElementById(tabid).className = 'active';
+        }
+        else {
+            document.getElementById('sydb').className = 'active';
+        }
+    }
+    tabid = $('.tab-bar .active')[0].id; /* 获取当选选中的tabs */
+    mini.Cookie.set('ctableid', tabid); /* 存入缓存中 */
+
+    var qtcxTable = $("#qtcxTable"),
+        zrdbcxTable = $("#zrdbcxTable"),
+        dblbzr = $("#dblbzr"),
+        dblbkq = $("#dblbkq"),
+        dblbfpsl = $("#dblbfpsl"),
+        yjddgl = $("#yjddglWin"),
+        dblb = $("#dblb");
+
+    qtcxTable.hide();
+    zrdbcxTable.hide();
+    dblbzr.hide();
+    dblbkq.hide();
+    dblbfpsl.hide();
+    yjddgl.hide();
+    dblb.hide();
+
+    switch (tabid) {
+        case 'zrdb':
+            /* 中软待办显示中软待办的查询条件 */
+            zrdbcxTable.show();
+            dblbzr.show();
+            break;
+        case 'kqydb':
+            qtcxTable.show();
+            dblbkq.show();
+            break;
+        case 'fply':
+        case 'fply-jj':
+        case 'fply-dt':
+            qtcxTable.show();
+            dblbfpsl.show();
+            break;
+        case 'fply-dt':
+            qtcxTable.show();
+            dblbfpsl.show();
+            break;
+        case 'yjddgl':
+            yjddgl.show();
+            break;
+        default:
+            qtcxTable.show();
+            dblb.show();
+            break;
+    }
+
+    var swsx = '',
+        lqfsDm = '';
+    switch (tabid) {
+        case 'wcjyzmkj':
+            swsx = '跨区域经营证明开具';
+            break;
+        case 'swdjxxbldb':
+        case 'swdjxxbl':
+            swsx = '税务登记信息补录';
+            break;
+        case 'fplyldb':
+            swsx = '领用';
+            break;
+        case 'zzszpdkldb':
+            swsx = '增值税专用发票代开';
+            break;
+        case 'swxzxk':
+            swsx = '税务行政许可';
+            break;
+        case 'gtgshdehd':
+            swsx = '个体工商户定额核定';
+            break;
+        case 'zzsyhjmba':
+            swsx = '增值税税收减免备案申请';
+            break;
+        case 'zzsjzjtba':
+            swsx = '增值税即征即退备案';
+            break;
+        case 'xfsssjmba':
+            swsx = '消费税税收减免备案';
+            break;
+        case 'bgswdj':
+            swsx = '变更税务登记';
+            break;
+        case 'fply':
+            swsx = '发票领用';
+            lqfsDm = '03';
+            break;
+        default:
+            break;
+    }
+
+    var form = new mini.Form('#cxtjForm');
+    formData = formData ? formData : form.getData(true);
+    var loginuserid = getSession().userId;
+    mini.Cookie.set(loginuserid + 'searchConditionDbsxcx', mini.encode(formData));
+
+    var data = {
+        nsrsbh: formData.nsrsbh,
+        wsh: formData.wsh,
+        sdrqQ: formData.sdrqQ,
+        sdrqZ: formData.sdrqZ,
+        swsxDm: formData.swsxdm,
+        zgswskfjDm: formData.swjgdm,
+        blqxQ: formData.blqxQ,
+        blqxZ: formData.blqxZ
+    };
+    var loadParams = {
+        rwlxDm: '01',
+        data: mini.encode(data)
+    };
+    if (['kqydb', 'zrdb', 'fply', 'fply-jj', 'fply-dt'].indexOf(tabid) < 0) {
+        $.extend(loadParams, {
+            swsxmc: swsx,
+            lqfsDm: lqfsDm
+        });
+    }
+
+    var stop = false;
+
+    switch (tabid) {
+        /* 发票申领-专业配送 */
+        case 'fply':
+            grid = mini.get('dbsxGridfpsldb');
+            gridUrl = '../../../../api/xj/wtgl/dbsx/queryZzfplyDbsx';
+            break;
+        /* 发票申领-就近领取 */
+        case 'fply-jj':
+            grid = mini.get('dbsxGridfpsldb');
+            gridUrl = '../../../../api/xj/wtgl/dbsx/queryFplyJjlqDbsx';
+            break;
+        /* 发票申领-大厅领取 */
+        case 'fply-dt':
+            grid = mini.get('dbsxGridfpsldb');
+            gridUrl = '../../../../api/xj/wtgl/dbsx/queryFplySmlqDbsx';
+            break;
+        /* 跨区域待办 */
+        case 'kqydb':
+            grid = mini.get('dbsxGridkqdb');
+            gridUrl = '../../../../api/xj/wtgl/dbsx/queryKqyDbsx';
+            break;
+        /* 网厅待办 */
+        case 'zrdb':
+            if (mini.get('sqrqq').getFormValue() === '') {
+                mini.get('sqrqq').setValue(getFirstDayOfMonth());
+                mini.get('sqrqz').setValue(getNowFormatDate());
+            }
+            var sqq = mini.get('sqrqq').getValue().getTime(),
+                sqz = mini.get('sqrqz').getValue().getTime(),
+                rs = (sqz - sqq) / (1000 * 60 * 60 * 24);
+            if (rs > 30) {
+                mini.alert('申请时间间隔不可超过30天，请重新选择！');
+                stop = true;
+                break;
+            }
+            data = {
+                nsrsbh: formData.nsrsbm,
+                sxdl: formData.xmdl,
+                sxzl: formData.xmzl,
+                sxxl: formData.xmxl,
+                sssxxm: formData.sssxxm,
+                wsh: formData.wshm,
+                sqsjQ: formData.sqrqq,
+                sqsjZ: formData.sqrqz,
+            };
+            grid = mini.get('dbsxGridzrdb');
+            gridUrl = '../../../../api/xj/wtgl/dbsx/queryWtDbsx';
+            break;
+        default:
+            grid = mini.get('dbsxGrid');
+            gridUrl = '../../../../api/xj/wtgl/dbsx/queryDbsx';
+            break;
+    }
+
+    if (stop) return;
+
+    grid.setUrl(gridUrl);
+    grid.load(loadParams, function () {
+        $('.searchdiv').slideUp();
+    }, function (data) {
+        var obj = JSON.parse(data.errorMsg);
+        mini.alert(obj.message || '系统异常,请稍后再试');
+    });
+
+}
+
+function getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = "-";
+    var month = date.getMonth() + 1;
+
+    var strDate = date.getDate(); //默认为当日
+
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
+    return currentdate;
+}
+
+function getFirstDayOfMonth() {
+    var date = new Date();
+    var seperator1 = "-";
+    var month = date.getMonth() + 1;
+
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + "01";
+    return currentdate;
+}
+
+var sllx3 = {
+    "110401": "/dzgzpt-wsys/dzgzpt-wsys/apps/views/dbsx/dbsx_sxsl.html",
+    "110001": "/dzgzpt-wsys/dzgzpt-wsys/apps/views/xkhnsryjbs/xknsryjbscx.html"
+};
+
+/**
+ * 办理期限小于等于2天则显示成红色背景  2到4天 黄色 其它不处理
+ * @param e
+ * @returns {String}
+ */
+function blqxActionRenderer(e) {
+    var record = e.record;
+    var blqx = record.blqx;
+    var dateDiff = new Date(blqx).getTime() - new Date().getTime();
+    if (dateDiff <= 2 * 24 * 60 * 60 * 1000) {
+        e.rowCls = 'mini-grid-cell-error';
+    }
+    if (dateDiff > 2 * 24 * 60 * 60 * 1000 && dateDiff <= 4 * 24 * 60 * 60 * 1000) {
+        e.rowCls = 'grid-cell-warning';
+    }
+}
+
+/**
+ * 票种核定首次和调整如果实名校验不通过则显示成红色背景
+ * @param e
+ * @returns {String}
+ */
+function pzhdActionRenderer(e) {
+    var record = e.record;
+    var lcslId = record.lcslid;
+    var rwztDm = record.rwztDm;
+    var swsxDm = record.swsxdm;
+    var rwbh = record.rwbh;
+    var index = record._index;
+
+    // 任务状态为已办理时，不显示操作链接。
+    if (!!record.smrzflag) {
+        e.rowCls = 'mini-grid-cell-error';
+    }
+
+    if (record.swsxdm === '200006') {
+        var viewData = mini.decode(record.viewdata);
+        if (viewData.hasOwnProperty("smrzxx-form") && !viewData["smrzxx-form"].smrzflag) {
+            e.rowCls = 'mini-grid-cell-error';
+        }
+    }
+    //上海渲染办理状态
+    /**
+     * 办理期限小于等于2天则显示成红色背景  2到4天 黄色 其它不处理
+     * @param e
+     * @returns {String}
+     */
+    var blqx = record.blqx;
+    var dateDiff = new Date(blqx).getTime() - new Date().getTime();
+    if (dateDiff <= 2 * 24 * 60 * 60 * 1000) {
+        e.rowCls = 'mini-grid-cell-error';
+    }
+    if (dateDiff > 2 * 24 * 60 * 60 * 1000 && dateDiff <= 4 * 24 * 60 * 60 * 1000) {
+        e.rowCls = 'grid-cell-warning';
+    }
+}
+
+//中软待办
+function onActionRendererZrdb(e) {
+    var ylUrl = e.record.url;
+    var index = e.record._index;
+    return '<a class="Delete_Button" onclick="showNewDbsxzr(\'' + ylUrl + '\',\'' + index + '\')" href="#">受理</a>';
+}
+
+function showNewDbsxzr(ylUrl, index) {
+    mini.Cookie.set("zr_index", index);
+    window.open(ylUrl);
+}
+
+/**
+ * 操作按钮渲染
+ * @param e
+ * @returns {String}
+ */
+function onActionRenderer(e) {
+    var record = e.record;
+    var lcslId = record.lcslid;
+    var rwztDm = record.rwztDm;
+    var swsxDm = record.swsxdm;
+    var rwbh = record.rwbh;
+    var index = record._index;
+    /**
+     * 【户管】内的【创新版】功能跳转
+     */
+    var hgwebSwsxdm = []
+    for (var index = 0; index < tohgCxbPath.length; index++) {
+        hgwebSwsxdm.push(tohgCxbPath[index].swsxDm)
+    }
+    if (hgwebSwsxdm.indexOf(swsxDm) > -1) {
+        var ylUrl = "/hgzx-gld/index.html#/sxsl/sxsl";
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+    /**
+     * 60110104【一照一码户信息变更】
+     * 60060102【入库减免退抵税】
+     * 60060101【误收多缴退抵税】
+     * 69060801【软件证书信息采集】
+     * 69060802【入库减免退抵税-软件产品增值税】
+     * 60060109【入库减免退抵税-残疾人】
+     * 60060103【汇算清缴结算多缴退抵税】
+     * 60010605【文化事业建设费缴费信息报告】
+     * 69010001【工商信息变更】
+     * SXN800001【失信事项核实】
+     * 以上功能迁入创新版事项申请, 需跳转到事项申请管理端
+     */
+    var sxsqGldList = ['60110104', '60060102', '60060101', '69060801', '69060802', '60060109', '60060103', '60010605', 'SXN800001'];
+    if (sxsqGldList.indexOf(swsxDm) !== -1) {
+        var ylUrl = "/sxsq-wsys/sxsqgld-web/index.html#/sxsl/sxsl";
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+
+    /**
+     * SXN400001【印制有本单位名称发票】
+     * 以上功能迁入创新版发票使用,需跳转到发票使用管理端
+     */
+    var fpsyGldList = ['SXN400001', '700006', '700007'];
+    if (fpsyGldList.indexOf(swsxDm) !== -1) {
+        var ylUrl = "/sxsq-wsys/fpsygld-web/index.html#/sxsl/sxsl";
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+    if (swsxDm === "69010001") {
+        var ylUrl = "/sxsq-wsys/sxsqgld-web/index.html#/gsxxsxsl/sxsl";
+        return '<a  class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+    /**
+     * http://gd-zentao.dc.servyou-it.com/index.php?m=task&f=view&taskID=15792
+     * 30090102【对纳税人延期申报的核准】
+     * 30090105【增值税专用发票（增值税税控系统）最高开票限额审批】
+     * 30090106【对采取实际利润额预缴以外的其他企业所得税预缴方式的核定】
+     * 30090107 【非居民企业选择由其主要机构场所汇总缴纳企业所得税的审批】
+     * 以上3个功能迁入户管，需跳转到户管管理端
+     */
+    var xzspSwsxdm = ['30090107']; // ['30090102', '30090105', '30090106', '30090107','60090102'];
+    var xzspSwsxdm2 = ['60090107'];
+    if (swsxDm.charAt(0) === "3" && xzspSwsxdm.indexOf(swsxDm) < 0 && swsxDm != '30010415') {
+        var ylUrl = "/hgzx-gld/index.html#/sxsl/sxsl"
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+
+    if (['60010709'].indexOf(swsxDm) >= 0) {
+        var ylUrl = "/hgzx-gld/index.html#/sxsl/sxsl"
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+
+    if ((/^SXN8.*$/.test(swsxDm)) || (swsxDm.charAt(0) === "6" && xzspSwsxdm2.indexOf(swsxDm) < 0 && swsxDm != '60010415')) {
+        var ylUrl = "/hgzx-gld/index.html#/sxsl/sxsl";
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+    /**
+     * 跳转到fpgld-web，新的管理端
+     */
+    var fpGldList = ['200012', '200018', '200017', '200014', '200015', '200020', '200005', '200006', '200007', '200026', '200032', '200033', '200034', '200035'];
+    if (fpGldList.indexOf(swsxDm) !== -1) {
+        var ylUrl = "/fpzx-gld/fpgld-web/index.html#/sxsl/sxsl";
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+    if (swsxDm === '200001' || swsxDm === '200002') {
+        var ylUrl = "/fpzx-gld/fpgld-web/index.html#/sxsl/fply";
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+
+
+    /*2019/08发票领用兼容新SWSXDM*/
+    var cxb_fpGldList = ['700012', '700018', '700017', '700014', '700015', '700020', '700005', '700006', '700007', '700026', 'SXN400001'];
+
+    if (swsxDm === '700006' || swsxDm === '700007') {
+        var ylUrl = "/fpzx-gld/fpgld-web/index.html#/sxsl/sxsl";
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+
+    if ((/^SXN4.*$/.test(swsxDm)) || cxb_fpGldList.indexOf(swsxDm) !== -1) {
+        var ylUrl = "/fpzx-gld/fpgld-web/index.html#/sxsl/sxsl";
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+    if (swsxDm === '700001' || swsxDm === '700002') {
+        var ylUrl = "/fpzx-gld/fpgld-web/index.html#/sxsl/fply";
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+
+    /**
+     * 跳转到nfgld-web，新的管理端
+     */
+    var nfGldList = ['500011', '500012', '500013', '500014', '500015', '500016', '500019', '500020', '500021'];
+    if (nfGldList.indexOf(swsxDm) != -1) {
+        var ylUrl = "/nfzx-gld-web/index.html#/sxsl/sxsl"
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+    /*=============================*/
+    if ("01" == rwztDm) {
+        return '<a class="Delete_Button" href="#">-</a>';
+    }
+    // 任务状态为已办理时，不显示操作链接。
+    if (record.swsxdm === "110001") {
+        return '<a class="Delete_Button" onclick="showYjbs(\'' + record.lcslid + '\',\'' + index + '\')" href="#">受理</a>';
+
+    }
+
+    if (sllx3.hasOwnProperty(swsxDm)) {
+        return '<a class="Delete_Button" onclick="showSllx3(\'' + swsxDm
+            + '\',\'' + lcslId + '\',\'' + rwbh + '\',\'' + record.djxh
+            + '\',\'' + record.nsrsbh + '\',\'' + record.sqxh + '\',\'' + index
+            + '\')" href="#">受理</a>';
+    }
+    if ("00" == rwztDm) {
+        return '<a class="Delete_Button" onclick="showSwsxSqxx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + index + '\',\'' + swsxDm + '\')" href="#">受理</a>';
+    }
+    if ("02" == rwztDm) {
+        return '<a class="Delete_Button" onclick="showSwsxSqxx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + index + '\',\'' + swsxDm
+            + '\')" onclick="" href="#">税种登记</a>';
+    }
+}
+
+/**
+ * 操作按钮渲染
+ * @param e
+ * @returns {String}
+ */
+function onActionRendererKq(e) {
+    var record = e.record;
+    var lcslId = record.lcslid;
+    var rwztDm = record.rwztDm;
+    var swsxDm = record.swsxdm;
+    var rwbh = record.rwbh;
+    var index = record._index;
+
+    /**
+     * 60110104【一照一码户信息变更】
+     * 60060102【入库减免退抵税】
+     * 60060101【误收多缴退抵税】
+     * 69060801【软件证书信息采集】
+     * 69060802【入库减免退抵税-软件产品增值税】
+     * 60060109【入库减免退抵税-残疾人】
+     * 60060103【汇算清缴结算多缴退抵税】
+     * 60010605【文化事业建设费缴费信息报告】
+     * 69010001【工商信息变更】
+     * SXN800001【失信事项核实】
+     * 以上功能迁入创新版事项申请, 需跳转到事项申请管理端
+     */
+    var sxsqGldList = ['60110104', '60060102', '60060101', '69060801', '69060802', '60060109', '60060103', '60010605', '69010001', 'SXN800001'];
+    if (sxsqGldList.indexOf(swsxDm) !== -1) {
+        var ylUrl = "/sxsq-wsys/sxsqgld-web/index.html#/sxsl/sxsl";
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+
+    /**
+     * SXN400001【印制有本单位名称发票】
+     * 以上功能迁入创新版发票使用,需跳转到发票使用管理端
+     */
+    var fpsyGldList = ['SXN400001'];
+    if (fpsyGldList.indexOf(swsxDm) !== -1) {
+        var ylUrl = "/sxsq-wsys/fpsygld-web/index.html#/sxsl/sxsl";
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+
+    /**
+     * http://gd-zentao.dc.servyou-it.com/index.php?m=task&f=view&taskID=15792
+     * 30090102【对纳税人延期申报的核准】
+     * 30090105【增值税专用发票（增值税税控系统）最高开票限额审批】
+     * 30090106【对采取实际利润额预缴以外的其他企业所得税预缴方式的核定】
+     * 30090107 【非居民企业选择由其主要机构场所汇总缴纳企业所得税的审批】
+     * 以上3个功能迁入户管，需跳转到户管管理端
+     */
+    var xzspSwsxdm = ['30090107']; // ['30090102', '30090105', '30090106', '30090107'];
+    var xzspSwsxdm2 = ['60090107'];
+    if (swsxDm.charAt(0) === "3" && xzspSwsxdm.indexOf(swsxDm) < 0 && swsxDm != '30010415') {
+        var ylUrl = "/hgzx-gld/index.html#/sxsl/sxsl"
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+
+    // 2019/08月上线的户管兼容新SWSXDM
+    if ((/^SXN8.*$/.test(swsxDm)) || (swsxDm.charAt(0) === "6" && xzspSwsxdm2.indexOf(swsxDm) < 0 && swsxDm != '60010415')) {
+        var ylUrl = "/hgzx-gld/index.html#/sxsl/sxsl";
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+    /*2019/08发票领用兼容新SWSXDM*/
+    var cxb_fpGldList = ['60060103']
+    if ((/^SXN4.*$/.test(swsxDm)) || cxb_fpGldList.indexOf(swsxDm) !== -1) {
+        var ylUrl = "/fpzx-gld/fpgld-web/index.html#/sxsl/sxsl";
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+    if ("01" == rwztDm) {
+        return '<a class="Delete_Button" href="#">-</a>';
+    }
+
+    if ("00" == rwztDm) {
+        return '<a class="Delete_Button" onclick="showSwsxSqxx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + index + '\',\'' + swsxDm + '\')" href="#">受理</a>';
+    }
+    if ("02" == rwztDm) {
+        return '<a class="Delete_Button" onclick="showSwsxSqxx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + index + '\',\'' + swsxDm
+            + '\')" onclick="" href="#">税种登记</a>';
+    }
+}
+
+/**
+ * 操作按钮渲染
+ * @param e
+ * @returns {String}
+ */
+function onActionRendererFp(e) {
+    var record = e.record;
+    var lcslId = record.lcslid;
+    var rwztDm = record.rwztDm;
+    var swsxDm = record.swsxdm;
+    var rwbh = record.rwbh;
+    var index = record._index;
+    if (swsxDm === '200001' || swsxDm === '200002') {
+        var ylUrl = "/fpzx-gld/fpgld-web/index.html#/sxsl/fply";
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+
+    /*2019/08发票领用兼容新SWSXDM*/
+    if (swsxDm === '700001' || swsxDm === '700002') {
+        var ylUrl = "/fpzx-gld/fpgld-web/index.html#/sxsl/fply";
+        return '<a class="Delete_Button" onclick="showNewDbsx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + ylUrl + '\')" href="#">受理</a>';
+    }
+
+    if ("00" == rwztDm || "01" == rwztDm) {
+        return '<a class="Delete_Button" onclick="showSwsxSqxx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + index + '\',\'' + swsxDm + '\')" href="#">受理</a>';
+    }
+    if ("02" == rwztDm) {
+        return '<a class="Delete_Button" onclick="showSwsxSqxx(\'' + lcslId
+            + '\',\'' + rwbh + '\',\'' + index + '\',\'' + swsxDm
+            + '\')" onclick="" href="#">税种登记</a>';
+    }
+}
+
+function showNewDbsx(lcslId, rwbh, url) {
+    var loadingId = mini.loading("处理中", "提示");
+    checkDbsxslzt(lcslId, function () {
+        window.location.href = url + "?lcslId=" + lcslId + "&rwbh=" + rwbh;
+    });
+    mini.hideMessageBox(loadingId);
+}
+
+/** 目前只有发票领用用到此方法，受理跳到第三方页面 */
+function showSllx3(swsxDm, lcslId, rwbh, djxh, nsrsbh, sqxh, index) {
+    var loadingId = mini.loading("处理中", "提示");
+    checkDbsxslzt(lcslId, function () {
+        url = sllx3[swsxDm] + "?swsxDm=" + swsxDm + "&djxh="
+            + djxh + "&sqxh=" + sqxh + "&lcslId=" + lcslId + "&rwbh=" + rwbh
+            + "&nsrsbh=" + nsrsbh;
+        openDbsxsl(url, index);
+    });
+    mini.hideMessageBox(loadingId);
+}
+
+/**
+ * Go to 事项受理页面
+ * @param lcslId
+ * @param blztDm
+ * @param rwbh
+ */
+function showSwsxSqxx(lcslId, rwbh, index, swsxDm) {
+    // 11000202
+    mini.mask({ cls: 'mini-mask-loading', message: '处理中，请稍候...' });
+    checkDbsxslzt(lcslId, function () {
+        var url = "dbsx_sxsl.html?lcslId=" + lcslId + "&rwbh=" + rwbh;
+        if (swsxDm === '11000201') {
+            // 标准版跳转
+            url = "../xbnsrcx/xbnsrtcSl.html?lcslId=" + lcslId + "&rwbh=" + rwbh;
+        }
+        if (swsxDm === '11000202') {
+            // 创新版跳转
+            url = "../xbnsrcx-cxb/xbnsrtcSl.html?lcslId=" + lcslId + "&rwbh=" + rwbh;
+        }
+        if (swsxDm === '11041601') {
+            //网络平台代开资格申请跳转
+            url = "./../wlptdkzgsq/wlpt_sxsl.html?lcslId=" + lcslId + "&rwbh=" + rwbh + "&type=deal";
+        }
+        openDbsxsl(url, index);
+    });
+    mini.unmask();
+}
+
+//弹出待办事项受理页面
+function openDbsxsl(url, index) {
+    var tabid = $(".tab-bar .active")[0].id;
+    if (tabid == 'kqydb') {
+        mini.Cookie.set("kqy_index", index);
+    } else if (tabid == 'fply') {
+        mini.Cookie.set("fply_index", index);
+    } else {
+        if (tabid != 'zrdb') {
+            mini.Cookie.set("_index", index);
+        }
+    }
+
+    var win = mini.open({
+        showMaxButton: true,
+        title: "待办事项受理",
+        url: url,
+        showModal: true,
+        width: "100%",
+        height: "100%",
+        onload: function () {
+        },
+        ondestroy: function (action) {
+            unlockDbsxslzt();
+        }
+    });
+}
+
+/**
+ * 任务状态渲染
+ * @param e
+ * @returns {String}
+ */
+function rwztRenderer(e) {
+    var record = e.record;
+    var rwztDm = record.rwztDm;
+    if ("00" == rwztDm) {
+        return "未受理";
+    }
+    if ("01" == rwztDm) {
+        return "已受理";
+    }
+    if ("02" == rwztDm) {
+        return "待税种认定";
+    }
+    return "";
+}
+
+/**
+ * 发票申领任务状态渲染
+ * @param e
+ * @returns {String}
+ */
+function fpslRwztRenderer(e) {
+    var record = e.record;
+    var rwztmc = record.rwztmc;
+    return rwztmc;
+}
+
+/**
+ * 重置查询条件
+ */
+function doReset() {
+    var form = new mini.Form("#cxtjForm");
+    form.reset();
+
+    //收到日期
+    var sdrqQ = mini.get("sdrqQ");
+    var sdrqZ = mini.get("sdrqZ");
+    var now = new Date();
+    var beforeDate = new Date(new Date().setDate(new Date().getDate() - 9))
+    sdrqQ.setValue(mini.formatDate(beforeDate, 'yyyy-MM-dd'));
+    sdrqQ.setMaxDate(now);
+    sdrqZ.setValue(mini.formatDate(now, 'yyyy-MM-dd'));
+    sdrqZ.setMinDate(sdrqQ.getValue());
+    sdrqZ.setMaxDate(now);
+}
+
+/**
+ * 刷新待办任务状态
+ */
+function reflashDbrwzt() {
+    var reflash = mini.Cookie.get("reflash");
+    if ("ok" == reflash) {
+        var tabid = $(".tab-bar .active")[0].id;
+        if (tabid == 'zrdb') {
+            var dbsxGridzrdb = mini.get("dbsxGridzrdb");
+            var zrIndex = Number(mini.Cookie.get("zr_index"));
+            var zrRow = dbsxGridzrdb.getRow(zrIndex);
+            dbsxGridzrdb.updateRow(zrRow._index, "rwztDm", "01");
+        } else if (tabid == 'kqdb') {
+            var dbsxGridkqdb = mini.get("dbsxGridkqdb");
+            var kqIndex = Number(mini.Cookie.get("kq_index"));
+            var kqRow = dbsxGridkqdb.getRow(kqIndex);
+            dbsxGridkqdb.updateRow(kqRow._index, "rwztDm", "01");
+        } else if (tabid == 'fply') {
+            var dbsxGridfpsldb = mini.get("dbsxGridfpsldb");
+            var fplyIndex = Number(mini.Cookie.get("fply_index"));
+            var fplyRow = dbsxGridfpsldb.getRow(fplyIndex);
+            dbsxGridfpsldb.updateRow(fplyRow._index, "rwztDm", "01");
+        } else {
+            var dbsxGrid = mini.get("dbsxGrid");
+            var index = Number(mini.Cookie.get("_index"));
+            var row = dbsxGrid.getRow(index);
+            if (row) {
+                dbsxGrid.updateRow(row._index, "rwztDm", "01");
+            }
+        }
+    }
+    mini.Cookie.set("reflash", "ng");
+}
+
+var refDbrwzt = setInterval(function () {
+    reflashDbrwzt();
+}, 1000);
+
+
+function showYjbs(id, index) {
+    mini.Cookie.set("_index", index);
+    var loadingId = mini.loading("处理中", "提示");
+    checkDbsxslzt(id, function () {
+        mini.open({
+            showMaxButton: true,
+            title: "新办户一键办税",
+            url: '../xkhnsryjbs/xknsryjbscx.html',
+            showModal: true,
+            width: "100%",
+            height: "100%",
+            onload: function () {
+                var iframe = this.getIFrameEl();
+                iframe.contentWindow.initYjbs(id);
+            },
+            ondestroy: function (action) {
+                unlockDbsxslzt();
+            }
+        });
+    });
+    mini.hideMessageBox(loadingId);
+}
+
+var sssxxmData = [];
+var xmzlData = [];
+
+function xmdlChanged() {
+    var xmdlValue = mini.get("xmdl").getValue();
+    mini.get('xmzl').setValue('');
+    mini.get('xmxl').setValue('');
+    if (xmdlValue) {
+        xmzlData = [{ "ID": "0001", "MC": "税务登记", "PID": "01" },
+        { "ID": "0002", "MC": "发票办理", "PID": "01" },
+        { "ID": "0003", "MC": "证明办理", "PID": "01" },
+        { "ID": "0004", "MC": "税务认定", "PID": "01" },
+        { "ID": "0005", "MC": "优惠办理", "PID": "01" },
+        { "ID": "0006", "MC": "网上审批备案", "PID": "01" },
+        { "ID": "0007", "MC": "网上非贸管理", "PID": "01" },
+        { "ID": "0008", "MC": "行政许可", "PID": "01" },
+        { "ID": "0009", "MC": "申报纳税", "PID": "01" }]
+        mini.get("xmzl").setData(xmzlData);
+
+    } else {
+        mini.get("xmzl").setData([]);
+        mini.get("xmxl").setData([]);
+    }
+    getsssssx();
+
+}
+
+var xmxlData = [];
+
+function xmzlChanged() {
+    var xmzlValue = mini.get("xmzl").getValue();
+    if (xmzlValue) {
+        xmxlData = [{ "ID": "0001", "MC": "税务登记", "PID": "0001" },
+        { "ID": "0002", "MC": "发票办理", "PID": "0002" },
+        { "ID": "0003", "MC": "证明办理", "PID": "0003" },
+        { "ID": "0004", "MC": "税务认定", "PID": "0004" },
+        { "ID": "0005", "MC": "优惠办理", "PID": "0050" },
+        { "ID": "0088", "MC": "金三特软改造", "PID": "0009" },
+        { "ID": "0009", "MC": "申报纳税", "PID": "0009" },
+        { "ID": "0008", "MC": "行政许可", "PID": "0008" }]
+        mini.get("xmxl").setData(xmxlData);
+
+    } else {
+        mini.get("xmxl").setData([]);
+        return
+    }
+    if (xmzlValue === '0009') {
+        mini.get('xmxl').setValue('0088');
+    } else if (xmzlValue === '0008') {
+        mini.get('xmxl').setValue('0008');
+    } else if (xmzlValue === '0005') {
+        mini.get('xmxl').setValue('0005');
+    } else if (xmzlValue === '0004') {
+        mini.get('xmxl').setValue('0004');
+    } else if (xmzlValue === '0003') {
+        mini.get('xmxl').setValue('0003');
+    } else if (xmzlValue === '0002') {
+        mini.get('xmxl').setValue('0002');
+    } else if (xmzlValue === '0001') {
+        mini.get('xmxl').setValue('0001');
+    } else {
+        mini.get('xmxl').setValue('');
+    }
+    getsssssx();
+}
+
+function xmxlChanged(e) {
+    getsssssx();
+}
+
+function getsssssx() {
+    var xmdlValue = mini.get("xmdl").getValue();
+    var xmzlValue = mini.get("xmzl").getValue();
+    var xmxlValue = mini.get("xmxl").getValue();
+    var qqcs = {
+        sxdl: xmdlValue,
+        sxzl: xmzlValue,
+        sxxl: xmxlValue
+    };
+    ajax.post('/dzgzpt-wsys/api/xj/wtgl/dbsx/queryWtSssx', qqcs, function (res) {
+        if (res) {
+            sssxxmData = res;
+            mini.get("sssxxm").setData(sssxxmData);
+        } else {
+            mini.alert("系统异常,请稍后再试。")
+            return false
+        }
+    });
+}
+
+var loginuserid;
+var ctableid;
+
+function getcswsx() {
+    //获取当前登录人的id和ip
+    loginuserid = getSession().userId;
+    var ip = window.location.host;
+    //从缓存中获取id
+    cuserid = mini.Cookie.get("cuserid");
+    //对账号登录进行判断
+    if (cuserid == "undefined" || cuserid == null || cuserid == "") {
+        //第一次登录
+        mini.Cookie.set("cuserid", loginuserid);
+        mini.Cookie.set("cip", ip);
+    } else {
+        //若二次登陆
+        var cuserid = mini.Cookie.get("cuserid");
+        ctableid = mini.Cookie.get("ctableid");
+        var cip = mini.Cookie.get("cip");
+        var ip = window.location.host;
+        //判断前后登录账号是否相同
+        if (loginuserid == cuserid) {
+            //若登录账号相同则
+            if (cip == ip) {
+                //修改tbale页
+                $(".tab-bar .active").removeClass("active");
+                document.getElementById(ctableid).className = 'active';
+            }
+        } else {
+            //若不相同，存入此次登录的账号信息
+            mini.Cookie.set("cuserid", loginuserid);
+            mini.Cookie.set("cip", ip);
+        }
+    }
+}
+
+var loginUser;
+
+function getSession() {
+    $.ajax({
+        type: "GET",
+        url: "../../../../api/wtgl/dbsx/getSession",
+        success: function (data) {
+            //获取当前登录账号以及tableid
+            var loginUsers = mini.decode(data);
+            loginUser = mini.decode(loginUsers.value);
+        },
+        error: function (result) {
+            showMessageAtMiddle("获取税局管理员登录信息失败！");
+        }
+    });
+    return loginUser;
+}

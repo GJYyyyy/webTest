@@ -1,0 +1,208 @@
+<section>
+    <link href="../sqgl/zzsjzjtba/zzsjzjtba.css" rel="stylesheet">
+    <div class="zzsjzjtbaYl" id="step_yl_form" data-view-type="form">
+        <!--内容1开始-->
+        <h5>纳税人基本信息</h5>
+        <table class="form-table table_bg">
+            <tr>
+                <th width="15%">纳税人识别号：</th>
+                <td width="35%"><input name="nsrsbh" class="mini-textbox" width="100%" readonly/></td>
+                <th width="15%">纳税人名称：</th>
+                <td width="35%"><input name="nsrmc" class="mini-textbox" width="100%" readonly/></td>
+            </tr>
+            <tr>
+                <th width="15%">登记注册类型：</th>
+                <td width="35%"><input name="djzclx" class="mini-textbox" width="100%" readonly/></td>
+                <th width="15%">生产经营地址：</th>
+                <td width="35%"><input name="scjydz" class="mini-textbox" width="100%" readonly/></td>
+            </tr>
+            <tr>
+                <th width="15%">经办人：</th>
+                <td width="35%"><input id="jbrmc" name="jbrmc" class="mini-textbox" width="100%" readonly/></td>
+            </tr>
+        </table>
+
+        <h5>减免税备案登记表</h5>
+        <div data-view-type="datagrid">
+            <div id="jzjt1_grid" class="mini-datagrid" style="width:1160px;height:200px;" allowResize="false"
+                 enable="false"
+                 showPager="false" showEmptyText="true" autoLoad="false" allowSortColumn="false"
+                 idField="id" allowCellSelect="true" allowCellEdit="false">
+                <div property="columns">
+                    <div field="jmsspsxMc" headeralign="center" align="center">税务资格备案事项
+                    </div>
+                    <!--<div field="zsxmMc" headeralign="center" align="center" >减免政策名称
+                    </div>-->
+                    <div field="zspmMc" headeralign="center" align="center">征收品目
+                    </div>
+                    <div field="jmzcMc" headeralign="center" align="center">减免政策名称
+                    </div>
+                    <div field="jmxzdlMc" headeralign="center" align="center">减免性质大类
+                    </div>
+                    <div field="jmxzxlMc" headeralign="center" align="center">减免性质小类
+                    </div>
+                    <div field="jmlxMc" headeralign="center" align="center">减免类型
+                    </div>
+                    <!--<div field="jmfsMc" headeralign="center" align="center" >减免方式
+                    </div>-->
+                    <div field="jmqxq" headeralign="center" align="center">减免有效期起
+                    </div>
+                    <div field="jmqxz" headeralign="center" align="center">减免有效期止
+                    </div>
+                    <div field="status" name="info" renderer="onrenderInfo" align="center">操作</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mini-window" id="win1" style="width: 960px;min-height: 400px;display: none"
+         showToolbar="false" showFooter="true" showCloseButton="true">
+        <form id="form1" method="post">
+            <input name="id" class="mini-hidden"/>
+            <div style="padding-left:11px;padding-bottom:5px;">
+                <table class="addtable" style="table-layout:fixed;">
+                    <tr>
+                        <td style="width:120px;">税务备案事项</td>
+                        <td>
+                            <input id="jmsspsxDmText" name="jmsspsxDmText" class="mini-textbox w240" readonly/>
+                        </td>
+                        <td style="width:120px;">征收品目</td>
+                        <td>
+                            <input id="zspmDmText" name="zspmDmText" class="mini-textbox w240" readonly/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:120px;">减免政策名称</td>
+                        <td>
+                            <input id="ssjmxzhzDmText" name="ssjmxzhzDmText" class="mini-textbox w240" readonly/>
+                        </td>
+                        <td style="width:120px;">减免性质大类</td>
+                        <td>
+                            <input name="ssjmxzdlDmText" id="ssjmxzdlDmText" class="mini-textbox w240" readonly/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:120px;">减免性质小类</td>
+                        <td>
+                            <input name="ssjmxzxlDmText" id="ssjmxzxlDmText" class="mini-textbox w240" readonly/>
+                        </td>
+                        <td style="width:120px;">减免类型</td>
+                        <td>
+                            <input id="jmlxDmText" name="jmlxDmText" class="mini-textbox w240" readonly/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:120px;">减免有效期起</td>
+                        <td>
+                            <input name="jmqxq" id="jmqxq" class="mini-textbox w240" readonly/>
+                        </td>
+                        <td style="width:120px;">减免有效期止</td>
+                        <td>
+                            <input name="jmqxz" id="jmqxz" class="mini-textbox w240" readonly/>
+                        </td>
+                    </tr>
+                </table>
+                <div id="div_htysh">
+                    <h4>新增合同要素-合同基本要素</h4>
+                    <table class="addtable" style="table-layout:fixed;">
+                        <tr>
+                            <td style="width:120px;">合同登记编号</td>
+                            <td>
+                                <input name="htdjbh" id="htdjbh" class="mini-textbox w240" readonly/>
+                            </td>
+                            <td style="width:120px;">合同签约日期</td>
+                            <td>
+                                <input name="htqyrq" id="htqyrq" class="mini-textbox w240" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:120px;">合同（协议）编号</td>
+                            <td>
+                                <input name="htxybh" id="htxybh" class="mini-textbox w240" readonly/>
+                            </td>
+                            <td style="width:120px;">合同（协议）名称</td>
+                            <td>
+                                <input name="htxymc" id="htxymc" class="mini-textbox w240" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:120px;">合同（协议）币种</td>
+                            <td>
+                                <input id="htbzText" name="htbzText" class="mini-textbox w240" readonly/>
+                            </td>
+                            <td style="width:120px;">是否支付标准</td>
+                            <td>
+                                <input id="sfzfbz" name="sfzfbz" style="width:100%;" class="mini-radiobuttonlist" value="N"
+                                       data='[{"id":"Y","text":"是（即开口合同）"},{"id":"N","text":"否（即闭口合同）"}]' readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:120px;">合同（协议）总金额</td>
+                            <td>
+                                <input name="htxyzje" id="htxyzje" class="mini-textbox w240" readonly/>
+                            </td>
+                            <td style="width:120px;">已贴印花税（单位：人民币）</td>
+                            <td>
+                                <input name="ytyhs" id="ytyhs" class="mini-textbox w240" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:120px;">合同执行期限起</td>
+                            <td>
+                                <input name="htzxqxq" id="htzxqxq" class="mini-textbox w240" readonly/>
+                            </td>
+                            <td style="width:120px;">合同执行期限止</td>
+                            <td>
+                                <input name="htzxqxz" id="htzxqxz" class="mini-textbox w240" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:120px;">合同（协议）业务简要内容</td>
+                            <td colspan="3">
+                                <input name="htxyywjynr" id="htxyywjynr" class="mini-textarea" height="auto" width="683" readonly/>
+                            </td>
+                        </tr>
+                    </table>
+                    <h4>新增合同要素-合同相对方信息</h4>
+                    <table class="addtable" style="table-layout:fixed;">
+                        <tr>
+                            <td style="width:120px;">合同相对方纳税人识别号/统一社会信用代码</td>
+                            <td>
+                                <input name="htxdfnsrsbh" id="htxdfnsrsbh" class="mini-textbox w240" readonly/>
+                            </td>
+                            <td style="width:120px;">合同相对方名称</td>
+                            <td>
+                                <input name="htxdfmc" id="htxdfmc" class="mini-textbox w240" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:120px;">合同相对方国家或地区</td>
+                            <td>
+                                <input id="htxdfgjhdqText" name="htxdfgjhdqText" class="mini-textbox w240" readonly/>
+                            </td>
+                            <td style="width:120px;">合同相对方地址-省市区县</td>
+                            <td>
+                                <input id="htxdfdzssqxText" name="htxdfdzssqxText" class="mini-textbox w240" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:120px;">合同相对方地址-街道乡镇</td>
+                            <td colspan="3">
+                                <input id="htxdfdzjdxzText" name="htxdfdzjdxzText" class="mini-textbox w240" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:120px;">合同相对方地址-详细地址</td>
+                            <td colspan="3">
+                                <input name="htxdfdzxxdz" id="htxdfdzxxdz" class="mini-textarea" height="auto" width="683" readonly/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </form>
+        <div property="footer">
+            <a class="mini-button toolBtn-white" onclick="onCancel">取消</a>
+        </div>
+    </div>
+    <script src="../sqgl/zzsjzjtba/zzsjzjtba.js"></script>
+</section>

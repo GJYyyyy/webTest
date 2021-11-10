@@ -1,0 +1,180 @@
+<div class="wcjykjYl" id="wcjjzmFormData" data-view-type="form">
+    <h5>纳税人基本信息</h5>
+    <!--内容1开始-->
+    <div class="table_bg table_div">
+        <table class="Yltable form-table table_bg" style="width: 100%;" >
+            <tr>
+                <th width="15%">纳税人识别号：</th>
+                <td width="35%"><input name="nsrsbh" class="mini-textbox" width="100%" readonly/></td>
+                <th width="15%">管理证明编号：</th>
+                <td width="35%"><input name="wcjyhdssglzmbh" class="mini-textbox" width="100%" readonly/></td>
+            </tr>
+
+            <tr>
+                <th>纳税人名称：</th>
+                <td><input name="nsrmc" class="mini-textbox" width="100%" readonly/></td>
+                <th>法定代表人姓名：</th>
+                <td><input name="fddbrxm" class="mini-textbox" width="100%" readonly/></td>
+            </tr>
+            <tr>
+                <th>身份证件种类：</th>
+                <td>
+                    <input name="fddbrsfzjlxDmText" class="mini-textbox" width="100%" readonly/>
+                </td>
+                <th>身份证号码：</th>
+                <td>
+                    <input name="fddbrsfzjhm" class="mini-textbox" width="100%" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <th>外出经营地：</th>
+                <td>
+                    <input name="wcjyd" class="mini-textbox" width="100%" readonly/>
+                </td>
+                <th>税务登记地：</th>
+                <td>
+                    <input name="swdjd" class="mini-textbox" width="100%" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <th>登记注册类型：</th>
+                <td>
+                    <input name="djzclxDmText" class="mini-textbox" width="100%" readonly/>
+                </td>
+                <th>经营方式：</th>
+                <td>
+                    <input name="jyfsText" class="mini-textbox" width="100%" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <th>国标行业（主）：</th>
+                <td>
+                    <input name="hyDmText" class="mini-textbox" width="100%" readonly/>
+                </td>
+                <th>隶属关系：</th>
+                <td>
+                    <input name="dwlsgxDmText" class="mini-textbox" width="100%" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <th>经营地行政区划：</th>
+                <td>
+                    <input name="xzqhszDmText" class="mini-textbox" width="100%" readonly/>
+                </td>
+                <th>经营地街道乡镇：</th>
+                <td>
+                    <input name="jdxzDmText" class="mini-textbox" width="100%" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <th>主管税务局：</th>
+                <td>
+                    <input name="zgswjDmText" class="mini-textbox" width="100%" readonly/>
+                </td>
+                <th>主管税务所（科、分局）：</th>
+                <td>
+                    <input name="zgswskfjDmText" class="mini-textbox" width="100%" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <th>合同对方企业名称：</th>
+                <td>
+                    <input name="htdfnsrmc" class="mini-textbox" width="100%" readonly/>
+                </td>
+                <th>合同对方纳税人识别号：</th>
+                <td>
+                    <input name="htdfnsrsbh" class="mini-textbox" width="100%" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <th>是否延续上次报验：</th>
+                <td>
+                    <input name="sfyxscbyText" class="mini-textbox" width="100%" readonly/>
+                </td>
+                <th>是否向对方机关推送外埠报验登记信息：</th>
+                <td>
+                    <input name="sftsdjxxText" class="mini-textbox" width="100%" readonly/>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h5>国标行业（附）：</h5>
+    <div data-view-type="datagrid">
+        <div id="gbhysqDatagridData" class="mini-datagrid"
+             style="width:100%;height:150px;" idfield="id" allowresize="true"
+             showpager="false" allowCellValid="true" sizelist="[20,30,50,100]"
+             pagesize="20">
+            <div property="columns">
+                <div field="xh" width="100" vtype="required" headeralign="center"
+                     allowsort="true">
+                    序号<input property="editor"
+                             class="mini-textbox" style="width:100%;"/>
+                </div>
+                <div field="hymc" width="100" vtype="required" headeralign="center"
+                     allowsort="true">
+                    行业<input property="editor"
+                             class="mini-textbox" style="width:100%;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h5>外出经营证明开具申请表</h5>
+    <div data-view-type="datagrid">
+        <div id="hwxxsqDatagridData" class="mini-datagrid" style="width:100%;height:200px;    margin: 0 auto;" allowResize="false"
+             enabled="false"
+             showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+             idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="false">
+            <div property="columns">
+                <div type="indexcolumn" width="50">序号</div>
+                <div field="wcjyhwmc" vtype="required">
+                    货物或服务名称
+                </div>
+                <div field="wcjyhwxsdd" vtype="required">
+                    外出经营地点
+                </div>
+                <div field="wcjyhwyxqxq" vtype="required" align="center" dateFormat="yyyy-MM-dd">
+                    合同有效期起
+                </div>
+                <div field="wcjyhwyxqxz" width="100" vtype="required" align="center" dateFormat="yyyy-MM-dd">
+                    合同有效期止
+                </div>
+                <div field="wcjyhwzz" width="120" vtype="required" align="right">
+                    合同总额
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h5>其他信息</h5>
+    <table class="form-table table_bg">
+        <tr>
+            <th width="15%">合同总金额：</th>
+            <td width="35%"><input name="htzje" class="mini-textbox" width="100%" readonly/></td>
+            <th width="15%">证明签发日期：</th>
+            <td width="35%"><input name="zmqfrq" class="mini-textbox" width="100%" readonly/></td>
+        </tr>
+
+        <tr>
+            <th>证明有效期限起：</th>
+            <td>
+                <input name="zmyxqxq" class="mini-textbox" width="100%" dateFormat="yyyy-MM-dd" readonly/>
+            </td>
+            <th>证明有效期限止：</th>
+            <td>
+                <input name="zmyxqxz" class="mini-textbox" width="100%" dateFormat="yyyy-MM-dd" readonly/>
+            </td>
+        </tr>
+        <tr>
+            <th>办税人姓名：</th>
+            <td>
+                <input name="bsrxm" class="mini-textbox" width="100%" readonly/>
+            </td>
+            <th>联系电话：</th>
+            <td>
+                <input name="lxdh" class="mini-textbox" width="100%" readonly/>
+            </td>
+        </tr>
+    </table>
+</div>

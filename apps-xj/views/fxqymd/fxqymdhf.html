@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>风险企业名单恢复</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./fxqymdBaseCss.css">
+    <!--<link rel="stylesheet" href="../dbsx/dbsxcx.css">-->
+    <!--<link rel="stylesheet" href="cxtj_ywl.css">-->
+
+</head>
+<body style="background:#fff;">
+<div class="search">
+    <div class="searchC">查询条件</div>
+</div>
+
+<div id="qymdFrom" class="searchdiv">
+    <table width="96%" border="0" cellspacing="0" cellpadding="0" class="qymdTable" id="qymdTable">
+        <tr>
+            <th style="width: 10%">统一社会信用代码：</th>
+            <td style="width: 20%"><input name="nsrsbh" type="text" id="nsrsbh" class="mini-textbox" style="width: 100%"
+                                          vtype="rangeLength:15,20" onvalidation="nsrsbhValidate"
+                                          maxLengthErrorText="编号长度不能超过20个字符" minLengthErrorText="编号长度不能低于15个字符"
+                                          requiredErrorText="纳税人识别号不能为空"/></td>
+            <th style="width: 10%">企业名称：</th>
+            <td style="width: 20%"><input id="nsrmc" name="nsrmc" class="mini-textbox" style="width:100%;"/></td>
+            <th style="width: 10%">主管税务机关：</th>
+            <td style="width: 20%">
+                <!--<input id="zgswjg" name="zgswjg" class="mini-combobox" textfield="swjgmc" valuefield="swjgdm"-->
+                       <!--url="../../../../api/xj/wtgl/cxtj/getSxtjSwjg" shownullitem="false"-->
+                       <!--style="width:100%;" valueFromSelect="true" allowInput="false" requiredErrorText="主管税务机关不能为空"/>-->
+                <input id="zgswjg" name="zgswjg" class="mini-treeselect"
+                       emptyText="--请选择--" textField="jgMc" allowInput="true"
+                       valueFromSelect="true" popupWidth="357px;" valueField="jgDm"
+                       parentField="PID" showQueryToolBar="false" style="width:100%;"
+                       required="true" requiredErrorText="主管税务机关不能为空"/>
+            </td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 0;">涉税事项大类：</th>
+            <td>
+                <input id="sssxdl" name="sssxdl" type="text" class="mini-combobox" style="width: 100%"
+                       allowInput="false" valueField="ID" textField="MC"
+                       valueFromSelect="true" emptyText=" " url="/dzgzpt-wsys/api/baseCode/get/wtdl"
+                       nullItemText=" " onvaluechanged="fxqymdhf.wtdlChange"/>
+            </td>
+            <th>涉税事项小类：</th>
+            <td>
+                <input id="sssxxl" name="sssxxl" type="text" class="mini-combobox" style="width: 100%"
+                       allowInput="false" valueField="ID" textField="MC"
+                       valueFromSelect="true" emptyText=" "
+                       nullItemText=" " />
+            </td>
+            <th>应对有效期：</th>
+            <td nowrap>
+                <input id="sqrqQ" name="sqrqQ" type="text" class="mini-datepicker" style="width: 46%"
+                       format="yyyy-MM-dd" requiredErrorText="请选择有效期起"
+                       onvaluechanged="fxqymdhf.sqrqQChange"/>
+                <span style="display: inline-block;width: 5%;text-align: center;">至</span>
+                <input id="sqrqZ" name="sqrqZ" type="text" class="mini-datepicker" style="width: 46%"
+                       format="yyyy-MM-dd" requiredErrorText="请选择有效期止"
+                       onvaluechanged="fxqymdhf.sqrqZChange"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" style="padding:10px; text-align:center;">
+                <a id="search" class="mini-button" onclick="fxqymdhf.doSearch">查询</a>
+                <a class="mini-button" onclick="fxqymdhf.doReset">重置</a>
+                <a class="mini-button" onclick="fxqymdhf.unLock">恢复</a>
+        </tr>
+        <input class="mini-htmlfile" name="file" id="file1" limitType="*.txt" style="width:10px; display: none;" onValueChanged="fxqymdhf.startUpload"/>
+
+    </table>
+</div>
+
+<div id="qymdGrid" class="mini-datagrid" showPager="true" style="width: 99%; height:500px; margin: 0 auto;"
+     autoLoad="false" multiSelect="true"  emptyText="暂无数据" showEmptyText="true" allowCellSelect="true"
+     checkSelectionOnly="true"  onload="fxqymdhf.onGridLoad"
+     onselectionchanged="fxqymdhf.onSelectoinChanged"
+     sizeList="[2,50,100]" pageSize="30" allowCellWrap="flase" allowHeaderWrap="true" fitColumns="true">
+    <div property="columns">
+        <div type="checkcolumn" width="40"></div>
+        <!--<div type="indexcolumn" width="60">序号</div>-->
+        <!--<div field="rwbh"  align="center" align="center" allowsort="false" width="120">任务编号</div>-->
+        <div field="shxydm" headeralign="center" align="center" allowsort="false" width="120">统一社会信用代码</div>
+        <div field="qymc" headeralign="center" align="center" allowsort="false" width="120">企业名称</div>
+        <div field="zgswjgmc" headeralign="center" align="center" allowsort="false" width="120">主管税务机关</div>
+        <div field="fxxx" headeralign="center" align="center" allowsort="false" width="80">风险信息</div>
+        <div field="fxjb" headeralign="center" align="center" allowsort="false" width="80">风险级别</div>
+        <div field="qywtydhj" headeralign="center" align="center" allowsort="false" width="80">应对环节</div>
+        <div field="qywtydfs" headeralign="center" align="center" allowsort="false" width="80">应对方式</div>
+        <div field="sxdl" headeralign="center" align="center" allowsort="false" width="80">事项大类</div>
+        <div field="sxdlmc" headeralign="center" align="center" allowsort="false" width="80">事项大类名称</div>
+        <div field="sxxl" headeralign="center" align="center" allowsort="false" width="80">事项小类</div>
+        <div field="sxxlmc" headeralign="center" align="center" allowsort="false" width="120">事项小类名称</div>
+        <div field="yxbz" headeralign="center" align="center" allowsort="false" width="80">有效标志</div>
+        <div field="ydyxqq" headeralign="center" dateFormat="yyyy-MM-dd" align="center" allowsort="false"
+             width="100">应对有效期起
+        </div>
+        <div field="ydyxqz" headeralign="center" dateFormat="yyyy-MM-dd" align="center" allowsort="false"
+             width="100">应对有效期止
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/efg_water.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<!--<script src="../sbtcsjql/base64.min.js"></script>-->
+<script src="./ajaxfileupload.js"></script>
+
+<script src="./fxqymdhf.js" type="text/javascript"></script>
+</html>

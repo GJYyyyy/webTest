@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <title>外部信息采集与交换综合服务平台</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../../../styles/style.css">
+    <link rel="stylesheet" href="zm_wcjybydj_blxx.css">
+    <script src="../scripts/sqbcommon.js"></script>
+    <script src="zm_wcjybydj_blxx.js" type="text/javascript"></script>
+</head>
+<body>
+<input name="lcslId" id="lcslId" class="mini-hidden" value=""/>
+<input name="sqxh" id="sqxh" class="mini-hidden" value=""/>
+<input name="rwbh" id="rwbh" class="mini-hidden" value=""/>
+<div class="mini-fit">
+    <div class="editform">
+        <div id="blxxForm" class="editdiv">
+            <h3 class="textCenter">外出经营证明开具信息补录</h3>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="edittab">
+                <tr>
+                    <th width="20%" nowrap><span class="B_red">*</span>外出经营地主管税务局：</th>
+                    <td width="30%">
+                        <input id="zgswjDm" name="zgswjDm" class="mini-treeselect" onbeforenodeselect="beforenodeselect"
+                               style="width: 90%" textfield="MC" valuefield="ID" parentField="PID"
+                               multiSelect="false" allowInput="false" required="true" popupWidth="90%"
+                               shownullitem="true" valueFromSelect="true" url="/dzgzpt-wsys/api/baseCode/get/SwjgQx"
+                               onvaluechanged="doZgswjSelected"/>
+                    </td>
+                    <th width="20%" nowrap><span class="B_red">*</span>外出经营地分局：</th>
+                    <td width="30%">
+                        <input id="zgswskfjDm" name="zgswskfjDm" required="true" class="mini-treeselect" popupWidth="90%"
+                               allowInput="true" valueFromSelect="true" textfield="MC" valuefield="ID" parentField="PID"
+                               shownullitem="true" onbeforenodeselect="beforenodeselect" style="width:90%;"
+                               onvaluechanged="doZgswjksfjSelected"/></td>
+                </tr>
+                
+                <tr>
+                    <th width="20%" nowrap>地税主管税务机关<span class="B_red">*</span>：</th>
+                    <td width="30%">
+                        <input id="dszgswjDm" name="dszgswjDm" class="mini-treeselect"
+                               style="width: 90%" textfield="MC" valuefield="ID" parentField="PID"
+                               multiSelect="false" allowInput="true" required="true" popupWidth="90%"
+                               shownullitem="true" valueFromSelect="true" url="/dzgzpt-wsys/api/baseCode/get/DsSwjgQx"
+                               onvaluechanged="doDsZgswjSelected"/>
+                    </td>
+                    <th width="20%" nowrap>地税主管税务机关科所<span class="B_red">*</span>：</th>
+                    <td width="30%">
+                        <input id="dszgswskfjDm" name="dszgswskfjDm" required="true" class="mini-treeselect" popupWidth="90%"
+                               allowInput="true" valueFromSelect="true" textfield="MC" valuefield="ID" parentField="PID"
+                               shownullitem="true" style="width:90%;" onbeforenodeselect="doZgswfjSelected"/>
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+    </div>
+</div>
+<div class="open_btdiv textCenter"><a class="mini-button blue font14" onclick="nextShowSwsxtzs()" style="padding:4px 10px;">下一步</a>&nbsp;&nbsp;
+    <a class="mini-button gray font14" onclick="onCancel('cancel')" style="padding:4px 10px;">取消</a></div>
+</body>
+</html>

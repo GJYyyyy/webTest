@@ -1,0 +1,42 @@
+.mdcx {
+
+}
+.ml5 {
+    margin-left: 5px;
+}
+.mdcx-form, .win-addrow-form {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.mdcx-form tr, .win-addrow-form tr {
+    height: 45px;
+}
+
+
+.mdcx-addrow-win {
+    font-size: 14px;
+}
+.mdcx-addrow-win .mini-panel-body {
+    padding: 0 30px 30px 30px !important;
+}
+.win-addrow-form {
+    margin: 30px auto;
+}
+
+.mini-tips-success {
+    color: #333;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.mdcx-addrow-win .mini-buttonedit-border {
+    padding-left: 10px !important;
+}
+
+.link{
+    color: #0c60e1;
+    cursor: pointer;
+}

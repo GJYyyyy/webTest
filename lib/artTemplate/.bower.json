@@ -1,0 +1,14 @@
+{
+  "name": "artTemplate",
+  "version": "3.0.1",
+  "_release": "3.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.0.1",
+    "commit": "5458ad392b4709c390867af96774f6531b64ea29"
+  },
+  "_source": "http://192.168.2.107/sfr/arttemplate-bower.git",
+  "_target": "^3.0.1",
+  "_originalSource": "artTemplate",
+  "_direct": true
+}

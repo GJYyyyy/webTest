@@ -1,0 +1,19 @@
+#sxslForm .sxslTable {
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+}
+#sxslForm .sxslTable th {
+    width: 15%;
+    text-align: right;
+}
+
+#sxslGrid td a {
+    color: #0994dc;
+}
+
+#sxslGrid td a.lz {
+    display: block;
+    border: 1px solid #0994dc;
+    border-radius: 2px;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>催报数据核实结果查询</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../../apps/views/dbsx/dbsxcx.css">
+    <style>
+        .searchBtn {
+            padding: 3px 10px;
+        }
+
+        .searchBtn .mini-button-pressed {
+            padding: 3px 10px;
+        }
+
+        body a.searchBtn:hover {
+            padding: 3px 10px;
+        }
+
+        .color-blue {
+            color: blue;
+        }
+
+        .mini-datagrid th {
+            font-size: 12px !important;
+        }
+
+        .mini-datagrid td {
+            font-size: 12px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="search">
+            <div class="searchC">查询条件</div>
+        </div>
+        <div class="search-box-wrap searchBynsrshb">
+            <div class="form-table" id="cxtjForm" style="width: 80%;margin: 0 auto;">
+                <table width="100%">
+                    <tr style="height: 40px;">
+                        <td class="txt-r" style="width: 20%;"><span class="txt-red">*</span>终审结果：</td>
+                        <td style="width:30%;">
+                            <input id="zsjg" name="zsjg" type="text" class="mini-combobox" style="width: 100%"
+                                allowInput="false" valueField="ID" textField="MC"
+                                url="/dzgzpt-wsys/api/baseCode/get/Shjg" required="true" requiredErrorText="请选择终审结果"
+                                valueFromSelect="true" emptyText=" " nullItemText=" "
+                                onvaluechanged="sjqlcxtj.zsjgChange" />
+                        </td>
+                        <td class="txt-r" style="width: 20%;"><span class="txt-red"></span>社会信用代码：</td>
+                        <td style="width:30%;">
+                            <input name="shxydm" type="text" id="shxydm" class="mini-textbox" vtype="rangeLength:15,20"
+                                onvalidation="sjqlcxtj.nsrsbhValidate" style="width: 100%"
+                                maxLengthErrorText="编号长度不能超过20个字符" minLengthErrorText="编号长度不能低于15个字符" />
+                        </td>
+                    </tr>
+                    <tr style="height: 40px;">
+                        <td class="txt-r"><span>年度：</span></td>
+                        <td><input name="nd" id="nd" class="mini-combobox" valueField="code" textField="value"
+                                allowInput="false" onvaluechanged="sjqlcxtj.ndChanged" width="100%" required="true"
+                                requiredErrorText="请选择年度">
+                        </td>
+                        <td class="txt-r"><span>月度：</span></td>
+                        <td><input name="yf" id="yf" class="mini-combobox" valueField="code" textField="value"
+                                allowInput="false" width="100%" required="true" requiredErrorText="请选择月度"></td>
+                    </tr>
+                    <!-- <tr style="height: 40px;">
+                        <td class="txt-r"><span>签订电子送达确认书状态：</span></td>
+                        <td><input name="wssdzt" id="wssdzt" class="mini-combobox" valueField="ID" textField="MC"
+                                data="[{ID:'',MC:'全部'},{ID:'Y',MC:'是'},{ID:'N',MC:'否'}]" allowInput="false" width="100%"
+                                requiredErrorText="请选择签订电子送达确认书状态">
+                        </td>
+                    </tr> -->
+                    <tr>
+                        <td colspan="4" style="padding:10px; text-align:center;">
+                            <a id="search" class="mini-button searchBtn" style="margin-right: 20px;"
+                                onclick="sjqlcxtj.doSearch(this)">查询</a>
+                            <a id="reset" class="mini-button searchBtn" onclick="sjqlcxtj.doReset(this)">重置</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <a class="mini-button toolBtn-blue" style="padding: 6px 25px" onclick="sjqlcxtj.exportFpqd()">导出</a>
+        <a class="mini-button toolBtn-blue" style="padding: 6px 25px" onclick="sjqlcxtj.doAutoStart()">发起自动催报责令</a>
+
+        <div id="cxtjgrid" class="mini-datagrid" style="width:100%; height:500px; margin: 10px auto;"
+            allowResize="false" showPager="true" emptyText="暂无数据" showEmptyText="true" pageSize="30" pageIndex="0"
+            sizeList="[10,30,50,100]" autoLoad="false" multiSelect="false" allowSortColumn="false" idField="id"
+            allowCellSelect="true" allowCellEdit="true" checkSelectionOnly="true" allowCellWrap="true"
+            frozenStartColumn="0" frozenEndColumn="4" allowHeaderWrap="true">
+            <div property="columns">
+                <div type="checkcolumn" width="50">选择</div>
+                <div field="nsrsbh" width="180" align="center" headeralign="center" renderer="shxydmRenderer">社会信用代码
+                </div>
+                <div field="nsrmc" width="180" align="center" headeralign="center">纳税人名称</div>
+                <div field="nsrztmc" align="center" headeralign="center" width="120">纳税人状态</div>
+                <div field="zsxmmc" align="center" headeralign="center" width="120">征收项目</div>
+                <div field="xq" renderer="xqRenderer" align="center" headeralign="center" width="120">详情</div>
+                <!-- <div field="wssdzt" align="center" headeralign="center" width="120">签订电子送达确认书状态</div> -->
+                <div field="csjgmc" width="180" align="center" headeralign="center">初审结果</div>
+                <div field="csly" width="80" renderer="lyRenderer" align="center" headeralign="center">初审理由</div>
+                <div field="csslr" width="180" align="center" headeralign="center">初审受理人员</div>
+                <div field="esjgmc" width="180" align="center" headeralign="center">二审结果</div>
+                <div field="esly" width="80" renderer="lyRenderer" align="center" headeralign="center">二审理由</div>
+                <div field="esslr" width="180" align="center" headeralign="center">二审受理人员</div>
+                <div field="zsjgmc" width="180" align="center" headeralign="center">终审结果</div>
+                <div field="zsly" width="80" renderer="lyRenderer" align="center" headeralign="center">终审理由</div>
+                <div field="zsslr" width="180" align="center" headeralign="center">终审受理人员</div>
+            </div>
+        </div>
+        <div class="mini-window" id="detail-win" style="width: 800px;max-height: 400px;display: none" title="详情"
+            showToolbar="false" onbuttonclick="sjqlcxtj.detailWinCancel">
+            <div id="detail_grid" class="mini-datagrid" style="width:100%;margin: 0 auto;" allowResize="false"
+                emptyText="暂无数据" showEmptyText="true" pageSize="30" showPageSize="true" sizeList="[10,30,50,100]"
+                autoLoad="false" allowSortColumn="false" showReloadButton="false" idField="id">
+                <div property="columns">
+                    <div field="zsxmmc" align="center" headeralign="center" width="140">征收项目</div>
+                    <div field="zspmmc" align="center" headeralign="center" width="160">征收品目</div>
+                    <div field="skssqq" align="center" headeralign="center" width="120" dateFormat="yyyy-MM-dd">
+                        税款所属期起</div>
+                    <div field="skssqz" align="center" headeralign="center" width="120" dateFormat="yyyy-MM-dd">
+                        税款所属期止</div>
+                    <div field="sbqx" align="center" headeralign="center" width="120" dateFormat="yyyy-MM-dd">申报期限
+                    </div>
+                </div>
+            </div>
+            <div class="footer ta-center mt80" style="text-align: center;margin-top: 80px">
+                <a class="mini-button toolBtn-blue" style="padding: 0 25px" onclick="sjqlcxtj.detailWinCancel">取消</a>
+            </div>
+        </div>
+    </div>
+    <script src="../../../lib/jquery/jquery.js"></script>
+    <script src="../../scripts/miniui.js"></script>
+    <script src="../../scripts/efg_water.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script src="./base64.min.js"></script>
+    <script src="./sjqlcxtj.js"></script>
+</body>
+
+</html>

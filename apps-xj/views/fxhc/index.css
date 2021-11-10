@@ -1,0 +1,46 @@
+
+#fxcxForm .cxtjTable{
+    text-align:center;
+    width: 47%;
+    margin: 0 auto;
+}
+
+#fxcxForm .cxtjTable th{
+    width: 18%;
+    text-align: right;
+}
+.searchC{
+    cursor: pointer;
+}
+th{
+    text-align: right;
+    width: 20%;
+}
+td{
+    width: 25%;
+}
+.btn-group{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.mini-grid-cell a{
+    color:#0994dc;
+    font-weight: bold;
+}
+.mini-grid-cell a:visited{
+    color:#0994dc;
+}
+
+
+    .mini-window, .mini-window.mini-messagebox {
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow: 0 1px 8px 0 #000;
+        min-width: 350px;
+        font-family: "MicroSoft YaHei";
+        position: fixed !important;
+        top: 20px !important;
+        left: 0 !important;
+        right: 0;
+        margin: 0 auto;
+    }

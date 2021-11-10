@@ -1,0 +1,20 @@
+{
+  "name": "jquery",
+  "version": "1.12.4",
+  "description": "一个快速、简洁的JavaScript框架，封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。",
+  "keywords": [
+    "jquery",
+    "library"
+  ],
+  "main": "jquery.js",
+  "license": "MIT",
+  "_release": "1.12.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.12.4",
+    "commit": "ab6441be3ce34a0bc4f58d63f3ee8f47f8fb212f"
+  },
+  "_source": "http://192.168.2.107/sfr/jquery-bower.git",
+  "_target": "^1.6.2",
+  "_originalSource": "jquery"
+}

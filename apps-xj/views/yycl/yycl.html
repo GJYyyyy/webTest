@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>异议处理</title>
+  <link rel="stylesheet" href="../../../apps/styles/style.css">
+  <style>
+    #cxtjForm .cxtjTable tr {
+      height: 40px;
+    }
+
+    .searchC {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body style="background:#fff;">
+  <div class="search">
+    <div class="searchC">查询条件</div>
+
+  </div>
+  <div id="cxtjForm" class="searchdiv">
+    <table class="cxtjTable" border="0" cellspacing="0" cellpadding="0"
+      style="padding:0 30px;margin-bottom: 10px;width: 70%; margin: auto">
+      <tr>
+        <th align="right" style="width:15%">社会信用代码：</th>
+        <td style="width:35%"><input id="shxydm" name="shxydm" class="mini-textbox" style="width:100%;" /></td>
+
+        <th align="right" style="width:15%">主管税务机关：</th>
+        <td style="width: 35%"><input id="zgswjgDm" name="zgswjgDm" class="mini-treeselect" style="width:100%;"
+            textfield="swjgmc" valuefield="swjgdm" parentField="sjswjgdm" popupWidth="574"
+            url="../../../../api/xj/wtgl/cxtj/getSxtjSwjg" showNullItem="true" nullItemText="--请选择--" allowInput="true"
+            valueFromSelect="true" />
+        </td>
+      </tr>
+      <tr>
+        <th align="right">处罚日期：</th>
+        <td nowrap>
+          <input id="tsrqq" name="tsrqq" class="mini-datepicker" format="yyyy-MM-dd" style="width: 46%"
+            allowInput="false" />
+          <span style="display: inline-block;width: 6%;text-align: center;">至</span>
+          <input id="tsrqz" name="tsrqz" class="mini-datepicker" format="yyyy-MM-dd" style="width: 46%"
+            allowInput="false" />
+        <th align="right">异议日期：</th>
+        <td nowrap>
+          <input id="sdrqq" name="sdrqq" class="mini-datepicker" format="yyyy-MM-dd" style="width: 46%"
+            allowInput="false" />
+          <span style="display: inline-block;width: 6%;text-align: center;">至</span>
+          <input id="sdrqz" name="sdrqz" class="mini-datepicker" format="yyyy-MM-dd" style="width: 46%"
+            allowInput="false" />
+        </td>
+      </tr>
+      <tr>
+        <th align="right">受理状态：</th>
+        <td nowrap>
+          <input id="slzt" name="slzt" class="mini-combobox" style="width:100%;" textfield="mc" valuefield="mc"
+            value='未受理' data="[{mc:'已受理'},{mc:'未受理'}]" allowInput="false" />
+      </tr>
+      <tr>
+        <td colspan="4" style="padding:10px; text-align:center;">
+          <a id="search" class="mini-button" onclick="yyclObj.doSearch()">查询</a>
+          <a class="mini-button" onclick="yyclObj.doExport()">导出</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <form id="exportForm" target="_self" encType="application/x-www-form-urlencoded"
+    action="/workflow/web/workflow/form/yycl/excel" method="POST" style="display: none">
+    <input type='hidden' name='list' id="exportData" />
+  </form>
+  <div class="mini-fit">
+    <div id="cxGrid" idField="cxGrid" class="mini-datagrid" allowHeaderWrap="true" showPager="true"
+      style="width: 98%;margin: 0 auto; height: 400px;" sizeList="[10,30,50,100]" pageSize="10"
+      onpagechanged="yyclObj.onpagechanged" showEmptyText="true" emptyText="<span style= 'color:#ff0000;'>没有数据</span>"
+      onbeforeload="yyclObj.onbeforeload">
+      <div property="columns">
+        <div type="indexcolumn" width="50">序号</div>
+        <div field="zgswjgMc" headeralign="center" align="center" allowsort="false" width="120">主管税务机关</div>
+        <div field="rwmc" headeralign="center" align="center" renderer="onRwmcActionRenderer" allowsort="false"
+          width="160">任务名称
+        </div>
+        <div field="bcfrmc" headeralign="center" align="center" allowsort="false" width="160">被处罚人名称
+        </div>
+        <div field="bcfrzjmc" headeralign="center" align="center" allowsort="false" width="160">被处罚人证件名称</div>
+        <div field="zjhm" headeralign="center" align="center" allowsort="false" width="160">证件号码</div>
+        <div field="wfssjcfyj" headeralign="center" align="center" allowsort="false" width="200"
+          renderer="onWfssjcfyjRenderer">违法事实及处罚依据</div>
+        <div field="fkje" headeralign="center" align="center" allowsort="false" width="80">罚款金额</div>
+        <div field="tsrq" headeralign="center" align="center" allowsort="false" width="100" dateFormat="yyyy-MM-dd">处罚日期
+        </div>
+        <div field="sdrq" headeralign="center" align="center" allowsort="false" width="100" dateFormat="yyyy-MM-dd">异议日期
+        </div>
+        <div field="yyd" headeralign="center" align="center" allowsort="false" width="100"
+          renderer="onyydActionRenderer">
+          异议点</div>
+        <div field="slzt" headeralign="center" align="center" allowsort="false" width="100">受理状态</div>
+        <div field="action" renderer="onActionRenderer" headeralign="center" align="center" allowsort="false"
+          width="100">操作</div>
+      </div>
+    </div>
+  </div>
+  <div class="mini-window" id="yyd-win" style="width: 400px;height: 240px;display: none" title="详情" showModal="true">
+    <div id="yydDetail">
+
+    </div>
+  </div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/efg_water.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="./yycl.js"></script>
+
+</html>

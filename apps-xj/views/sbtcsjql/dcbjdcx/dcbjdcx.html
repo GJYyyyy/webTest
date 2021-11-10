@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>待催报数据核实进度查询</title>
+    <link rel="stylesheet" href="../../../styles/style.css">
+    <link rel="stylesheet" href="../../../../apps/views/dbsx/dbsxcx.css">
+    <style>
+        .searchBtn {
+            padding: 3px 10px;
+        }
+
+        .searchBtn .mini-button-pressed {
+            padding: 3px 10px;
+        }
+
+        body a.searchBtn:hover {
+            padding: 3px 10px;
+        }
+
+        .color-blue {
+            color: blue;
+        }
+
+        .mini-datagrid th {
+            font-size: 12px !important;
+        }
+
+        .mini-datagrid td {
+            font-size: 12px !important;
+        }
+
+        .txt-r {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="search">
+            <div class="searchC">查询条件</div>
+        </div>
+        <div class="search-box-wrap searchBynsrshb">
+            <div class="form-table" id="cxtjForm" style="width: 80%;margin: 0 auto;">
+                <table width="100%">
+                    <tr style="height: 40px;">
+                        <th class="txt-r" style="width:7%"><span style="color: red;">*</span>年度：</th>
+                        <td style="width:8%"><input name="nd" id="nd" class="mini-combobox" valueField="code"
+                                textField="value" allowInput="false" onvaluechanged="dcbjdcx.ndChanged"
+                                style="width:100%;">
+                        </td>
+                        <th class="txt-r" style="width:3%"><span style="color: red;">*</span>月度：</th>
+                        <td style="width:8%"><input name="yf" id="yf" class="mini-combobox" valueField="code"
+                                textField="value" allowInput="false" style="width:100%;"> </td>
+                        <th class="txt-r" style="width: 10%;">任务进度：</th>
+                        <td style="width:19%"><input name="rwjd" id="rwjd" class="mini-combobox" valueField="code"
+                                textField="value" allowInput="false" style="width:100%;"
+                                data="[{code:'',value:'全部'},{code:'未签收',value:'未签收'},{code:'分配中',value:'分配中'},{code:'初审中',value:'初审中 '},{code:'二审中',value:'二审中'},{code:'终审中',value:'终审中'},{code:'完成',value:'完成'}]">
+                        </td>
+                    </tr>
+                    <tr style="height: 40px;">
+                        <th class="txt-r">主管税务所：</th>
+                        <td colspan="3"><input id="swjgDm" name="swjgDm" class="mini-treeselect" textfield="swjgmc"
+                                valuefield="swjgdm" parentField="sjswjgdm" popupWidth="574"
+                                url="/dzgzpt-wsys/api/sh/dcbsj/get/LoginUserSwjg" showNullItem="true"
+                                nullItemText="--请选择--" allowInput="true" valueFromSelect="true" style="width:100%;" />
+                        </td>
+                        <th class="txt-r">处理人员：</th>
+                        <td><input id="swryDm" name="swryDm" class="mini-combobox" textField="swryxm"
+                                valueField="swryDm" popupWidth="374"
+                                url="/dzgzpt-wsys/api/sh/dcbsj/getSwry"
+                                allowInput="false" valueFromSelect="true" style="width:100%;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" style="width:30%; text-align:center;">
+                            <a id="search" class="mini-button searchBtn" style="margin-right: 20px;"
+                                onclick="dcbjdcx.doSearch(0, dcbjdcx.pageSize)">查询</a>
+                            <a id="reset" class="mini-button searchBtn" onclick="dcbjdcx.doReset(this)">重置</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="cxtjgrid" class="mini-datagrid" style="width:100%; height:500px; margin: 10px auto;" showPager="true"
+            sizeList="[10,30,50,100]" pageSize="30" onbeforeload="dcbjdcx.beforeLoad">
+            <div property="columns">
+                <div type="indexcolumn" align="center" headeralign="center">序号</div>
+                <div field="processinstanceid" align="center" headeralign="center">流程实例ID</div>
+                <div field="swjgmc" align="center" headeralign="center">主管税务所</div>
+                <div field="rwfprymc" align="center" headeralign="center">处理人员</div>
+                <div field="yhss" align="center" headeralign="center">应核实数</div>
+                <div field="zt" align="center" headeralign="center">任务进度</div>
+            </div>
+        </div>
+    </div>
+    <script src="../../../../lib/jquery/jquery.js"></script>
+    <script src="../../../scripts/miniui.js"></script>
+    <script src="../../../scripts/efg_water.js"></script>
+    <script src="../../../scripts/gldcommon.js"></script>
+    <!-- <script src="./base64.min.js"></script> -->
+    <script src="./dcbjdcx.js"></script>
+</body>
+
+</html>

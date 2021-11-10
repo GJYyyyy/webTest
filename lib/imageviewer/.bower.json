@@ -1,0 +1,56 @@
+{
+  "name": "imageviewer",
+  "description": "基于jQuery的图片浏览插件",
+  "main": [
+    "dist/viewer.js",
+    "dist/viewer.css"
+  ],
+  "keywords": [
+    "image",
+    "view",
+    "viewing",
+    "viewer",
+    "jquery",
+    "plugin",
+    "html",
+    "css",
+    "javascript",
+    "front-end",
+    "web",
+    "development"
+  ],
+  "homepage": "https://github.com/fengyuanchen/viewer",
+  "authors": [
+    "Fengyuan Chen"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "examples",
+    "assets",
+    "tests",
+    "test",
+    "demo",
+    "docs",
+    "gulpfile.js"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.1 <2.0.0"
+  },
+  "devDependencies": {
+    "jquery": "~1.12.0",
+    "bootstrap": "~3.3.6"
+  },
+  "version": "0.5.1",
+  "_release": "0.5.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.5.1",
+    "commit": "747c54ca0bc1a9d1c4a63df95effb7e30c9439a0"
+  },
+  "_source": "http://192.168.2.107/sfr/viewer.git",
+  "_target": "^0.5.1",
+  "_originalSource": "viewer"
+}

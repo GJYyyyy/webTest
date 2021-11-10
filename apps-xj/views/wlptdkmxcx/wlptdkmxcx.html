@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>网络平台代开明细查询</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <link rel="stylesheet" href="wlptdkmxcx.css" />
+  </head>
+  <body style="background: #fff;">
+    <div class="search" data-show="yes">
+      <div class="searchC">隐藏查询条件</div>
+    </div>
+    <div
+      id="mxcx-form"
+      class="searchdiv"
+      style="width: 95%; margin-bottom: 20px;"
+    >
+      <table
+        width="96%"
+        border="0"
+        cellspacing="0"
+        cellpadding="0"
+        style="margin: 20px auto;"
+      >
+        <tr>
+          <th>社会信用代码（纳税人识别号）：</th>
+          <td>
+            <input
+              id="nsrsbh"
+              name="nsrsbh"
+              class="mini-textbox"
+              required="false"
+              nullItemText="--请选择--"
+            />
+          </td>
+          <th>主管税务机关：</th>
+          <td>
+            <input
+              id="swjgDm"
+              name="swjgDm"
+              class="mini-treeselect"
+              required="false"
+              textfield="MC"
+              valuefield="ID"
+              parentField="PID"
+              popupWidth="574"
+              showNullItem="true"
+              nullItemText="--请选择--"
+              allowInput="true"
+              valueFromSelect="true"
+              style="width: 64%;"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th>文书号：</th>
+          <td>
+            <input
+              id="wsh"
+              name="wsh"
+              class="mini-textbox"
+              required="false"
+              nullItemText="--请选择--"
+            />
+          </td>
+          <th>申报日期：</th>
+          <td nowrap>
+            <input
+              id="sbrqq"
+              name="sbrqq"
+              class="mini-datepicker"
+              format="yyyy-MM-dd"
+              showClose="true"
+              style="width: 30%;"
+              onvaluechanged="mxcx.onDateValidate"
+            />
+            至
+            <input
+              id="sbrqz"
+              name="sbrqz"
+              class="mini-datepicker"
+              format="yyyy-MM-dd"
+              showClose="true"
+              style="width: 30%;"
+              onvaluechanged="mxcx.onDateValidate"
+            />
+          </td>
+        </tr>
+      </table>
+      <div style="text-align: center;">
+        <a id="search" class="mini-button" onclick="mxcx.doSearch">查询</a>
+        <a class="mini-button" onclick="mxcx.doReset">重置</a>
+        <a class="mini-button" onclick="mxcx.exportData">导出</a>
+      </div>
+    </div>
+    <div
+      id="mxcx-grid"
+      class="mini-datagrid self-datagrid"
+      multiSelect="true"
+      checkSelectionOnly="true"
+      showPager="true"
+      showEmptyText="true"
+      allowResize="false"
+      allowCellSelect="true"
+      allowCellEdit="false"
+      allowHeaderWrap="true"
+      onpagechanged="mxcx.onPageChanged"
+      onbeforeload="mxcx.onbeforeload"
+      onbeforeselect="isShowCheck"
+      pageSize="30"
+      sizeList="[30,50,100]"
+      style="width: 100%; min-height: 150px; height: 100%;"
+    >
+      <div property="columns">
+        <div type="indexcolumn">序号</div>
+        <div
+          field="wsh"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="120"
+        >
+          文书号
+        </div>
+        <div
+          field="nsrmc"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="100"
+        >
+          纳税人名称
+        </div>
+        <div
+          field="swjgMc"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="150"
+        >
+          主管税务机关
+        </div>
+        <div
+          field="nsrsbh"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="120"
+        >
+          社会信用代码<br />（纳税人识别号）
+        </div>
+        <div
+          field="ssgly"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="80"
+        >
+          税收管理员
+        </div>
+        <div
+          field="sbrq"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+        >
+          申报日期
+        </div>
+        <div
+          field="hyqyhs"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="80"
+        >
+          会员企业户数
+        </div>
+        <div
+          field="byfpfshj"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="80"
+        >
+          本月代开专用发票份数合计
+        </div>
+        <div
+          field="bnljfshj"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="80"
+        >
+          本年累计份数合计
+        </div>
+        <div
+          field="bydkfpxsehj"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="80"
+        >
+          本月代开发票销售额合计
+        </div>
+        <div
+          field="bndkfpxsehj"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="80"
+        >
+          本月累计代开发票销售额合计
+        </div>
+        <div
+          field="bydjzzsehj"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="80"
+        >
+          本月代缴增值税额合计
+        </div>
+        <div
+          field="bnljzzsehj"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="80"
+        >
+          本月累计代缴增值税额合计
+        </div>
+        <div
+          field="cz"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="50"
+          renderer="mxcx.renderCollumn"
+        >
+          操作
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="mini-window mxcx-win"
+      id="mxcx-win"
+      showToolbar="false"
+      showFooter="false"
+      showModal="true"
+      title="详情"
+      style="width: 1100px; height:100%;display: none;"
+    >
+      <div
+        id="yl-dkmxbs-grid"
+        class="mini-datagrid"
+        showEmptyText="true"
+        autoLoad="false"
+        allowResize="false"
+        idField="id"
+        showPager="false"
+        allowCellValid="true"
+        allowSortColumn="false"
+        allowHeaderWrap="true"
+        style="width: 100%; min-height: 100px;height: 100%;"
+      >
+        <div property="columns">
+          <div type="indexcolumn">序号</div>
+          <div
+            field="qymc"
+            headeralign="center"
+            align="center"
+            allowsort="false"
+            width="120"
+          >
+            会员企业名称
+          </div>
+          <div
+            field="shxydm"
+            headeralign="center"
+            align="center"
+            allowsort="false"
+            width="200"
+          >
+            会员企业统一社会信用代码<br />（或税务登记证号码或组织机构代码）
+          </div>
+          <div
+            field="byfpfs"
+            headeralign="center"
+            align="center"
+            allowsort="false"
+            width="110"
+          >
+            本月代开专用发票份数
+          </div>
+          <div
+            field="bnljfs"
+            headeralign="center"
+            align="center"
+            allowsort="false"
+            width="110"
+          >
+            本年累计份数
+          </div>
+          <div
+            field="bydkfpxse"
+            headeralign="center"
+            align="center"
+            allowsort="false"
+            width="80"
+          >
+            本月代开发票销售额
+          </div>
+          <div
+            field="bndkfpxse"
+            headeralign="center"
+            align="center"
+            allowsort="false"
+            width="80"
+          >
+            本年累计代开发票销售额
+          </div>
+          <div
+            field="bydjzzse"
+            headeralign="center"
+            align="center"
+            allowsort="false"
+            width="80"
+          >
+            本月代缴增值税额
+          </div>
+          <div
+            field="bnljzzse"
+            headeralign="center"
+            align="center"
+            allowsort="false"
+            width="80"
+          >
+            本年累计代缴增值税额
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../../../lib/jquery/jquery.js"></script>
+  <script src="../../scripts/miniui.js"></script>
+  <script src="../../scripts/efg_water.js"></script>
+  <script src="../../scripts/gldcommon.js"></script>
+  <script src="wlptdkmxcx.js" type="text/javascript"></script>
+</html>

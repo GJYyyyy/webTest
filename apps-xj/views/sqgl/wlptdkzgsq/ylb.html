@@ -1,0 +1,121 @@
+<h2>预览申请表</h2>
+<section>
+  <div class="wldkYl">
+    <div title="网络平台代开资格申请预览">
+      <div class="wrapper" data-view-type="form" id="ylbForm">
+        <table class="form-table" style="width:1160px;font-size:14px; line-height: 120%;">
+          <tr style="height: 60px;">
+            <td colspan="8">
+              <div class="cxsfxytitle">基本信息</div>
+            </td>
+          </tr>
+          <tr>
+            <td width="15%" nowrap align="right"><span class="red">*</span>社会信用代码：</td>
+            <td width="35%" colspan="3"><input class="mini-textbox" name="nsrsbh" readonly> </td>
+            <td width="15%" nowrap align="right"><span class="red">*</span>纳税人名称：</td>
+            <td width="35%" colspan="3"><input class="mini-textbox" name="nsrmc" readonly> </td>
+          </tr>
+          <tr>
+            <td nowrap align="right"><span class="red">*</span>经办人姓名：</td>
+            <td colspan="3"><input class="mini-textbox" name="jbrmc" readonly> </td>
+            <td nowrap align="right"><span class="red">*</span>经办人联系方式：</td>
+            <td colspan="3"><input class="mini-textbox" name="jbrlxfs" readonly> </td>
+          </tr>
+          <tr>
+            <td nowrap align="right"><span class="red">*</span>经办人身份证件类型：</td>
+            <td colspan="3"><input class="mini-textbox" name="jbrsfzjlx" readonly> </td>
+            <td nowrap align="right"><span class="red">*</span>经办人身份证件号码：</td>
+            <td colspan="3"><input class="mini-textbox" name="jbrsfzjhm" readonly> </td>
+          </tr>
+          <tr style="height: 60px;">
+            <td colspan="8">
+              <div class="cxsfxytitle">平台模式</div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="8">
+              <div class="ptmsxx marginDiv">
+                <input style="line-height: 40px;" name="wz" value="" class="mini-checkbox" text="网站" enabled="false" />
+                <div id="ylwzDiv" style="display: none;">
+                  <input class="mini-textbox" name="wzIpt" style="width: 90%;" readonly>
+                </div>
+              </div>
+              <div class="ptmsxx marginDiv">
+                <input style="line-height: 40px;" name="app" value="" class="mini-checkbox" text="手机APP"
+                  enabled="false" />
+                <div id="ylappDiv" style="display: none;">
+                  <!-- <div>
+              <input style="width: 30%;display: inline-block;" class="mini-combobox" allowInput="false"
+                emptyText='系统'>
+              <input style="width: 50%;display: inline-block;" class="mini-textbox">
+              <a href="javascript:;" onclick="dksq.addApp()">新增</a>
+              <a href="javascript:;" onclick="dksq.delApp()">删除</a>
+            </div> -->
+                </div>
+              </div>
+              <div class=" ptmsxx">
+                <input style="line-height: 40px;" name="wx" value="" class="mini-checkbox" text="微信" enabled="false" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="8">
+              <div class="ptmsxx marginDiv" style="margin: 20px 10px 20px 0;">
+                <input style="line-height: 40px;" name="zfb" value="" class="mini-checkbox" text="支付宝"
+                  enabled="false" />
+              </div>
+              <div class="ptmsxx marginDiv" style="margin: 20px 10px 20px 0;">
+                <input style="line-height: 40px;" name="qt" value="" class="mini-checkbox" text="其他" enabled="false" />
+                <div id="ylqtDiv" style="display: none;">
+                  <input class="mini-textbox" name="qtTpt" style="width: 90%;" placeholder="请输入其他平台模式" readonly>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="8">
+              <div>
+                <label style="margin-right: 20px;">是否具备与开展业务相适应的线上服务能力？</label>
+                <div class="mini-radiobuttonlist" name="syfwnl" repeatItems="1" repeatLayout="table"
+                  repeatDirection="vertical" textField="text" valueField="id"
+                  data="[{id:'Y',text:'是'},{id:'N',text:'否'}]" enabled="false">
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="8">
+              <div>
+                <label style="margin-right: 20px;">是否已与本市交通运输主管部门建立的网络货运信息监测系统实现有效对接？</label>
+                <div class="mini-radiobuttonlist" name="yxdj" repeatItems="1" repeatLayout="table"
+                  repeatDirection="vertical" textField="text" valueField="id"
+                  data="[{id:'Y',text:'是'},{id:'N',text:'否'}]" enabled="false">
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="8">
+              <div>
+                <label style="margin-right: 20px;">是否按照要求完成数据上传？</label>
+                <div class="mini-radiobuttonlist" name="wcsc" repeatItems="1" repeatLayout="table"
+                  repeatDirection="vertical" textField="text" valueField="id"
+                  data="[{id:'Y',text:'是'},{id:'N',text:'否'}]" enabled="false">
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="8">
+              <div style="margin-top: 10px;">
+                <label style="vertical-align: top;width: 150px">其他需要说明的事项：</label>
+                <input class="mini-textarea" name="smsx" width="999px" style="display: inline-block;height: 80px;"
+                  maxlength="200" readonly>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

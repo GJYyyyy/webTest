@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="ywy,qysds,blxx">
+    <meta name="description" content="企业所得税优惠事项备案补录信息">
+    <title>企业所得税优惠事项备案补录信息</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="qysdsyhsxbabl.css" type="text/css" />
+</head>
+<body>
+<h3 class="txt-c">纳税人申请信息</h3>
+<div id="Form" class="searchdiv">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table mb10">
+        <tr>
+            <th width="15%">优惠有效期起：</th>
+            <td width="35%"><input id="yhyxqq" name="yhyxqq" class="mini-monthpicker" vtype="required" requiredErrorText="有效期起不能为空" format="yyyy-MM-dd" style="width:100%;" onvaluechanged="qysdsyhsxbabl.dateChanged"/></td>
+            <th width="15%">优惠有效期止：</th>
+            <td width="35%"><input id="yhyxqz" name="yhyxqz" class="mini-monthpicker" vtype="required" requiredErrorText="有效期止不能为空" format="yyyy-MM-dd" style="width:100%;" onvaluechanged="qysdsyhsxbabl.dateChanged"/></td>
+        </tr>
+        <tr>
+            <th width="15%">优惠事项名称：</th>
+            <td colspan="3"><input id="yhsxDmText" name="yhsxDmText" class="mini-textbox" style="width:100%;" readonly/></td>
+        </tr>
+    </table>
+    <div id="qysdsyhsxba_grid" class="mini-datagrid" style="width:100%;height:200px;" allowResize="false"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="true" oncellbeginedit="qysdsyhsxbabl.beginEdit" oncellendedit="qysdsyhsxbabl.endEdit">
+        <div property="columns">
+            <div field="ssjmxzDm" displayField="ssjmxzmc" vtype="required" align="center" headeralign="center">
+                减免性质名称<input property="editor" name="jmxz" id="jmxz" allowInput="true" class="mini-combobox" multiSelect="true"  textField="ssjmxzmc" valueField="ssjmxzDm"/>
+            </div>
+            <div field="jmxzDl" displayField="jmxzDlText" vtype="required">
+                减免性质大类<input name="jmxzDl" class="mini-textbox" style="display: none;"/>
+            </div>
+            <div field="jmxzXl" displayField="jmxzXlText" vtype="required">
+                减免性质小类<input name="jmxzXl" class="mini-textbox" style="display: none;"/>
+            </div>
+            <div field="jmzlx" displayField="jmzlxText" vtype="required">
+                减免征类型<input property="editor" id="jmzlx" name="jmzlx" class="mini-combobox" allowInput="true" valueFromSelect="true"
+                           showNullItem="false" textfield="MC" valuefield="ID" autoload="false" required="true" onvaluechanged="qysdsyhsxbabl.jmzlxChanged"
+                           requiredErrorText="减免类型不能为空"/>
+            </div>
+            <div field="jmlx" vtype="required" type="comboboxcolumn">
+                减免类型<input property="editor" id="jmlx" name="jmlx" class="mini-combobox" textField="MC" valueField="ID" required="true" onvaluechanged="qysdsyhsxbabl.jmlxChanged"/>
+            </div>
+            <div field="jzed" vtype="double12" dataType="float">
+                减征额度<input property="editor" id="jmed" class="mini-moneybox" />
+            </div>
+            <div field="jzfd"  vtype="double12" dataType="float">
+                减征幅度<input property="editor" id="jmfd" class="mini-moneybox" />
+            </div>
+            <div field="jzsl">
+                减征税率<input property="editor" id="jmsl" class="mini-spinner" vtype="float;" numberFormat="n2" decimalPlaces="2"
+                           increment="0.01" maxValue="1.00"/>
+            </div>
+        </div>
+    </div>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table mini-hidden">
+        <tr>
+            <th width="15%">备案人：</th>
+            <td width="35%"><input id="bar" name="bar" class="mini-textbox" style="width:100%;" /></td>
+            <th width="15%">备案日期：</th>
+            <td width="35%"><input id="barq" name="barq" class="mini-datepicker" format="yyyy-MM-dd" style="width:100%;" /></td>
+        </tr>
+        <tr>
+            <th width="15%">备案税务机关：</th>
+            <td width="35%"><input id="baswjg" name="baswjg" class="mini-textbox" style="width:100%;" /></td>
+        </tr>
+    </table>
+</div>
+<div class="open_btdiv txt-c mt20"><a class="mini-button blue font14" onclick="nextShowSwsxtzs()"  style="padding:4px 10px;">下一步</a>&nbsp;&nbsp;
+    <a class="mini-button gray font14" onclick="onCancel('cancel')" style="padding:4px 10px;">取消</a></div>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="qysdsyhsxbabl.js"></script>
+</body>
+</html>

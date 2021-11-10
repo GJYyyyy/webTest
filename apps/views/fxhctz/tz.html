@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>风险核查限制措施调整</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../fxhc/fpTaskCl.css">
+</head>
+
+<body>
+    <div class="fxclContainner shContainner pd-top-15 fhContainner" style="display: block;">
+        <h2>风险核查限制措施调整</h2>
+        <div style="text-align: center;position: relative;"  class="box4">
+            <span style="font-size: 16px;display: inline-block;width: 160px;text-align: right;">审核意见：</span>
+            <textarea name="" cols="30" rows="10" placeholder="请输入审核意见" disabled></textarea>
+        </div>
+
+        <div style="text-align: center;" class="fxhcsh mt20"  class="box4">
+            <div class="jgcheckList txt-l" style="line-height: 26px">
+                <span style="font-size: 16px;display: inline-block;width: 120px;text-align: right">风险核实结果：</span>
+                <input type="radio" name="f_fxLevel" id="f_level1" value="3" index="1" disabled><label
+                    for="f_level1">推送决策二包转办</label>
+                <input type="radio" name="f_fxLevel" id="f_level4" value="2" index="2" disabled><label
+                    for="f_level4">排除风险</label>
+                <input type="radio" name="f_fxLevel" id="f_level2" value="1" index="3" checked disabled><label
+                    for="f_level2">风险属实</label>
+            </div>
+            <br>
+
+
+            <div class="jgcheckList txt-l" style="line-height: 1px;">
+            </div>
+            <br>
+            <div class="jgcheckList txt-l" style="line-height: 26px;">
+                <span style="font-size: 16px;display: inline-block;width: 120px;text-align: right">限制措施：</span>
+                <div style="display:inline-block;width:810px;vertical-align: top;">
+                    <table width="100%" border="1" cellspacing="0" cellpadding="0"
+                        style="margin-bottom: 10px;height: 90px;margin: 0 auto;" id="fxfctable">
+                        <thead>
+                            <tr>
+                                <td>限制类型</td>
+                                <td>原限制期限止</td>
+                                <td>调整后的限制期限止</td>
+                                <td>操作</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="txt-l">
+                                    <input type="checkbox" name="xzcs" value="1" id="f_xzcs_1" disabled><label
+                                        for="f_xzcs_1">限制线上升版增量</label><br />
+                                </td>
+                                <td>
+                                    <input type="text" class="mini-datepicker" width="100%;" id="f_xy1_1" enabled="false">
+                                </td>
+                                <td>
+                                    <input type="text" class="mini-datepicker" width="100%;" id="f_xy1_1_tzh" enabled="false">
+                                </td>
+                                <td>
+                                    <input type="checkbox" name="jc" value="1" id="f_xzcs_1_jc" disabled><label
+                                        for="f_xzcs_1_jc">解除限制</label><br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="txt-l">
+                                    <input type="checkbox" name="xzcs" value="2" id="f_xzcs_2" disabled><label
+                                        for="f_xzcs_2">限制网上申报</label><br />
+                                </td>
+                                <td>
+                                    <input type="text" class="mini-datepicker" width="100%;" id="f_xy1_2" enabled="false">
+                                </td>
+                                <td>
+                                    <input type="text" class="mini-datepicker" width="100%;" id="f_xy1_2_tzh" enabled="false">
+                                </td>
+                                <td>
+                                    <input type="checkbox" name="jc" value="1" id="f_xzcs_2_jc" disabled><label
+                                        for="f_xzcs_2_jc">解除限制</label><br />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div
+            style="text-align: center;position: relative;margin-top: 40px;padding-bottom: 30px;border-bottom: 1px solid;">
+            <span style="font-size: 16px;display: inline-block;width: 160px;text-align: right;"><span style="color:red;">*</span>调整原因：</span>
+            <textarea name="" cols="30" rows="10" placeholder="请输入调整原因" id="tzyy"></textarea>
+            <p style="text-align: left;text-indent: 20em;">调整人：<span class="tzrmc"></span>&nbsp;&nbsp;&nbsp;&nbsp;调整时间：<span class="tzsj"></span></p>
+        </div>
+
+        <div style="text-align: center;" class="fxhcsh mt20 fxhcsh_jg">
+            <div class="jgcheckList txt-l" style="line-height: 26px">
+                <span style="font-size: 16px;display: inline-block;width: 120px;text-align: right">审核结果：</span>
+                <input type="radio" name="shjg" id="shjg_Y" value="Y" index="1" checked><label for="shjg_Y">通过</label>
+                <input type="radio" name="shjg" id="shjg_N" value="N" index="2"><label for="shjg_N">不通过</label>
+
+            </div>
+        </div>
+        <br>
+
+
+        <div style="text-align: center;position: relative;margin-top: 4\20px;padding-bottom: 30px;" class='fxhcsh_bz'>
+            <span style="font-size: 16px;display: inline-block;width: 160px;text-align: right;">备注：</span>
+            <textarea name="" cols="30" rows="10" placeholder="请输入备注" id="shbz"></textarea>
+        </div>
+
+
+    </div>
+
+
+    <div style="text-align: center;margin-bottom: 50px;">
+        <a class="mini-button toolBtn-blue" style="padding: 0 25px" onclick="save()">提交</a>
+        <a class="mini-button toolBtn-white" style="padding: 0 25px" onclick="doBack();">取消</a>
+    </div>
+
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="tz.js" type="text/javascript"></script>
+
+</html>

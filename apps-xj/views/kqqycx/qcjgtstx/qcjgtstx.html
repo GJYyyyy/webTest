@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>跨区迁移业务税务事项报告</title>
+    <link rel="stylesheet" href="../../../styles/style.css">
+    <link rel="stylesheet" href="../../../../apps/views/dbsx/dbsxcx.css">
+    <link rel="stylesheet" href="../kqqyqyswsxbg.css">
+</head>
+<body>
+<div class="content">
+    <div class="search-box-content" style="margin: 20px 0;">
+        <h2 style="text-align: center">跨区迁移业务税务事项报告</h2>
+        <table class="Yltable table_bg form-table" cellspacing="0" border="1" style="width: 80%;margin: 0 auto;">
+            <tr>
+                <th style="width:200px;">纳税人识别号：</th>
+                <td width="35%" style="width:250px;" id="nsrsbh">
+
+                </td>
+                <th style="width:200px;">纳税人名称：</th>
+                <td style="width:250px;" id="nsrmc">
+
+                </td>
+            </tr>
+            <tr>
+                <th style="width:200px;">办税人员：</th>
+                <td style="width:250px;" id="jbrmc">
+
+                </td>
+                <th style="width:200px;">证件号码：</th>
+                <td style="width:250px;" id="zjhm">
+                </td>
+            </tr>
+            <tr>
+                <th style="width:200px;">联系人电话：</th>
+                <td style="width:250px;" id="sjhm">
+                </td>
+                <th style="width:200px;">出口退税类型：</th>
+                <td style="width:250px;" id="cktslx">
+                </td>
+            </tr>
+            <tr>
+                <th style="width:200px;" rowspan="2">经营地址变更情况：</th>
+                <td style="width:200px;">迁出地地址：</td>
+                <td style="width:250px;" id="qcdzcdzxzqhszDm">
+
+                </td>
+                <td style="width:250px;" id="qcdzcdz">
+
+                </td>
+            </tr>
+            <tr>
+                <td style="width:200px;" rowspan="2">迁入地地址：</td>
+                <td style="width:250px;" id="qrdzcdzxzqhszDm">
+
+                </td>
+                <td style="width:250px;" id="qrdzcdz">
+
+                </td>
+            </tr>
+        </table>
+        <div class="tstx">
+            <p>需税务人员办理迁出手续：</p>
+            <p>
+                1.在出口退税审核系统中启动并完成出口退（免）税备案变更流程的推送；
+            </p>
+            <p>
+                2.在此期间，迁出分局应暂停受理企业依申请事项，若企业新发生特别纳税调整、税务稽查、纳税评估、抵扣凭证审核检查、增值税发票协查、信访举报案件的，相关事项应一并迁移至迁入税务机关办理；
+            </p>
+            <!--<p>
+                3.关闭电子申报;
+            </p>
+            <p>
+                4.撤销其三方协议;
+            </p>-->
+        </div>
+        <div class="dbsx-actions">
+            <!--<a id="sxbjBtn" class="mini-button">事项办结</a>
+            <a id="shbjBtn" class="mini-button">事项办结</a>
+            <a id="bzzlBtn" class="mini-button" style="width:124px">补正资料（补正）</a>
+            <a id="byslBtn" class="mini-button" style="width:124px">不予受理（撤回）</a>
+            <a id="newSwjgBtn" style="width: 148px;" class="mini-button">重新指定报验地税务机关</a>
+            <a id="sqbPrintBtn" class="mini-button" onclick="sqbPrint()">打印申请表</a>
+            <a id="yclBtn" class="mini-button">已处理</a>-->
+            <a class="mini-button" onclick="closeWin()" id="backBtn">返回</a>
+        </div>
+    </div>
+</div>
+<script src="../../../../lib/jquery/jquery.js"></script>
+<script src="../../../scripts/miniui.js"></script>
+<script src="../../../scripts/gldcommon.js"></script>
+<!--<script src="../../dbsx/sxsl_common.js"></script>-->
+<script src="qcjgtstx.js"></script>
+</body>
+</html>

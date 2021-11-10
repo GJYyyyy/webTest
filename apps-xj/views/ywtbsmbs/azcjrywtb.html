@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>安置残疾人就业增值税即征即退</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../dbsx/dbsxcx.css">
+    <style type="text/css">
+        #sxslForm .sxslTable {
+            text-align: center;
+            width: 75%;
+            margin: 0 auto;
+        }
+
+        #sxslForm .sxslTable th {
+            width: 15%;
+            text-align: right;
+        }
+
+        .redico {
+            color: red;
+            display: inline-block;
+            padding-right: 5px;
+        }
+
+        #sxslGrid {
+            width: 100%;
+            height: 300px;
+            min-height: 200px;
+            margin-top: 10px;
+        }
+
+        #sxslGrid td a {
+            color: #0994dc;
+        }
+
+        #sxslGrid td .lz {
+            display: block;
+            border: 1px solid #0994dc;
+            border-radius: 2px;
+        }
+
+        .crud {
+            padding-left: 15px;
+        }
+
+        .small-button {
+            width: 50px;
+            margin-right: 8px;
+            border-radius: 5px;
+        }
+
+        .blfjbox .mini-buttonedit-input {
+            background-color: #f7f7f7 !important;
+        }
+
+        .blfjbox .mini-buttonedit-close {
+            display: none !important;
+        }
+
+        .blfjbox .mini-buttonedit-icon {
+            display: none !important;
+        }
+
+        .blfjbox .mini-buttonedit-border {
+            padding-right: 0 !important;
+        }
+
+        .blfjbox .mini-buttonedit-button {
+            cursor: default !important;
+        }
+
+        .mini-messagebox {
+            width: 400px !important;
+            top: 150px !important;
+        }
+
+        #smsr {
+            width: 250px;
+            height: 18px;
+            margin-right: 8px;
+            caret-color: transparent;
+            /*caret-color: #FFFFFF;*/
+            color: transparent;
+            color: #FFFFFF;
+        }
+
+        .smbutton {
+            height: 26px !important;
+            line-height: 26px;
+        }
+        .mini-panel-body {
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <div class="searchC">查询条件</div>
+    </div>
+    <div id="sxslForm" class="searchdiv">
+        <table width="96%" border="0" cellspacing="0" cellpadding="0" class="sxslTable" id="sxslTable">
+            <tr>
+                <th>主管税务机关：</th>
+                <td>
+                    <input id="swjgdm" name="swjgdm" class="mini-textbox" style="width:100%;" required="true" ReadOnly
+                        requiredErrorText="主管税务机关不能为空" /></td>
+                </td>
+
+            </tr>
+            <tr>
+                <th style="width: 30%"><span class="redico">*</span>纳税人识别号（统一社会信用代码）：</th>
+                <td style="width: 25%; padding: 10px 0;"><input id="nsrsbh" name="nsrsbh" class="mini-textbox"
+                        style="width:100%;" onvaluechanged="cjrlz.nsrsbhBlur" required="true"
+                        requiredErrorText="纳税人识别号不能为空" /></td>
+                <th style="width: 20%">纳税人名称：</th>
+                <td style="width: 25%; padding: 10px 0;"><input id="nsrmc" name="nsrmc" class="mini-textbox"
+                        style="width:100%;" required="true" ReadOnly requiredErrorText="纳税人名称不能为空" /></td>
+            </tr>
+
+            <tr>
+                <th>办理事项：</th>
+                <td><input id="blsx" name="blsx" class="mini-combobox" textfield="blsxMc" valuefield="blsxDm"
+                        shownullitem="false" style="width:100%;" valueFromSelect="true" allowInput="false"
+                        onvaluechanged="cjrlz.blsxChange" required="true" requiredErrorText="办理事项不能为空" /></td>
+                <th>亮证类型：</th>
+                <td><input id="lzlx" name="lzlx" class="mini-combobox" textfield="MC" valuefield="ID" readOnly="true"
+                        shownullitem="false" style="width:100%;" valueFromSelect="true" allowInput="false" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="crud">
+        <a id="addT" class="mini-button small-button" onclick="cjrlz.addT">新增</a>
+        <a id="removeT" class="mini-button small-button" onclick="cjrlz.removeT">删除</a>
+    </div>
+    <div id="sxslGrid" class="mini-datagrid" showPager="false" emptyText="暂无数据" showEmptyText="true" pageSize="30"
+        allowRowSelect="true" multiSelect="false" allowCellSelect="true" allowCellEdit="true" checkSelectionOnly="true">
+        <div property="columns">
+            <div type="checkcolumn" width="50">序号</div>
+            <!-- <div type="indexcolumn" width="80">序号</div> -->
+            <div field="klzzl" align="center" align="center" allowsort="false" width="120">资料名称</div>
+            <div field="lzlx" headeralign="center" align="center" allowsort="false" width="70">亮证类型</div>
+            <div field="a10" name="a10" headeralign="center" align="center" allowsort="false"
+                renderer="onActionRendererLz" width="60">亮证</div>
+            <div field="a20" name="a20" headeralign="center" align="center" allowsort="false"
+                renderer="onActionRendererZj" width="60">证件</div>
+        </div>
+    </div>
+    <div colspan="4" style="padding:10px; text-align:center;">
+        <a id="search" class="mini-button" onclick="cjrlz.doSearch" style="width: 90px; padding: 5px;">保存日志</a>
+        <a class="mini-button" onclick="cjrlz.doReset" style="width: 90px; padding: 5px;">清空</a>
+    </div>
+
+    <script src="../../../lib/jquery/jquery.js"></script>
+    <script src="../../scripts/miniui.js"></script>
+    <script src="../../scripts/efg_water.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script src="../../scripts/gldbfslkz.js"></script>
+    <script src="../xbnsrcx/baseCode.js"></script>
+    <script src="./Validator.js"></script>
+    <script src="./azcjrywtb.js"></script>
+</body>
+
+</html>

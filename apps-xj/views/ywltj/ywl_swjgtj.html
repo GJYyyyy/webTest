@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>业务量按税务机关统计</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../styles/style.css" />
+  <link rel="stylesheet" href="ywltj.css" />
+</head>
+
+<body style="background: #fff;">
+  <div class="search" data-show="yes">
+    <div class="searchC">隐藏查询条件</div>
+  </div>
+  <div id="swjgtj-form" class="searchdiv" style="width: 95%;">
+    <table width="96%" border="0" cellspacing="0" cellpadding="0" style="margin: 20px auto;">
+      <tr>
+        <th><span class="txt-red">*</span>税务机关：</th>
+        <td>
+          <input id="swjgDm" name="swjgDm" class="mini-treeselect" required="true" requiredErrorText="税务机关不能为空"
+            textfield="swjgmc" valuefield="swjgdm" parentField="sjswjgdm" popupWidth="574" showNullItem="true"
+            nullItemText="--请选择--" allowInput="true" valueFromSelect="true" style="width: 64%;" />
+        </td>
+        <th>事项名称：</th>
+        <td>
+          <input id="swsxDm" name="swsxDm" class="mini-combobox" textfield="swsxMc" valuefield="swsxDm" shownullitem="false"
+            allowInput="true" showClose="true" />
+        </td>
+      </tr>
+      <tr>
+        <th><span class="txt-red">*</span>申请时间起止：</th>
+        <td nowrap>
+          <input id="begintime" name="begintime" class="mini-datepicker" format="yyyy-MM-dd" required="true"
+            requiredErrorText="申请时间起不能为空" showClose="false" style="width: 30%;"
+            onvaluechanged="swjgtj.onDateValidateq" />
+          至
+          <input id="endtime" name="endtime" class="mini-datepicker" format="yyyy-MM-dd" required="true"
+            requiredErrorText="申请时间止不能为空" showClose="false" style="width: 30%;"
+            onvaluechanged="swjgtj.onDateValidatez" />
+        </td>
+        <th>办理渠道：</th>
+        <td>
+          <input id="blqd" name="blqd" class="mini-combobox" textfield="MC" valuefield="ID" shownullitem="false"
+            data="[{ID:'01',MC:'线上'},{ID:'02',MC:'大厅'}]" allowInput="true" showClose="true" />
+        </td>
+      </tr>
+    </table>
+    <div class="operateBtn">
+      <a id="search" class="mini-button" onclick="swjgtj.beforeSearch">查询</a>
+      <a class="mini-button" onclick="swjgtj.doReset">重置</a>
+    </div>
+  </div>
+  <div id="swjgtj-grid" class="mini-datagrid" showPager="true" style="width: 100%; min-height: 150px; height: 100%;"
+    allowResize="false" onpagechanged="swjgtj.onPageChanged" onbeforeload="swjgtj.onbeforeload" allowHeaderWrap="true"
+    showEmptyText="true" pageSize="10" sizeList="[10,20,50]">
+    <div property="columns">
+      <div field="swjgmc" headeralign="center" align="center" allowsort="false" width="250"
+        renderer="swjgtj.renderColumn">
+        主管税务机关
+      </div>
+      <div field="ybj" headeralign="center" align="center" allowsort="false" renderer="swjgtj.renderColumn">
+        已办结
+      </div>
+      <div field="blz" headeralign="center" align="center" allowsort="false" renderer="swjgtj.renderColumn">
+        办理中
+      </div>
+      <div field="bsl" headeralign="center" align="center" allowsort="false" renderer="swjgtj.renderColumn">
+        不受理
+      </div>
+      <div field="qt" headeralign="center" align="center" allowsort="false" renderer="swjgtj.renderColumn">
+        其他
+      </div>
+      <div field="zs" headeralign="center" align="center" allowsort="false" renderer="swjgtj.renderColumn">
+        总数
+      </div>
+      <div field="bjl" headeralign="center" align="center" allowsort="false">
+        办结率（%）
+      </div>
+    </div>
+  </div>
+  <div class="operate-btn goback-btn" style="display: none;text-align: center;margin-top: 20px">
+    <a class="blue-btn bg-white" style="width: 110px" onclick="swjgtj.goback()">返回上一级</a>
+  </div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="ywl_swjgtj.js" type="text/javascript"></script>
+
+</html>

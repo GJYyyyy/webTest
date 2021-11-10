@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>事项受理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="swsxtzs.css">
+</head>
+<body oncontextmenu="return false">
+<div class="mini-fit">
+    <div class="editform">
+        <h3 style="margin: 3px auto; text-align: center;"><span id="swsxMc"></span>受理</h3>
+        <div class="width970 infodiv" style="margin-top: -10px;padding-top: 0">
+            <fieldset class="bor" style="padding-bottom: 3px; margin-top: 10px;">
+                <legend><h3>基本信息</h3></legend>
+                <table id="nsrjbxx" width="100%" border="0" cellspacing="0" cellpadding="0" class="infotab"
+                       style="line-height: 18px">
+                    <tr>
+                        <th>任务来源：</th>
+                        <td>电子税务局</td>
+                        <th>证件号码：</th>
+                        <td><span id="sqr"></span></td>
+                        <th>纳税人名称：</th>
+                        <td><span id="nsrmc"></span></td>
+                        <th class="kqysxfk" style="display: none">联系电话：</th>
+                        <td class="kqysxfk" style="display: none"><span id="lxdh"></span></td>
+                    </tr>
+                    <tr>
+                        <th>提交日期：</th>
+                        <td><span id="cjsj"></span></td>
+                        <th>受理日期：</th>
+                        <td ><span id="blsj"></span></td>
+                        <th>申请序号：</th>
+                        <td ><span id="sqxh"></span></td>
+                    </tr>
+                    <tr>
+                        <th>申请人：</th>
+                        <td><span id="jbrmc"></span><span id="sjhm"></span></td>
+                        <th>文书号：</th>
+                        <td><span id="wsh"></span></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <br>
+            <!--<div id="tabs1" class="mini-tabs sbb" activeIndex="0" style="width:100%;height:710px;" plain="false">
+                <div id="wssqbDiv" title="申请表">
+                    &lt;!&ndash; 根据申请表URL加载 &ndash;&gt;
+                </div>
+                <div title="附列资料">
+
+                </div>
+            </div>-->
+            <div id="tabs1" class="mini-tabs tab-content" activeIndex="0" style="width:100%;height: 500px;">
+                <div title="申请表">
+                    <div id="dbsx_content"></div>
+                </div>
+                <div title="附报资料">
+
+                </div>
+            </div>
+            <!--<div id="dbsx_content"></div>-->
+        </div>
+    </div>
+</div>
+<div class="dbsx-actions">
+    <a id="sxbjBtn" class="mini-button">予以受理</a>
+    <a id="shbjBtn" class="mini-button">予以受理</a>
+    <a id="bzzlBtn" class="mini-button" style="width:124px">补正资料（补正）</a>
+    <a id="byslBtn" class="mini-button" style="width:124px">不予受理（撤回）</a>
+    <a id="newSwjgBtn" style="width: 148px;" class="mini-button">重新指定报验地税务机关</a>
+    <a id="sqbPrintBtn" class="mini-button" onclick="sqbPrint()">打印申请表</a>
+    <a id="yclBtn" class="mini-button">已处理</a>
+    <a class="mini-button" onclick="doBack()" id="backBtn">返回</a>
+</div>
+
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="../../scripts/gldbfslkz.js"></script>
+<script src="sxsl_service.js"></script>
+<script src="sxsl_common.js"></script>
+<script src="dbsx_sxsl.js"></script>
+<script src="sqzlView.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+.fply-table > table th{
+    padding-right: 10px;
+    height: 30px;
+}
+.fply-table .btdiv{
+    width: 440px;
+	text-align:center;
+    margin: 0 auto;
+}
+.print-area{
+    /* display: none;*/
+    width: 850px;
+    color: #000;
+    font-size: 16px;
+    font-family: 宋体;
+    margin: 15px auto;
+}
+
+.print-area table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.print-area table tr td{
+    height: 25px;
+    text-align: center;
+    border: 1px #000 solid;
+
+}
+.print-area table tr td span.mini-textbox-border{
+    border: none;
+    background: inherit;
+}
+.print-area table tr td input{
+    border: none;
+    text-align:center;
+}
+body a:hover.mini-button-disabled{
+    background:#F5F5F8;
+    border: 1px solid #ccc;
+}

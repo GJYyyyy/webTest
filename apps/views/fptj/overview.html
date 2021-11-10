@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="overview.css"/>
+    <script src="../../../lib/jquery/jquery.js"></script>
+    <script src="../../scripts/echarts.min.js"></script>
+    <script src="overview.js"></script>
+</head>
+<body>
+    <div class="top-header bg-text">本辖区<a class = "now-month"></a>发票领用情况</div>
+    <div>
+        <h1>本辖区<a class = "now-month"></a>领用情况总览</h1>
+        <div id = "div1" style="width:95%; height:230px;margin: 0 auto">
+            <ul class="ull">
+                <li>
+                    <span class="bg-green">
+                        <br>
+                        <a id = "tradeNum"></a>
+                        <br>
+                            户
+                    </span>
+                    <p>
+                        发票领用户数
+                    </p>
+                </li>
+                <li>
+                     <span class="bg-red">
+                        <br>
+                            <a id = "getNum"></a>
+                        <br>
+                            份
+                    </span>
+                    <p>
+                        发票领用总数
+                    </p>
+                </li>
+                <li>
+                     <span class="bg-blue">
+                        <br >
+                            <a id = "onNum"></a>
+                        <br>
+                            份
+                    </span>
+                    <p>
+                        大厅领用总数
+                    </p>
+                </li>
+                <li>
+                     <span class="bg-yellow">
+                        <br>
+                            <a id = "postNum"></a>
+                        <br>
+                            份
+                    </span>
+                    <p>
+                        邮递领用总数
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div align="center">
+        <button id = 'detailButton' class = 'button big blue'>查看详情</button>
+    </div>
+    <div>
+        <h2>本年发票领用情况(按月)</h2>
+        <div id = "box1" style="width: 70%; height:500px; margin:0 auto;"></div>
+    </div>
+    <div>
+        <h2><a class = "now-month"></a>发票领用情况(按天)</h2>
+        <div id = "box2" style="width: 80%; height:500px; margin:0 auto;"></div>
+    </div>
+    <div>
+        <h2><a class = "now-month"></a>辖区内各地发票领用情况</h2>
+        <div id = "box3" style="width: 90%; height:600px; margin:0 auto;">
+        </div>
+    </div>
+    <script src="overview.js"></script>
+</body>
+</html>

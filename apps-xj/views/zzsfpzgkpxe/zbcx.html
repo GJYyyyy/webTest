@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="description" content="电子税务局">
+    <meta name="keywords" content="最高开票限额指标查询 税务局">
+    <title>最高开票限额指标查询</title>
+    <link rel="stylesheet" href="../../../apps/styles/style.css">
+    <link rel="stylesheet" href="./zzsfpzgkpxesq.css">
+</head>
+
+<body>
+    <div id="kpxesq" class="kpxesq">
+        <table class="kpxesq-form" id="kpxesq-form">
+            <tr>
+                <td class="txt-r" width="220px">纳税人识别号/社会信用代码：</td>
+                <td>
+                    <input id="nsrsbh" name="nsrsbh" class="mini-textbox" required requiredErrorText="纳税人识别号/社会信用代码不能为空"
+                        onvaluechanged="kpxesq.onnsrsbhchanged(e,'zbmx')" />
+                </td>
+                <td class="txt-r" width="180px">纳税人名称：</td>
+                <td>
+                    <input id="nsrmc" name="nsrmc" class="mini-textbox" required requiredErrorText="纳税人名称不能为空"
+                        readonly />
+                </td>
+            </tr>
+        </table>
+        <div style="text-align: center;">
+            <a class="mini-button" style="padding: 2px 24px;border-radius: 5px;" onclick="kpxesq.handleZbSearch">查询</a>
+        </div>
+        <div class="mini-tabs" activeIndex="0" style="width:100%;">
+            <div title="百万元">
+                <div id="bwy-info" class="mini-datagrid" style="width:100%;" allowResize="false" enabled="true"
+                    allowCellWrap="true" showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true"
+                    allowSortColumn="false" idField="id">
+                    <div property="columns">
+                        <div type="indexcolumn" width="50">序号</div>
+                        <div field="mc">办理条件</div>
+                        <div field="result" align="center" renderer="onRenderZbcxResult">监控结果</div>
+                    </div>
+                </div>
+            </div>
+            <div title="千万元">
+                <div id="qwy-info" class="mini-datagrid" style="width:100%;" allowResize="false" enabled="true"
+                    allowCellWrap="true" showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true"
+                    allowSortColumn="false" idField="id">
+                    <div property="columns">
+                        <div type="indexcolumn" width="50">序号</div>
+                        <div field="mc">办理条件</div>
+                        <div field="result" align="center" renderer="onRenderZbcxResult">监控结果</div>
+                    </div>
+                </div>
+            </div>
+            <div title="亿元">
+                <div id="yy-info" class="mini-datagrid" style="width:100%;" allowResize="false" enabled="true"
+                    allowCellWrap="true" showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true"
+                    allowSortColumn="false" idField="id">
+                    <div property="columns">
+                        <div type="indexcolumn" width="50">序号</div>
+                        <div field="mc">办理条件</div>
+                        <div field="result" align="center" renderer="onRenderZbcxResult">监控结果</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mxxxWindow" class="mini-window" title="不通过明细信息" style="width:80%;height:400px;" showShadow="true">
+            <div id="mxxxGrid" class="mini-datagrid" style="width:100%;" allowResize="false" enabled="true"
+                allowCellWrap="true" showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true"
+                allowSortColumn="false" idField="id">
+                <div property="columns">
+                    <div field="wfxwbh" align="center">违法行为编号</div>
+                    <div field="wfss" align="center">违法事实</div>
+                    <div field="sswflx" align="center">税收违法类型</div>
+                    <div field="sswfsd" align="center">税收违法手段</div>
+                    <div field="wfxwdjr" align="center">违法行为登记人</div>
+                    <div field="wfxwdjrq" align="center">违法行为登记日期</div>
+                    <div field="sswfxwclzt" align="center">税收违法行为处理状态</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../../lib/jquery/jquery.min.js"></script>
+    <script src="../../../apps/scripts/miniui.js"></script>
+    <script src="../../scripts/efg_water.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script src="./zzsfpzgkpxesq.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>批量分配纳税人</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../../apps/views/dbsx/dbsxcx.css">
+    <link rel="stylesheet" href="../fzchrd/jquery.my-message.css">
+    <link rel="stylesheet" href="./sbtcsjql.css">
+    <style lang="">
+        .sbtcgrid {
+            margin: 10px auto 0 !important;
+        }
+
+        .mini-grid-border {
+            width: 100% !important;
+        }
+
+        .mini-mask-loading {
+            background-position-x: -50px !important;
+        }
+
+        .yellowBg {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h2 style="text-align: center">待催报数据核实--批量分配纳税人</h2>
+        <p style="color: red">温馨提示：全部纳税人匹配对应的受理税务人员后，才能进行推送</p>
+        <p id="messageText"></p>
+        <div class="search-box-wrap searchBynsrshb">
+            <div class="form-table" id="srarchGlyRow-form">
+                <table width="100%">
+                    <tr style="height: 40px;">
+                        <td class="txt-r" style="width: 10%">税源管理员：</td>
+                        <td colspan="2" style="width: 10%">
+                            <input id="ssglyDm" name="ssglyDm" type="text" class="mini-combobox" style="width: 100%"
+                                required="false" requiredErrorText="请选择税源管理员" allowInput="false" valueField="swryDm"
+                                textField="swryxm" valueFromSelect="true" emptyText=" " nullItemText=" "
+                                onvaluechanged="sbtcsjql.slglyChange" />
+                        </td>
+                        <td class="txt-r" style="width: 10%"><span class="txt-red"></span>社会信用代码：</td>
+                        <td colspan="2" style="width: 15%">
+                            <input name="nsrsbh" type="text" id="nsrsbh" class="mini-textbox" vtype="rangeLength:15,20"
+                                onvalidation="sbtcsjql.nsrsbhValidate" style="width: 100%"
+                                maxLengthErrorText="编号长度不能超过20个字符" minLengthErrorText="编号长度不能低于15个字符" />
+                        </td>
+                        <td class="txt-r" style="width: 10%">与金三比对结果：</td>
+                        <td colspan="2" style="width: 15%">
+                            <input name="bdjg" id="bdjg" class="mini-combobox" valueField="ID" textField="MC"
+                                allowInput="true" style="width:100%;"
+                                data="[{ID:'',MC:'全部'},{ID:'Y',MC:'比对一致'},{ID:'N',MC:'比对不一致'}]" />
+                        </td>
+                        <td style="padding:10px; text-align:center; width: 20%;">
+                            <a id="search" class="mini-button searchBtn" style="margin-right: 20px;"
+                                onclick="sbtcsjql.queryGrid(this)">查询</a>
+                            <a class="mini-button searchBtn" onclick="sbtcsjql.doReset()"
+                                style="margin-right: 20px;">重置</a>
+                            <a id="export" class="mini-button searchBtn" onclick="sbtcsjql.doExport()">导出</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <a class="mini-button toolBtn-blue" style="padding: 6px 25px;margin-right: 30px;"
+            onclick="sbtcsjql.checkAll">选择全部数据</a>
+        <a class="mini-button toolBtn-blue" style="padding: 6px 25px;margin-right: 30px;"
+            onclick="sbtcsjql.plfp">批量分配</a>
+        核实时间：<span id="hssj"></span>
+        <div id="sbtcsjql_grid" class="mini-datagrid sbtcgrid" style="width:100%; height:500px; margin: 0 auto;"
+            allowResize="false" showPager="true" emptyText="暂无数据" showEmptyText="true" pageSize="30" pageIndex="0"
+            sizeList="[10,30,50,100]" autoLoad="false" multiSelect="true" allowSortColumn="false" idField="id"
+            allowCellSelect="true" allowCellEdit="true" checkSelectionOnly="true" onbeforeload="sbtcsjql.dataBeforeload"
+            onbeforeselect="beforeselect" onbeforedeselect="beforedeselect">
+            <div property="columns">
+                <div type="checkcolumn" width="60"></div>
+                <div field="nsrsbh" align="center" headeralign="center" width="140" renderer="shxydmRenderer">社会信用代码
+                </div>
+                <div field="nsrmc" align="center" headeralign="center" width="120">纳税人名称</div>
+                <div field="nsrztmc" align="center" headeralign="center" width="120">纳税人状态</div>
+                <div field="zsxmmc" align="center" headeralign="center" width="120">征收项目</div>
+                <div field="xq" renderer="xqRenderer" align="center" headeralign="center" width="120">详情</div>
+                <div field="zgswjmc" align="center" headeralign="center" width="120">主管税务局</div>
+                <div field="zgswskfjmc" align="center" headeralign="center" width='160'>主管税务所、科分局</div>
+                <div field="ssglymc" align="center" renderer="ssglyRenderer" headeralign="center" width="120">税收管理员
+                </div>
+                <div field="slswrymc" width="120" renderer="slswryRenderer" align="center" headeralign="center">受理税务人员
+                </div>
+                <div field="bdjgText" align="center" headeralign="center" width='120'>比对结果
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="dbsx-actions" style="border-top: 0">-->
+        <!--<a id="slBtn" class="mini-button" style="width: 120px;" onclick="sbtcsjql.doSave">暂存</a>-->
+        <!--<a id="dysltzsBtn" class="mini-button" style="width: 120px;" onclick="sbtcsjql.doPush">推送</a>-->
+        <!--</div>-->
+
+        <div class="mini-window" id="sbtcsjqlChangeGly-win" style="width: 600px;height: 360px;display: none" title="请选择"
+            showToolbar="false" allowInput="true">
+            <div class="form-table" id="checkGlyRow-form">
+                <p style="text-align: center">选择待分配的税务人员</p>
+                <table width="80%" height="" style="margin: 0 auto;">
+                    <tr>
+                        <td colspan="2">
+                            <input id="slswry" name="slswry" type="text" class="mini-combobox" style="width: 455px"
+                                required="true" requiredErrorText="请选择待分配的税务人员" emptyText="请选择待分配的税务人员"
+                                placeholder="请选择待分配的税务人员" allowInput="true" valueField="swryDm" textField="swryxm"
+                                valueFromSelect="true" emptyText=" " nullItemText="请选择待分配的税务人员" />
+                        </td>
+                    </tr>
+                </table>
+                <div class="footer ta-center mt80" style="text-align: center;margin-top: 80px">
+                    <a class="mini-button toolBtn-blue" style="padding: 0 25px" onclick="sbtcsjql.checkSwryOk">确定</a>
+                    <a class="mini-button toolBtn-white" style="padding: 0 25px"
+                        onclick="sbtcsjql.checkSwryCancel">取消</a>
+                </div>
+            </div>
+        </div>
+        <div class="mini-window" id="fpfs-win" style="width: 300px;height: 220px;display: none" title="提示"
+            showModal="true" showCloseButton="false">
+            <div class="mini-radiobuttonlist" id="fpfsRadio" repeatItems="2" repeatLayout="table"
+                repeatDirection="vertical" textField="text" valueField="id"
+                data="[{id:'1',text:'自动分配（没有专管员信息的，再手动分配）'},{id:'0',text:'手动分配'}]">
+            </div>
+            <div style="text-align: center;margin-top: 30px">
+                <a class="mini-button toolBtn-blue" style="padding: 0 25px" onclick="sbtcsjql.checkFpfsOk">确定</a>
+                <a class="mini-button toolBtn-white" style="padding: 0 25px" onclick="sbtcsjql.checkFpfsCancel">取消</a>
+            </div>
+        </div>
+        <div class="mini-window" id="detail-win" style="width: 800px;max-height: 400px;display: none" title="详情"
+            showToolbar="false" onbuttonclick="sbtcsjql.detailWinCancel">
+            <div id="detail_grid" class="mini-datagrid" style="width:100%;margin: 0 auto;" allowResize="false"
+                emptyText="暂无数据" showEmptyText="true" pageSize="30" showPageSize="false" autoLoad="false"
+                allowSortColumn="false" showReloadButton="false" idField="id">
+                <div property="columns">
+                    <div field="zsxmmc" align="center" headeralign="center" width="140">征收项目</div>
+                    <div field="zspmmc" align="center" headeralign="center" width="160">征收品目</div>
+                    <div field="skssqq" align="center" headeralign="center" width="120" dateFormat="yyyy-MM-dd">
+                        税款所属期起</div>
+                    <div field="skssqz" align="center" headeralign="center" width="120" dateFormat="yyyy-MM-dd">
+                        税款所属期止</div>
+                    <div field="sbqx" align="center" headeralign="center" width="120" dateFormat="yyyy-MM-dd">申报期限
+                    </div>
+                </div>
+            </div>
+            <div class="footer ta-center mt80" style="text-align: center;margin-top: 80px">
+                <a class="mini-button toolBtn-blue" style="padding: 0 25px" onclick="sbtcsjql.detailWinCancel">取消</a>
+            </div>
+        </div>
+    </div>
+    <script src="../../../lib/jquery/jquery.js"></script>
+    <script src="../../scripts/miniui.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script src="../fzchrd/jquery.my-message.js"></script>
+    <script src="sbtcsjql.js"></script>
+</body>
+
+</html>

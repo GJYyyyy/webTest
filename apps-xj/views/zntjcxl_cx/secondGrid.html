@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- <title>智能推荐采信率查询统计</title> -->
+    <link rel="stylesheet" href="../../../apps/styles/style.css">
+    <link rel="stylesheet" href="./cxlCxtj.css">
+    <title>表格数据</title>
+</head>
+
+<body style="background:#fff;">
+    <div class="mini-fit">
+        <!-- 第一级 -->
+        <div id="cxtjGrid" idField="cxtjGrid" class="mini-datagrid" allowHeaderWrap="true" showPager="true"
+            style="width: 100%; height:100%;" sizeList="[10,30,50,100]" pageSize="10" ajaxType="post">
+            <div property="columns">
+                <div type="indexcolumn" width="50">序号</div>
+                <div field="swjgjc" headeralign="center" align="center" allowsort="false" width="200"
+                    renderer="nextTable.onActionRenderer">主管税务机关</div>
+                <div field="sql" headeralign="center" align="center" allowsort="false" width="70">申请量</div>
+                <div field="sll" headeralign="center" align="center" allowsort="false" width="70">受理量
+                </div>
+                <div field="sll" headeralign="center" align="center" allowsort="false" width="70">未采用推荐量
+                </div>
+                <div field="cxl" headeralign="center" align="center" allowsort="false" width="120">
+                    采信率(=未采用推荐量/受理量)，按百分比展现，2位小数</div>
+                <div header="偏差原因">
+                    <div property="columns">
+                        <div field="fpyltjgd" headeralign="center" align="center" allowsort="false" width="110">发票用量推荐过大
+                        </div>
+                        <div field="fpyltjgx" headeralign="center" align="center" allowsort="false" width="110">发票用量推荐过小
+                        </div>
+                        <div field="zgkpxggd" headeralign="center" align="center" allowsort="false" width="110">
+                            最高开票限额推荐过大
+                        </div>
+                        <div field="zgkpxggx" headeralign="center" align="center" allowsort="false" width="110">
+                            最高开票限额推荐过小
+                        </div>
+                        <div field="fjflddcw" headeralign="center" align="center" allowsort="false" width="110">分级分类定档错误
+                        </div>
+                        <div field="qtyy" headeralign="center" align="center" allowsort="false" width="110">其他原因</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="./tableGrid.js"></script>
+
+</html>

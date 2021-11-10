@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>税务事项通知书</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="../../../styles/style.css">
+    <link rel="stylesheet" href="../swsxtzs.css">
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mini-fit">
+        <div id="swsxtzsForm" class="tzs" style="padding-top:50px;">
+            <input name="lcslId" id="lcslId" class="mini-hidden" value="" />
+            <input name="blztDm" id="blztDm" class="mini-hidden" value="" />
+            <input name="sqxh" id="sqxh" class="mini-hidden" value="" />
+            <input name="swjgDm" id="swjgDm" class="mini-hidden" value="" />
+            <input name="jg" id="jg" class="mini-hidden" value="" />
+            <input name="zg" id="zg" class="mini-hidden" value="" />
+            <input name="flyj" id="flyj" class="mini-hidden" value="" />
+            <div style="display:none;" id="swsxTzsDiv">
+                <h3 id="title_swjgMc" class="textCenter"></h3>
+                <h2 class="textCenter">《税务事项通知书》（增值税即征即退备案通知书）</h2>
+                <h3 class="textCenter colorY" id="oldWsh"><span style="padding-left: 0px;"
+                        id="content_jg"></span>通[<span style="padding-left: 0px;" id="content_zg"></span>]号 </h3>
+                <h3 class="textCenter colorY" style="display: none" id="kqqyWsh"></h3>
+                <div class="marginLeft50">
+                    <span id="content_nsrmc" class="colorY"></span>：(纳税人识别号：<span id="content_nsrsbh"
+                        class="colorY"></span>）
+                    <div style="margin: 0" class="content_syyj">
+                        <div style="text-indent: 2em;">事由：<span id="content_swsxMc" class="colorY"></span></div>
+                        <div style="text-indent: 2em;">依据：<span id="content_flyj"></span></div>
+                    </div>
+                    <div style="text-indent: 2em;">通知内容：<span id="tznr"></span></div>
+                </div>
+                <div class="marginLeft50" id="swsxtzsTy"></div>
+            </div>
+            <div>
+                <p align="right" class="marginRight50"><span id="foot_swjgMc" class="colorY"></span>（签章）<br />
+                    <span id="content_bjrq" class="colorY"></span></p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="open_btdiv textCenter" style="padding-bottom:20px;">
+        <a id="sxBjBtn" class="mini-button blue font14" onclick="saveSwsxBjMethods();" style="padding:4px 10px;">确定
+        </a>&nbsp;&nbsp;<a class="mini-button gray font14" onclick="onCancel('cancel')" style="padding:4px 10px;">取消</a>
+    </div>
+
+    <script src="../../../../lib/jquery/jquery.js"></script>
+    <script src="../../../scripts/miniui.js"></script>
+    <script src="../../../scripts/gldcommon.js"></script>
+    <script src="../sxsl_service.js"></script>
+    <script src="batzs.js"></script>
+    <script src="../swsxtzs.js"></script>
+</body>
+
+</html>

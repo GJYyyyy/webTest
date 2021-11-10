@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>跨省（市）迁移邮寄地址</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <link rel="stylesheet" href="ksqyyjdz.css" />
+  </head>
+  <body style="background: #fff;">
+    <div class="search" data-show="yes">
+      <div class="searchC">隐藏查询条件</div>
+    </div>
+    <div
+      id="ksqy-form"
+      class="searchdiv"
+      style="width: 95%; margin-bottom: 20px;"
+    >
+      <table
+        width="96%"
+        border="0"
+        cellspacing="0"
+        cellpadding="0"
+        style="margin: 20px auto;"
+      >
+        <tr>
+          <th>收件人：</th>
+          <td>
+            <input
+              id="sjr"
+              name="sjr"
+              class="mini-textbox"
+              nullItemText="--请输入--"
+            />
+          </td>
+          <th>咨询电话：</th>
+          <td>
+            <input
+              id="zxdh"
+              name="zxdh"
+              class="mini-textbox"
+              nullItemText="--请输入--"
+            />
+          </td>
+        </tr>
+      </table>
+      <div style="text-align: center;">
+        <a id="search" class="mini-button" onclick="ksqy.doSearch">查询</a>
+        <a class="mini-button" onclick="ksqy.doReset">重置</a>
+      </div>
+    </div>
+    <div style="text-align: left; padding-left: 20px; margin: 20px;">
+      <a
+        id="addRow"
+        enabled="true"
+        style="padding: 3px 15px; border-radius: 5px; margin-right: 10px;"
+        class="mini-button"
+        onclick="ksqy.addRow"
+        >新增</a
+      >
+      <a
+        id="addRowEnable"
+        enabled="false"
+        style="padding: 3px 15px; border-radius: 5px; margin-right: 10px;display: none;"
+        class="mini-button"
+        onclick="ksqy.addRow"
+        >新增</a
+      >
+      <a
+        id="import"
+        style="
+          padding: 3px 15px;
+          border-radius: 5px;
+          margin-right: 10px;
+          display: none;
+        "
+        class="mini-button"
+        onclick="ksqy.localUpload"
+        >导入</a
+      >
+      <a
+        id="export"
+        style="
+          padding: 3px 15px;
+          border-radius: 5px;
+          margin-right: 10px;
+          display: none;
+        "
+        class="mini-button"
+        onclick="ksqy.export"
+        >导出</a
+      >
+    </div>
+    <div>
+      <input
+        class="mini-htmlfile"
+        name="file"
+        id="file1"
+        limitType="*.xlsx;*.xls;*.xlsm;"
+        style="width: 10px; display: none;"
+        onValueChanged="ksqy.startUpload"
+      />
+    </div>
+    <div
+      id="ksqy-grid"
+      class="mini-datagrid self-datagrid"
+      multiSelect="true"
+      checkSelectionOnly="true"
+      showPager="true"
+      showEmptyText="true"
+      allowResize="false"
+      allowCellSelect="true"
+      allowCellEdit="false"
+      allowHeaderWrap="true"
+      onpagechanged="ksqy.onPageChanged"
+      onbeforeload="ksqy.onbeforeload"
+      onbeforeselect="isShowCheck"
+      pageSize="10"
+      sizeList="[10,20,50]"
+      style="width: 100%; min-height: 150px; height: 100%;"
+    >
+      <div property="columns">
+        <div type="indexcolumn">序号</div>
+        <div
+          field="yjdz"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="110"
+        >
+          邮寄地址
+        </div>
+        <div
+          field="sjr"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="110"
+        >
+          收件人
+        </div>
+        <div
+          field="zxdh"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="80"
+        >
+          咨询电话
+        </div>
+        <div
+          field="cz"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="80"
+          renderer="ksqy.renderDeleteBtn"
+        >
+          操作
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="mini-window ksqy-addrow-win"
+      id="ksqy-addrow-win"
+      showToolbar="false"
+      showFooter="false"
+      showModal="true"
+      title="新增"
+      style="width: 600px; display: none;"
+    >
+      <table
+        class="win-addrow-form"
+        id="win-addrow-form"
+        style="width: 90%; margin: 10px 0 10px 10px;"
+      >
+        <tr>
+          <th>税务机关：</th>
+          <td>
+            <input id="zgswjDmText" required="true" name="zgswjDmText" readonly="true" class="mini-textbox" style="width:100%;"/>
+						<input id="zgswjDm" required="true" name="zgswjDm" style="display:none;" class="mini-textbox"/>
+          </td>
+        </tr>
+        <tr>
+          <th>邮寄地址：</th>
+          <td>
+            <input
+              id="yjdz"
+              name="yjdz"
+              class="mini-textbox"
+              nullItemText="--请输入--"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th>收件人：</th>
+          <td>
+            <input
+              id="sjr"
+              name="sjr"
+              class="mini-textbox"
+              nullItemText="--请输入--"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th>咨询电话：</th>
+          <td>
+            <input
+              id="zxdh"
+              name="zxdh"
+              class="mini-textbox"
+              onvalidation="ksqy.validatePhone"
+              nullItemText="--请输入--"
+            />
+          </td>
+        </tr>
+      </table>
+      <div class="txt-c mt20">
+        <a
+          class="mini-button cancel"
+          id="add-cancel"
+          style="padding: 0 20px; margin-left: 40px;"
+          onclick="ksqy.handleCancel"
+          >取消</a
+        >
+        <a
+          class="mini-button toolBtn-blue mr20"
+          id="add-save"
+          style="padding: 0 20px;"
+          onclick="ksqy.handleAdd"
+          >确定</a
+        >
+      </div>
+    </div>
+  </body>
+  <script src="../../../lib/jquery/jquery.js"></script>
+  <script src="../../scripts/miniui.js"></script>
+  <script src="../../scripts/efg_water.js"></script>
+  <script src="../../scripts/gldcommon.js"></script>
+  <script src="./ajaxfileupload.js"></script>
+  <script src="ksqyyjdz.js" type="text/javascript"></script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>税务事项</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="xbnsrcx.css">
+</head>
+<body>
+<div class="tab-bar">
+    <a id="xbnsrcx" onclick="xbnsrcx.search()" class="active">新办纳税人查询</a>
+</div>
+<!-- <div class="search">
+    <div class="searchC">显示查询条件</div>
+</div> -->
+<div id="cxtjForm" class="searchdiv">
+    <table width="96%" border="0" cellspacing="0" cellpadding="0" class="cxtjTable">
+        <tr>
+            <th>纳税人识别号：</th>
+            <td><input id="nsrsbh" name="nsrsbh" class="mini-textbox" onvaluechanged="xbnsrcx.nsrsbhChange" style="width:100%;" /></td>
+            <th>受理状态：</th>
+            <td><input id="blztDm" name="blztDm" class="mini-combobox" emptyText="———请选择"/></td>
+            <td></td>
+        </tr>
+        <tr style="line-height: 40px">
+            <th>申请日期：</th>
+            <td nowrap ><input id="sqrqq" name="sqrqq" class="mini-datepicker" format="yyyy-MM-dd" style="width:47%" emptytext=""/>
+                <span style="width: 4%;text-align: center;display: inline-block;">至</span>
+                <input id="sqrqz" name="sqrqz" class="mini-datepicker" format="yyyy-MM-dd" style="width:47%" emptytext=""/></td>
+            <th>任务来源：</th>
+            <td style="padding-top:5px"><input id="sqly" name="sqly" class="mini-combobox" emptyText="———请选择"/></td>
+            <td>
+                <a id="search" class="mini-button" onclick="xbnsrcx.search()">查询</a>
+                <a class="mini-button" onclick="xbnsrcx.doReset()">重置</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="mini-fit">
+    <div id="dbsxGrid" class="mini-datagrid" showPager="true" style="width: 100%; height:100%;"
+         sizeList="[30,50,100]" pageSize="30">
+        <div property="columns">
+            <div type="indexcolumn">序号</div>
+            <div field="rwbh"  align="center" align="center" allowsort="false" width="120">任务编号</div>
+            <div field="nsrsbh" headeralign="center" align="center" allowsort="false" width="120">统一社会信用代码</div>
+            <div field="nsrmc" headeralign="center" align="center" allowsort="false" width="120">纳税人名称</div>
+            <div field="sqrq" headeralign="center" dateFormat="yyyy-MM-dd HH:mm:ss"  align="center" allowsort="false" width="80">申请日期</div>
+            <div field="zcdxzqhszMc" headeralign="center" align="center" allowsort="false" width="70">注册地行政区划</div>
+            <div field="zcdz" headeralign="center" align="center" allowsort="false" width="70" renderer="xbnsrcx.dzRenderer">注册地址</div>
+            <div field="qfjgMc" headeralign="center" align="center" allowsort="false" width="70">清分机关</div>
+            <div field="hyMc" headeralign="center" align="center" allowsort="false" width="70">行业</div> 
+            <div field="sqlymc" headeralign="center" align="center" allowsort="false" width="70">任务来源</div>
+            <div field="blztmc" headeralign="center" align="center" allowsort="false" width="50">状态</div>
+            <div field="a10" name="a10" headeralign="center" align="center" allowsort="false" renderer="xbnsrcx.onActionRenderer" width="60">操作</div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/efg_water.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="../../scripts/gldbfslkz.js"></script>
+<script src="xbnsrcx.js"></script>
+</body>
+</html>

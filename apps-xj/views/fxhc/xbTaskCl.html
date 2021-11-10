@@ -1,0 +1,626 @@
+<!--
+ * @Author: zhaojn
+ * @Mobile: 17826856905
+ * @Date: 2019-08-10 10:37:01
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-08-30 16:33:44
+ * @Description: 
+ -->
+
+<!doctype html>
+<html>
+
+<head>
+    <title>新办风险任务处理</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./xbTaskCl.css">
+</head>
+
+<body>
+    <div class="nsrxxContainer box1">
+        <h2>基本信息&nbsp;
+            <a style="color:#0994dc;font-size: 14px;height: 36px;" class="txt-c mb10"
+                onclick="fpcl.openFigure();">查看纳税人画像</a>
+        </h2>
+        <!--<p>-->
+        <!--<span>任务生产日期：-->
+        <!--<b class="nsrxx1">343434</b></span>-->
+        <!--<span>办结期限：-->
+        <!--<b class="nsrxx2"></b></span>-->
+        <!--<span>文书号：-->
+        <!--<b class="nsrxx3"></b></span>-->
+        <!--</p>-->
+        <p>
+            <span>社会信用代码：
+                <b class="nsrxx4"></b></span>
+            <span>纳税人名称：
+                <b class="nsrxx5"></b></span>
+            <span>任务类型：
+                <b class="nsrxx6"></b></span>
+        </p>
+        <p>
+            <span>行业：
+                <b class="nsrxx7"></b></span>
+            <span>注册地址：
+                <b class="nsrxx8"></b></span>
+            <span>开业设立日期：
+                <b class="nsrxx9"></b></span>
+        </p>
+        <p>
+            <span>法人：
+                <b class="nsrxx10"></b></span>
+            <span>联系电话：
+                <b class="nsrxx11"></b></span>
+            <span>身份证件号码：
+                <b class="nsrxx12"></b></span>
+        </p>
+        <p>
+            <span>财务负责人：
+                <b class="nsrxx13"></b></span>
+            <span>联系电话：
+                <b class="nsrxx14"></b></span>
+            <span>身份证件号码：
+                <b class="nsrxx15"></b></span>
+        </p>
+    </div>
+
+    <div class="fxclContainner box2">
+        <h2 class="txt-c">风险信息</h2>
+        <!-- <a href="" class="mini-button txt-c mb10" onclick="fpcl.openFigure">&nbsp;&nbsp;查看纳税人画像&nbsp;&nbsp;</a> -->
+        <!--<div class="showFx mb20" style="position: relative;">-->
+        <!--<a class="expaned">收起▲</a>-->
+        <!--<div class="fx1">-->
+        <!--<span class="fxLevel">高风险</span>-->
+        <!--</div>-->
+
+        <!--<div class="fxclTitle">-->
+        <!--<span>动态风险级别：<b class="fxTtitle1"></b></span>-->
+        <!--<span>纳税人定级：<b class="fxTtitle2"></b></span><br>-->
+        <!--<span>上海新办走逃预测结果：<b class="fxTtitle3"></b></span>-->
+        <!--<span>总局新办走逃预测结果：<b class="fxTtitle4"></b></span>-->
+        <!--</div>-->
+        <!--</div>-->
+
+
+        <table width="100%" border="1" cellspacing="0" cellpadding="0" style="height: 80px;">
+            <thead>
+                <tr>
+                    <td>序号</td>
+
+                    <td>风险内容</td>
+                    <td>检查结果</td>
+                    <td>情况说明</td>
+                </tr>
+            </thead>
+            <tbody id="fxxxTbody">
+                <tr>
+                    <td>1</td>
+                    <td class="txt-l">税收高风险行业</td>
+                    <td>
+                        <input type="checkbox" name="item1" value="1" id="item1_1"><label for="item1_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td class="txt-l">企业注册地址属于一址多照或虚假地址</td>
+                    <td>
+                        <input type="checkbox" name="item2" value="1" id="item2_1"><label for="item2_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td class="txt-l">企业申请的发票版本和发票数量超过限额</td>
+                    <td>
+                        <input type="checkbox" name="item3" value="1" id="item3_1"><label for="item3_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td class="txt-l">开票地IP地址前3段+网卡地址，累计走逃5户以上的其他正常企业</td>
+                    <td>
+                        <input type="checkbox" name="item4" value="1" id="item4_1"><label for="item4_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td class="txt-l">企业法人或企业财务负责人被列入总局或者市局疑点纳税人名单</td>
+                    <td>
+                        <input type="checkbox" name="item5" value="1" id="item5_1"><label for="item5_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>6</td>
+                    <td class="txt-l">法人、股东，在本市有其它非正常户企业或走逃企业</td>
+                    <td>
+                        <input type="checkbox" name="item6" value="1" id="item6_1"><label for="item6_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>7</td>
+                    <td class="txt-l">财务、办税人员在本市，近一年内同一身份证下非正常企业或走逃企业，累计10户以上</td>
+                    <td>
+                        <input type="checkbox" name="item7" value="1" id="item7_1"><label for="item7_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>8</td>
+                    <td class="txt-l">法定代表人或者财务人员属于本市税务系统黑名单内（网厅黑名单库等）的企业</td>
+                    <td>
+                        <input type="checkbox" name="item8" value="1" id="item8_1"><label for="item8_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>9</td>
+                    <td class="txt-l">同一法定代表人身份证下，存在10个不同的手机号码</td>
+                    <td>
+                        <input type="checkbox" name="item9" value="1" id="item9_1"><label for="item9_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>10</td>
+                    <td class="txt-l">法人是外省的</td>
+                    <td>
+                        <input type="checkbox" name="item10" value="1" id="item10_1"><label
+                            for="item10_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>11</td>
+                    <td class="txt-l">财务负责人是外省的</td>
+                    <td>
+                        <input type="checkbox" name="item11" value="1" id="item11_1"><label
+                            for="item11_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>12</td>
+                    <td class="txt-l">法人未实名</td>
+                    <td>
+                        <input type="checkbox" name="item12" value="1" id="item12_1"><label
+                            for="item12_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>13</td>
+                    <td class="txt-l">财务负责人未实名</td>
+                    <td>
+                        <input type="checkbox" name="item13" value="1" id="item13_1"><label
+                            for="item13_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>14</td>
+                    <td class="txt-l">法人移动电话未实名</td>
+                    <td>
+                        <input type="checkbox" name="item14" value="1" id="item14_1"><label
+                            for="item14_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>15</td>
+                    <td class="txt-l">财务负责人移动电话未实名</td>
+                    <td>
+                        <input type="checkbox" name="item15" value="1" id="item15_1"><label
+                            for="item15_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>16</td>
+                    <td class="txt-l">法人无个税纳税记录</td>
+                    <td>
+                        <input type="checkbox" name="item16" value="1" id="item16_1"><label
+                            for="item16_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>17</td>
+                    <td class="txt-l">法人与办税人相同</td>
+                    <td>
+                        <input type="checkbox" name="item17" value="1" id="item17_1"><label
+                            for="item17_1">涉及</label><br />
+                    </td>
+                    <td class="enable">
+                        <textarea name="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="bhcdxContainner fxclContainner box3">
+        <h2>被核查对象（企业配合人）</h2>
+        <div style="text-align: left;text-indent: 4em;position: relative;height: 80px;line-height: 80px;">
+            <a class="expaned" style="line-height: 20px;">收起▲</a>
+            核查人：<span class="hcxMc">--</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系时间：<input
+                type="text" class="mini-datepicker" width="400px" id="lxsj">
+        </div>
+
+        <div class="mb10 mt10 gridBtn" style="text-align: left;">
+            <a class="mini-button toolBtn-blue" iconCls="icon-add" onclick="fpcl.addRow()">新增</a>
+            <a class="mini-button" iconCls="icon-remove" onclick="fpcl.deleteBhcdx()">删除</a>
+        </div>
+        <div class="mini-datagrid mb20" id="person_grid" enabled="true" showReloadButton="false" showEmptyText="false"
+            allowSortColumn="false" allowResize="false" allowCellEdit="true" allowCellSelect="true" showPager="false"
+            ondrawcell="" multiSelect="true">
+            <div property="columns">
+                <div type="checkcolumn" width="50">选择</div>
+                <div field="xm" width="180">姓名</div>
+                <div field="zw" width="180">职务</div>
+                <div field="lxdh" width="200">联系电话</div>
+                <div field="zjlx" width="180" renderer="fpcl.onZjlxRender">证件类型</div>
+                <div field="zjhm" width="220">证件号码</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fxclContainner shContainner box4">
+        <h2>初核意见</h2>
+        <div style="text-align: center;position: relative;">
+            <span style="font-size: 16px;display: inline-block;width: 160px;text-align: right;">初核意见：</span>
+            <textarea name="" cols="30" rows="10" placeholder="请输入备注意见"></textarea>
+        </div>
+
+        <div style="text-align: center;" class="fxhcsh mt20">
+            <div class="jgcheckList txt-l" style="line-height: 26px">
+                <span style="font-size: 16px;display: inline-block;width: 120px;text-align: right">风险核实结果：</span>
+                <input type="radio" name="fxLevel" id="level1" value="1"><label for="level1">排除风险</label>
+                <!-- <input type="radio" name="fxLevel" id="level2" value="2"><label for="level2">低风险</label> -->
+                <!-- <input type="radio" name="fxLevel" id="level3" value="3"><label for="level3">中风险</label> -->
+                <input type="radio" name="fxLevel" id="level4" value="2"><label for="level4">风险属实</label>
+                <!-- <input type="radio" name="fxLevel" id="level5" value="5"><label for="level5">严重失信</label> -->
+                <input type="radio" name="fxLevel" id="level6" value="3"><label for="level6">推送决策二包转办</label>
+            </div>
+            <br>
+
+            <div class="jgcheckList txt-l" style="line-height: 1px;">
+                <!-- <span style="font-size: 16px;display: inline-block;width: 120px;text-align: right">有效期：</span>
+                <input type="radio" name="yxq" id="yxq1" value="1"><label for="yxq1">一个月</label>
+                <input type="radio" name="yxq" id="yxq2" value="2"><label for="yxq2">三个月</label>
+                <input type="radio" name="yxq" id="yxq3" value="3"><label for="yxq3">六个月</label>
+                <input type="radio" name="yxq" id="yxq4" value="4"><label for="yxq4">一年</label>
+                <span style="color:red;">&nbsp;&nbsp;&nbsp;&nbsp;有效期内，同样的风险不再下发风险核查任务</span> -->
+            </div>
+            <br>
+            <div class="jgcheckList txt-l" style="line-height: 26px;">
+                <span style="font-size: 16px;display: inline-block;width: 120px;text-align: right">限制措施：</span>
+                <div style="display:inline-block;width:810px;vertical-align: top;">
+                    <table width="100%" border="1" cellspacing="0" cellpadding="0"
+                        style="margin-bottom: 10px;height: 90px;margin: 0 auto;" id="fxhctable">
+                        <thead>
+                            <tr>
+                                <td>限制类型</td>
+                                <td>限制期限 至</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="txt-l">
+                                    <input type="checkbox" name="xzcs" value="1" id="xzcs_1"><label
+                                        for="xzcs_1">限制发票升版增量</label><br />
+                                </td>
+                                <td>
+                                    <input type="text" class="mini-datepicker" width="100%;" id="c_xy1_1">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="txt-l">
+                                    <input type="checkbox" name="xzcs" value="2" id="xzcs_2"><label
+                                        for="xzcs_2">限制增值税网上申报</label><br />
+                                </td>
+                                <td>
+                                    <input type="text" class="mini-datepicker" width="100%;" id="c_xy1_2">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <span style="color:red;">&nbsp;&nbsp;&nbsp;&nbsp;注意：限制措施仅“风险属实”时启用。</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="fxclContainner shContainner pd-top-15 fhContainner">
+        <h2>复核意见</h2>
+        <div style="text-align: center;position: relative;">
+            <span style="font-size: 16px;display: inline-block;width: 160px;text-align: right;">复核意见：</span>
+            <textarea name="" cols="30" rows="10" placeholder="请输入备注意见"></textarea>
+        </div>
+
+        <div style="text-align: center;" class="fxhcsh mt20">
+            <div class="jgcheckList txt-l" style="line-height: 26px">
+                <span style="font-size: 16px;display: inline-block;width: 120px;text-align: right">风险核实结果：</span>
+                <input type="radio" name="f_fxLevel" id="f_level1" value="1"><label for="f_level1">排除风险</label>
+                <!-- <input type="radio" name="fxLevel" id="f_level2" value="2"><label for="f_level2">低风险</label> -->
+                <!-- <input type="radio" name="fxLevel" id="f_level3" value="3"><label for="f_level3">中风险</label> -->
+                <input type="radio" name="f_fxLevel" id="f_level4" value="2"><label for="f_level4">风险属实</label>
+                <!-- <input type="radio" name="fxLevel" id="f_level5" value="5"><label for="f_level5">严重失信</label> -->
+                <input type="radio" name="f_fxLevel" id="f_level6" value="3"><label for="f_level6">推送决策二包转办</label>
+            </div>
+            <br>
+
+            <div class="jgcheckList txt-l" style="line-height: 1px;">
+                <!-- <span style="font-size: 16px;display: inline-block;width: 120px;text-align: right">有效期：</span>
+                <input type="radio" name="f_yxq" id="f_yxq1" value="1"><label for="f_yxq1">一个月</label>
+                <input type="radio" name="f_yxq" id="f_yxq2" value="2"><label for="f_yxq2">三个月</label>
+                <input type="radio" name="f_yxq" id="f_yxq3" value="3"><label for="f_yxq3">六个月</label>
+                <input type="radio" name="f_yxq" id="f_yxq4" value="4"><label for="f_yxq4">一年</label>
+                <span style="color:red;">&nbsp;&nbsp;&nbsp;&nbsp;有效期内，同样的风险不再下发风险核查任务</span> -->
+            </div>
+            <br>
+            <div class="jgcheckList txt-l" style="line-height: 26px;">
+                <span style="font-size: 16px;display: inline-block;width: 120px;text-align: right">限制措施：</span>
+                <div style="display:inline-block;width:810px;vertical-align: top;">
+                    <table width="100%" border="1" cellspacing="0" cellpadding="0"
+                        style="margin-bottom: 10px;height: 90px;margin: 0 auto;" id="fxfctable">
+                        <thead>
+                            <tr>
+                                <td>限制类型</td>
+                                <td>限制期限 至</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="txt-l">
+                                    <input type="checkbox" name="xzcs" value="1" id="f_xzcs_1"><label
+                                        for="f_xzcs_1">限制发票升版增量</label><br />
+                                </td>
+                                <td>
+                                    <input type="text" class="mini-datepicker" width="100%;" id="f_xy1_1">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="txt-l">
+                                    <input type="checkbox" name="xzcs" value="2" id="f_xzcs_2"><label
+                                        for="f_xzcs_2">限制增值税网上申报</label><br />
+                                </td>
+                                <td>
+                                    <input type="text" class="mini-datepicker" width="100%;" id="f_xy1_2">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <span style="color:red;">&nbsp;&nbsp;&nbsp;&nbsp;注意：限制措施仅“风险属实”时启用。</span>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="txt-c mt20 fxhctable mb20">
+            <table width="100%" border="1" cellspacing="0" cellpadding="0"
+                style="margin-bottom: 10px;height: 120px;margin: 0 auto;" id="fxfctable">
+                <thead>
+                    <tr>
+                        <td>关联业务</td>
+                        <td>限制措施</td>
+                        <td>详细</td>
+                        <td width="20%;">有效期至</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="4">
+                            发票类业务
+                        </td>
+                        <td class="txt-l">
+                            <input type="checkbox" name="xzcs" value="1" id="f_xzcs_1"><label
+                                for="f_xzcs_1">限制线上办理</label><br />
+                        </td>
+                        <td width="25%;">
+
+                        </td>
+                        <td class="txt-l">
+                            <input type="text" class="mini-datepicker" width="100%;" id="f_yxq_1">
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <td class="txt-l">
+                            <input type="checkbox" name="xzcs" value="2" id="f_xzcs_2"><label
+                                for="f_xzcs_2">限制发票使用量</label><br />
+                        </td>
+                        <td width="25%;">
+                            比例系数：<input id="f_blxs2" class="mini-spinner" minValue="0" maxValue="1" increment="0.1"
+                                decimalPlaces="1" />
+                        </td>
+                        <td>
+                            <input type="text" class="mini-datepicker" width="100%;" id="f_yxq_2">
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <td class="txt-l">
+                            <input type="checkbox" name="xzcs" value="3" id="f_xzcs_3"><label
+                                for="f_xzcs_3">限制最高开票限额</label><br />
+                        </td>
+                        <td width="25%;">
+                            比例系数：<input id="f_blxs3" class="mini-spinner" minValue="0" maxValue="1" increment="0.1"
+                                decimalPlaces="1" />
+                        </td>
+                        <td>
+                            <input type="text" class="mini-datepicker" width="100%;" id="f_yxq_3">
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <td class="txt-l">
+                            <input type="checkbox" name="xzcs" value="4" id="f_xzcs_4"><label
+                                for="f_xzcs_4">限制高线开票全额</label><br />
+                        </td>
+                        <td width="25%;">
+                            比例系数：<input id="f_blxs4" class="mini-spinner" minValue="0" maxValue="1" increment="0.1"
+                                decimalPlaces="1" />
+                        </td>
+                        <td>
+                            <input type="text" class="mini-datepicker" width="100%;" id="f_yxq_4">
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>申报类</td>
+                        <td class="txt-l">
+                            <input type="checkbox" name="f_xzcs" value="5" id="f_xzcs_5"><label
+                                for="f_xzcs_5">限制线上办理</label><br />
+                        </td>
+                        <td width="25%;"></td>
+                        <td>
+                            <input type="text" class="mini-datepicker" width="100%;" id="f_yxq_5">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>退税类</td>
+                        <td class="txt-l">
+                            <input type="checkbox" name="f_xzcs" value="6" id="f_xzcs_6"><label
+                                for="f_xzcs_6">限制线上办理</label><br />
+                        </td>
+                        <td width="25%;">
+                        </td>
+                        <td>
+                            <input type="text" class="mini-datepicker" width="100%;" id="f_yxq_6">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>优惠类</td>
+                        <td class="txt-l">
+                            <input type="checkbox" name="f_xzcs" value="7" id="f_xzcs_7"><label
+                                for="f_xzcs_7">限制线上办理</label><br />
+                        </td>
+                        <td width="25%;"></td>
+                        <td>
+                            <input type="text" class="mini-datepicker" width="100%;" id="f_yxq_7">
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div> -->
+    </div>
+
+
+
+    <!--<div class="btn-group mb20 mt20 txt-c">-->
+    <!--<a id="search" class="mini-button toolBtn-blue" onclick="fpcl.submit()">提交</a>-->
+    <!--<a class="mini-button">取消</a></td>-->
+    <!--</div>-->
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="xbTaskCl.js" type="text/javascript"></script>
+
+
+<div class="mini-window" allowDrag="false" id="addRow-win" style="width: 820px; height: 320px; display: none"
+    title="添加信息" showToolbar="false">
+    <div class="xxcj-container" id="addRow-form">
+        <table class="sb_table txt-c">
+            <colgroup>
+                <col width="120">
+                <col width="260">
+                <col width="120">
+                <col width="260">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td class="txt-r"><span class="txt-red">*</span>姓名：</td>
+                    <td class="txt-l enable"><input name="xm" class="mini-textbox" required="true"
+                            requiredErrorText="姓名不能为空" /></td>
+                    <td class="txt-r"><span class="txt-red">*</span>职务：</td>
+                    <td class="txt-l enable"><input name="zw" class="mini-textbox" required="true"
+                            requiredErrorText="职务不能为空" /></td>
+                </tr>
+                <tr style="height: 10px;"></tr>
+                <tr>
+                    <td class="txt-r"><span class="txt-red">*</span>联系电话：</td>
+                    <td class="txt-l enable"><input name="lxdh" class="mini-textbox" required="true"
+                            requiredErrorText="联系电话不能为空" /></td>
+                    <td class="txt-r"><span class="txt-red">*</span>证件类型：</td>
+                    <td class="txt-l enable"><input name="zjlx" class="mini-combobox" required="true" textField="MC"
+                            idField="ID" data="fpcl.zjlxList" requiredErrorText="证件类型不能为空" /></td>
+                </tr>
+                <tr style="height: 10px;"></tr>
+                <tr>
+                    <td class="txt-r"><span class="txt-red">*</span>证件号码：</td>
+                    <td class="txt-l enable"><input name="zjhm" class="mini-textbox" required="true"
+                            requiredErrorText="证件号码不能为空" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="txt-c mt20">
+            <a class="mini-button toolBtn-blue" style="padding: 0 25px" onclick="fpcl.addBhcdx();">保存</a>
+            <a class="mini-button toolBtn-white" style="padding: 0 25px"
+                onclick="mini.get('#addRow-win').hide();">关闭</a>
+        </div>
+    </div>
+</div>
+
+</html>

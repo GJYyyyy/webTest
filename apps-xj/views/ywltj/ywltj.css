@@ -1,0 +1,45 @@
+.searchdiv tr {
+  height: 50px;
+}
+
+th {
+  text-align: right;
+}
+
+.txt-red {
+  color: #f00;
+}
+
+.search {
+  cursor: pointer;
+}
+
+.operateBtn {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.operateBtn > a {
+  margin-right: 5px;
+}
+
+.blue-btn {
+  display: inline-block;
+  margin: 0 6px;
+  padding: 0 15px;
+  border-color: #2e8ded;
+  background-color: #2e8ded;
+  color: #fff;
+  border-radius: 2px;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: center;
+  height: 32px;
+  line-height: 32px;
+  vertical-align: middle;
+}
+
+.blue-btn:hover {
+  opacity: 0.9;
+  text-decoration: none;
+}

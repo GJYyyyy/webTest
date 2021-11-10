@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>境外旅客购物离境退税商店申请</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <style>
+        .top,
+        .bottom,
+        .gridDiv {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        #btyyy {
+            height: 58px !important;
+            width: 300px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input name="sqxh" id="sqxh" class="mini-hidden" value="" />
+        <div class="top">
+            <h2 style="text-align: center;">境外旅客购物离境退税商店申请</h2>
+            <div style="padding: 20px 0;display: inline-block; " name="babDy" id="babDy">
+                <a class="mini-button" onclick="babDy()">打印</a>
+            </div>
+            <p style="float: right;">备案时间：<span id='basj'></span></p>
+        </div>
+        <div id="sqbylForm" data-view-type="form">
+            <table style="margin:0 auto;width: 100%;">
+                <tbody>
+                    <tr>
+                        <th width="15%" align="right">企业名称：</th>
+                        <td width="35%"><input name="nsrmc" id="nsrmc" class="mini-textbox" width="80%" readonly />
+                        </td>
+                        <th width=" 15%" align="right">纳税人识别号：</th>
+                        <td width="35%"><input name="nsrsbh" id="nsrsbh" class="mini-textbox" width="80%" readonly />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="right">经营地址：</th>
+                        <td><input name="scjydz" id="scjydz" class="mini-textbox" width="80%" readonly /></td>
+                        <th align="right">登记注册类型：</th>
+                        <td><input name="djzclxmc" id="djzclxmc" class="mini-textbox" width="80%" readonly />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="right">实际经营地址：</th>
+                        <td><input name="sjjydz" id='sjjydz' class="mini-textbox" width="80%" readonly />
+                        </td>
+                        <th align="right">纳税信用等级：</th>
+                        <td><input name="nsxydj" id="nsxydj" class="mini-textbox" width="80%" readonly />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="right">税控设备号：</th>
+                        <td><input name="sksbh" id="sksbh" class="mini-textbox" width="80%" readonly />
+                        </td>
+                        <th align="right">税控设备服务商：</th>
+                        <td>
+                            <input name="sksbfws" id="sksbfws" class="mini-textbox" width="80%" readonly />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="right">联系人：</th>
+                        <td>
+                            <input name="jbrmc" id="jbrmc" class="mini-textbox" width="80%" readonly />
+                        <th align="right">联系电话：</th>
+                        <td>
+                            <input name="jbrsj" id="jbrsj" class="mini-textbox" width="80%" readonly />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="gridDiv">
+            <h4>分支机构信息</h4>
+            <div data-view-type="datagrid">
+                <div id="fzjgxxs" class="mini-datagrid" style="width:100%;min-height: 100px;height:auto;"
+                    allowResize="false" showPager="false" enabled="false" showEmptyText="true" emptyText="暂无数据"
+                    fitColumns="true" multiSelect="false">
+                    <div property="columns">
+                        <div field="fzjghfdnsrsbh" headerAlign="center" align="center">分支机构社会信用代码（纳税人识别号）</div>
+                        <div field="fzjghfdmc" headerAlign="center" align="center">分支机构名称</div>
+                        <div field="fzjghfddz" headerAlign="center" align="center">分支机构注册地址</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <p style="text-indent:2em;">
+                我公司同意安装、使用离境退税管理系统，并保证系统应当具备的运行条件，能后及时、准确地向主管税务机关报送相关信息。同意单独设置退税物品销售明细账，并准确核算。具备《境外旅客购物离境退税管理办法（试行）》规定的退税商店条件，并承诺遵守《境外旅客购物离境退税管理办法（试行）》有关规定。
+            </p>
+            <div style="margin-bottom: 30px;">
+                <span style="margin-right: 80px;">承诺人：<span id="fddbrxm"></span></span>
+                <span>公司章</span>
+            </div>
+            <div style="width:350px; color: #0994dc" class="mini-window" title="请选择打印文件" name="dywj" id="dywj">
+                <a onclick="downloadPdf('jwlkgwljtssdbab')" style="display: block;">境外旅客购物离境退税商店备案表</a>
+                <a onclick="downloadPdf('sqljtssdbacns')" style="display: block;margin-top: 20px;">申请离境退税商店备案承诺书</a>
+            </div>
+            <div id="sftyDiv">
+                <div class="mini-radiobuttonlist" name="sfty" id="sfty" repeatItems="3" repeatLayout="table"
+                    repeatDirection="horizontal" textField="text" valueField="id"
+                    data="[{id:'1',text:'同意'},{id:'0',text:'不同意'}]" onvaluechanged='setSftyValue'>
+                </div>
+                <textarea id='btyyy' class="mini-textarea" emptyText="请录入不同意原因" style="display: none;"></textarea>
+            </div>
+            <div class="mini-radiobuttonlist" name="ty" id="ty" repeatItems="3" repeatLayout="table"
+                repeatDirection="horizontal" textField="text" valueField="id"
+                data="[{id:'1',text:'同意'},{id:'0',text:'不同意'}]" onvaluechanged='setTyValue'>
+            </div>
+            <div style="width:800px;top: 30%; left: 25%;" class="mini-window" title="请录入如下信息" name="lrxx" id="lrxx">
+                <table style="width: 100%;">
+                    <tbody>
+                        <tr id='tyBabh'>
+                            <th width="15%" align="right">备案登记通知书编号：</th>
+                            <td width="35%"><input name="badjtzsbh" id="badjtzsbh" class="mini-textbox" width="80%"
+                                    required requiredErrorText="案登记通知书编号不能为空" />
+                            </td>
+                        </tr>
+                        <tr id='byBabh'>
+                            <th width="15%" align="right">不予备案登记通知书编号：</th>
+                            <td width="35%"><input name="bybadjtzsbh" id="bybadjtzsbh" class="mini-textbox" width="80%"
+                                    required requiredErrorText="不予备案登记通知书编号不能为空" />
+                            </td>
+                        </tr>
+                        <tr id='byBabhly'>
+                            <th width=" 15%" align="right">不予备案理由：</th>
+                            <td width="35%"><input name="bybaly" id="bybaly" class="mini-textarea" width="80%" required
+                                    requiredErrorText="不予备案理由不能为空" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="padding: 20px 0; text-align: center;" name="define" id="define">
+                    <a class="mini-button" onclick="define()">确定</a>
+                    <a class="mini-button" style="margin-left: 20px; " onclick="onCancel()">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="ljtssd.js"></script>
+
+</html>

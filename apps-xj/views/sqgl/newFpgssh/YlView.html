@@ -1,0 +1,74 @@
+<div id="form" data-view-type="form">
+    <h5>纳税人信息</h5>
+    <div class=" table_div">
+        <table class="form-table" width="80%">
+            <tr>
+                <th width="15%" class="txt-r">社会信用代码（纳税人识别号）：</th>
+                <td width="35%"><input id="nsrsbh-yl" name="nsrsbh" enabled="false" class="mini-textbox" width="100%"/></td>
+                <th width="15%" class="txt-r">纳税人名称：</th>
+                <td width="35%"><input id="nsrmc-yl" name="nsrmc" class="mini-textbox" enabled="false"  width="100%" /></td>
+            </tr>
+        </table>
+    </div>
+
+    <h5>发票挂失损毁信息</h5>
+    <div data-view-type="datagrid">
+        <div id="table" class="mini-datagrid" style="width:100%;height:210px;" allowResize="false"
+             enabled="true"
+             showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+             idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="false">
+            <div property="columns">
+                <div type="indexcolumn" width="50" headeralign="center"
+                     allowsort="true">序号</div>
+                <!-- 1丢失  2被盗 3损毁 -->
+                <div field="fpgslxDm" visible="false" vtype="required"  headeralign="center" autoShowPopup="true" >
+                    挂失类型代码
+                </div>
+                <div field="fpgslxmc" headeralign="center" autoShowPopup="true" >
+                    挂失类型
+                </div>
+                <div field="fpjxlxmc" headeralign="center" allowsort="false" autoShowPopup="true" >
+                    缴销类型
+                </div>
+                <div field="fpzlmc" headeralign="center" allowsort="false" autoShowPopup="true">
+                    发票种类
+                </div>
+                <div field="fpDm" headeralign="center" allowsort="false" autoShowPopup="true">
+                    发票代码
+                </div>
+                <div field="dsbdrq" width="100" headeralign="center" allowsort="false" format="yyyy-MM-dd" >
+                    丢失被盗损毁日期
+                </div>
+                <div  field="jldwdm" width="50" visible="false">
+                    单位代码
+                </div>
+                <div  field="jldwmc" width="50"
+                      headeralign="center"  allowsort="false">
+                    单位
+                </div>
+                <div field="fs" width="100"
+                     headeralign="center" allowsort="false">
+                    份数
+                </div>
+                <div field="fpqshm" width="100"
+                     headeralign="center" allowsort="false" >
+                    发票起始号码
+                </div>
+                <div field="fpzzhm" width="100"
+                     headeralign="center" allowsort="false">
+                    发票终止号码
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gs-textarea  gsqksm">
+        <label style="display: inline-block;width: 10%;text-align: right">挂失损毁情况说明：</label>
+        <input class="mini-textarea" id="yl-gsshqksm" name="gsshqksm" readonly="true" style="width:85%;color: #000;" nullitemtext="">
+    </div>
+    <div class="gs-textarea gssm">
+        <label style="display: inline-block;width: 10%;text-align: right">挂失声明：</label>
+        <input class="mini-textarea" id="yl-gssm" name="gssm" readonly="true" style="width:85%;color: #000;" nullitemtext="">
+    </div>
+
+</div>

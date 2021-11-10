@@ -1,0 +1,7 @@
+.file-name{
+  display: inline-block;
+  width: 138px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

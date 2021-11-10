@@ -1,0 +1,33 @@
+@charset "UTF-8";
+/*
+* @Author: sunml
+* @Date:   2017-02-16 15:27:38
+* @Last Modified by:   Marte
+* @Last Modified time: 2017-02-16 16:41:29
+*/
+/*附报资料图片预览*/
+.image-box {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  padding-right: 10px;
+  text-align: center; }
+
+.image-box img {
+  width: 100%;
+  cursor: pointer; }
+
+.image-box .close {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  background: url(../../../images/public/ico-alert-close-hover.png) no-repeat;
+  z-index: 3;
+  display: none;
+  cursor: pointer; }
+
+.image-box:hover .close {
+  display: block; }

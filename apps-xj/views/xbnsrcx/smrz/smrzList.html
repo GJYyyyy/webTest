@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>企业人员信息</title>
+    <link rel="stylesheet" href="../../../styles/style.css">
+    <link rel="stylesheet" href="smrzList.css">
+</head>
+<body>
+<div class="qyryxxForm">
+    <table>
+        <tr>
+            <th>纳税人名称：</th>
+            <td id="qyryxxNsrmc"></td>
+            <th>纳税人识别号：</th>
+            <td id="qyryxxNsrsbh"></td>
+        </tr>
+    </table>
+</div>
+<div class="mini-fit">
+    <div id="qyryxxGrid" class="mini-datagrid qyryxxGrid" showPager="true" autoLoad="false" style="width: 90%; height:100%;"
+         sizeList="[30,50,100]" pageSize="30">
+        <div property="columns">
+            <div type="indexcolumn">序号</div>
+            <div field="roleName" align="center" allowsort="false" width="120">办税员类型</div>
+            <div field="sfzjlxmc" headeralign="center" align="center" allowsort="false" width="120">证件名称</div>
+            <div field="sfzjhm" headeralign="center" align="center" allowsort="false">证件号码</div>
+            <div field="xm" headeralign="center" align="center" allowsort="false" width="70">姓名</div>
+            <div field="isCheckPass" headeralign="center" align="center" allowsort="false" width="70">对比是否通过</div>
+            <div field="a10" name="a10" headeralign="center" align="center" allowsort="false" renderer="smrzList.onActionRenderer" width="60">操作</div>
+        </div>
+    </div>
+</div>
+<script src="../../../../lib/jquery/jquery.js"></script>
+<script src="../../../scripts/miniui.js"></script>
+<script src="../../../scripts/gldcommon.js"></script>
+<script src="../../../scripts/gldbfslkz.js"></script>
+<script src="smrzList.js"></script>
+</body>
+</html>

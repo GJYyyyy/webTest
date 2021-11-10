@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+.place {
+    height: 0;
+}
+.tab-bar{
+    background: #eee;
+    padding-top: 5px;
+    border-bottom: 1px #bbb solid;
+    height: 25px;
+    overflow: visible;
+}
+.tab-bar a{
+    background: #ddd;
+    border: 1px #bbb solid;
+    padding: 5px 10px;
+}
+.tab-bar a:first-child{
+    margin-left: 15px;
+}
+.tab-bar a:hover{
+    background: #eee;
+    cursor: pointer;
+}
+.tab-bar a.active{
+    background: #fff;
+    border-bottom: 1px #fff solid;
+}
+#dbsxGrid .mini-pager .mini-pager-size .mini-combobox{
+	width:70px !important;
+}
+#dbsxGrid .mini-buttonedit-border{
+    height: 26px;
+}
+
+#dbsxGrid .mini-pager-left{
+    height: 32px;
+}
+#dbsxGrid .mini-grid-footer{
+    background: #f7f7f7;
+    border-bottom: solid 1px #C9C9C9;
+}
+#dbsxGrid .mini-pager-right {
+    line-height: 38px;
+}
+#dbsxGrid .mini-button-plain,
+#dbsxGrid .mini-pager-index{
+    margin-bottom: -12px;
+    display: inline-block;
+}
+#dbsxGrid .separator{
+    display: none;
+}
+#dbsxGrid .mini-pager{
+    height: 40px;
+}
+#dbsxGrid .mini-buttonedit{
+    height: 30px;
+}
+
+#cxtjForm .cxtjTable{
+	text-align:center;
+	width: 47%;
+	margin: 0 auto;
+}
+
+#cxtjForm .cxtjTable th{
+	width: 18%;
+    text-align: right;
+}
+.searchC{
+    cursor: pointer;
+}
+.mini-grid-summaryRow .mini-grid-summaryCell{
+    font-size: 15px;
+    color: #050505;
+}

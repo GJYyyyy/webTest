@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>税控盘查询</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../../apps/views/dbsx/dbsxcx.css">
+    <link rel="stylesheet" href="../../../apps/views/skpgm/skpgm.css">
+</head>
+<body>
+<div class="content">
+    <div class="search-box-wrap">
+        <table width="96%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <th>开始时间：</th>
+                <td><input id="kssj" name="kssj" class="mini-datepicker" emptyText="--请选择--" allowInput="false" format="yyyy-MM-dd"
+                           style="width:100%;"/></td>
+                <th>结束时间：</th>
+                <td><input id="jssj" name="jssj" class="mini-datepicker" emptyText="--请选择--" allowInput="false" format="yyyy-MM-dd"
+                           style="width:100%;"/></td>
+                <th>纳税人识别号：</th>
+                <td><input id="nsrsbh" name="nsrsbh" class="mini-textbox" emptyText="请输入纳税人识别号" style="width:100%;"/></td>
+                <th>是否成功购买：</th>
+                <td><input id="ifSuccess" name="jssj" class="mini-combobox" allowInput="false"
+                           textField="MC" valuefield="ID" value="" style="width:100%;"/>
+                </td>
+                <td style="padding:10px; text-align:center;">
+                    <a id="search" class="mini-button">查询</a>
+            </tr>
+        </table>
+    </div>
+    <div class="search-box-content">
+        <div class="mini-fit">
+            <div id="cx_grid" class="mini-datagrid" autoLoad="false" dataField="value.data" totalField="value.total"
+                 style="width: 100%; height:400px;" multiSelect="true" onbeforeload="beforeLoad"
+                 showPager="true" pageSize="20" showEmptyText="true"
+                 emptyText="<span style= 'color:#ff0000;'>没有查询到相应数据</span>">
+                <div property="columns">
+                    <div field="nsrsbh" width="120" align="center" headerAlign="center">税号</div>
+                    <div field="nsrmc" width="70" align="center" >名称</div>
+                    <div field="fwsmc" width="70" align="center" >服务商</div>
+                    <div field="gmkssj" dateFormat="yyyy-MM-dd HH:mm:ss" align="center" width="70">时间</div>
+                    <div field="" renderer="skpgmCx.renderGmzt" align="center" width="70">是否购买成功</div>
+                    <div field="" renderer="skpgmCx.renderFxzt" align="center" width="70">是否发行成功</div>
+                    <div field="" width="70" renderer="skpgmCx.renderCz" align="center">操作</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="skpgm_cx.js"></script>
+</body>
+</html>

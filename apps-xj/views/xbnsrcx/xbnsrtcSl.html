@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>事项受理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./xbnsrcx.css">
+</head>
+
+<body oncontextmenu="return false">
+    <div class="mini-fit">
+        <div class="editform">
+            <h3 style="margin: 3px auto; text-align: center;">
+                <span id="swsxMc"></span>受理</h3>
+            <div class="width970 infodiv" style="margin-top: -10px;padding-top: 0">
+                <fieldset class="bor" style="padding-bottom: 3px; margin-top: 10px;">
+                    <legend>
+                        <h3>基本信息</h3>
+                    </legend>
+                    <table id="nsrjbxx" width="100%" border="0" cellspacing="0" cellpadding="0" class="infotab" style="line-height: 18px">
+                        <tr>
+                            <th>任务来源：</th>
+                            <td id="rwly"></td>
+                            <th>纳税人识别号：</th>
+                            <td>
+                                <span id="sqr"></span>
+                            </td>
+                            <th>纳税人名称：</th>
+                            <td>
+                                <span id="nsrmc"></span>
+                            </td>
+                            <th class="kqysxfk" style="display: none">联系电话：</th>
+                            <td class="kqysxfk" style="display: none">
+                                <span id="lxdh"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>提交日期：</th>
+                            <td>
+                                <span id="cjsj"></span>
+                            </td>
+                            <th>办理期限：</th>
+                            <td>
+                                <span id="blqx"></span>
+                            </td>
+                            <th>申请人：</th>
+                            <td>
+                                <span id="jbrmc"></span>
+                                <span style="display:none;" id="sjhm"></span>
+                            </td>
+                            
+                        </tr>
+                        <tr style="display:none;">
+                            <th>申请序号：</th>
+                            <td>
+                                <span id="sqxh"></span>
+                            </td>
+                            <th>文书号：</th>
+                            <td>
+                                <span id="wsh"></span>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <br>
+                <div id="dbsx_content"></div>
+            </div>
+        </div>
+    </div>
+    <div class="dbsx-actions">
+        <div id="tishi" style="padding-bottom: 10px;color: red">
+
+        </div>
+        <a id="dbBtn" class="mini-button" onclick="actionMethods.showdbWin()" style="display: none">调拨</a>
+        <a id="dbBtnGray" class="mini-gray-button" style="display: none">调拨</a>
+        <a id="slBtn" class="mini-button" onclick="actionMethods.slMethods()" style="display: none">受理</a>
+        <a id="slBtnGray" class="mini-gray-button" style="display: none">受理</a>
+        <a id="byslBtn" class="mini-button" onclick="actionMethods.byslClick()" style="display: none">不予受理</a>
+        <a id="byslBtnGray" class="mini-gray-button" style="display: none">不予受理</a>
+        <a id="yjbcBtn" class="mini-button" onclick="actionMethods.showyjbcWin('open')" style="display: none">一键保存</a>
+        <a id="yjbcBtnGray" class="mini-gray-button" style="display: none">一键保存</a>
+        <a id="bjBtn" class="mini-button" onclick="actionMethods.bjClick()" style="display: none">办结</a>
+        <a id="bjBtnGray" class="mini-gray-button" style="display: none">办结</a>
+        <a id="smrzBtn" class="mini-button" onclick="actionMethods.smrzMethods()" style="display: none">实名认证</a>
+        <a id="smrzBtnGray" class="mini-gray-button" style="display: none">实名认证</a>
+        <a id="cazskhBtn" class="mini-button" onclick="actionMethods.cazskhMethods()" style="display: none">CA证书开户</a>
+        <a id="cazskhBtnGray" class="mini-gray-button" style="display: none">CA证书开户</a>
+        <a id="ffBtn" class="mini-button" onclick="actionMethods.ffMethods()" style="display: none">发放</a>
+        <a id="ffBtnGray" class="mini-gray-button" style="display: none">发放</a>
+        <a id="sqbdyBtn" class="mini-button" onclick="actionMethods.sqbdyMethods()" style="display: none">申请表打印</a>
+        <a id="sqbdyBtnGray" class="mini-gray-button" style="display: none">申请表打印</a>
+        <a id="closeSearchWin" class="mini-button" onclick="actionMethods.closeSearchWin()" style="display: none">关闭</a>
+    </div>
+    <div id="dbWin" class="mini-window" title="调拨" style="width:500px;height:300px;display: none" showMaxButton="true" showToolbar="true"
+        showFooter="true" showModal="true" allowResize="true" allowDrag="true">
+        <div>
+            <table>
+                <tr>
+                    <td>调拨至税务机关：</td>
+                    <td>
+                        <input id="dbswjg" name="dbswjg" class="mini-combobox" style="width:150px;" textField="swjgmc" valueField="swjgdm" showNullItem="true"
+                        />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div property="footer" style="text-align: center">
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.dbMethods()">确认</a>
+        </div>
+    </div>
+    <div id="byslWin" class="mini-window" title="不予受理" style="width:500px;height:320px;display: none" showMaxButton="true" showToolbar="true"
+        showFooter="true" showModal="true" allowResize="true" allowDrag="true">
+        <div>
+            <table style="width:100%">
+                <tr>
+                    <td><i class="txt-red ml3">*</i>请输入不予受理原因</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="reason" name="reason" class="mini-textarea" style="width:100%;height:100px" required="true"
+                        />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div property="footer" style="text-align: center">
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.byslWinClick()">确认</a>
+        </div>
+    </div>
+    <div id="slWin" class="mini-window" title="受理" style="width:900px;height:100%;display: none" showMaxButton="true" showToolbar="true"
+        showFooter="true" showModal="true" allowResize="true" allowDrag="true">
+        <table>
+            <tr>
+                <td>
+                    <label>*组织机构代码</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+                <td>
+                    <label>*单位性质</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="dwxz" class="mini-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>*证件名称</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+                <td>
+                    <label>*证照号码</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="dwxz" class="mini-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>*国标行业</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+                <td>
+                    <label>*国标行业（附）1</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="dwxz" class="mini-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>*国标行业（附）2</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+                <td>
+                    <label>*国标行业（附）3</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="dwxz" class="mini-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>*纳税人所处街乡</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+                <td>
+                    <label>*国有控股类型</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="dwxz" class="mini-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>*课征主题类型</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+                <td>
+                    <label>*隶属关系</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="dwxz" class="mini-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>*主管税务机关</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+                <td>
+                    <label>*主管税务所（科、分局）</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="dwxz" class="mini-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>*核算方式</label>
+                </td>
+                <td>
+                    <input id="textbox1" name="zzjgdm" class="mini-textbox" />
+                </td>
+            </tr>
+        </table>
+        <div property="footer" style="text-align: center">
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.slMethods()">确定</a>
+            <a id="cancelBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.closeWin()">取消</a>
+        </div>
+    </div>
+    <div id="yjbcWin" class="mini-window" title="一键保存" style="width:600px;height:450px;display: none" showMaxButton="true" showToolbar="true"
+        showFooter="true" showModal="true" allowResize="true" allowDrag="true">
+        <div>
+            <table class="table">
+                <tr>
+                    <td>事项名称</td>
+                    <td>操作</td>
+                </tr>
+            </table>
+        </div>
+        <div property="footer" style="text-align: center">
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.closeWin()">确认</a>
+        </div>
+    </div>
+    <!-- <div id="smrzWin" class="mini-window" title="实名认证" style="width:900px;height:500px;display: none" showMaxButton="true" showToolbar="true"
+        showFooter="true" showModal="true" allowResize="true" allowDrag="true">
+        <div>
+            <table>
+                <tr>
+                    <td>不予受理</td>
+                   
+                </tr>
+            </table>
+        </div>
+        <div property="footer" style="text-align: center">
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.closeWin()">确认</a>
+        </div>
+    </div> -->
+    <div id="fsdxWin" class="mini-window" title="发送短信" style="width:500px;height:450px;display: none" showMaxButton="true" showToolbar="true"
+        showFooter="true" showModal="true" allowResize="true" allowDrag="true">
+        <div>
+            <table style="width: 100%">
+                <!-- <tr>
+                    <td>经办人：</td>
+                    <td>
+                        <input class="mini-textbox" id="jbr" name="jbr" readOnly />
+                    </td>
+                </tr>
+                <tr>
+                    <td>手机号码：</td>
+                    <td>
+                        <input class="mini-textbox" id="sjhm" name="sjhm" readOnly />
+                    </td>
+                </tr> -->
+                <tr>
+                    <td>短信内容：</td>
+                    <td>
+                        <input id="dxnr" class="mini-textarea" vtype="chinese" style="width: 100%;height:200px" emptyText="请输入短信内容" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div property="footer" style="text-align: center">
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.fsdxMethods()">确认</a>
+            <a id="sureBtn" class="mini-button" style="background: #0994dc" onclick="actionMethods.closeWin()">取消</a>
+        </div>
+    </div>
+    <script src="../../../lib/jquery/jquery.js"></script>
+    <script src="../../scripts/miniui.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script src="../../scripts/gldbfslkz.js"></script>
+    <script src="../dbsx/sxsl_service.js"></script>
+    <script src="../dbsx/sxsl_common.js"></script>
+    <script src="./printThis.js"></script>
+    <script src="../dbsx/sqzlView.js"></script>
+    <script src="./actionMethods.js"></script>
+    <script src="./wssqUtil.js"></script>
+    <script src="./baseCode.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>网络平台代开资格申请</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <link rel="stylesheet" href="wlptdkzgsq.css" />
+  </head>
+  <body style="background: #fff;">
+    <div class="search" data-show="yes">
+      <div class="searchC">隐藏查询条件</div>
+    </div>
+    <div
+      id="zgsq-form"
+      class="searchdiv"
+      style="width: 95%; margin-bottom: 20px;"
+    >
+      <table
+        width="96%"
+        border="0"
+        cellspacing="0"
+        cellpadding="0"
+        style="margin: 20px auto;"
+      >
+        <tr>
+          <th class="txt-r" style="width: 20%;">
+            社会信用代码（纳税人识别号）：
+          </th>
+          <td style="width: 20%; padding: 5px 0;">
+            <input
+              id="nsrsbh"
+              name="nsrsbh"
+              class="mini-textbox"
+              style="width: 100%;"
+            />
+          </td>
+          <th class="txt-r" style="width: 20%;">主管税务机关：</th>
+          <td style="width: 20%;">
+            <input
+              id="swjgDm"
+              name="swjgDm"
+              class="mini-treeselect"
+              style="width: 100%;"
+              textfield="swjgmc"
+              valuefield="swjgdm"
+              parentField="sjswjgdm"
+              popupWidth="574"
+              url="../../../../api/xj/wtgl/cxtj/getSxtjSwjg"
+              showNullItem="true"
+              nullItemText="--请选择--"
+              allowInput="true"
+              valueFromSelect="true"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th class="txt-r">文书号：</th>
+          <td>
+            <input
+              id="wsh"
+              name="wsh"
+              class="mini-textbox"
+              style="width: 100%;"
+            />
+          </td>
+          <th class="txt-r">受理状态：</th>
+          <td>
+            <input
+              id="slzt"
+              name="slzt"
+              class="mini-combobox"
+              textfield="MC"
+              valuefield="ID"
+              data="[{'MC':'所有','ID':'all'},{'MC':'待受理','ID':'00'},{'MC':'受理成功','ID':'01'},{'MC':'不予受理','ID':'02'},{'MC':'补正资料','ID':'06'},{'MC':'已补正','ID':'07'},{'MC':'已撤销','ID':'11'},{'MC':'申请异常','ID':'99'}]"
+              shownullitem="false"
+              allowInput="false"
+              required="true"
+              showclose="true"
+              style="width: 100%;"
+              multiSelect="true"
+              valueFromSelect="true"
+            />
+          </td>
+        </tr>
+
+        <tr style="line-height: 40px;">
+          <th class="txt-r">收到日期：</th>
+          <td nowrap>
+            <input
+              id="sdrqQ"
+              name="sdrqQ"
+              class="mini-datepicker"
+              format="yyyy-MM-dd"
+              style="width: 47%;"
+              emptytext="请选择"
+              required="true"
+            />
+            <span style="width: 5%; display: inline-block;">至</span>
+            <input
+              id="sdrqZ"
+              name="sdrqZ"
+              class="mini-datepicker"
+              format="yyyy-MM-dd"
+              style="width: 45%;"
+              emptytext="请选择"
+              required="true"
+            />
+          </td>
+          <th class="txt-r">办理期限：</th>
+          <td nowrap>
+            <input
+              id="blqxQ"
+              name="blqxQ"
+              class="mini-datepicker"
+              format="yyyy-MM-dd"
+              style="width: 47%;"
+              emptytext="请选择"
+            />
+            <span style="width: 5%; display: inline-block;">至</span>
+            <input
+              id="blqxZ"
+              name="blqxZ"
+              class="mini-datepicker"
+              format="yyyy-MM-dd"
+              style="width: 45%;"
+              emptytext="请选择"
+            />
+          </td>
+        </tr>
+      </table>
+      <div style="text-align: center;">
+        <a id="search" class="mini-button" onclick="zgsq.doSearch">查询</a>
+        <a class="mini-button" onclick="zgsq.doReset">重置</a>
+      </div>
+    </div>
+    <div
+      id="zgsq-grid"
+      class="mini-datagrid self-datagrid"
+      multiSelect="true"
+      checkSelectionOnly="true"
+      showPager="true"
+      showEmptyText="true"
+      allowResize="false"
+      allowCellSelect="true"
+      allowCellEdit="false"
+      allowHeaderWrap="true"
+      onpagechanged="zgsq.onPageChanged"
+      onbeforeload="zgsq.onbeforeload"
+      onbeforeselect="isShowCheck"
+      pageSize="10"
+      sizeList="[10,20,50]"
+      style="width: 100%; min-height: 150px; height: 100%;"
+    >
+      <div property="columns">
+        <div type="indexcolumn">序号</div>
+        <div
+          field="wsh"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="120"
+        >
+          文书号
+        </div>
+        <div
+          field="zgswskfjJc"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="200"
+        >
+          主管税务机关
+        </div>
+        <div
+          field="nsrsbh"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="110"
+        >
+          社会信用代码<br />（纳税人识别号）
+        </div>
+        <div
+          field="nsrmc"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="120"
+        >
+          纳税人名称
+        </div>
+        <div
+          field="sqsj"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="110"
+        >
+          收到日期
+        </div>
+        <div
+          field="blqx"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="80"
+        >
+          办理期限
+        </div>
+        <div
+          field="ssglymc"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="80"
+        >
+          税收管理员
+        </div>
+        <div
+          field="blztDm"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="80"
+          renderer="zgsq.renderCollumn"
+        >
+          受理状态
+        </div>
+        <div
+          field="cz"
+          headeralign="center"
+          align="center"
+          allowsort="false"
+          width="80"
+          renderer="zgsq.renderCollumn"
+        >
+          操作
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../../../lib/jquery/jquery.js"></script>
+  <script src="../../scripts/miniui.js"></script>
+  <script src="../../scripts/efg_water.js"></script>
+  <script src="../../scripts/gldcommon.js"></script>
+  <script src="../../scripts/gldbfslkz.js"></script>
+  <script src="wlptdkzgsq.js" type="text/javascript"></script>
+</html>

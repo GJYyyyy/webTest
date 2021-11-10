@@ -1,0 +1,42 @@
+.main {
+    width:96%;
+    margin: 0 auto;
+}
+
+.searchdiv table {
+    width:70%;
+    margin:0 auto;
+}
+.searchdiv table th {
+    text-align: right;
+}
+
+#fpqdGrid .mini-pager .mini-pager-size .mini-combobox {
+    width:70px!important
+}
+#fpqdGrid .mini-buttonedit-border {
+    height:26px
+}
+#fpqdGrid .mini-pager-left {
+    height:32px
+}
+#fpqdGrid .mini-grid-footer {
+    background:#f7f7f7;
+    border-bottom:solid 1px #C9C9C9
+}
+#fpqdGrid .mini-pager-right {
+    line-height:38px
+}
+#fpqdGrid .mini-button-plain, #fpqdGrid .mini-pager-index {
+    margin-bottom:-12px;
+    display:inline-block
+}
+#fpqdGrid .separator {
+    display:none
+}
+#fpqdGrid .mini-pager {
+    height:40px
+}
+#fpqdGrid .mini-buttonedit {
+    height:30px
+}

@@ -1,0 +1,15 @@
+.mini-window .mini-panel-border, .mini-window.mini-messagebox .mini-panel-border {
+  border: 1px solid #ccc; }
+
+.mini-window .mini-panel-border .mini-panel-viewport .mini-panel-footer {
+  border-bottom: 1px solid #ccc; }
+
+.mini-window .mini-panel-border .mini-panel-viewport .mini-messagebox-buttons, .mini-window.mini-messagebox .mini-panel-border .mini-panel-viewport .mini-messagebox-buttons {
+  padding: 0 20px 18px; }
+.swsxtzs-xzxk-bysl, .swsxtzs-xzxk-bzzl {
+    margin-left: 100px;
+    line-height: 25px;
+}
+.swsxtzs-xzxk-bysl p, .swsxtzs-xzxk-bzzl p {
+    margin: 0;
+}

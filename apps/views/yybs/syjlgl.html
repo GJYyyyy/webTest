@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="ywy,syjlgl">
+    <meta name="description" content="爽约记录管理">
+    <title>爽约记录管理</title>
+    <link href="../../../apps/styles/style.css" rel="stylesheet" />
+    <link href="syjlgl.css" rel="stylesheet" />
+</head>
+<body>
+<div class="main">
+    <div class="hide-btn">隐藏查询条件<span></span></div>
+    <div class="cx-main">
+        <table class="table-bg">
+            <tr>
+                <th>办税大厅：</th>
+                <td><input id="zjswjg" class="mini-combobox" width="100%" valueField="bsdtDm" textField="bsdtMc"/></td>
+                <th>预约时间：</th>
+                <td width="500px"><input id="yysjq" class="mini-datepicker" width="48%" onvaluechanged="syjlgl.dateChanged">至
+                    <input id="yysjz" class="mini-datepicker" width="48%" onvaluechanged="syjlgl.dateChanged"></td>
+            </tr>
+            <tr>
+                <th>纳税人识别号：</th>
+                <td><input id="nsrsbh" class="mini-textbox" width="100%"/></td>
+                <th>状态：</th>
+                <td>
+                    <input id="zt" class="mini-combobox" width="48%" valueField="ID" textField="MC" value="" data="[{ID:'',MC:'全部'},{ID:'01',MC:'有效'},{ID:'05',MC:'作废'}]"/>
+                </td>
+
+            </tr>
+            <tr>
+                <th></th>
+                <td></td>
+                <th><a class="btn" onclick="syjlgl.cx()">查询</a></th>
+                <td><a class="btn" onclick="syjlgl.init()">重置</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="syjlgl-grid" class="mini-datagrid" style="width: 100%" dataField="value.data" totalField="value.total" showPager="true" idField="id" pageSize="10"  allowResize="false" showPageSize="false" url="" onbeforeload="syjlgl.beforeLoad">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="dtmc">办税大厅</div>
+            <div field="nsrsbh">纳税人识别号</div>
+            <div field="nsrmc">纳税人名称</div>
+            <div field="yyrq" renderer="syjlgl.onRenderTime">预约时间</div>
+            <div field="realzt">状态</div>
+            <div field="xgsj" renderer="syjlgl.onRenderXgsj">作废时间</div>
+            <div field="cz" renderer="syjlgl.onRenderOperation">操作</div>
+        </div>
+    </div>
+</div>
+<script src="../../../lib/jquery/jquery.min.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="syjlgl.js"></script>
+</body>
+</html>

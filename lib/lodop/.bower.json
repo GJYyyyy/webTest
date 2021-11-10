@@ -1,0 +1,34 @@
+{
+  "name": "lodop",
+  "version": "6.20.8",
+  "homepage": "http://www.lodop.net",
+  "authors": [
+    "lizb <lizb@servyou.com.cn>"
+  ],
+  "description": "专业WEB打印控件,用它既可裁剪打印页面内容，又可用程序代码直接实现复杂打印。控件功能强大,却简单易用,所有调用如同JavaScript扩展语句。",
+  "main": "LodopFuncs.js",
+  "keywords": [
+    "lodop",
+    "print",
+    "打印"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "_release": "6.20.8",
+  "_resolution": {
+    "type": "version",
+    "tag": "v6.20.8",
+    "commit": "0c0e8c80896c795e4831ec1d039dd58a37d3334d"
+  },
+  "_source": "http://192.168.2.107/sfr/sui-lodop-bower.git",
+  "_target": "^6.20.8",
+  "_originalSource": "lodop",
+  "_direct": true
+}

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>事项受理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../styles/style.css">
+    <style>
+        .cxsfxytitle {
+            background: #eee;
+            text-align: left;
+            text-indent: 20px;
+            height: 36px;
+            line-height: 36px;
+            width: 100%;
+        }
+
+        .content {
+            padding: 20px 0;
+        }
+
+        .jnskTable {
+            width: 90%;
+            margin: 0 auto;
+            height: auto;
+            border: 1px solid #000;
+            word-break: break-all;
+            table-layout: fixed;
+        }
+
+        .jnskTable td {
+            padding: 5px;
+            border: 1px solid #000;
+            color: #000;
+        }
+
+        .jnskTable .lable {
+            text-align: center;
+        }
+
+        .mini-textarea .mini-textbox-border {
+            height: 148px !important;
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false">
+    <div class="mini-fit">
+        <div class="editform">
+            <h3 style="margin: 3px auto; text-align: center;"><span id="swsxMc"></span>罚款缴纳异议处理</h3>
+            <div class="width970 infodiv" style="margin-top: -10px;padding-top: 0">
+                <fieldset class="bor" style="padding-bottom: 3px; margin-top: 10px;">
+                    <legend>
+                        <h3>基本信息</h3>
+                    </legend>
+                    <table id="jbxx" width="100%" border="0" cellspacing="0" cellpadding="0" class="infotab"
+                        style="line-height: 18px">
+                        <tr>
+                            <th>任务来源：</th>
+                            <td>电子税务局</td>
+                            <th>证件号码：</th>
+                            <td><span id="zjhm"></span></td>
+                            <th>纳税人名称：</th>
+                            <td><span id="nsrmc"></span></td>
+                        </tr>
+                        <tr>
+                            <th>提交日期：</th>
+                            <td><span id="tjsj"></span></td>
+                            <th>办理期限：</th>
+                            <td><span id="blqx"></span></td>
+                            <!-- <th>申请序号：</th>
+                            <td><span id="sqxh"></span></td> -->
+                        </tr>
+                        <!-- <tr>
+                            <th>申请人：</th>
+                            <td><span id="jbrmc"></span><span id="sjhm"></span></td>
+                            <th>文书号：</th>
+                            <td><span id="wsh"></span></td>
+                        </tr> -->
+                    </table>
+                </fieldset>
+                <br>
+                <h2 class="cxsfxytitle">纳税人基本信息</h2>
+                <div class="content">
+                    <table id="nsrjbxx" width="90%" border="0" cellspacing="0" cellpadding="0" class="infotab"
+                        style="line-height: 18px">
+                        <tr>
+                            <td align="right">纳税人识别号：</td>
+                            <td><input id="nsrsbh" name="nsrsbh" class="mini-textbox" style="width:100%;" readonly />
+                            </td>
+                            <td align="right">纳税人名称：</td>
+                            <td><input id="nsrmc" name="nsrmc" class="mini-textbox" style="width:100%;" readonly />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <h2 class="cxsfxytitle">处罚信息</h2>
+                <div class="content">
+                    <table class="jnskTable" border="0" cellSpacing="0" cellPadding="0">
+                        <tbody>
+                            <tr>
+                                <td colspan="4" class="lable">被处罚人名称</td>
+                                <td colspan="13" id="bcfrmc_td">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="lable">被处罚人证件名称</td>
+                                <td colspan="5" id="bcfrzjmc_td">
+                                </td>
+                                <td class="lable" colspan="3">证件号码</td>
+                                <td colspan="5" id="zjhm_td">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="lable">违法所属期</td>
+                                <td colspan="13" id="wfssq_td">
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="lable">违法事实 <br>及<br>处罚依据</td>
+                                <td colspan="13" id="wsssjcfyj_td">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="lable">罚款金额</td>
+                                <td colspan="13" id="fkje_td">
+                                    （大写）<span id="fkje_Dx"></span>￥<span id="fkje"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2 class="cxsfxytitle">纳税人异议点</h2>
+                <div class="content" style="width: 90%;margin: 0 auto;">
+                    <div style="display: inline-block;width: 14%; vertical-align: top;text-align: right;">纳税人提交的异议点：
+                    </div>
+                    <textarea class="mini-textarea" style="height:150px;width: 85%;" id="yyd" readonly></textarea>
+                </div>
+                <h2 class="cxsfxytitle">审核意见</h2>
+                <div class="content" style="width: 90%;margin: 0 auto;">
+                    <table id="shyj" width="100%" border="0" cellspacing="0" cellpadding="0" class="infotab"
+                        style="line-height: 18px">
+                        <tr style="color: red;">
+                            <td align="right">温馨提示：</td>
+                            <td>审核通过，您将通过纳税人的异议申诉，终审通过后需金三作废对纳税人的处罚等流程信息。</td>
+                        </tr>
+                        <tr style="color: red;">
+                            <td></td>
+                            <td>审核不通过，您将不通过纳税人的异议申诉，终审不通过后纳税人仍需缴纳罚款。</td>
+                        </tr>
+                        <tr>
+                            <td align="right"><span style="color: red;">*</span>审核结果：</td>
+                            <td style="width: 85%;">
+                                <div class="mini-radiobuttonlist" repeatItems="2" repeatLayout="table" textField="text"
+                                    id="shjg" name="shjg" style="width: 85%;display: inline-block;" valueField="id"
+                                    data="[{text:'通过',id:'Y'},{text:'不通过',id:'N'}]" onvaluechanged="radioValueChange"
+                                    required requiredErrorText="审核结果不能为空">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="shbtglyTr" style="display:none;">
+                            <td align="right" style="vertical-align: top;"><span style="color: red;">*</span>审核不通过理由：
+                            </td>
+                            <td style="width: 85%;">
+                                <textarea class="mini-textarea" style="height:150px;width: 100%;" id="shbtgly"
+                                    name="shbtgly" required="shbtglyRequired"
+                                    requiredErrorText="审核不通过理由不能为空"></textarea>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dbsx-actions">
+        <a id="sxbjBtn" class="mini-button toolBtn-blue" onclick="handleTj">提交</a>
+        <a class="mini-button" onclick="closeWindow('cancel')" id="backBtn">取消</a>
+    </div>
+
+    <script src="../../../lib/jquery/jquery.js"></script>
+    <script src="../../scripts/miniui.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script>
+        var shbtglyRequired = false,
+            jnfkuuid = '',
+            zgswjgdm = '',
+            lcslid=''
+        function closeWindow(action) {
+            // 关闭弹框
+            if (window.CloseOwnerWindow)
+                return window.CloseOwnerWindow(action);
+            else {
+                window.close();
+            }
+        }
+
+        function handleTj() {
+            // 提交
+            var shyjForm = new mini.Form("#shyj");
+            shyjForm.validate();
+            if (!shyjForm.isValid()) {
+                return;
+            }
+            var formData = shyjForm.getData();
+            $.ajax({
+                url: '/dzgzpt-wsys/api/sh/yycl/saveSljg',
+                type: "post",
+                data: mini.encode({
+                    jnfkuuid: jnfkuuid,
+                    shjg: formData.shjg || '',
+                    shbtgly: formData.shbtgly || ''
+                }),
+                contentType: "application/json; charset=utf-8",
+                success: function (res) {
+                    if (res.success) {
+                        $.ajax({
+                            url: '/dzgzpt-wsys/api/sh/yycl/createDbrw?jnfkuuid=' + jnfkuuid + '&zgswjgdm=' + zgswjgdm+'&lcslid='+lcslid,
+                            type: "get",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (res) {
+                                if (res.success) {
+                                    mini.alert(res.value || '任务流程创建成功', '提示', function () {
+                                        closeWindow('ok')
+                                    })
+                                } else {
+                                    mini.alert(res.message || '接口错误，请重试！')
+                                }
+                            },
+                            error: function () {}
+                        });
+                    } else {
+                        mini.alert(res.message || '接口错误，请重试！')
+                    }
+                },
+                error: function () {}
+            });
+        }
+
+        function initData(record) {
+            jnfkuuid = record.jnfkuuid
+            lcslid = record.lcslid
+            $.ajax({
+                url: '/dzgzpt-wsys/api/sh/yycl/yyclslym?uuid=' + jnfkuuid,
+                type: "get",
+                contentType: "application/json; charset=utf-8",
+                success: function (res) {
+                    if (res.success) {
+                        mini.get('nsrmc').setValue(res.value.nsrmc)
+                        mini.get('nsrsbh').setValue(res.value.nsrsbh)
+                        mini.get('yyd').setValue(res.value.yyd)
+                        $("#blqx").html(new Date(res.value.blqx).format('yyyy年MM月dd日'))
+                        $("#zjhm").html(res.value.zjhm)
+                        $("#nsrmc").html(res.value.nsrmc)
+                        $("#tjsj").html(new Date(res.value.tjsj).format('yyyy年MM月dd日'))
+                        $("#bcfrmc_td").html(res.value.bcfrmc)
+                        $("#bcfrzjmc_td").html(res.value.bcfrzjmc)
+                        $("#zjhm_td").html(res.value.zjhm)
+                        $("#wfssq_td").html(res.value.wfssq)
+                        $("#wsssjcfyj_td").html(res.value.wfssjcfyj)
+                        $("#fkje").html(res.value.fkje)
+                        $("#fkje_Dx").html(arabicToChinese(res.value.fkje))
+
+                        zgswjgdm = res.value.zgswjgdm
+                    } else {
+                        mini.alert(res.message || '查询失败！')
+                    }
+                },
+                error: function () {}
+            });
+        }
+
+        function radioValueChange(e) {
+            if (e.value == 'Y') {
+                $('#shbtglyTr').hide()
+                shbtglyRequired = false
+            } else {
+                $('#shbtglyTr').show()
+                shbtglyRequired = true
+            }
+        }
+
+        //金额转换大写
+        function arabicToChinese(arabicNum) {
+            var arabicNum = new String(Math.round(arabicNum * 100)); // 数字金额
+            var chineseValue = ''; // 转换后的汉字金额
+            var String1 = '零壹贰叁肆伍陆柒捌玖'; // 汉字数字
+            var String2 = '万仟佰拾亿仟佰拾万仟佰拾元角分'; // 对应单位
+            var len = arabicNum.length; // arabicNum 的字符串长度
+            var Ch1; // 数字的汉语读法
+            var Ch2; // 数字位的汉字读法
+            var nZero = 0; // 用来计算连续的零值的个数
+            var String3; // 指定位置的数值
+            if (len > 15) {
+                alert('超出计算范围');
+                return '';
+            }
+            if (arabicNum == 0) {
+                chineseValue = '零元整';
+                return chineseValue;
+            }
+            String2 = String2.substr(String2.length - len, len); // 取出对应位数的STRING2的值
+            for (var i = 0; i < len; i++) {
+                String3 = parseInt(arabicNum.substr(i, 1), 10); // 取出需转换的某一位的值
+                if (i != (len - 3) && i != (len - 7) && i != (len - 11) &&
+                    i != (len - 15)) {
+                    if (String3 == 0) {
+                        Ch1 = '';
+                        Ch2 = '';
+                        nZero = nZero + 1;
+                    } else if (String3 != 0 && nZero != 0) {
+                        Ch1 = '零' + String1.substr(String3, 1);
+                        Ch2 = String2.substr(i, 1);
+                        nZero = 0;
+                    } else {
+                        Ch1 = String1.substr(String3, 1);
+                        Ch2 = String2.substr(i, 1);
+                        nZero = 0;
+                    }
+                } else { // 该位是万亿，亿，万，元位等关键位
+                    if (String3 != 0 && nZero != 0) {
+                        Ch1 = '零' + String1.substr(String3, 1);
+                        Ch2 = String2.substr(i, 1);
+                        nZero = 0;
+                    } else if (String3 != 0 && nZero == 0) {
+                        Ch1 = String1.substr(String3, 1);
+                        Ch2 = String2.substr(i, 1);
+                        nZero = 0;
+                    } else if (String3 == 0 && nZero >= 3) {
+                        Ch1 = '';
+                        Ch2 = '';
+                        nZero = nZero + 1;
+                    } else {
+                        Ch1 = '';
+                        Ch2 = String2.substr(i, 1);
+                        nZero = nZero + 1;
+                    }
+                    if (i == (len - 11) || i == (len - 3)) { // 如果该位是亿位或元位，则必须写上
+                        Ch2 = String2.substr(i, 1);
+                    }
+                }
+                chineseValue = chineseValue + Ch1 + Ch2;
+            }
+            if (String3 == 0) { // 最后一位（分）为0时，加上“整”
+                chineseValue = chineseValue + '整';
+            }
+            return chineseValue;
+        }
+    </script>
+</body>
+
+</html>

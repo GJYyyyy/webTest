@@ -1,0 +1,22 @@
+.searchC {
+    cursor: pointer;
+}
+#tstxglFrom .tstxglTable {
+    width: 96%;
+    margin: 0 auto;
+}
+#tstxglFrom .tstxglTable tr {
+    height: 40px;
+}
+.searchdiv th {
+    text-align: right;
+}
+.searchC {
+    cursor: pointer;
+}
+.mini-datagrid th {
+    font-size: 12px !important;
+}
+.mini-datagrid td {
+    font-size: 12px !important;
+}

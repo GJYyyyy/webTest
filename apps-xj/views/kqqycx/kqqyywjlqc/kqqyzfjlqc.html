@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>跨区迁移作废迁移记录清册</title>
+    <link rel="stylesheet" href="../../../styles/style.css">
+    <link rel="stylesheet" href="../../../../apps/views/dbsx/dbsxcx.css">
+    <link rel="stylesheet" href="./kqqyywjlqc.css">
+    <style lang="">
+        .sbtcgrid {
+            margin: 10px auto 0 !important;
+        }
+        .mini-grid-border {
+            width: 100% !important;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <h2 style="text-align: center">作废迁移记录清册</h2>
+    <div class="search">
+        <div class="searchC">查询条件</div>
+    </div>
+    <div class="search-box-wrap searchBynsrshb">
+        <div class="form-table" id="srarchForm">
+            <table width="100%">
+                <tr style="height: 40px;">
+                    <td class="txt-r" style="width: 9%">纳税人识别号(统一社会信用代码)：</td>
+                    <td colspan="2" style="width: 15%">
+                        <input name="nsrsbh" type="text" id="nsrsbh" class="mini-textbox" vtype="rangeLength:15,20" onvalidation="zfjlqc.nsrsbhValidate"
+                               style="width: 100%" maxLengthErrorText="编号长度不能超过20个字符" minLengthErrorText="编号长度不能低于15个字符"/>
+                    </td>
+                    <td class="txt-r" style="width: 8%">迁出税务机关：</td>
+                    <td colspan="2" style="width: 10%">
+                        <!--<input id="qcswjg" name="qcswjg" type="text" class="mini-combobox" style="width: 100%"  url="/dzgzpt-wsys/api/baseCode/get/getSwjgQxBySwryjg"-->
+                        <!--requiredErrorText="请选择迁出税务机关" allowInput="false"  valueField="swryDm"  textField="swryxm"-->
+                        <!--valueFromSelect="true" emptyText=" "  nullItemText=" " onvaluechanged="zfjlqc.slglyChange"/>-->
+                        <input id="qcswjg" name="qcswjg" class="mini-treeselect"
+                               style="width: 100%" textfield="MC" valuefield="ID" parentField="PID"
+                               multiSelect="false" allowInput="false" popupWidth="100%"
+                               shownullitem="true" valueFromSelect="true" url="/dzgzpt-wsys/api/baseCode/get/getQj"
+                               onvaluechanged="zfjlqc.slglyChange"/>
+                    </td>
+                </tr>
+                <tr style="height: 40px;">
+                    <td class="txt-r" style="width: 8%">申请日期：</td>
+                    <td colspan="2" style="width: 10%" nowrap>
+                        <input  id="sqrqQ" name="sqrqQ" type="text" class="mini-datepicker" style="width: 47%"
+                                format="yyyy-MM-dd" requiredErrorText="请选择申请日期起"
+                                onvaluechanged="zfjlqc.sqrqQChange"/>
+                        <span style="display: inline-block;width: 3.5%;text-align: center;">至</span>
+                        <input  id="sqrqZ" name="sqrqZ" type="text" class="mini-datepicker" style="width: 47%"
+                                format="yyyy-MM-dd" requiredErrorText="请选择申请日期止"
+                                onvaluechanged="zfjlqc.sqrqZChange"/>
+                    </td>
+                    <td class="txt-r" style="width: 8%">迁入税务机关：</td>
+                    <td colspan="2" style="width: 10%">
+                        <!--<input id="qrswjg" name="qrswjg" type="text" class="mini-combobox" style="width: 100%"  url="/dzgzpt-wsys/api/baseCode/get/getXjDmSwjgQx"-->
+                        <!--requiredErrorText="请选择qrswjg" allowInput="false"  valueField="swryDm"  textField="swryxm"-->
+                        <!--valueFromSelect="true" emptyText=" "  nullItemText=" " onvaluechanged="zfjlqc.slglyChange"/>-->
+                        <input id="qrswjg" name="qrswjg" class="mini-treeselect"
+                               style="width: 100%" textfield="MC" valuefield="ID" parentField="PID"
+                               multiSelect="false" allowInput="false" popupWidth="100%"
+                               shownullitem="true" valueFromSelect="true" url="/dzgzpt-wsys/api/baseCode/get/getQj"
+                               onvaluechanged="zfjlqc.slglyChange"/>
+                    </td>
+                </tr>
+                <tr style="height: 40px;">
+                    <td class="txt-r" style="width: 8%">受理结果：</td>
+                    <td colspan="2" style="width: 15%">
+                        <input id="sljg" name="sljg" type="text" class="mini-combobox" style="width: 100%"
+                               allowInput="false"  valueField="ID"  textField="MC"
+                               valueFromSelect="true" emptyText=" " ReadOnly
+                               shownullitem="true"/>
+                    </td>
+                    <td class="txt-r" style="width: 8%">是否人工干预：</td>
+                    <td colspan="2" style="width: 15%">
+                        <input id="sfrggy" name="sfrggy" type="text" class="mini-combobox" style="width: 100%"
+                               allowInput="false"  valueField="ID"  textField="MC"
+                               valueFromSelect="true" shownullitem="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td  colspan="6" style="padding:10px; text-align:center;">
+                        <a id="search" class="mini-button " onclick="zfjlqc.doSearch(this)">查询</a>
+                        <a class="mini-button " onclick="zfjlqc.doReset()">重置</a>
+                        <!--<a class="mini-button " onclick="zfjlqc.doExport()">导出</a>-->
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="zfjlqcGrid" class="mini-datagrid sbtcgrid" style="width:100%; height:450px; margin: 0 auto;"
+         allowResize="false" showPager="true" emptyText="暂无数据" showEmptyText="true"
+         sizeList="[30,50,100]" pageSize="30"
+         allowSortColumn="false" idField="id" >
+        <div property="columns">
+            <div type="indexcolumn" align="center" headeralign="center">序号</div>
+            <div field="nsrsbh" align="center" headeralign="center" width="120">纳税人识别号</div>
+            <div field="nsrmc" align="center" headeralign="center" width="120">纳税人名称</div>
+            <div field="qcswjgMc" align="center" headeralign="center" width="80">迁出税务机关</div>
+            <div field="qrswjgMc" align="center" headeralign="center" width="80">迁入税务机关</div>
+            <div field="zfjglx" headeralign="center"  align="center" allowsort="false" width="80">
+                总分机构类型
+            </div>
+            <div field="sqrq"  align="center" headeralign="center" width="100" dateFormat="yyyy-MM-dd">申请日期</div>
+            <div field="" align="center" renderer="zfjlqc.sfrggyRender" headeralign="center" width="80">是否人工干预</div>
+            <div field="blqd" align="center" headeralign="center" width="80">办理渠道</div>
+            <div field="sljg" align="center" headeralign="center" width="80">受理结果</div>
+            <div field="a10" name="a10" headeralign="center" align="center" allowsort="false" renderer="onActionRendererYq" width="60">操作</div>
+
+            <!--<div field="shsr" align="center" headeralign="center" width="120">去年税收收入</div>-->
+        </div>
+    </div>
+</div>
+<script src="../../../../lib/jquery/jquery.js"></script>
+<script src="../../../scripts/miniui.js"></script>
+<script src="../../../scripts/efg_water.js"></script>
+<script src="../../../scripts/gldcommon.js"></script>
+<script src="./kqqyzfjlqc.js"></script>
+</body>
+</html>

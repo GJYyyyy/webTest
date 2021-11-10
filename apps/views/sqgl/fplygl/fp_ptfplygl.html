@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+    <title>河北管理平台</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../../../styles/style.css">
+</head>
+<body>
+<div style="padding: 0 20px">
+    <h4>纳税人基本信息:</h4>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="right">纳税人识别号：</td>
+            <td align="left" id="nsrsbh"></td>
+            <td align="right">纳税人名称：</td>
+            <td align="left" id="nsrmc"></td>
+        </tr>
+        <tr>
+            <td align="right">购票人<span class="txt-red">*</span>：</td>
+            <td align="left">
+                <input id="gpr" property="editor" class="mini-combobox" width="200" allowInput="true"
+                       onValueChanged="onValueChanged" valueFromSelect="true" textfield="MC" valuefield="ID"
+                       vtype="required;"/>
+            </td>
+            <td align="right">发票领取方式：</td>
+            <td align="left" id="fplyfs"></td>
+        </tr>
+        <tr>
+            <td align="right" width="200">纳税人所属税务机关：</td>
+            <td align="left" id="nsrssswjg" width="400"></td>
+            <td align="right" width="200">联系人姓名：</td>
+            <td align="left" id="lxrxm" width="400"></td>
+        </tr>
+        <tr>
+            <td align="right">手机号码：</td>
+            <td align="left" id="lxdh"></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <h4>票种核定信息:</h4>
+    <div id="pzhdGrid" class="mini-datagrid"
+         style="width:100%;height:83px;" idfield="id" allowresize="false"
+         showpager="false" allowCellEdit="true" allowCellSelect="true"
+         multiSelect="true" allowCellValid="true"
+         oncellcommitedit="onCellCommitEdit">
+        <div property="columns">
+            <div field="fpzlMc" headeralign="center" allowsort="false">发票种类名称</div>
+            <div field="fpzlDm" headeralign="center" allowsort="false">发票种类代码</div>
+            <div field="yxqq" headeralign="center" allowsort="false">有效期起</div>
+            <div field="yxqz" headeralign="center" allowsort="false">有效期止</div>
+        </div>
+    </div>
+
+    <h4>发票领用信息:</h4>
+    <div id="lgxxGrid" class="mini-datagrid" style="width:100%;height:auto" idfield="id" allowresize="false"
+         showpager="false" allowcellvalid="true" allowcelledit="true" allowcellselect="true" multiselect="true">
+        <div property="columns">
+            <div field="fpzlDm" displayfield="fpzlMc" headeralign="center" allowsort="false">发票种类</div>
+            <div field="fs" headeralign="center" allowsort="false">结存发票份数</div>
+            <div field="bczgkyfs" displayfield="bczgkyfs" headeralign="center" allowsort="false">本次最高可领用份数</div>
+            <div headeralign="center" width="200" header="本次发票领用小计">
+                <div property="columns">
+                    <div autoShowPopup="true" field="mbfs" width="50" align="center" headerAlig="center">每本份数</div>
+                    <div field="bs" headeralign="center" align=center width="150">数量(每本份数>1时按本领，否则按份领)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="txt-blue" onClick="showRohide()">显示/隐藏12个月的领购和退票信息</a>
+
+    <div id="lgxx12" style="padding:0;display: none">
+        <h4>过去12个月的领购和退票信息:</h4>
+        <div id="lgxx12Grid" class="mini-datagrid" style="width:100%;height:230px;" idfield="id" allowresize="false"
+             showpager="false" allowCellEdit="true" allowCellSelect="true" multiSelect="true" allowCellValid="true"
+             oncellcommitedit="onCellCommitEdit">
+            <div property="columns">
+                <div field="fpzlMc" headeralign="center" allowsort="false">发票种类名称</div>
+                <div field="fpzlDm" headeralign="center" allowsort="false">发票种类代码</div>
+                <div field="fpqh" headeralign="center" allowsort="false">发票起号</div>
+                <div field="fpzh" headeralign="center" allowsort="false">发票止号</div>
+                <div field="hffs" headeralign="center" allowsort="false">核发份数</div>
+                <div field="lgrq" headeralign="center" allowsort="false">领用时间</div>
+                <div field="gprxm" headeralign="center" allowsort="false">领购人/退票人</div>
+                <div field="bz" headeralign="center" allowsort="false">领取状态</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fpfsxx">
+
+        <h4>发票发售信息:
+            <span id="zzsfpfsxx" style="margin-left:30px;font-weight: normal">
+                <span class="txt-red f14">温馨提示：增值税专用发票、增值税普通发票需要去金三核心征管系统前台完成发票发售操作</span>
+                <a class="txt-blue ml20" style="padding: 4px" onClick="showMessage()">增专、增普发票领用操作说明</a>
+            </span>
+        </h4>
+
+        <div id="fpfsGrid" class="mini-datagrid" style="width:100%;height:112px;" idfield="id" allowresize="false"
+             showpager="false"
+             allowCellEdit="true" allowCellSelect="true" multiSelect="true" allowCellValid="true"
+             oncellcommitedit="onCellCommitEdit">
+            <div property="columns">
+                <div field="fpzlMc" headeralign="center" allowsort="false">发票种类</div>
+                <div field="fpDm" headeralign="center" allowsort="false">发票代码</div>
+                <div field="fpqshm" headeralign="center" allowsort="false">发票起始号码</div>
+                <div field="fpzzhm" headeralign="center" allowsort="false">发票终止号码</div>
+                <div field="bs" headeralign="center" allowsort="false">总本数</div>
+                <div field="zslbs" headeralign="center" allowsort="false">总申领本数</div>
+                <div field="hfbs" width="" allowsort="false"
+                     vtype="required;float;rangeDecimals:2;maxLength:14;int;fs"
+                     headeralign="center" align=center>
+                    核发本数 <span class="xhts">*</span>
+                    <input property="editor" name="hfbs" class="mini-textbox" style="width:100%;height:100%"
+                           vtype=""
+                           value="0"/>
+                </div>
+                <div field="mbfs" headeralign="center" allowsort="false">每本份数</div>
+                <div field="slfs" headeralign="center" allowsort="false">实领份数</div>
+            </div>
+        </div>
+    </div>
+
+    <h4>查询金三发票发售信息:</h4>
+    <div class="mb10">
+        <span>发票领用日期：</span>
+        <input class="mini-datepicker" id="querydate" width="200"/>
+        <a class="mini-button" style="padding: 4px 20px" onclick="searchFpfsFromGt3()">查询</a>
+    </div>
+
+    <div id="zzsfpfsGrid" class="mini-datagrid" style="width:100%;height:200px" idfield="id" allowresize="false"
+         showpager="false"
+         allowCellEdit="true" allowCellSelect="true" multiSelect="true" allowCellValid="true"
+         oncellcommitedit="onCellCommitEdit"
+         showemptytext="true" emptytext='<font color="red">无记录</font>'>
+        <div property="columns">
+            <div type="checkcolumn"></div>
+            <div field="fpzlMc" headeralign="center" allowsort="false">发票种类名称</div>
+            <div field="fpzlDm" headeralign="center" allowsort="false">发票种类代码</div>
+            <div field="fpDm" headeralign="center" allowsort="false">发票代码</div>
+            <div field="fpqh" headeralign="center" allowsort="false">发票起始号码</div>
+            <div field="fpzh" headeralign="center" allowsort="false">发票终止号码</div>
+            <div field="hffs" headeralign="center" allowsort="false">核发份数</div>
+            <div field="lgrq" headeralign="center" allowsort="false">领购日期</div>
+            <div field="gprxm" headeralign="center" allowsort="false">领票人</div>
+        </div>
+    </div>
+
+    <div style="display: none">
+        <div id="zzsfpfsGridHide" class="mini-datagrid" style="width:100%;height:112px;" idfield="id"
+             allowresize="false"
+             showpager="false"
+             allowCellEdit="true" allowCellSelect="true" multiSelect="false" allowCellValid="true">
+            <div property="columns">
+                <div type="checkcolumn"></div>
+                <div field="fpzlMc" headeralign="center" allowsort="false">发票种类名称</div>
+                <div field="fpzlDm" headeralign="center" allowsort="false">发票种类代码</div>
+                <div field="fpDm" headeralign="center" allowsort="false">发票代码</div>
+                <div field="fpqshm" headeralign="center" allowsort="false">发票起始号码</div>
+                <div field="fpzzhm" headeralign="center" allowsort="false">发票终止号码</div>
+                <div field="hffs" headeralign="center" allowsort="false">核发份数</div>
+                <div field="lgrq" headeralign="center" allowsort="false">领购日期</div>
+                <div field="gprxm" headeralign="center" allowsort="false">领票人</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="dbsx-actions">
+    <a id="zgqtysl" class="mini-button" onclick="zgqtSubmit()">征管前台已受理</a>
+    <a id="bdsl" class="mini-button" onclick="submit()">保存</a>&nbsp;&nbsp;
+    <a id="bysl" class="mini-button" onclick="bysl()">不予受理</a>&nbsp;&nbsp;
+    <a id="fh" class="mini-button" onclick="doBack()">返回</a>
+</div>
+
+<script src="../../../../lib/jquery/jquery.js"></script>
+<script src="../../../../lib/sui-miniui/mini-all-min.js"></script>
+<script src="../../../../lib/ds-commonFront/build/common-front.js"></script>
+<script src="../../../scripts/gldcommon.js"></script>
+<script src="fp_ptfplygl.js" type="text/javascript"></script>
+</body>
+</html>

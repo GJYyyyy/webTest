@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+    <title>税务事项通知书</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="swsxtzs.css">
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+    </style>
+</head>
+<body>
+<div class="mini-fit">
+    <div id="swsxtzsForm" class="tzs">
+        <input name="lcslId" id="lcslId" class="mini-hidden" value=""/>
+        <input name="blztDm" id="blztDm" class="mini-hidden" value=""/>
+        <input name="sqxh" id="sqxh" class="mini-hidden" value=""/>
+        <input name="swjgDm" id="swjgDm" class="mini-hidden" value=""/>
+        <input name="jg" id="jg" class="mini-hidden" value=""/>
+        <input name="zg" id="zg" class="mini-hidden" value=""/>
+        <input name="flyj" id="flyj" class="mini-hidden" value=""/>
+
+        <h3 id="title_swjgMc" class="textCenter">河北省石家庄市桥东区国家税务局</h3>
+        <h2 class="textCenter">税务事项通知书</h2>
+        <h3 class="textCenter colorY"><span style="padding-left: 0px;" id="content_jg"></span>通[<span style="padding-left: 0px;"
+                                                                            id="content_zg"></span>]号 </h3>
+        <p class="marginLeft50">
+            <span id="content_nsrmc" class="colorY"></span>：(纳税人识别号：<span id="content_nsrsbh" class="colorY"></span>）<br/>
+            事由：<span id="content_swsxMc" class="colorY"></span><br/>
+            依据：<br/>
+            <span id="content_flyj"></span><br/>
+
+        <div class="marginLeft50">通知内容：您（单位）于 <span id="content_sqrq" class="colorY"></span>提交的<span id="content_swsxMc2" class="colorY"></span>受理结果为：<strong
+                id="content_blzt">不予受理</strong><br/>
+            <strong id="content_blzt_sm" class="marginLeft50">不予受理原因：</strong><br/>
+            <textarea id="swsxtzsNr" name="swsxtzsNr" class="mini-textarea marginLeft50" emptyText="请输入备注"
+                      style="width:600px; height:80px;" maxLength="600"
+                      String.length="600"></textarea>
+        </div>
+        </p>
+        <p align="right" class="marginRight50"><span id="foot_swjgMc" class="colorY"></span>（签章）<br/>
+            <span id="content_bjrq" class="colorY"></span></p>
+    </div>
+</div>
+
+
+<div class="open_btdiv textCenter">
+    <a id="sxBjBtn" class="mini-button blue font14" onclick="saveSwsxBj();" style="padding:4px 10px;">确定
+    </a>&nbsp;&nbsp;<a class="mini-button gray font14" onclick="onCancel('cancel')" style="padding:4px 10px;">取消</a>
+</div>
+
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="sxsl_service.js"></script>
+<script src="sub_swsxtzs.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+body, html{
+    width: 100%;
+    min-width: 100%;
+    background: #fff;
+}
+#uploader{
+    width: 520px;
+    margin: 0 auto;
+}
+.tip-text-box{
+    padding-left: 21px;
+    line-height: 22px;
+    margin-left: 104px;
+    background: url("../../images/ico-passed.png") left center no-repeat;
+    display: none;
+}
+.error-text-box{
+    padding-left: 21px;
+    line-height: 22px;
+    margin-left: 104px;
+    background: url("../../images/ico-error.png") left center no-repeat;
+    color: red;
+    display: none;
+}
+.mini-buttonedit{
+    background: #fff;
+}
+.text-center{
+    text-align: center;
+}
+
+.btns{
+    color: #fff;
+    display: inline-block;
+    padding: 4px 10px;
+    background: #0a94dd;
+    border-radius: 3px;
+    padding-top: 5px;
+}
+.btns:hover{
+    background: #077AB7;
+}
+.tip-box{
+    height: 23px;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配置机器人账户新增</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <style>
+        .red {
+            color: red;
+        }
+
+        .grid-toolbar {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-table" id="searchForm" style="width: 96%; margin: 0 auto;">
+        <table width="100%">
+            <tr style="height: 40px;">
+                <td class="txt-r" style="width: 15%"><span class="red">*</span>金三账户ID：</td>
+                <td style="width: 35%">
+                    <input name="accountId" type="text" id="accountId" class="mini-textbox" style="width: 90%"
+                        emptyText="请输入正确的金三账户ID" required requiredErrorText="请输入金三账户ID" onblur="addObject.getSfList" />
+                </td>
+                <td class="txt-r" style="width: 15%">金三账户名称：</td>
+                <td style="width: 35%">
+                    <input name="accountName" type="text" id="accountName" class="mini-textbox" style="width: 100%" />
+                </td>
+            </tr>
+            <tr style="height: 40px;">
+                <td class="txt-r" style="width: 15%"><span class="red">*</span>金三账户密码：</td>
+                <td style="width: 35%">
+                    <input name="accountPwd" type="text" id="accountPwd" class="mini-password" style="width: 90%"
+                        emptyText="请输入正确的金三账户密码" required requiredErrorText="请输入金三账户密码"
+                        onvaluechanged="addObject.changePwd(e,'accountPwdshow')" />
+                    <input name="accountPwdshow" type="text" id="accountPwdshow" class="mini-textbox"
+                        style="width: 90%;display: none;" emptyText="请输入正确的金三账户密码"
+                        onvaluechanged="addObject.changePwd(e,'accountPwd')" />
+                    <img src="../../images/eye1.png" alt="" id="eyes"
+                        style="width: 5%;vertical-align: middle;cursor: pointer;">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="width: 96%; margin: 0 auto;">
+        <div class="grid-toolbar">
+            <a class="mini-button toolBtn-blue grid-add" iconCls="icon-add" onclick="addObject.addRow">新增</a>
+            <a class="mini-button grid-remove" iconCls="icon-remove" onclick="addObject.deleteData">删除</a>
+        </div>
+        <div id="addObject-grid" class="mini-datagrid" style="width:100%;height:400px;" allowResize="false"
+            enabled="true" showPager="true" showEmptyText="true" autoLoad="false" multiSelect="true"
+            allowSortColumn="false" showEmptyText="true" emptyText="暂无数据" idField="id" checkSelectionOnly="true"
+            allowCellSelect="true" allowCellEdit="true" onpagechanged="addObject.onpagechanged"
+            onbeforeload="addObject.onbeforeload" oncellendedit="addObject.cellendedit">
+            <div property="columns">
+                <div type="checkcolumn" width="50">选择</div>
+                <div type="indexcolumn" width="50">序号</div>
+                <div field="rysfmc" headerAlign="center" align="center">金三身份名称
+                </div>
+                <div field="swrysfDm" type="comboboxcolumn"><span class="red">*</span>金三身份ID
+                    <input property="editor" class="mini-combobox" style="width:100%;" textField="swrysfDm"
+                        valueField="swrysfDm" onbeforeshowpopup="beforeshowpopup" />
+                </div>
+                <div field="serviceId" type="comboboxcolumn"><span class="red">*</span>支持机器人自动办理的事项
+                    <input property="editor" class="mini-combobox" style="width:100%;" textField="serviceName"
+                        multiSelect="true" valueField="serviceId" data="addObject.sxList" valueFromSelect="true" />
+                </div>
+            </div>
+        </div>
+        <div class="grid-toolbar" style="text-align: center;">
+            <a class="mini-button " onclick="addObject.cancle">取消</a>
+            <a class="mini-button toolBtn-blue" onclick="addObject.addAccount">确定</a>
+        </div>
+    </div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="pzjqrzhadd.js"></script>
+<link rel="stylesheet" href="./pzjqrzh.css">
+
+</html>

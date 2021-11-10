@@ -1,0 +1,164 @@
+<!-- 4 提交审核-->
+<h2 style="display: none;">预览</h2>
+<section class="forth-step">
+    <!--卖方 -->
+    <strong>卖方：销货单位（收款方基本信息）</strong>
+    <div class="xh-info  yl-input" id="ylxh-form" data-view-type="form">
+        <table cellpadding="0" cellspacing="0" border="0" width="98%">
+            <tr>
+                <td class="item-label" width="20%">纳税人识别号：</td>
+                <td width="33%">
+                    <input class="mini-hidden" name="djxh"  readOnly="true">
+                    <input class="mini-textbox"  name="nsrsbh" readOnly="true"  width="70%"    maxLength="20" readonly="true"  vtype="nsrsbh">
+                </td>
+                <td class="item-label" width="14%">纳税人名称：</td>
+                <td width="33%">
+                    <input  class="mini-textbox" name="nsrmc"  width="70%" value="纳税人名称"   readOnly="true" required="true"  requiredErrorText="纳税人名称不能为空" >
+                </td>
+            </tr>
+            <tr>
+                <td class="item-label">行业：</td>
+                <td>
+                    <input  class="mini-textbox" name="hyMc" id="ylHyMc"  readOnly="true"   width="70%">
+                </td>
+                <td class="item-label">征收品目名称：</td>
+                <td>
+                    <input  class="mini-textbox" name="zspmText"  readOnly="true" width="70%">
+                </td>
+            </tr>
+            <tr>
+                <td class="item-label">经营范围:</td>
+                <td>
+                    <input  class="mini-textbox" name="jyfw" width="70%" readOnly="true">
+                </td> <td class="item-label">地址：</td>
+                <td>
+                    <input  class="mini-textbox" name="dz" width="70%" required="true"  readOnly="true"  requiredErrorText="地址不能为空"  maxLength="40" vtype="maxLength:40">
+                </td>
+            </tr>
+            <tr>
+                <td class="item-label">开户银行类别：</td>
+                <td>
+                      <input  class="mini-textbox" name="khyhlbText" readOnly="true" width="70%">
+                </td>
+                <td class="item-label">银行营业网点名称：</td>
+                <td>
+                     <input  class="mini-textbox" name="yhyywdMc"  readOnly="true" width="70%" >
+                </td>
+            </tr>
+            <tr>
+                <td class="item-label">银行账号：</td>
+                <td>
+                    <input  class="mini-textbox" name="yhzh"  readOnly="true" width="70%" >
+                </td>
+                <td class="item-label">经办人：</td>
+                <td>
+                    <input  class="mini-textbox" name="jbr" width="70%"  readOnly="true" required="true" requiredErrorText="经办人不能为空"  >
+                </td>
+            </tr>
+            <tr>
+                <td class="item-label">经办人联系电话：</td>
+                <td>
+                    <input  class="mini-textbox" name="jbrdh" width="70%" readOnly="true"  required="true"  requiredErrorText="经办人联系电话不能为空"  vtype="rangeLength:8,13" >
+                </td>
+                <td class="item-label">备注：</td>
+                <td>
+                    <input  class="mini-textbox"  name="bz"  width="70%" readonly='true' required="true" >
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <!--买方-->
+    <strong class="gh-strong">买方：购货单位（付款方基本信息）</strong>
+    <div class="gh-info  yl-input" id="gh-info" data-view-type="form">
+        <table  id="ylfkf-form" data-view-type="form" cellpadding="0" cellspacing="0" border="0" width="98%" data-view-type="form" >
+            <tr>
+                <td class="item-label" width="20%">付款方纳税人识别号：</td>
+                <td width="33%">
+                    <input class="mini-hidden" name="djxh"  readOnly="true">
+                    <input class="mini-textbox"  name="ghfNsrsbh" readOnly="true"  width="70%"    maxLength="20" readonly="true"  vtype="nsrsbh">
+                </td>
+                <td class="item-label" width="14%">付款方名称：</td>
+                <td width="33%">
+                    <input  class="mini-textbox" name="ghfNsrmc" width="70%" required="true" readonly="true">
+                </td>
+            </tr>
+            <tr>
+                <td class="item-label">付款方地址：</td>
+                <td>
+                    <input  class="mini-textbox" name="ghfDz" width="70%"  maxLength="200" required="true" vtype="maxLength:200" readonly="true">
+                </td>
+                <td class="item-label">付款方开户银行类别：</td>
+                <td>
+                    <input  class="mini-textbox" name="_ghfYhhbDmText" readonly="true" width="70%">
+                </td>
+            </tr>
+            <tr>
+                <td class="item-label">付款方银行营业网点名称：</td>
+                <td>
+                    <input  class="mini-textbox" name="ghfYhyywdMc"  width="70%" required="true"  readonly="true">
+                </td>
+                <td class="item-label">付款方银行账号：</td>
+                <td>
+                    <input  class="mini-textbox" name="ghfYhkhzh" width="70%" readonly="true">
+                </td>
+            </tr>
+            <tr>
+                <td class="item-label">联系电话：</td>
+                <td>
+                    <input  class="mini-textbox" name="ghfLxdh"  width="70%"  required="true" readonly="true">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--  劳务货物信息-->
+    <strong class="gh-strong">劳务货物信息</strong>
+    <div data-view-type="datagrid">
+        <div id="lwhwYl-grid" class="mini-datagrid" style="width:100%" allowResize="false"
+             enabled="true"
+             showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+             idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="false">
+            <div property="columns">
+                <div type="checkcolumn" width="50">选择</div>
+                <div field="hwlwmc" class="xxxxx"  vtype="maxLength:20">货物或劳务名称
+                    </div>
+                <div field="ggxh"  vtype="maxLength:20">规格
+                </div>
+                <div field="dwslDm">单位
+                 </div>
+                <div field="hlsl">数量
+                  </div>
+                <div field="hldj">单价（元）
+                 </div>
+                <div field="je" renderer="dkztfp.onjeRender">金额（不含税）
+                 </div>
+                <div field="slv">税率
+                 </div>
+                <div field="se" renderer="dkztfp.onSeRender" vtype="float;rangeDecimals:6">税额
+                 </div>
+                <div field="jylb">经营类别
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom" style="width: 100%;" id="ylHj" data-view-type="form">
+    <table class="form-table table_bg table-bg-green" style="width: 100%">
+            <tr>
+                <th>金额合计（不含税）：</th>
+                <td  width="20%" class="htzje">
+                    <input class="mini-textbox"  id='yl-jehj' name='jehj'  readonly="true"></td>
+                <th>税额合计：</th>
+                <td><input class="mini-textbox" width="66%" name="sehj" id="yl-sehj" readonly="true"></td>
+            </tr>
+            <tr>
+                <th>价税合计（金额+税额）：</th>
+                <td class="jshj-text" colspan="3"><input class="mini-textbox" name="jshj" id="yl-jshj">
+                </td>
+                </tr>
+        </table>
+        <!-- <p>金额合计（不含税）：<strong class="jehj" id="jehj"></strong> 税额合计：<strong class="sehj" id="sehj">6413.00</strong></p>
+        <p>
+            加税合计（金额+税额）：<strong class="jshj" id="jshj">9143.00</strong>
+        </p> -->
+    </div>
+</section>

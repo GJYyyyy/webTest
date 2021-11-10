@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    html,body {
+        width: 100%;
+    }
+    .dot{
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        text-align: center;
+        background: #03A9F4 ;
+        color: #fff;
+        display: table;
+        font-size: 14px;
+    }
+    .dot span,.box span {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .border {
+        content: '';
+        position: absolute;
+        z-index: -2;
+        transform-origin: left top;
+        left: 60px;
+        top: 40%;
+        width: 140px;
+        border-top: 1px solid #000;
+        display: none \0;
+    }
+    .container{
+        width: 100%;
+        height: 520px;
+        margin: 0 auto;
+        /* border: 1px solid #000; */
+    }
+    .box{
+        font-size: 12px;
+        width: 80px;
+        height: 80px;
+        display: table;
+        text-align: center;
+        border-radius: 50%;
+        background: #ea5252;
+        position: absolute;
+        color: #fff;
+    }
+    .yellow {
+        background: #f1ba55;
+    }
+    .blue {
+        background:#69c9f5;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dot">
+            <span>纳税人画像</span>
+            <!-- <div class="border"></div> -->
+
+        </div>
+
+        <!-- <div class="box yellow"><span>信用波动较大</span></div> -->
+    
+    </div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script type="text/javascript">
+    $(function(){
+        // type: 1 蓝色 type:2 红色 type:3 橘色
+        var html='',border=''
+        var data=[{
+            value:'单位纳税人',
+            type: 1,
+        },{
+            value:'一般纳税人',
+            type: 1,
+        },{
+            value:'软件开发',
+            type: 3,
+        },{
+            value:'信用中',
+            type: 3,
+        },{
+            value:'风险逐渐升高',
+            type: 2,
+        },{
+            value:'曾核查结果为有风险',
+            type: 2,
+        },{
+            value:'使用增值税专用发票',
+            type: 3, 
+        },{
+            value:'高风险',
+            type: 2, 
+        },{
+            value:'开业两年',
+            type: 3, 
+        },{
+            value:'信用波动较大',
+            type: 1, 
+        },{
+            value:'被限制升版增量',
+            type: 2, 
+        }];
+        var borderNum = data.length;
+        $.each(data,function (i,v) {
+            var color = v.type==1?'blue':v.type==2?'red':'yellow'
+            html+='           <div class="box '+color+'">\n' +
+              '                    <span>'+v.value+'</span>\n' +
+              '                </div>'
+        });
+      
+        $.each(data,function (i,v) {
+                border+='           <div class="border">\n' +       
+                '                </div>'
+        });
+        
+        $('.dot').append(border)
+        $('.container').append(html)
+        //中心点横坐标
+        var dotLeft = ($(".container").width()-$(".dot").width())/2;
+        //中心点纵坐标
+        var dotTop = ($(".container").height()-$(".dot").height())/2;
+        //起始角度
+        var stard = 0;
+        //半径
+        var radius = 200;
+        //每一个BOX对应的角度;
+        var avd = 360/$(".box").length;
+        //每一个BOX对应的弧度;
+        var ahd = avd*Math.PI/180;    
+        //设置圆的中心点的位置
+        $(".dot").css({"left":dotLeft-20,"top":dotTop});
+        $(".box").each(function(index, element){
+            $(this).css({"left":(Math.sin((ahd*index))*radius+dotLeft),"top":(Math.cos((ahd*index))*radius+dotTop)});
+        });
+        var dosTop= $('.dot').offset().top+55;
+        $('.border').each(function(index,element){
+            console.log($(this,element))
+            $(this).css('transform','rotate('+((360/borderNum*index)+90)+'deg)')
+        })
+    })
+
+</script>
+</html>

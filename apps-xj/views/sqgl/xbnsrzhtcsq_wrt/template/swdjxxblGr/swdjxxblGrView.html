@@ -1,0 +1,180 @@
+<style>
+    .break-title{
+        display: inline-block;
+        width: 10%;
+        font-weight: bold;
+    }
+    .break-line{
+        display: inline-block;
+        width: 90%;
+        height: 1px;
+        margin-bottom: 5px;
+        border-bottom: 1px #ddd solid;
+    }
+    .form-table tr td:nth-child(2n+1),
+    .form-table tr th:nth-child(2n+1){
+        text-align: right;
+    }
+    .form-table{
+        width: 98%;
+    }
+    .mini-textbox-input {
+        text-overflow: ellipsis;
+    }
+</style>
+<div id="djxxbl-yl" data-view-type="form">
+    <div id="tabs1" class="mini-tabs" activeIndex="0" style="width:100%;" plain="false">
+        <div title="纳税人基本信息">
+            <div id="nsrjbxxForm">
+                <table class="form-table" width="100%" style="margin-top:10px;">
+                    <tr>
+                        <th width="20%" style="text-align:right">社会信用代码：
+                        </th>
+                        <td width="30%">
+                            <input name="shxydm" readonly="true"
+                                    class="mini-textbox" style="width:100%;"/>
+                        </td>
+                        <th width="20%" style="text-align:right">纳税人名称：</th>
+                        <td width="30%">
+                            <input ReadOnly="true" name="nsrmc" class="mini-textbox"
+                                    style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- <th width="20%" style="text-align:right">登记注册类型：</th>
+                        <td width="30%">
+                            <input readonly="true" name="djzclxdmText" class="mini-textbox" style="width:100%;"/>
+                        </td> -->
+                        <th width="20%" style="text-align:right">开业（设立）日期：
+                        </th>
+                        <td width="30%">
+                            <input readonly="true" name="kyslrq" class="mini-datepicker" style="width:100%;" format="yyyy-MM-dd" showTime="true"/>
+                        </td>
+                        <th width="20%" style="text-align:right">证照名称：
+                        </th>
+                        <td width="30%">
+                            <input ReadOnly="true" name="zzmcText" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">证照号码：</th>
+                        <td width="30%">
+                            <input readonly="true" name="zzhm" required="true" class="mini-textbox" style="width:100%;" />
+                        </td>
+                        <th width="20%" style="text-align:right">批准设立机关类型：
+                        </th>
+                        <td width="30%">
+                            <input ReadOnly="true" name="pzsljglxdmName" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">批准设立机关：</th>
+                        <td width="30%">
+                            <input readonly="true" name="pzsljgdmName" required="true" class="mini-textbox" style="width:100%;" />
+                        </td>
+                        <th width="20%" style="text-align:right">业主姓名：</th>
+                        <td width="30%">
+                            <input name="fddbrxm" ReadOnly="true" class="mini-textbox" style="width:100%;"/></td>
+                    </tr>
+                    <tr style="display: none;">
+                        <th width="20%" style="text-align:right">注册地地址：
+                        </th>
+                        <td width="30%">
+                            <input ReadOnly="true" id="zcdz" name="zcdz" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                        <th width="20%" style="text-align:right">注册地联系电话：</th>
+                        <td width="30%">
+                            <input readonly="true" name="zcdlxdh" required="true" class="mini-textbox" style="width:100%;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">业主住所：
+                        </th>
+                        <td width="30%">
+                            <input ReadOnly="true" name="fddbrzs" class="mini-textbox"
+                                style="width:100%;"/>
+                        </td>
+                        <th width="20%" style="text-align:right">身份证件种类：</th>
+                        <td width="30%">
+                            <input readonly="true" name="fddbrsfzjzlText" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">身份证件号码：</th>
+                        <td width="30%">
+                            <input readonly="true" name="fddbrsfzjhm" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                        <th width="20%" style="text-align:right">业主联系电话：
+                        </th>
+                        <td width="30%">
+                            <input readonly="true" name="fddbryddh" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!--<th width="20%">业主户籍</th>
+                        <td width="30%">
+                            <input readonly="true" name="fddbrhj" class="mini-textbox" style="width:100%;" />
+                        </td>-->
+                        <th width="20%" style="text-align:right">业主固定电话：</th>
+                        <td width="30%">
+                            <input readonly="true" name="fddbrgddh" class="mini-textbox" style="width:100%;" />
+                        </td>
+                        <th width="20%" style="text-align:right">电子邮件：</th>
+                        <td width="30%">
+                            <input readonly="true" name="fddbrdzxx" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">从业人数：</th>
+                        <td width="30%">
+                            <input readonly="true" name="cyrs" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                        <th width="20%" style="text-align:right">组成形式：
+                        </th>
+                        <td width="30%">
+                            <input readonly="true" name="zcxs" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">生产经营地联系电话：</th>
+                        <td width="30%">
+                            <input readonly="true" name="scjydlxdh" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                        <th width="20%" style="text-align:right">行政区划：</th>
+                        <td width="30%">
+                            <input readonly="true" name="scjydzxzqhszDmText" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">生产经营地址：
+                        </th>
+                        <td width="30%">
+                            <input readonly="true" id="scjydz" name="scjydz" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                        <!-- <th width="20%" style="text-align:right">生产经营地邮政编码：
+                        </th>
+                        <td width="30%">
+                            <input readonly="true" name="scjydyzbm" class="mini-textbox" style="width:100%;"/>
+                        </td> -->
+                        <th width="20%" style="text-align:right">经营范围：</th>
+                        <td width="30%">
+                            <input  id="jyfw" readonly="true" name="jyfw" class="mini-textbox"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%" style="text-align:right">国标行业主：</th>
+                        <td width="30%">
+                            <input readonly="true" name="hyDmText" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                        <th width="20%" style="text-align:right">国标行业附：</th>
+                        <td width="30%">
+                            <input readonly="true" name="fshyDm1Text" class="mini-textbox" style="width:100%;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

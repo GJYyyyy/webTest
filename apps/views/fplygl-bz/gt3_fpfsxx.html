@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>金三发票发售信息</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/style.css">
+    <script src="../../../lib/jquery/jquery.js"></script>
+    <script src="../../scripts/miniui.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script type="text/javascript" src="gt3_fpfsxx.js"></script>
+</head>
+
+<body>
+<div class="mini-panel-body">
+    <p style="font-size:18px;font-weight:normal;">查询金三发票发售信息:</p>
+    <table style="width:450px;">
+        <tr>
+            <td width="100px">发票领用日期：</td>
+            <td><input class="mini-datepicker" allowInput="false" format="yyyy-MM-dd" value="new Date()" id="querydate"/></td>
+            <td>
+                <div class="searchdiv">
+                    <a class="mini-button" onclick="searchFpfsFromGt3()">查询</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div style="overflow-x: scroll;width: 100%;">
+        <div id="zzsfpfsGrid" class="mini-datagrid" style="width:1160px;height:300px;" idfield="id"
+             showpager="false"
+             allowCellEdit="true" allowCellSelect="true" multiSelect="true" allowCellValid="true"
+             oncellcommitedit="onCellCommitEdit" showemptytext="true"
+             emptytext='<font color="red">未查询到发售信息</font>'>
+            <div property="columns">
+                <div type="checkcolumn" width="10"></div>
+                <div field="fpzlMc" width="40" headeralign="center" allowsort="false">发票种类名称</div>
+                <div field="fpzlDm" width="30" headeralign="center" allowsort="false">发票种类代码</div>
+                <div field="fpDm" width="30" headeralign="center" allowsort="false">发票代码</div>
+                <div field="fpqh" width="30" headeralign="center" allowsort="false">发票起始号码</div>
+                <div field="fpzh" width="30" headeralign="center" allowsort="false">发票终止号码</div>
+                <div field="hffs" width="30" headeralign="center" allowsort="false">核发份数</div>
+                <div field="lgrq" width="20" headeralign="center" allowsort="false" renderer="onRenderLgrq">领购日期</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="searchdiv" style="text-align: center">
+    <button class="mini-button toolBtn-blue" onclick="onOK()">确定</button>
+    <button class="mini-button toolBtn-white" onclick="onBack()">取消</button>
+</div>
+</body>
+</html>

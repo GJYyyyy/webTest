@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>查看详情</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../styles/style.css">
+  <link rel="stylesheet" href="./fpfwptnsrqccx.css">
+</head>
+
+<body style="background:#fff;">
+  <!-- <div class="search">
+    <div class="searchC">查询条件</div>
+</div> -->
+
+  <div id="qymdFromXq" class="searchdiv">
+    <table width="96%" border="0" cellspacing="0" cellpadding="0" class="qymdTable" id="qymdTable">
+      <tr>
+        <th style="width: 15%;text-align: right">纳税人识别号：</th>
+        <td style="width: 35%;padding-bottom: 10px;"><input name="nsrsbh" type="text" id="nsrsbh" class="mini-textbox"
+            style="width: 100%" vtype="rangeLength:15,20" onvalidation="nsrsbhValidate"
+            maxLengthErrorText="编号长度不能超过20个字符" minLengthErrorText="编号长度不能低于15个字符" /></td>
+        <th style="text-align: right">纳税人名称：</th>
+        <td>
+          <input name="nsrmc" type="text" id="nsrmc" class="mini-textbox" style="width: 100%" />
+        </td>
+      </tr>
+      <tr>
+        <th style="padding: 5px 0;text-align: right">主管税务机关：</th>
+        <td>
+          <input id="zgswjg" name="zgswjg" class="mini-treeselect" emptyText="--请选择--" textField="swjgmc"
+            allowInput="true" valueFromSelect="true" popupWidth="357px;" valueField="swjgdm" parentField="PID"
+            showQueryToolBar="false" style="width:100%;" />
+        </td>
+        <th style="width: 15%;text-align: right">合同有效期：</th>
+        <td nowrap style="width: 35%">
+          <input id="htyxqzStartTime" name="htyxqzStartTime" class="mini-datepicker" format="yyyy-MM-dd"
+            style="width: 46%" />
+          <span style="display: inline-block;width: 5%;text-align: center;">至</span>
+          <input id="htyxqzEndTime" name="htyxqzEndTime" class="mini-datepicker" format="yyyy-MM-dd"
+            style="width: 46%" />
+        </td>
+      </tr>
+      <tr>
+        <th style="padding: 10px;width: 15%;text-align: right">合同签订日期：</th>
+        <td nowrap style="width: 35%">
+          <input id="htqdrqStartTime" name="htqdrqStartTime" class="mini-datepicker" format="yyyy-MM-dd"
+            style="width: 46%" />
+          <span style="display: inline-block;width: 5%;text-align: center;">至</span>
+          <input id="htqdrqEndTime" name="htqdrqEndTime" class="mini-datepicker" format="yyyy-MM-dd"
+            style="width: 46%" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6" style="padding:10px; text-align:center;">
+          <a id="searchXq" class="mini-button" onclick="fpfwqccx_xqy.doSearchXq">查询</a>
+          <a class="mini-button" onclick="fpfwqccx_xqy.doResetXq">重置</a>
+          <a class="mini-button" onclick="fpfwqccx_xqy.exportFpqdXq">导出</a>
+      </tr>
+    </table>
+  </div>
+
+  <div id="fpfwGridXq" class="mini-datagrid" showPager="true" style="width: 99%; height:500px; margin: 0 auto;"
+    sizeList="[30,50,100]" pageSize="30" allowCellWrap="false" allowHeaderWrap="true" fitColumns="true"
+    showEmptyText="true" onpagechanged="fpfwqccx_xqy.onpagechanged" onbeforeload="fpfwqccx_xqy.onbeforeload">
+    <div property="columns">
+      <div field="no" width="40" align="center" headeralign="center">序号</div>
+      <div field="ptmc" align="center" headeralign="center" width="120">平台名称</div>
+      <div field="ptsyrnsrsbh" align="center" headeralign="center" width='150'>平台所有者纳税人识别号</div>
+      <div field="lrrq" align="center" headeralign="center" width='120' dateFormat="yyyy-MM-dd">清册上传日期</div>
+      <div field="nsrmc" align="center" headeralign="center" width='150'>纳税人名称</div>
+      <div field="nsrsbh" align="center" headeralign="center" width='150'>纳税人识别号</div>
+      <div field="zgswjg" align="center" headeralign="center" width='150'>主管税务局</div>
+      <div field="htqdrq" align="center" headeralign="center" width='100' dateFormat="yyyy-MM-dd">合同签订日期</div> -->
+      <div field="htyxqz" align="center" headeralign="center" width='100' dateFormat="yyyy-MM-dd">合同有效期止</div>
+      <div field="htje" align="center" headeralign="center" width='80'>合同金额</div>
+      <div field="zzfwje" align="center" headeralign="center" width='90'>增值服务金额</div>
+      <div field="wzxhtje" align="center" headeralign="center" width='90'>未执行合同金额</div>
+      <div field="wzxbfcl" align="center" headeralign="center" width='90'>未执行部分处理</div>
+      <div field="cjpt" headeralign="center" align="center" width="100">承接平台 </div>
+    </div>
+  </div>
+
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="./fpfwqccx_xqy.js"></script>
+
+</html>

@@ -1,0 +1,37 @@
+.yswh {
+
+}
+.ml5 {
+    margin-left: 5px;
+}
+.yswh-form, .win-addrow-form {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.yswh-form tr, .win-addrow-form tr {
+    height: 45px;
+}
+
+
+.yswh-addrow-win {
+    font-size: 14px;
+}
+.yswh-addrow-win .mini-panel-body {
+    padding: 0 30px 30px 30px !important;
+}
+.win-addrow-form {
+    margin: 30px auto;
+}
+
+.mini-tips-success {
+    color: #333;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.yswh-addrow-win .mini-buttonedit-border {
+    padding-left: 10px !important;
+}

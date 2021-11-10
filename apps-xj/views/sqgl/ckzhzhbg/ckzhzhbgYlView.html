@@ -1,0 +1,65 @@
+<h3 class="txt-c">存款账户账号报告表</h3>
+<div class=" txt-c" style="background: #f7f7f7;margin-bottom: 20px;padding: 20px 0">
+    <table width="90%" data-view-type="form" id="nsrjbxx-form">
+        <tr>
+            <td class="txt-r" height="35">纳税人识别号：</td>
+            <td class="txt-l">
+                <input class="mini-textbox" name="nsrsbh" readonly="readonly"/>
+            </td>
+            <td class="txt-r">纳税人名称：</td>
+            <td class="txt-l">
+                <input class="mini-textbox" name="nsrmc" readonly="readonly"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="txt-r" height="35">联系电话：</td>
+            <td class="txt-l">
+                <input class="mini-textbox" name="scjydlxdh" readonly="readonly"/>    </td>
+            <td class="txt-r">生产经营地址：</td>
+            <td class="txt-l">
+                <input class="mini-textbox" name="scjydz" readonly="readonly"/>
+            </td>
+        </tr>
+    </table>
+</div>
+<div data-view-type="datagrid">
+    <div id="yltj" class="mini-datagrid" style="width:1260px;height:210px;" allowResize="false"
+         enabled="true"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="false">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+
+            <div field="sxjszhbz" type="comboboxcolumn">缴税账号
+                <input property="editor" class="mini-combobox" style="width:100%;" data='[{"ID":"Y","MC":"是"},{"ID":"N","MC":"否"}]' />
+            </div>
+
+            <div field="zhmc">账户名称</div>
+
+            <div field="yhzhxzDm" width="160" displayField="yhzhxzDmText" renderer="ckzhzhbg.zhxzRenderer">账户性质</div>
+
+            <div field="xzqhszDm" visible="false" displayField="xzqhszDmText" renderer="ckzhzhbg.xzqhRenderer">行政区划</div>
+
+            <div field="yhkhdjzh" width="200">核准号<br/>（银行登记证号）</div>
+
+            <div field="ffrq" dateFormat="yyyy-MM-dd">发证日期</div>
+
+            <div field="yhhbDm" width="150" visible="false" displayField="yhhbDmText" renderer="ckzhzhbg.yhzlRenderer">银行种类</div>
+
+            <div field="yhyywdDm" width="288" displayField="yhyywdDmText" renderer="ckzhzhbg.khyhRenderer">开户银行</div>
+
+            <div field="yhzh" width="218">银行账号</div>
+
+            <div field="hbszDm"  displayField="hbszDmText" renderer="ckzhzhbg.bzRenderer">币种</div>
+
+            <div field="khrq" dateFormat="yyyy-MM-dd">开户时间</div>
+
+            <div field="cktszhbz" type="comboboxcolumn">出口退税账号
+                <input property="editor" class="mini-combobox" style="width:100%;" data='[{"ID":"Y","MC":"是"},{"ID":"N","MC":"否"}]' />
+            </div>
+            <div field="tszhbz" type="comboboxcolumn">退税账号标志
+                <input property="editor" class="mini-combobox" style="width:100%;" data='[{"ID":"Y","MC":"是"},{"ID":"N","MC":"否"}]' />
+            </div>
+        </div>
+    </div>
+</div>

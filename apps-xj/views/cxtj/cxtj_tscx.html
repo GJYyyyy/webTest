@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>纳税人消息推送查询</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./cxtj_tscx.css">
+</head>
+
+<body style="background: #fff;">
+
+    <!-- search form -->
+    <div id="tscxForm" class="searchBox">
+        <table width="90%" border="0" cellspacing="0" cellpadding="0" style="height: 120px">
+            <tr>
+                <th>推送日期</th>
+                <td nowrap><input id="tsrqKs" name="tsrqKs" class="mini-datepicker" format="yyyy-MM-dd"
+                        style="width: 37.25%" allowInput="false" />
+                    至 <input id="tsrqJs" name="slrqJs" class="mini-datepicker" format="yyyy-MM-dd" style="width: 37.25%"
+                        allowInput="false" /></td>
+
+                <th>所属税务机关</th>
+                <td nowrap>
+                    <input id="swjg" name="swjg" class="mini-treeselect" textfield="swjgmc" valuefield="swjgdm"
+                        parentField='sjswjgdm' onbeforenodeselect="beforenodeselect1" style="width:80%;"
+                        url="/dzgzpt-wsys/api/xj/wtgl/cxtj/getSxtjSwjg" allowInput="true" showNullItem="true" emptyText="操作员所属税务机关权及下级机关">
+                        
+                </td>
+
+                <th>阅读状态</th>
+                <td nowrap>
+                    <select showNullItem="true" class="mini-combobox" placeholder="请选择" id="readingStatus" name="readingStatus"
+                        showNullItem="true" style="width:80%;">
+                        <option value="all">全部</option>
+                        <option value="0">未读</option>
+                        <option value="1">已读</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <th>推送类别</th>
+                <td nowrap><input id="tslb" name="tslb" class="mini-combobox" textfield="lbtext" valuefield="lbid"
+                        style="width:80%;" url="" showNullItem="true" nullItemText="全部">
+                </td>
+
+                <th>推送渠道</th>
+                <td nowrap><input id="tsqd" name="tsqd" class="mini-combobox" textfield="qdtext" valuefield="qdid"
+                        style="width:80%;" showNullItem="true"
+                        nullItemText="全部">
+                </td>
+            </tr>
+
+            <tr>
+                <th>推送角色</th>
+                <td nowrap>
+                    <select showNullItem="true" class="mini-combobox" placeholder="请选择" id="tsCharactor" name="tsCharactor" style="width:80%;">
+                        <option value="0">所有</option>
+                        <option value="1">法人</option>
+                        <option value="2">财务负责人</option>
+                        <option value="3">办税员</option>
+                    </select>
+                </td>
+
+                <th>纳税人</th>
+                <td><input id="nsrNumber" name="nsrNumber" class="mini-textbox" style="width:80%;"
+                        url2="/cxb-dzgzpt/api/hgzx/xxts/queryContClassByNsr" emptyText="输入社会信用代码查询" /></td>
+            </tr>
+
+            <tr>
+                <th>推送关键字</th>
+                <td><input id="tsgjz" name="tsgjz" class="mini-textbox" style="width:80%;"
+                        emptyText="从指标名称、推送内容输入关键字搜索" /></td>
+
+                <!-- search button -->
+                <th></th>
+                <td class="p30">
+                    <a id="search" class="mini-button" onclick="doSearch()" >查询</a></td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="mini-fit">
+        <div id="tscxGrid" dataField="value.tstxDtos" idField="rwbh" totalField="value.total" class="mini-datagrid"
+            showPager="true" style="width: 100%; height:100%;" multiSelect="true" sizeList="[10,50,100]" pageSize="10">
+            <div property="columns">
+                <div type="indexcolumn">序号</div>
+                <div field="contentClassId" renderer="dealClassFormat" headeralign="center" align="center" allowsort="false" width="100">推送类别</div>
+                <div field="fxzbDm" width="" headeralign="center" align="center" allowsort="false" width="100">指标或提示编号
+                </div>
+                <div field="summary" headeralign="center" align="center" allowsort="false" width="110">推送内容</div>
+                <div field="shxydm" headeralign="center" align="center" allowsort="false" width="110">社会信用代码</div>
+                <div field="nsrmc" headeralign="center" align="center" allowsort="false" width="80">纳税人名称</div>
+                <div field="zgswskfjMc" headeralign="center" align="center" allowsort="false" width="120">主管税务机关及科所
+                </div>
+                <div field="ssglymc" headeralign="center" align="center" allowsort="false" width="80">税管员</div>
+                <div field="ydzt" renderer="dealReadingStatus" headeralign="center" align="center" allowsort="false" 
+                    width="80">阅读状态</div>
+                <div field="tsjs" renderer="dealCharactorFormat" headeralign="center" align="center" allowsort="false" width="70">推送角色</div>
+                <div field="channelId" headeralign="center" align="center" allowsort="false" renderer="onActionRenderer"
+                    width="80">推送渠道</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/efg_water.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="./cxtj_tscx.js"></script>
+
+</html>

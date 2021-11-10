@@ -1,0 +1,38 @@
+.icon-success{
+  background: url('../../images/success.png') no-repeat 20% 50%;
+  padding: 20px 0;
+}
+.icon-fail{
+  background: url('../../images/warning.png') no-repeat 20% 50%;
+  padding: 20px 0;
+}
+.hzfp-hide{
+  display: none;
+}
+.hzfpjg-success,.hzfpjg-fail{
+  width:450px;
+  margin:0 auto;
+}
+.hp-content .hp-red .mini-grid-cell {
+  color: #ff0000;
+}
+.hp-content .hp-red .mini-grid-cell a {
+  color: #ff0000;
+}
+.hp-content .hp-blue .mini-grid-cell {
+  color: #4472C4;
+}
+.hp-content .hp-blue .mini-grid-cell a {
+  color: #4472C4;
+}
+.hzfpkjxq{
+  padding: 0 20px;
+}
+.hzfpkjxq .table-cell .l{
+  width:120px;
+  text-align:right;
+  display:table-cell
+}
+.hzfpkjxq .table-cell .r{
+  display: table-cell;
+}

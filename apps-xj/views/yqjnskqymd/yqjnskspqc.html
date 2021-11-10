@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>延期缴纳税款审批清册</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../styles/style.css">
+  <link rel="stylesheet" href="./yqjnskspqc.css">
+</head>
+
+<body>
+  <h3 class="page-title">延期缴纳税款审批清册</h3>
+  <div id="filterForm" class="searchdiv">
+    <table width="96%" border="0" cellspacing="0" cellpadding="0" class="qymdTable" id="qymdTable">
+      <tr>
+        <th style="width: 10%">主管税务机关：</th>
+        <th style="width: 20%">
+          <input
+            id="zgswjg"
+            name="zgswjg"
+            class="mini-treeselect"
+            multiSelect="true"
+            checkRecursive="true"
+            emptyText="--请选择--"
+            textField="jgMc"
+            allowInput="true"
+            multiSelect="true"
+            checkRecursive="true"
+            valueFromSelect="true"
+            popupWidth="357px;"
+            valueField="jgDm"
+            parentField="PID"
+            showQueryToolBar="false"
+            style="width:100%;"
+          />
+        </th>
+        <th style="width: 10%">审批环节：</th>
+        <th style="width: 20%">
+          <input
+            id="sphj"
+            name="sphj"
+            class="mini-combobox"
+            value=""
+            data="[{'ID':'','MC':'全部'}, {'ID':'01','MC':'初审'}, {'ID':'02','MC':'复审'}, {'ID':'03','MC':'终审'}, {'ID':'04','MC':'发放'}]"
+            valueField="ID"
+            textField="MC"
+            allowInput="false"
+            showClose="false"
+          />
+        </th>
+        <th style="width: 10%">执行状态：</th>
+        <th style="width: 20%">
+          <input
+            id="zxZt"
+            name="zxZt"
+            class="mini-combobox"
+            value=""
+            data="[{'ID':'','MC':'全部'}, {'ID':'Y','MC':'成功'}, {'ID':'N','MC':'失败'}]"
+            valueField="ID"
+            textField="MC"
+            allowInput="false"
+            showClose="false"
+          />
+        </th>
+      </tr>
+      <tr>
+        <th style="width: 10%">统一社会信用代码（纳税人识别号）：</th>
+        <th style="width: 20%">
+          <input
+            name="nsrsbh"
+            id="nsrsbh"
+            type="text"
+            class="mini-textbox"
+            style="width: 100%"
+            vtype="rangeLength:15,20"
+            onvalidation="nsrsbhValidate"
+            maxLengthErrorText="编号长度不能超过20个字符"
+            minLengthErrorText="编号长度不能低于15个字符"
+          />
+        </th>
+        <th style="width: 10%">纳税人名称：</th>
+        <th style="width: 20%">
+          <input id="nsrmc" name="nsrmc" class="mini-textbox" style="width:100%;" />
+        </th>
+        <th style="width: 10%">是否签订电子送达协议：</th>
+        <th style="width: 20%">
+          <input
+            id="sfqdxy"
+            name="sfqdxy"
+            class="mini-combobox"
+            value=""
+            data="[{'ID':'','MC':'全部'}, {'ID':'Y','MC':'是'}, {'ID':'N','MC':'否'}]"
+            valueField="ID"
+            textField="MC"
+            allowInput="false"
+            showClose="false"
+        />
+        </th>
+      </tr>
+      <tr>
+        <th colspan="6" style="padding:10px; text-align:center;">
+          <a id="search" class="mini-button" onclick="yqjnskspqc.doSearch">查询</a>
+          <a class="mini-button" onclick="yqjnskspqc.doReset">重置</a>
+      </tr>
+    </table>
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <a class="mini-button" onclick="yqjnskspqc.doExport">导出查询结果</a>
+  </div>
+
+  <div
+    id="qymdGrid"
+    class="mini-datagrid"
+    showPager="true"
+    onpagechanged="yqjnskspqc.onPageChanged"
+    onbeforeload="yqjnskspqc.beforeLoad"
+    style="width: 99%; height:500px; margin: 0 auto;"
+    emptyText="暂无数据"
+    showEmptyText="true"
+    sizeList="[10,30,50,100]"
+    allowHeaderWrap="true"
+    fitColumns="true"
+  >
+    <div property="columns">
+      <div type="indexcolumn" width="60">序号</div>
+      <div field="nsrsbh" headeralign="center" align="center" allowsort="false" width="120">社会统一信用代码（纳税人识别号）</div>
+      <div field="nsrmc" headeralign="center" align="center" allowsort="false" width="120">纳税人名称</div>
+      <div field="zgswj" headeralign="center" align="center" allowsort="false" width="120">主管税务局</div>
+      <div field="zgsws" headeralign="center" align="center" allowsort="false" width="120">主管税务所（科、分局）</div>
+      <div field="zsxm" headeralign="center" align="center" allowsort="false" width="120">征收项目</div>
+      <div field="zspmmc" headeralign="center" align="center" allowsort="false" width="120">征收品目</div>
+      <div field="skssqq" headeralign="center" align="center" allowsort="false" width="120">税款所属期起</div>
+      <div field="skssqz" headeralign="center" align="center" allowsort="false" width="120">税款所属期止</div>
+      <div field="bqyb" headeralign="center" align="center" allowsort="false" width="120">本期应补（退）税额</div>
+      <div field="yqjnse" headeralign="center" align="center" allowsort="false" width="120">申请延期缴纳税额</div>
+      <div field="yqjnqx" headeralign="center" align="center" allowsort="false" width="120">延期缴纳税款期限</div>
+      <div field="sphj" headeralign="center" align="center" allowsort="false" width="120">审批环节</div>
+      <div field="sprq" headeralign="center" align="center" allowsort="false" width="120">审批日期</div>
+      <div field="zxZt" headeralign="center" align="center" allowsort="false" width="120">执行状态</div>
+      <div field="sfqdxy" headeralign="center" align="center" allowsort="false" width="120">是否签订电子送达协议</div>
+    </div>
+  </div>
+
+  <script src="../../../lib/jquery/jquery.js"></script>
+  <script src="../../scripts/miniui.js"></script>
+  <script src="../../scripts/gldcommon.js"></script>
+  <script src="./yqjnskspqc.js"></script>
+</body>
+
+</html>

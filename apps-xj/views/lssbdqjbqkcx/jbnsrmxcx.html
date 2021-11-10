@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="降版纳税人明细信息查询">
+    <meta name="keywords" content="ghqc">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>降版纳税人明细信息查询</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <style>
+        .content .cxtjTable th {
+            text-align: right;
+        }
+
+        .content .cxtjTable tr {
+            height: 46px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="search-box" id="search-box">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="cxtjTable" style="margin: 20px 0">
+                <tr>
+                    <th style="width:12%">临时升版文书号：</th>
+                    <td style="width:21%"><input name="wsh" id="wsh" class="mini-textbox" style="width:100%;">
+                    </td>
+                    <th style="width:12%">纳税人识别号：</th>
+                    <td style="width:21%"><input name="nsrsbh" id="nsrsbh" class="mini-textbox" style="width:100%;">
+                    </td>
+                    <th style="width:12%">主管税务机关：</th>
+                    <td style="width:21%"><input id="swjgDm" name="swjgDm" class="mini-treeselect" textfield="MC"
+                            valuefield="ID" parentField="PID" popupWidth="374"
+                            url="/dzgzpt-wsys/api/baseCode/get/baseCodeTree/DM_GY_SWJG_GT3_SH2" showNullItem="true"
+                            nullItemText="--请选择--" style="width:100%;" required requiredErrorText="请选择主管税务机关" /></td>
+                </tr>
+                <tr>
+                    <th>行政许可到期日起止：</th>
+                    <td>
+                        <input id="xkyxqQ" name="xkyxqQ" type="text" class="mini-datepicker" style="width: 46%"
+                            format="yyyy-MM-dd" requiredErrorText="请选择行政许可到期日起起"
+                            onvaluechanged="cxtj.dateChange(e,'minDate','xkyxqZ')" />
+                        <span style="display: inline-block;width: 4%;text-align: center;">至</span>
+                        <input id="xkyxqZ" name="xkyxqZ" type="text" class="mini-datepicker" style="width: 46%"
+                            format="yyyy-MM-dd" requiredErrorText="请选择行政许可到期日起止"
+                            onvaluechanged="cxtj.dateChange(e,'maxDate','xkyxqQ')" />
+                    </td>
+                    <!-- <th>行政许可到期日止：</th>
+                    <td>
+                        <input id="xkyxqzQ" name="xkyxqzQ" type="text" class="mini-datepicker" style="width: 46%"
+                            format="yyyy-MM-dd" requiredErrorText="请选择行政许可到期日止起"
+                            onvaluechanged="cxtj.dateChange(e,'minDate','xkyxqzZ')" />
+                        <span style="display: inline-block;width: 5%;text-align: center;">至</span>
+                        <input id="xkyxqzZ" name="xkyxqzZ" type="text" class="mini-datepicker" style="width: 46%"
+                            format="yyyy-MM-dd" requiredErrorText="请选择行政许可到期日止止"
+                            onvaluechanged="cxtj.dateChange(e,'maxDate','xkyxqzQ')" />
+                    </td> -->
+                    <th>发票种类：</th>
+                    <td><input name="fpzlDm" id="fpzlDm" class="mini-combobox" valueField="code" textField="value"
+                            allowInput="false" style="width:100%;"
+                            data="[{code:'',value:'全部'},{code:'1130',value:'中文三联'},{code:'1160',value:'中文六联'}]">
+                    </td>
+                    <th>降版状态：</th>
+                    <td><input name="jbzt" id="jbzt" class="mini-combobox" valueField="code" textField="value"
+                            allowInput="false" style="width:100%;"
+                            data="[{code:'',value:'全部'},{code:'02',value:'降版成功'},{code:'01',value:'同步金三成功，但同步2.0失败'},{code:'00',value:'同步金三失败'}]">
+                    </td>
+                </tr>
+                <tr>
+                    <!-- <th>临时升版申请日期起：</th>
+                    <td>
+                        <input id="lssbsqrqq" name="lssbsqrqq" type="text" class="mini-datepicker" style="width: 46%"
+                            format="yyyy-MM-dd" requiredErrorText="请选择任务执行时间起起"
+                            onvaluechanged="cxtj.dateChange(e,'minDate','lssbsqrqz')" />
+                        <span style="display: inline-block;width: 5%;text-align: center;">至</span>
+                        <input id="lssbsqrqz" name="lssbsqrqz" type="text" class="mini-datepicker" style="width: 46%"
+                            format="yyyy-MM-dd" requiredErrorText="请选择任务执行时间起止"
+                            onvaluechanged="cxtj.dateChange(e,'maxDate','lssbsqrqq')" />
+                    </td>
+                    <th>临时升版申请日期止：</th>
+                    <td>
+                        <input id="lssbsqrqzq" name="lssbsqrqzq" type="text" class="mini-datepicker" style="width: 46%"
+                            format="yyyy-MM-dd" requiredErrorText="请选择任务执行时间止起"
+                            onvaluechanged="cxtj.dateChange(e,'minDate','lssbsqrqzz')" />
+                        <span style="display: inline-block;width: 5%;text-align: center;">至</span>
+                        <input id="lssbsqrqzz" name="lssbsqrqzz" type="text" class="mini-datepicker" style="width: 46%"
+                            format="yyyy-MM-dd" requiredErrorText="请选择任务执行时间止止"
+                            onvaluechanged="cxtj.dateChange(e,'maxDate','lssbsqrqzq')" />
+                    </td> -->
+
+                    <th>降版前发票最高开票限额：</th>
+                    <td><input name="jbqxe" id="jbqxe" class="mini-combobox" valueField="ID" textField="MC"
+                            multiSelect="true" allowInput="false" style="width:100%;"
+                            url="/dzgzpt-wsys/api/baseCode/get/baseCode2CombSelect/DM_FP_FPZGKPXE">
+                    </td>
+                    <td colspan="2" style="text-align:center;">
+                        <a id="search" class="mini-button" onclick="cxtj.search(0, 30)">查询</a>
+                        <a id="reset" class="mini-button" onclick="cxtj.doReset()">重置</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div>
+        <div class="mini-datagrid" id="mxtj_grid" showpager="true" style="width: 98%;margin: 0 auto; height:400px;"
+            ajaxType="post" url="/dzgzpt-wsys/api/sh/lsjbdqsb/query/mxxx" sizeList="[30,50,100]" pageSize="30"
+            showEmptyText="true" allowHeaderWrap="true" emptyText="<span style='color:#ff0000;'>没有数据</span>">
+            <div property="columns">
+                <div type="indexcolumn" width="40" headeralign="center" allowsort="true">序号</div>
+                <div field="nsrsbh" headeralign=" center" align="center">纳税人识别号（社会统一信用代码）</div>
+                <div field="nsrmc" headeralign="center" align="center">纳税人名称</div>
+                <div field="fpmc" headeralign="center" align="center">发票种类名称</div>
+                <div field="xkyxqq" headeralign="center" align="center" dateFormat="yyyy-MM-dd">行政许可有效期起</div>
+                <div field="xkyxqz" headeralign="center" align="center" dateFormat="yyyy-MM-dd">行政许可有效期止</div>
+                <div field="fpxe" headeralign="center" align="center">临时申请开票限额</div>
+                <div field="oldfpxe" headeralign="center" align="center">原版本开票限额</div>
+                <div field="sbrq" headeralign="center" align="center" dateFormat="yyyy-MM-dd">升版日期</div>
+                <div field="wsh" headeralign="center" align="center">电子税务局文书号</div>
+                <div field="sqr" headeralign="center" align="center">申请人</div>
+                <div field="swjgmc" headeralign="center" align="center">主管税务机关</div>
+                <div field="jbzt" headeralign="center" align="center" renderer="onjbztrenderer">降版状态</div>
+                <div field="skssqq" width="150" headeralign="center" align="center" renderer="onczrenderer">操作</div>
+            </div>
+        </div>
+    </div>
+    <div id="xqwin" class="mini-window" title="详情" style="width:70%;height:300px;" showShadow="true" showFooter="true"
+        showModal="true">
+        <div style="color: red;" id="xqtip">
+            温馨提示：金三票种核定已还原，但同步2.0失败，您可联系办税服务厅通过“发票票种核定申请”界面上方【同步数据（补偿）】按钮，手工将降版后的票种核定信息推送至增值税发票管理新系统（税控部分）！</div>
+        <div class="mini-datagrid" id="xqtj_grid" showpager="false" style="width: 98%;margin: 0 auto; height:400px;"
+            showEmptyText="true" emptyText="<span style= 'color:#ff0000;'>没有数据</span>">
+            <div property="columns">
+                <div field="czrq" headeralign=" center" align="center" dateFormat="yyyy-MM-dd">操作日期</div>
+                <div field="czymc" headeralign="center" align="center">操作员</div>
+                <div field="czybm" headeralign="center" align="center">操作员所在部门</div>
+                <div field="fpmc" headeralign="center" align="center">发票种类</div>
+                <div field="fpme" headeralign="center" align="center">发票面额</div>
+                <div field="czjg" headeralign="center" align="center">操作结果代码</div>
+                <div field="sbyy" headeralign="center" align="center">同步失败原因</div>
+            </div>
+        </div>
+        <div property="footer" style="text-align:center;">
+            <a id="cancel" class="mini-button toolBtn-blue" onclick="cxtj.hideWindow()"
+                style='vertical-align:middle;'>取消</a>
+        </div>
+    </div>
+    <script src="../../../lib/jquery/jquery.js"></script>
+    <script src="../../scripts/miniui.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script src="jbnsrmxcx.js"></script>
+</body>
+
+</html>

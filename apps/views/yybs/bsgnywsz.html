@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>预约办税功能设置</title>
+    <link rel="stylesheet" href="../../../apps/styles/style.css">
+    <link rel="stylesheet" href="bsgnywsz.css">
+    <style type="text/css">
+    	td.mini-listbox-checkbox{
+    	width:4px !important;}
+    </style>
+</head>
+<body class="bsgnywsz">
+<div id="cxtjForm" class="search-area">
+    <table width="96%" border="0" cellspacing="0" cellpadding="0" class="cxtjTable">
+        <tr>
+            <th>选择办税大厅：</th>
+            <td><input id="xzBsdt" name="bsdtdm" textField="bsdtMc" onvaluechanged="bsdtChange" valueField="bsdtDm" class="mini-combobox" style="width:100%;"/></td>
+            <th>选择办税窗口：</th>
+            <td><input id="xzBsck" name="ckdm" textField="yysxCkMc" valueField="yysxCkDm" onvaluechanged="chooseCk" class="mini-combobox" style="width:100%;"/></td>
+        </tr>
+    </table>
+</div>
+<div class="content-area">
+    <div class="tab-choose-area">
+        <table class="choose-table">
+            <tr>
+                <td ><p>可选业务名称</p>
+                    <div id="listbox1" class="mini-listbox" style="width:420px;height:150px;"
+                         textField="yysxMc" showCheckBox="true" valueField="yysxDm" multiSelect="true"
+                    >
+                    </div>
+                </td>
+                <td style="width:90px;text-align:center;">
+                    <input type="button" value=">" onclick="yyAdd()" style="width:40px;"/><br />
+                    <input type="button" value=">>" onclick="yyAddAll()" style="width:40px;"/><br />
+                    <input type="button" value="&lt;&lt;" onclick="yyremoveAll()" style="width:40px;"/><br />
+                    <input type="button" value="&lt;" onclick="yyremove()" style="width:40px;"/><br />
+                </td>
+                <td><p>已选业务名称</p>
+                    <div id="listbox2" class="mini-listbox" style="width:420px;height:150px;" showCheckBox="true" multiSelect="true"
+                          >
+                        <div property="columns" >
+                            <div field="yysxMc"></div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="radio-area clearfix">
+        <div class="left-box-radio">是否启用预约：</div>
+        <div id="rbl" class="mini-radiobuttonlist radio-posi" repeatItems="1" repeatLayout="table"
+             repeatDirection="vertical" 
+             textField="text" valueField="id"
+             data = '[
+                {"id": "Y", "text": "启用"},
+                {"id": "N", "text": "不启用"}
+            ]'
+        >
+        </div>
+    </div>
+
+    <div class="set-time-area" id="form">
+        <div class="table-title-box">
+            <a class="mini-button" iconCls="icon-add" onclick="yyaddRow()">增加</a>
+            <a class="mini-button" iconCls="icon-remove" onclick="yyremoveRow()">删除</a>
+        </div>
+        <div id="datagridTime" class="mini-datagrid set-table" style="height:300px;" allowResize="true" showEmptyText="true"
+               idField="id" multiSelect="true" allowCellEdit="true" allowCellSelect="true"
+
+        >
+            <div property="columns">
+                <div type="checkcolumn"  width="50">选择</div>
+                <div type="indexcolumn" width="50">序号</div>
+                <div type="textboxcolumn" autoShowPopup="true" field="yysjdq" name="yysjdq" width="100"
+                     allowSort="true"  align="center" headerAlign="center">可预约时间段起
+                    <input property="editor" class="mini-timespinner" onvaluechanged="valiTime(this)" required = "true" format="H:mm" style="width:100%;"/>
+                </div>
+                <div type="textboxcolumn" autoShowPopup="true" field="yysjdz" name="yysjdz" width="100"
+                     allowSort="true"  align="center" headerAlign="center">可预约时间段止
+                    <input property="editor" class="mini-timespinner" onvaluechanged="valiTime(this)" required = "true"  format="HH:mm" style="width:100%;"/>
+                </div>
+                <div type="textboxcolumn" autoShowPopup="true" field="kyyrs" name="kyyrs" width="100"
+                     allowSort="true"  align="center" headerAlign="center">可预约数量
+                    <input property="editor" class="mini-textbox" style="width:100%;" vtype="int" required = "true"/>
+                </div>
+            </div>
+        </div>
+        <div class="searchdiv">
+            <a id="search" class="mini-button" onclick="yyszTj()">保存</a>
+        </div>
+    </div>
+
+</div>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../../apps/scripts/miniui.js"></script>
+<!--<script src="../../scripts/gldcommon.js"></script>-->
+<script src="yybsService.js"></script>
+<script src="bsgnywsz.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>非正常户认定提示提醒</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./fzchrdBaseCss.css">
+</head>
+<body style="background:#fff;">
+<div id="qymdGrid" class="mini-datagrid" showPager="true" style="width: 99%; margin: 0 auto;" height="300px"
+     sizeList="[30,50,100]" pageSize="30" allowCellWrap="false" allowHeaderWrap="true" fitColumns="true"
+     showEmptyText="true"  emptyText="<span style= 'color:#ff0000;'>暂无数据</span>">
+    <div property="columns">
+        <div type="indexcolumn" width="60">序号</div>
+        <!--<div field="rwbh"  align="center" align="center" allowsort="false" width="120">任务编号</div>-->
+        <div field="nsrsbh" align="center" headeralign="center" width='180'>纳税人识别号</div>
+        <div field="nsrmc" align="center" headeralign="center" width='180'>纳税人名称</div>
+        <div field="ssqq" align="center" headeralign="center" width='120' dateFormat="yyyy-MM-dd">所属期起</div>
+        <div field="ssqz" align="center" headeralign="center" width='120' dateFormat="yyyy-MM-dd">所属期止</div>
+        <div field="sbqx" align="center" headeralign="center" width='120' dateFormat="yyyy-MM-dd">申报期限</div>
+        <div field="nsrsbrq" align="center" headeralign="center" width='120' dateFormat="yyyy-MM-dd">纳税人申报日期</div>
+        <div field="zsxm" align="center" headeralign="center" width='120'>征收项目</div>
+        <div field="zspm" align="center" headeralign="center" width='120'>征收品目</div>
+        <div field="zsdlfs" align="center" headeralign="center" width='120'>征收代理方式</div>
+        <div field="sbfsmc" align="center" headeralign="center" width='120'>申报方式</div>
+        <div field="zgswjgMc" align="center" headeralign="center" width='120'>主管税务所</div>
+        <div field="ssgly" align="center" headeralign="center" width='120'>税收管理员</div>
+        <div field="sdh" renderer="sdhRenderer" align="center" headeralign="center" width='120'>是否双定户</div>        <div field="ssgly" align="center" headeralign="center" width='120'>税收管理员</div>
+        <div field="wfwzlxmc" align="center" headeralign="center" width='120'>违法违章类型</div>
+        <div field="wfwzxwmc" align="center" headeralign="center" width='120'>违法违章行为</div>
+        <div field="wszzrq" align="center" headeralign="center" width='120' dateFormat="yyyy-MM-dd">文书制作日期</div>
+        <div field="fk" align="center" headeralign="center" width='80'>罚款</div>
+
+    </div>
+</div>
+
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script>
+    $(function () {
+        mini.parse();
+        cxtj.init();
+    });
+
+    var cxtj = {
+        init: function () {
+            this.qymdGrid = mini.get("qymdGrid");
+
+            //获取url参数
+            this.lrrq = __ps.lrrq;
+            this.tstxlx = __ps.tstxlx;
+
+            this.swjgDm = cxtj.getSession().swjgDm;
+
+            this.doSearch();
+        },
+        getSession: function () {
+            $.ajax({
+                type: "GET",
+                url: "../../../../api/wtgl/dbsx/getSession",
+                success: function (data) {
+                    //获取当前登录账号以及tableid
+                    var loginUsers = mini.decode(data);
+                    if (loginUsers.success) {
+                        loginUser = mini.decode(loginUsers.value);
+                    } else {
+                        mini.alert("获取税局管理员登录信息失败！");
+                    }
+                },
+                error: function (result) {
+                    mini.alert("获取税局管理员登录信息失败！");
+                }
+            });
+            return loginUser;
+        },
+        doSearch: function () {
+            cxtj.qymdGrid.setUrl("../../../../api/sh/fzchrd/get/tstx");
+            cxtj.qymdGrid.load({
+                swjgdm: cxtj.swjgDm,
+                lrrq: cxtj.lrrq,
+                tstxlx: cxtj.tstxlx
+            }, function (res) {
+                // this.setData(res.data);
+            }, function (data) {
+                var obj = JSON.parse(data.errorMsg);
+                mini.alert(obj.message || "系统异常,请稍后再试。")
+            });
+
+        }
+    };
+
+    function sdhRenderer (e){
+        var record = e.record;
+        return record.sdh == "Y" ? "是" : "否";
+        // return '<a class="Delete_Button" onclick="kqqybtgjlqc.openQ(record)" href ="#">查看详情</a>';
+    }
+</script>
+</html>

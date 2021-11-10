@@ -1,0 +1,194 @@
+<div id="tabs1" class="mini-tabs tab-content" activeIndex="0">
+    <div title="行政许可申请表">
+        <div class="showSqzlDiv">
+            <table border="" cellspacing="" cellpadding="" data-view-type="form" id="swxzxk-yltj">
+                <h4 class="swxzxk-yltj-h4">税务行政许可申请表</h4>
+                <tr>
+                    <td style="border: none" colspan="4">
+                        <input class="mini-textbox mini-textbox-border swxzxk-date" name="sqrq" readonly="true">
+                    </td>
+                </tr>
+                <tr>
+                    <th rowspan="8" width="80">申请人</th>
+                    <th>申请人名称</th>
+                    <td colspan="3">
+                        <input class="mini-textbox mini-textbox-border" name="sqrmc" readonly="true">
+                    </td>
+                </tr>
+                <tr>
+                    <th>统一社会信用代码 <br/> （纳税人识别号）
+                    </th>
+                    <td colspan="3">
+                        <input class="mini-textbox mini-textbox-border mini-required" name="nsrsbh" readonly="true">
+                    </td>
+                </tr>
+                <tr>
+                    <th>法定代表人<br/>(负责人)</th>
+                    <td colspan="3">
+                        <input class="mini-textbox mini-textbox-border mini-required" name="fddbr" readonly="true"
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <th>地址和邮政编码</th>
+                    <td colspan="3">
+                        <input class="mini-textbox mini-textbox-border" name="dzyzbm"
+                               readonly="true">
+                    </td>
+                </tr>
+                <tr>
+                    <th width="140">经办人</th>
+                    <td width="220">
+                        <input class="mini-textbox mini-textbox-border mini-required" name="jbr"
+                               readonly="true">
+                    </td>
+                    <th width="140">身份证件号码</th>
+                    <td width="220">
+                        <input class="mini-textbox mini-textbox-border mini-required" name="jbr_sfzh"
+                               readonly="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th width="140">联系电话</th>
+                    <td width="220">
+                        <input class="mini-textbox mini-textbox-border mini-required" readonly="true" name="jbr_lxdh"
+                        >
+                    </td>
+                    <th width="140">联系地址</th>
+                    <td width="220">
+                        <input class="mini-textbox mini-textbox-border mini-required" required="true" name="jbr_lxdz"
+                               readonly="true">
+                    </td>
+                </tr>
+                <tr>
+                    <th width="140">委托代理人</th>
+                    <td width="220">
+                        <input class="mini-textbox mini-textbox-border mini-required" name="wtdlr" readonly="true">
+                    </td>
+                    <th width="140">身份证号</th>
+                    <td width="220">
+                        <input class="mini-textbox mini-textbox-border" name="wtdlr_sfzh" readonly="true"
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <th width="140">联系电话</th>
+                    <td width="220">
+                        <input class="mini-textbox mini-textbox-border mini-required" name="wtdlr_lxdh"
+                               readonly="true">
+                    </td>
+                    <th width="140">联系地址</th>
+                    <td width="220">
+                        <input class="mini-textbox mini-textbox-border mini-required" name="wtdlr_lxdz"
+                               readonly="true">
+                    </td>
+                </tr>
+                <tr>
+                    <th>申请事项</th>
+                    <td colspan="4">
+                        <div class="mini-checkboxlist sqsx-yl" repeatDirection="vertical" repeatItems="8"
+                             repeatLayout="table" enabled="false" name="sqsx" value="5"
+                             textField='text' valueField="ID" onload="onload" data="[{'ID':'1', 'text':'一、企业印制发票审批'},
+                     {'ID':'2', 'text':'二、对纳税人延期申报的核准'},
+                     {'ID':'3', 'text':'三、对纳税人延期缴纳税款的核准','enabled':false},
+                     {'ID':'4', 'text':'四、对纳税人变更纳税定额的核准'},
+                     {'ID':'5', 'text':'五、增值税专用发票（增值税税控系统）最高开票限额审批'},
+                     {'ID':'6', 'text':'六、对采取实际利润额预缴以外的其他企业所得税预缴方式的核定'},
+                     {'ID':'7', 'text':'七、非居民企业选择由其主要机构场所汇总缴纳企业所得税的审批'}]"
+
+                        ></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th rowspan="7">申请材料</th>
+                    <td colspan="4" id="sqcl-block">
+                        <p class="info">除提供经办人身份证件外,应根据申请事项提供以下相应材料:</p>
+                        <!--申请材料-1-->
+                        <h4>一、企业印制材料审批</h4>
+                        <div name="sqcl-1" class="mini-checkboxlist sqsx-yl" repeatDirection="vertical" repeatItems="8"
+                             repeatLayout="table"
+                             textField='text' valueField="ID" value="ID,text" onload="onload" data="[{'ID':'011','text':'1.公安部门颁发的特种行业许可证'},
+                         {'ID':'012','text':'2.本市税务发票印制资格中标通知书'},
+                         {'ID':'013','text':'3.企业内部的生产责任、保密、质量检验、保管相关制度文本'},
+                         {'ID':'014','text':'4.守法经营且无不良社会诚信记录承诺书'},
+                         {'ID':'015','text':'5.上海市新闻出版局核发的印刷业许可证'}]"
+                             enabled="false"></div>
+                        <!--申请材料-2-->
+                        <h4>二、对纳税人延期申报的核准</h4>
+                        <div name="sqcl-2" class="mini-checkboxlist sqsx-yl" repeatDirection="vertical" repeatItems="8"
+                             repeatLayout="table"
+                             textField='text' valueField="ID" value="ID,text" onload="onload" data="[{'ID':'031','text':'1.纳税人确有困难不能正常缴纳税款的情况证明'}]"
+                             enabled="false"></div>
+                        <!--申请材料-3-->
+                        <h4>三、对纳税人延期缴税税款的核准</h4>
+                        <div name="sqcl-3" class="mini-checkboxlist sqsx-yl" repeatDirection="vertical" repeatItems="8"
+                             repeatLayout="table"
+                             textField='text' valueField="ID" value="ID,text" onload="onload" data="[{'id':'021','text':'1.资产负债表（纳税人已报送财务报表的，取消重复报送）'},
+                         {'ID':'022','text':'2.纳税人申请延期缴纳税款报告'},
+                         {'ID':'023','text':'3.应付职工工资和社会保险费等税务机关要求提供的支出预算'},
+                         {'ID':'024','text':'4.当期货币资金余额情况'},
+                         {'ID':'025','text':'5.所有银行存款账户的对账单复印件'
+                         }]"
+                             enabled="false"></div>
+                        <!--申请材料-4-->
+                        <h4>四、对纳税人变更税定额的核准</h4>
+                        <div name="sqcl-4" class="mini-checkboxlist sqsx-yl" repeatDirection="vertical" repeatItems="8"
+                             repeatLayout="table"
+                             textField='text' valueField="ID" value="ID,text" onload="onload"
+                             data="[{'ID':'041','text':'1.申请变更纳税定额的证明材料'}]"
+                             enabled="false"></div>
+                        <!--申请材料-5-->
+                        <h4>五、增值税专用发票(增值税税控系统)最高开票限额审批</h4>
+                        <div name="sqcl-5" class="mini-checkboxlist sqsx-yl" repeatDirection="vertical" repeatItems="8"
+                             repeatLayout="table" value=""
+                             textField='text' valueField="ID" value="ID,text" onload="onload"
+                             data="[{'ID':'0','text':'无需申请材料'}]"
+                             enabled="false"></div>
+                        <!--申请材料-6-->
+                        <h4>六、对采取实际利润额预缴以外的其他企业所得税预缴方式的核定</h4>
+                        <div name="sqcl-6" class="mini-checkboxlist sqsx-yl" repeatDirection="vertical" repeatItems="8"
+                             repeatLayout="table"
+                             textField='text' valueField="ID" value="ID,text" onload="onload"
+                             data="[{'ID':'061','text':'1.纳税人确有困难不能按照月度或者季度的实际利润额预缴企业所得税的情况证明'}]"
+                             enabled="false"></div>
+                        <!--申请材料-7-->
+                        <!-- <h4>七、非居民企业选择由其主要机构场所汇总缴纳企业所得税的审批</h4>
+                        <div name="sqcl-7" class="mini-checkboxlist sqsx-yl" repeatDirection="vertical" repeatItems="8"
+                             repeatLayout="table"
+                             textField='text' valueField="ID" value="ID,text" onload="onload" data="[{'ID':'071','text':'1.汇总缴纳企业所得税的机构、场所对其他机构、场所负有管理责任的证明材料'},
+                         {'ID':'072','text':'2.设有完整的账簿、凭证，能够准确反映各机构、场所的收入、成本、费用和盈亏情况的证明材料'}]"
+                             enabled="false"></div> -->
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div title="延期申报核准申请表">
+        <div class="showSqzlDiv">
+            <h4 style="margin-top:20px;">选择延期申报种类</h4>
+            <div data-view-type="datagrid">
+                <div id="yqsbhzylGrid" class="mini-datagrid" multiSelect="true">
+                    <div property="columns">
+                        <div type="checkcolumn" width="40"></div>
+                        <div field="zsxmMc">申请延期申报税种</div>
+                        <div field="zspmMc">申请延期申报品目</div>
+                        <div field="rdyxqq">认定有效期起</div>
+                        <div field="rdyxqz">认定有效期止</div>
+                        <div field="skssqq">税款所属期起</div>
+                        <div field="skssqz">税款所属期止</div>
+                        <div field="sbqx">申报期限</div>
+                        <div field="yqsbqx" name="yqsbqx"><span style="color: red;">*</span>申请延期申报期限</div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:30px;">
+                <h4>延期申报申请理由</h4>
+                <div id="txsqxx-yl" data-view-type="form">
+                    <input id="sqyqsbdly-yl" name="sqyqsbdly" class="mini-textArea" style="width:100%;height:80px;" readonly="true"/>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="../sqgl/xzspYqsbhz/yqsbhz.css">

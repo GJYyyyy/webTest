@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>所长派发任务至调查人员</title>
+    <link rel="stylesheet" href="../../../styles/style.css">
+    <link rel="stylesheet" href="../jquery.my-message.css">
+    <link rel="stylesheet" href="../fzchrdBaseCss.css">
+
+</head>
+<body>
+<div class="content">
+    <h2 style="text-align: center">所长派发任务至调查人员</h2>
+    <p style="color: red">温馨提示：处理完所有数据后，才能进行推送。</p>
+    <p style="color: red" id="messageText"></p>
+    <!--<div class="content_tilte">-->
+        <!--<p style="color: red">任务名称：<span id="rwmc_inner"></span></p>-->
+        <!--<p style="color: red">任务批次号：<span id="rwpch_inner"></span></p>-->
+    <!--</div>-->
+    <div id="szpfrw_grid" class="mini-datagrid" style="width:98%;height:350px;margin: 0 auto;"idField="id"
+         showPager="false" emptyText="暂无数据" showEmptyText="true"
+         allowSortColumn="false" allowCellEdit="true" allowResize="false" allowCellSelect="true">
+        <div property="columns">
+            <div type="indexcolumn" width="60">序号</div>
+            <!--<div field="nsrmc" align="center" headeralign="center" width='120'>案件来源</div>-->
+            <div field="nsrsbh" align="center" headeralign="center" width='120'>社会信用代码</div>
+            <div field="nsrmc" align="center" headeralign="center" width='120'>纳税人名称</div>
+            <div field="zgswjgMc" align="center" headeralign="center" width='100'>主管税务机关</div>
+            <div field="zgswskfjMc" align="center" headeralign="center" width='100'>主管税务所</div>
+            <div field="ssglyMc" align="center" headeralign="center" width='80'>税收管理员</div>
+            <div type="comboboxcolumn" field="jcryDm" width="100" headerAlign="center" >请选择调查人员
+                <!--<input property="editor" class="mini-combobox" style="width:100%;" textfield="swrymc" valuefield="swryDm" url="/dzgzpt-wsys/api/sh/fzchrd/get/dcry" />-->
+                <div property="editor" id="combobox2" class="mini-combobox" style="width:250px;"  popupWidth="200" textfield="swrymc" valuefield="swrydm"
+                     url="/dzgzpt-wsys/api/sh/fzchrd/get/dcry" multiSelect="true"  showClose="true" >
+                    <div property="columns">
+                        <!--<div header="ID" field="swryDm"></div>-->
+                        <div header="名称" field="swrymc"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="dbsx-actions">-->
+    <!--<a id="zcBtn" class="mini-button" style="width: 120px;" onclick="saveData()">暂存</a>-->
+    <!--<a id="tsBtn" class="mini-button" style="width: 120px;">确定</a>-->
+    <!--</div>-->
+</div>
+<script src="../../../../lib/jquery/jquery.js"></script>
+<script src="../../../scripts/miniui.js"></script>
+<script src="../../../scripts/gldcommon.js"></script>
+<script src="../jquery.my-message.js"></script>
+<script src="fzchrdpfrw.js"></script>
+</body>
+</html>

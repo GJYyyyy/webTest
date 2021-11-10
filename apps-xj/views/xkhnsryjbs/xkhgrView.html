@@ -1,0 +1,639 @@
+<h2>一键办税预览申请表</h2>
+<section style="width: 1165px">
+    <div id="xkhylForm">
+        <div id="xkh-tabs" class="mini-tabs" activeIndex="0" style="width:100%;" plain="false">
+            <div title="税务登记信息" name="nsrjbxxForm">
+                <div id="xkh-yl-swdj">
+                    <div id="djxxbl-yl">
+                        <h3 class="txt-c">税务登记信息申请信息</h3>
+                        <div id="tabs1" class="mini-tabs" activeIndex="0" style="width:100%;" plain="false">
+                            <div title="纳税人基本信息">
+                                <div id="yl-nsrjbxxForm">
+                                    <table class="form-table" width="100%">
+                                        <tr>
+                                            <th width="20%">社会信用代码
+                                            </th>
+                                            <td width="30%">
+                                                <input name="shxydm" readonly="true" class="mini-textbox" style="width:100%;"/>
+                                            </td>
+                                            <th width="20%">纳税人名称</th>
+                                            <td width="30%">
+                                                <input ReadOnly="true" name="nsrmc" class="mini-textbox" style="width:100%;"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%">批准设立机关类型
+                                            </th>
+                                            <td width="30%">
+                                                <input ReadOnly="true" name="pzsljglxdmText" class="mini-textbox" style="width:100%;"/>
+                                            </td>
+                                            <th width="20%">批准设立机关</th>
+                                            <td width="30%">
+                                                <input ReadOnly="true" name="pzsljg-treeText" class="mini-textbox" style="width:100%;"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%">组织机构代码
+                                            </th>
+                                            <td width="30%">
+                                                <input ReadOnly="true" name="zzjgdm" class="mini-textbox" style="width:100%;"/>
+                                            </td>
+                                            <th width="20%">批准设立证明或文件号</th>
+                                            <td width="30%">
+                                                <input name="pzslzmhwjh" ReadOnly="true" class="mini-textbox" style="width:100%;"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%">开业（设立）日期
+                                            </th>
+                                            <td width="30%">
+                                                <input ReadOnly="true" name="kyslrq" class="mini-textbox" style="width:100%;"/>
+                                            </td>
+                                            <th width="20%">生产经营期限起</th>
+                                            <td width="30%">
+                                                <input name="scjyqxq" ReadOnly="true" class="mini-textbox" style="width:100%;"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%">生产经营期限止
+                                            </th>
+                                            <td width="30%">
+                                                <input ReadOnly="true" name="scjyqxz" class="mini-textbox" style="width:100%;"/>
+                                            </td>
+                                            <th width="20%">证照名称</th>
+                                            <td width="30%">
+                                                <input name="zzlxdmText" ReadOnly="true" class="mini-textbox" style="width:100%;"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%">证照号码
+                                            </th>
+                                            <td width="30%">
+                                                <input ReadOnly="true" name="zzhm" class="mini-textbox" style="width:100%;"/>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <th width="20%">注册地址</th>
+                                            <td width="80%" colspan="3">
+                                                <input name="zcdz" ReadOnly="true" class="mini-textbox" style="width:100%;"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%">注册地邮政编码
+                                            </th>
+                                            <td width="30%">
+                                                <input ReadOnly="true" name="zcdyzbm" class="mini-textbox" style="width:100%;"/>
+                                            </td>
+                                            <th width="20%">注册地联系电话</th>
+                                            <td width="30%">
+                                                <input name="zcdlxdh" ReadOnly="true" class="mini-textbox" style="width:100%;"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%">生产经营地址
+                                            </th>
+                                            <td width="80%" colspan="3">
+                                                <input ReadOnly="true" name="scjydz" class="mini-textbox" style="width:100%;"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+
+                                            <th width="20%">生产经营地邮政编码</th>
+                                            <td width="30%">
+                                                <input name="scjydyzbm" ReadOnly="true" class="mini-textbox" style="width:100%;"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%">生产经营地联系电话
+                                            </th>
+                                            <td width="30%">
+                                                <input ReadOnly="true" name="scjydlxdh" class="mini-textbox" style="width:100%;"/>
+                                            </td>
+                                            <th width="20%">经营范围</th>
+                                            <td width="30%">
+                                                <input name="jyfw" readonly="true" class="mini-textbox" style="width:100%;"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%"><i>*</i>注册地址所在行政区划</th>
+                                            <td width="30%">
+                                                <input name="zcdzxzqhdmText" class="mini-textbox " width="100%"  readonly="true"/>
+                                            <th width="20%"><i>*</i>登记注册类型 </th>
+                                            <td width="30%">
+                                                <input id="djzclxdmText"  name="djzclxdmText"  ReadOnly="true" class="mini-textbox" style="width:100%;"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%">合伙人数</th>
+                                            <td width="30%">
+                                                <input id="hhrs" name="hhrs" class="mini-textbox " ReadOnly="true"  width="100%"/>
+                                            <th width="20%">雇工人数</th>
+                                            <td width="30%">
+                                                <input id="ggrs" ReadOnly="true" name="ggrs" class="mini-textbox" style="width:100%;"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%">其中固定工人数</th>
+                                            <td width="30%">
+                                                <input id="gdgrs" name="gdgrs" class="mini-textbox" ReadOnly="true" width="100%"/>
+
+                                            <th width="20%">网站网址</th>
+                                            <td width="30%">
+                                                <input id="wz" name="wz" class="mini-textbox" ReadOnly="true" style="width:100%;"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%">生产经营地行政区划</th>
+                                            <td width="30%">
+                                                <input name="scjydzxzqhszDmText" class="mini-textbox " width="100%" readonly="true"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div title="负责人信息">
+                                <div id="fzrxxForm">
+                                    <table class="form-table" style="width:100%">
+                                        <tr>
+                                            <th width="20%">业主姓名</th>
+                                            <td width="30%">
+                                                <input class="mini-textbox" style="width:100%;" readonly="true" name="fddbrxm"/>
+                                            </td>
+                                            <th width="20%">身份证件种类</th>
+                                            <td width="30%">
+                                                <input class="mini-textbox" value="10" style="width:100%;" readonly="true" name="fddbrsfzjzlText">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>身份证件号码</th>
+                                            <td><input class="mini-textbox" name="fddbrsfzjhm" readonly="true" style="width:100%;"/></td>
+                                            <th>业主联系电话 </th>
+                                            <td><input class="mini-textbox"  name="fddbryddh" readonly="true" style="width:100%;"/></td>
+                                        </tr>
+                                    </table>
+                                    <h4>合伙投资情况</h4>
+                                    <div data-view-type="datagrid">
+                                        <div id="hhtzqk-yl-grid" class="mini-datagrid" style="width:1140px;height:210px;" allowResize="false"
+                                             enabled="true"
+                                             showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+                                             idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="true">
+                                            <div property="columns">
+                                                <div type="checkcolumn" width="50">选择</div>
+                                                <div field="tzfhhhrzjzlDm" vtype="nsrsbh"  displayField="tzfhhhrzjzlDmText">证件种类</div>
+                                                <div field="tzfhhhrzjhm">证件号码</div>
+                                                <div field="tzfhhhrmc">合伙人名称</div>
+                                                <div field="gjhdqszDm" displayField="gjhdqszDmText">国籍</div>
+                                                <div field="dz">地址</div>
+                                                <div field="tzje">投资金额（万元）</div>
+                                                <div field="tzbl">投资比例（万元）</div>
+                                                <div field="fpbl">分配比例（万元）</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h4>分店情况</h4>
+                                    <div data-view-type="datagrid">
+                                        <div id="fdqk-yl-grid" class="mini-datagrid" style="width:1140px;height:210px;" allowResize="false"
+                                             enabled="true"
+                                             showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+                                             idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="true">
+                                            <div property="columns">
+                                                <div type="checkcolumn" width="50">选择</div>
+                                                <div field="fzjghfdnsrsbh">纳税人识别号</div>
+                                                <div field="fzjghfdmc">分店名称</div>
+                                                <div field="fzjghfddz">分店地址</div>
+                                                <div field="fzjghfdlxdh">分店联系电话</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div title="注册资本和投资方信息">
+                                <div id="tzfxxForm">
+                                    <table class="form-table">
+                                        <tr>
+                                            <th width="4%">注册资本</th>
+                                            <td width="30%">
+                                                <input class="mini-textbox"
+                                                       style="width:100%;" ReadOnly="true" name="zczb"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div title="财务会计制度备案信息" visible="false" name="cwkjzdbaForm">
+                <div id="xkh-yl-cwkj" data-view-type='form'>
+                    <h3 class="txt-c">财务会计制度备案信息</h3>
+                    <table width="100%" class="form-table table_bg_spe" align="center">
+                        <tr>
+                            <th width="180" class="txt-nowrap">纳税人识别号：</th>
+                            <td>
+                                <input class="mini-textbox" width=" 100%" id="nsrsbh_view" name="nsrsbh" readonly="true">
+                                <input class="mini-hidden" width=" 100%" name="nsrsbh_hidden" readonly="true">
+                            </td>
+                            <th width="180" class="txt-nowrap">纳税人名称：</th>
+                            <td>
+                                <input class="mini-textbox" width=" 100%" id="nsrmc_view" name="nsrmc" readonly="true">
+                                <input class="mini-hidden" width=" 100%" name="nsrmc_hidden" readonly="true">
+                            </td>
+                        </tr>
+                        <tr height="20"></tr>
+                        <tr>
+                            <th width="180" class="txt-nowrap">财务会计制度：</th>
+                            <td>
+                                <input class="mini-textbox" width="396" id="kjzdzzDm_view" name="kjzdzzDmText" readonly="true">
+                            </td>
+                            <th width="180" class="txt-nowrap">低值易耗品摊销方法：</th>
+                            <td>
+                                <input class="mini-textbox" width="396" id="dzyhptxffDm_view" name="dzyhptxffDmText" readonly="true">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th width="180" class="txt-nowrap">折旧方法：</th>
+                            <td colspan="3">
+                                <input class="mini-textbox" width="190" id="zjfsdlDm_view" name="zjfsdlDmText" readonly="true">
+                                <input class="mini-textbox" width="200" id="zjfsxlDm_view" name="zjfsxlDmText" readonly="true">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th width="180" class="txt-nowrap">成本核算方法：</th>
+                            <td>
+                                <input class="mini-textbox" width="396" id="cbhsffDm_view" name="cbhsffDmText" readonly="true">
+                            </td>
+                            <th width="180" class="txt-nowrap">会计报表名称：</th>
+                            <td>
+                                <input class="mini-textbox" width="396" id="kjbb_view" name="kjbb" readonly="true">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th width="180" class="txt-nowrap">会计制度执行期起：</th>
+                            <td>
+                                <input class="mini-datepicker" dateFormat="yyyy-MM-dd" width="396" id="yxqq_view" name="yxqq" readonly="true">
+                            </td>
+                            <th width="180" class="txt-nowrap">会计报表报送期限：</th>
+                            <td>
+                                <input class="mini-textbox" id="kjbbbsqxDm_view" name="kjbbbsqxDmText" width="396" readonly="true"/>
+                                <input class="mini-hidden" name="kjbbbsqxDm" width="20" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th width="180" class="txt-nowrap">会计核算软件名称：</th>
+                            <td class="search-item-control">
+                                <input id="kjhsrjmc_view" name="kjhsrjmc" width="396" class="mini-textbox" readonly="true"/>
+                            </td>
+                            <th width="180" class="txt-nowrap">会计核算数据库名称：</th>
+                            <td class="search-item-control">
+                                <input id="kjhsrjsjklxmc_view" name="kjhsrjsjklxmcText" width="396" class="mini-textbox" readonly="true"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th width="180" class="txt-nowrap">会计核算软件启用时间：</th>
+                            <td class="search-item-control">
+                                <input id="kjhsrjqysj_view" name="kjhsrjqysj" format="yyyy-MM-dd" width="396" class="mini-datepicker" readonly="true"  />
+                            </td>
+                            <th width="180" class="txt-nowrap">会计核算版本号：</th>
+                            <td class="search-item-control">
+                                <input id="kjhsrjbbh_view" name="kjhsrjbbh" width="396" class="mini-textbox" readonly="true"/>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <div title="存款账户账号信息" visible="false" name="ckzhzhForm">
+                <div id="xkh-yl-ckzh" title="申请表">
+                    <h3 class="txt-c">存款账户账号报告表</h3>
+                    <div class=" txt-c" style="background: #f7f7f7;margin-bottom: 20px;padding: 20px 0">
+                        <table width="90%" data-view-type="form" id="nsrjbxx-form">
+                            <tr>
+                                <td class="txt-r" height="35">纳税人识别号：</td>
+                                <td class="txt-l">
+                                    <input class="mini-textbox" name="nsrsbh" readonly="readonly"/>
+                                </td>
+                                <td class="txt-r">纳税人名称：</td>
+                                <td class="txt-l">
+                                    <input class="mini-textbox" name="nsrmc" readonly="readonly"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="txt-r" height="35">联系电话：</td>
+                                <td class="txt-l">
+                                    <input class="mini-textbox" name="scjydlxdh" readonly="readonly"/></td>
+                                <td class="txt-r">生产经营地址：</td>
+                                <td class="txt-l">
+                                    <input class="mini-textbox" name="scjydz" readonly="readonly"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div data-view-type="datagrid">
+                        <div id="xkh-yl-ckzhzhbgGrid" class="mini-datagrid" style="width:1154px;height:210px;"
+                             allowResize="false"
+                             enabled="true"
+                             showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true"
+                             allowSortColumn="false"
+                             checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="false">
+                            <div property="columns">
+                                <div type="indexcolumn" width="50">序号</div>
+
+                                <div field="sxjszhbz" type="comboboxcolumn">缴税账号
+                                    <input property="editor" class="mini-combobox" style="width:100%;"
+                                           data='[{"ID":"Y","MC":"是"},{"ID":"N","MC":"否"}]'/>
+                                </div>
+
+                                <div field="zhmc">账户名称</div>
+
+                                <div field="yhzhxzDm" width="160" displayField="yhzhxzDmText"
+                                     renderer="ckzhzhbg.zhxzRenderer">账户性质
+                                </div>
+
+                                <div field="xzqhszDm" visible="false" displayField="xzqhszDmText"
+                                     renderer="ckzhzhbg.xzqhRenderer">行政区划
+                                </div>
+
+                                <div field="yhkhdjzh" width="200">核准号<br/>（银行登记证号）</div>
+
+                                <div field="ffrq" dateFormat="yyyy-MM-dd">发证日期</div>
+
+                                <div field="yhhbDm" width="150" visible="false" displayField="yhhbDmText"
+                                     renderer="ckzhzhbg.yhzlRenderer">银行种类
+                                </div>
+
+                                <div field="yhyywdDm" width="288" displayField="yhyywdDmText"
+                                     renderer="ckzhzhbg.khyhRenderer">开户银行
+                                </div>
+
+                                <div field="yhzh" width="218">银行账号</div>
+
+                                <div field="hbszDm" displayField="hbszDmText" renderer="ckzhzhbg.bzRenderer">币种
+                                </div>
+
+                                <div field="khrq" dateFormat="yyyy-MM-dd">开户时间</div>
+
+                                <div field="cktszhbz" type="comboboxcolumn">出口退税账号
+                                    <input property="editor" class="mini-combobox" style="width:100%;"
+                                           data='[{"ID":"Y","MC":"是"},{"ID":"N","MC":"否"}]'/>
+                                </div>
+                                <div field="tszhbz" type="comboboxcolumn">退税账号标志
+                                    <input property="editor" class="mini-combobox" style="width:100%;"
+                                           data='[{"ID":"Y","MC":"是"},{"ID":"N","MC":"否"}]'/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div title="票种核定" visible="false" name="pzhdForm">
+                <div id="xkh-yl-pzhd" class="sczl">
+                    <h3 class="txt-c">票种核定申请表</h3>
+                    <fieldset id="xkh-yl-pzhd-form">
+                        <legend>基本信息</legend>
+                        <table cellpadding="0" cellspacing="0" class="info-table" id="nsrjbxx-area">
+                            <tbody>
+                            <tr>
+                                <th>纳税人识别号：</th>
+                                <td width="31%"><input class="mini-textbox" name="nsrsbh" readonly="true"
+                                                       allowInput="false"></td>
+                                <th>&nbsp;</th>
+                                <th>证件号码：</th>
+                                <td><input class="mini-textbox" name="nsrmc" readonly="true"
+                                           allowInput="false"></td>
+                            </tr>
+                            <tr>
+                                <th>行业：</th>
+                                <td>
+                                    <input class="mini-datepicker" name="nsrmc" readonly="true" dateFormat="yyyy-MM-dd"
+                                           allowInput="false" data="new Data()">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <div title="核定申请信息" name="hesqxx">
+                        <div class="lprxx-area">
+                            <h3>领票人信息</h3>
+                            <div data-view-type="datagrid">
+                                <div id="lprxx-grid-show" class="mini-datagrid" style="width:100%;height:100px;"
+                                     allowResize="false"
+                                     enabled="true" showPager="false" showEmptyText="true" autoLoad="false"
+                                     multiSelect="true"
+                                     allowSortColumn="false" idField="id" checkSelectionOnly="true"
+                                     allowCellSelect="true"
+                                     allowCellEdit="false" style="width:100%;height:143px;">
+                                    <div property="columns">
+                                        <div field="gprxm" class="xxxxx" align="center">领票人姓名</div>
+                                        <div field="lxdh" align="center">联系电话</div>
+                                        <div field="sfzjlxmc" type="comboboxcolumn" autoShowPopup="true" align="center"
+                                             headerAlign="center" vtype="required" width="70"
+                                             requiredErrorText="证件类型不能为空">证件类型
+                                            <input property="editor" class="mini-combobox" textField="MC"
+                                                   valueField="ID"
+                                                   data="[{ID : '201',MC : '身份证'}, {ID : '227',MC : '护照'}, {ID : '202',MC :'军官证'}, {ID : '101',MC : '组织机构代码证'}, {ID:'199',MC: '其他证件'}]"/>
+                                        </div>
+                                        <div field="sfzjhm" align="center">证件号码</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pzhd-area">
+                            <h3>纳税人领用发票票种核定表</h3>
+                            <div data-view-type="datagrid">
+                                <div id="yhdpz-grid-now" class="mini-datagrid" style="width:100%;height:143px;"
+                                     allowresize="false" showpager="false" allowCellValid="true"
+                                     allowCellEdit="false">
+                                    <div property="columns">
+                                        <div field="fpzlDm" headerAlign="center" align="center" width="80">发票种类代码</div>
+                                        <div field="fpzlmc" headerAlign="center" align="center" width="180">发票种类名称</div>
+                                        <div field="dffpzgkpxe" headerAlign="center" align="center" style="width:200%;">
+                                            单份发票最高开票限额
+                                        </div>
+                                        <div field="jldwmc" headerAlign="center" align="center" width="50">单位</div>
+                                        <div field="myzggpsl" headerAlign="center" align="center" width="85">每月最高领票数量
+                                        </div>
+                                        <div field="mczggpsl" headerAlign="center" align="center" width="85">每次最高领用数量
+                                        </div>
+                                        <div field="cpzgsl" headerAlign="center" align="center" width="70">最高持票量</div>
+                                        <div field="fpgpfsDm" type="comboboxcolumn" autoShowPopup="true" align="center"
+                                             headerAlign="center" readonly="true" width="70">购票方式
+                                            <input property="editor" class="mini-combobox" style="width:100%;"
+                                                   data="[{ID: '1', MC: '验旧领新'}]"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div title="三方协议" visible="false" name="sfxyForm">
+                <section id="xkh-yl-sfxy">
+                    <div id="wtkkxys-form" class="papers">
+                        <h1 class="form-title"
+                            style="height:72px;text-align:center;font-size:18px;line-height:72px;position:relative;padding:0;">
+                            委托扣款协议书
+                        </h1>
+                        <table class="form-table" style="width:100%;font-size:12px;">
+                            <tr>
+                                <th style="width: 180px;" rowspan="4" nowrap valign="top"
+                                    style="padding:10px 20px;border-right:1px  dotted #ccc;">
+                                    <strong>甲方：</strong></th>
+                                <td colspan="2" align="left"><input class="mini-textbox" name="nsrmc" id="nsrmc"
+                                                                    allowInput="false">
+                                </td>
+                                <th width="7%">协议书编号：</th>
+                                <td width="25%"><input class="mini-textbox" name="sfxyh"
+                                                       id="sfxyh" required="true" readonly="true"></td>
+                            </tr>
+                            <tr>
+                                <td width="12%" nowrap align="left">纳税人识别号：</td>
+                                <td width="31%"><input class="mini-textbox" name="nsrsbh" id="nsrsbh"
+                                                       allowInput="false"></td>
+                                <th>&nbsp;</th>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td nowrap align="left">缴税（费）账户名称：</td>
+                                <td colspan="3">
+                                    <input class="mini-textbox" name="jkzhmc" id="jkzhmc" allowInput="false">
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td nowrap align="left">缴税（费）账号：</td>
+                                <td><input class="mini-textbox" name="jkzh" id="yhzh" allowInput="false"></td>
+                                <th>&nbsp;</th>
+                                <td>&nbsp;</td>
+                            </tr>
+
+                            <tr>
+                                <th rowspan="2" valign="top"
+                                    style="padding:10px 20px;border-right:1px  dotted #ccc;border-top:1px  dotted #ccc;">
+                                    <strong>乙方：</strong></th>
+                                <td nowrap style="border-top:1px  dotted #ccc;" align="left">开户银行行号：</td>
+                                <td style="border-top:1px  dotted #ccc;"><input class="mini-textbox" name="khyhhh"
+                                                                                id="khyhhh"
+                                                                                allowInput="false"></td>
+                                <th rowspan="2" style="border-top:1px  dotted #ccc;">&nbsp;</th>
+                                <td rowspan="2" style="border-top:1px  dotted #ccc;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td nowrap align="left">清算银行行号：</td>
+                                <td><input class="mini-textbox" name="qsyhhh" id="qsyhhh" allowInput="false"></td>
+                            </tr>
+                            <tr>
+                                <th valign="top"
+                                    style="padding:10px 20px;border-right:1px  dotted #ccc;border-top:1px  dotted #ccc;">
+                                    <strong>丙方：</strong></th>
+                                <td colspan="2" style="border-top:1px  dotted #ccc;"><input class="mini-textbox"
+                                                                                            name="skssswjgMc"
+                                                                                            id="skssswjgMc"
+                                                                                            allowInput="false"></td>
+                                <th style="border-top:1px  dotted #ccc;">&nbsp;</th>
+                                <td style="border-top:1px  dotted #ccc;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" valign="top"
+                                    style="padding:10px 20px;border-right:1px  dotted #ccc;border-top:1px  dotted #ccc;">
+                                    <div style="line-height:25px">
+                                        <P style="text-indent:2em;margin:0;padding:0;">
+                                            为简化办税程序，方便纳税人完成缴税（费）义务，确保税款安全，提高税款征收入库效率，经协商，甲、乙、丙三方现就有关事项达成如下协议： </P>
+                                        <P style="text-indent:2em;margin:0;padding:0;">
+                                            一、本协议同时作为甲方授权丙方的《授权扣款协议书》和甲方委托乙方的《委托扣款协议书》，由乙方提供实时扣缴税款（包括基金、费，下同）服务。甲方实行网上扣款的，乙方根据甲方发起的应缴税款电子信息将税款从甲方指定的缴税账户中扣缴，实时将扣缴税款信息传至丙方和甲方；甲方实行办税服务厅扣款的，乙方根据丙方发起的应缴税款电子信息将税款从甲方指定的缴税账户中扣缴，实时将扣缴税款信息传至丙方。 </P>
+                                        <P style="text-indent:2em;margin:0;padding:0;">
+                                            二、缴税（费）账户一经确定，原则上不得变更。甲方变更名称、账号、法定代表人姓名或变更经营地址、改变主管税务机关时，应在办理有关涉税事项的5个工作日前，向乙方、丙方同时提出变更申请，并重新签订《协议书》。甲方必须注意保管缴税（费）帐户的密码以及网上申报登录密码，因密码泄露造成的损失由甲方承担。 </P>
+                                        <P style="text-indent:2em;margin:0;padding:0;">
+                                            三、甲方应保证在办理每一项缴款的涉税事项时，缴税（费）账户内有足够存款余额。因甲方缴税（费）账户资金余额不足或未按法定期限申报造成乙方无法及时划缴税（费）款而导致应征的税款不能依期足额入库的，一切责任由甲方承担，丙方将按《中华人民共和国税收征收管理法》和其他法律法规的有关规定处理。如甲方为实行定期定额征收方式的纳税人，丙方在纳税例征期内自动向乙方发起扣款请求，划缴税款成功后视同甲方当期纳税申报。</P>
+                                        <P style="text-indent:2em;margin:0;padding:0;">
+                                            四、各项税款划缴成功后，乙方根据接收的甲方电子缴款书信息打印《电子缴税付款凭证》。《电子缴税付款凭证》一式两联，第一联作乙方记账凭证，第二联加盖银行收讫章交甲方作付款回单，《电子缴税付款凭证》作为甲方缴纳税款的会计核算凭证。 </P>
+                                        <P style="text-indent:2em;margin:0;padding:0;">
+                                            五、乙方未按规定开具《电子缴税付款凭证》，其法律责任由乙方承担。因电脑故障、自然灾害、电力中断、通讯故障或其他不可抗力造成乙方不能及时打印凭证的，乙方应予免责，但乙方应及时采取补救措施。</P>
+                                        <P style="text-indent:2em;margin:0;padding:0;">
+                                            六、除国家法律法规另有规定外，本协议将长期有效。甲方如注消税务登记，本协议即自行终止。甲方有正当理由需解除协议时，应提前通知乙方、丙方，并向丙方申报新的纳税方式。</P>
+                                        <P style="text-indent:2em;margin:0;padding:0;">
+                                            七、在协议有效期内发生纠纷，甲、乙、丙三方应协商解决。经协商后仍不能解决的，相关当事人可根据有关法律、法规申请复议、仲裁或诉讼。 </P>
+                                        <P style="text-indent:2em;margin:0;padding:0;">
+                                            八、本协议书一式三份，从签订盖章之日起生效，甲、乙、丙方各执一份，均具同等法律效力。
+                                        </P>
+
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" valign="top"
+                                    style="padding:0px 20px;border-right:1px  dotted #ccc;border-top:1px  dotted #ccc;">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0"
+                                           style="color:#333;font-weight:bold;font-size:14px;line-height:24px">
+                                        <tbody>
+                                        <tr>
+                                            <td align="center" valign="top">甲方：<br>
+                                                （纳税人公章或签名）<br>
+                                                （个人账号持有人签名）
+                                            </td>
+                                            <td align="center" valign="top"> 乙方：<br>
+                                                （银行公章）
+                                            </td>
+                                            <td align="center" valign="top" style="position:relative;">
+                                                <!-- <img id="swjg_gz" width="140"
+                                                     style="display:block;position:absolute;top:40px;left:40px;"/> -->
+                                                丙方： <br>
+                                                （税务机关公章）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center" valign="top">&nbsp;</td>
+                                            <td align="center" valign="top">&nbsp;</td>
+                                            <td align="center" valign="top">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center" valign="top">&nbsp;</td>
+                                            <td align="center" valign="top">&nbsp;</td>
+                                            <td align="center" valign="top">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center" valign="top">&nbsp;</td>
+                                            <td align="center" valign="top">&nbsp;</td>
+                                            <td align="center" valign="top">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center" valign="top">甲方法定代表人：（签章） <br>
+                                                年  月   日
+                                                <br></td>
+                                            <td align="center" valign="top"><br>
+                                                年  月   日
+                                            </td>
+                                            <td align="center" valign="top"><br>
+                                                年  月   日
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+            </div>
+            <!--<div title="附报资料" name="fbzlForm">
+                <input type="hidden" name="scfbzl" value="scfbzl">
+                <div id="fbzl-yl-grid" class="mini-datagrid" style="width:1160px;height:260px;" allowResize="false"
+                     enabled="true" showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true"
+                     allowSortColumn="false" idField="id" checkSelectionOnly="true" allowCellSelect="true"
+                     allowCellEdit="true" emptyText="该事项暂无附报资料">
+                    <div property="columns">
+                        <div type="indexcolumn" width="50">序号</div>
+                        <div field="fbzlMc" class="xxxxx">资料名称</div>
+                        <div field="scCount">上传数量</div>
+                        <div field="bslxDm" renderer="onRenderApply">要求</div>
+                        &lt;!&ndash; <div field="status" renderer="onRenderStatus">状态</div> &ndash;&gt;
+                        <div field="status" renderer="onRenderOpearte" width="140" align="center">操作</div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+
+</section>

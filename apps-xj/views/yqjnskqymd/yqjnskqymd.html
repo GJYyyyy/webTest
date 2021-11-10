@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>延期缴纳税款企业名单</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./yqjnskqymd.css">
+  </head>
+
+  <body>
+    <h3 class="page-title">延期缴纳税款企业名单</h3>
+    <div id="filterForm" class="searchdiv">
+      <table width="96%" border="0" cellspacing="0" cellpadding="0" class="qymdTable" id="qymdTable">
+        <tr>
+          <th style="width: 10%">税务机关：</th>
+          <th style="width: 20%">
+            <input
+              id="zgswjgdm"
+              name="zgswjgdm"
+              class="mini-treeselect"
+              multiSelect="true"
+              checkRecursive="true"
+              emptyText="--请选择--"
+              textField="jgMc"
+              allowInput="true"
+              valueFromSelect="true"
+              popupWidth="357px;"
+              valueField="jgDm"
+              parentField="PID"
+              showQueryToolBar="false"
+              style="width:100%;"
+            />
+          </th>
+          <th style="width: 10%">导入日期：</th>
+          <th style="width: 20%">
+            <input id="drrqq" class="mini-datepicker" style="width: 45%;" />
+            <span>至</span>
+            <input id="drrqz" class="mini-datepicker" style="width: 45%;"/>
+          </th>
+        </tr>
+        <tr>
+          <th style="width: 10%">统一社会信用代码（纳税人识别号）：</th>
+          <th style="width: 20%">
+            <input
+              name="nsrsbh"
+              id="nsrsbh"
+              type="text"
+              class="mini-textbox"
+              style="width: 100%;margin-top: 16px;"
+              vtype="rangeLength:15,20" 
+              onvalidation="nsrsbhValidate"
+              maxLengthErrorText="编号长度不能超过20个字符"
+              minLengthErrorText="编号长度不能低于15个字符"
+            />
+          </th>
+          <th style="width: 10%">纳税人名称：</th>
+          <th style="width: 20%">
+            <input id="nsrmc" name="nsrmc" class="mini-textbox" style="width:100%;" />
+          </th>
+        </tr>
+        <tr>
+          <th colspan="6" style="padding:10px; text-align:center;">
+            <a id="search" class="mini-button" onclick="yqjnskqymd.handleGetTableData">查询</a>
+            <a class="mini-button" onclick="yqjnskqymd.doReset">重置</a>
+        </tr>
+      </table>
+    </div>
+
+    <div class="yqjnskqymd-search">
+      <a class="mini-button" onclick="yqjnskqymd.importTable">导入</a>
+      <a class="mini-button" onclick="yqjnskqymd.exportTable">导出</a>
+      <a class="mini-button" onclick="yqjnskqymd.handleDownloadTemplate">模板下载</a>
+      <input class="mini-htmlfile" name="file" id="file1" limitType="*.xlsx;*.xls;*.xlsm;" style="width:10px; display: none;" onValueChanged="yqjnskqymd.startUpload"/>
+    </div>
+  
+    <div
+      id="qymdGrid"
+      class="mini-datagrid"
+      showPager="true"
+      onpagechanged="yqjnskqymd.onPageChanged"
+      onbeforeload="yqjnskqymd.beforeLoad"
+      style="width: 99%; height:500px; margin: 0 auto;"
+      emptyText="暂无数据"
+      showEmptyText="true"
+      sizeList="[10,20,30,50,100]"
+      allowHeaderWrap="true"
+      fitColumns="true"
+    >
+      <div property="columns">
+        <div type="indexcolumn" width="60">序号</div>
+        <div field="zgswjgdm" headeralign="center" align="center" allowsort="false" width="120">主管税务机关</div>
+        <div field="nsrsbh" headeralign="center" align="center" allowsort="false" width="120">社会统一信用代码(纳税人识别号)</div>
+        <div field="nsrmc" headeralign="center" align="center" allowsort="false" width="120">纳税人名称</div>
+        <div field="lrrq" headeralign="center" align="center" allowsort="false" width="120">导入日期</div>
+        <div field="drzt" headeralign="center" align="center" allowsort="false" width="120">导入状态</div>
+        <div field="drsbyy" headeralign="center" align="center" allowsort="false" width="120">导入失败原因</div>
+      </div>
+    </div>
+
+    <script src="../../../lib/jquery/jquery.js"></script>
+    <script src="../../scripts/miniui.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script src="./ajaxfileupload.js"></script>
+    <script src="./yqjnskqymd.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,49 @@
+.form-title {
+  text-align: center;
+}
+
+.form-table tr {
+  height: 40px;
+}
+.cxsfxytitle {
+  background: #eee;
+  text-align: left;
+  padding-left: 20px;
+  height: 36px;
+  width: 100%;
+  margin: 0 20px;
+}
+
+.ptmsxx {
+  width: 363px;
+  min-height: 30px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  padding: 5px;
+  display: inline-block;
+  vertical-align: top;
+}
+.marginDiv {
+  margin-right: 10px;
+}
+.mini-radiobuttonlist {
+  vertical-align: middle;
+}
+.mini-radiobuttonlist .mini-errorIcon {
+  top: 6px !important;
+}
+.mini-radiobuttonlist-item input {
+  vertical-align: text-bottom;
+}
+.red {
+  color: red;
+  margin: 5px;
+}
+
+.mini-textarea .mini-textbox-border {
+  height: 78px !important;
+}
+
+.wldkYl .mini-tabs-bodys {
+  padding: 5px 0 !important; 
+}

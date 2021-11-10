@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发票领用查询</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="fptjcx.css">
+</head>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="../../../lib/lodop/lodopPrint.js"></script>
+<script src="fptjcx_common.js"></script>
+<script src="fptjcx_qx.js"></script>
+<body>
+<div class="tab-bar">
+    <a id="sydb" onclick="doSearchUnit('0')" class="active">区县查询</a>
+</div>
+<div id="cxtjForm" class="searchdiv" style="margin:10px 0px 15px 0px;">
+    <table width="90%" border="0" cellspacing="0" cellpadding="0" class="cxtjTable">
+        <tbody style="margin:auto;">
+        <tr style="display:block;margin:auto;width:90%">
+            <th>所属税务机关：</th>
+            <td style="width:180px">
+                <input id="combox_citys" class="mini-combobox" onvaluechanged="onChanged" style="width:90%; text-align:left" textField="mc" valueField="id" 
+                value="%" showNullItem="false" showClose="false"/> 
+            </td>
+            <th>受理状态：</th>
+            <td style="width:120px">
+                <input id="combox_status" class="mini-combobox" style="width:80%;" onvaluechanged="onChanged" textField="text" valueField="id"
+                value="%" showNullItem="false" showClose="false"/>
+            </td>
+           <th>查询时间：</th>
+            <td nowrap >
+                <input id="cxqxQ" name="blqxQ" class="mini-datepicker" format="yyyy-MM-dd" style="width:150px;" allowInput="false" ondrawdate="onDrawStartDate"/>
+                <span style="margin: 0 5px;">至</span>
+                <input id="cxqxZ" name="blqxZ" class="mini-datepicker" format="yyyy-MM-dd" style="width:150px;" allowInput="false" ondrawdate="onDrawEndDate"/>
+            </td>
+            <td>
+                <a id="search" class="mini-button" onclick="doSearchUnit('0')" style="width:50px; margin:0 0 0 20px;">查询</a>
+                <div style = "display:inline-block;" class="searchC">条件查询</div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="cxtjExtraForm" class="searchN" style="display:none; margin:15px 0px;">
+     <table width="90%" border="0" cellspacing="0" cellpadding="0" style="margin:auto;  padding:3px">
+            <tr style="display:block;margin:auto;width:95%">
+                <th>纳税人识别号：</th>
+                <td style="width:180px;">
+                    <input id="nsrsbh_s" name="nsrsbh" style="width:95%;margin-left: 10px" class="mini-textbox"/>
+               <td>
+                <th>
+                    纳税人名称：
+                </th>
+                <td style="width:200px;">
+                    <input id="nsrmc_s" name="nsrmc" style="width:80%;" class="mini-textbox"/>
+                </td> 
+                <td>
+                    <a id="search" class="mini-button" onclick="doSearchOrderDetail()" style="width:50px; margin:0 0 0 20px;">查询</a>
+                </td>   
+        </tr>
+    </table>
+</div>
+<div class="mini-fit">
+    <div id="qxxxGrid" idField="lx" class="mini-datagrid" showPager="false" style="width: 100%; height:100%;" multiSelect="true" sizeList="[30,50,100]" ondrawcell="onDrawCell" url = "../../../../api/gs/wtgl/fptjgl/query_unit">
+        <div property="columns">
+            <div type="indexcolumn">序号</div>
+            <div field="swjgdm" headeralign="center" align="center" allowsort="false" width="120">税务机关代码</div>
+            <div field="city" headeralign="center" align="center" allowsort="false" width="180" renderer="onAddUnitLink">所属税务机关</div>
+            <div field="startDate" headeralign="center" align="center" allowsort="false" width="100">起始日期</div>
+            <div field="endDate" headeralign="center" align="center" allowsort="false" width="100">结束日期</div>
+            <div field="status" headeralign="center" align="center" allowsort="false" width="80">办理状态</div>
+            <div field="tradeNum" headeralign="center" align="center" allowsort="false" width="80">领取户数</div>
+            <div field="getNum" headeralign="center" align="center" allowsort="false" width="80">领用份数</div>
+        </div>
+    </div>
+</div>
+<div style="margin:10px 0px 0px 0px;height:34px;">
+    <div id = 'Bottom-button' style="margin:0 auto; width:30%;text-align:center; height:100%">
+        <a id="export" class="mini-button" onclick="doSearchUnit('1')" style="width:50px; margin:0 10px; text-align:center; padding: 5px;">导出</a>
+        <a id="print" class="mini-button" onclick="doPrint(this)" style="width:50px; margin:0 10px; text-align:center; padding: 5px;">打印</a>
+    </div>
+</div>
+</body>
+</html>

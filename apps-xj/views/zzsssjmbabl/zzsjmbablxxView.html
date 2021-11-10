@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+    <title>登记信息补录</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <script src="../../../lib/jquery/jquery.js"></script>
+    <script src="../../scripts/miniui.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script src="../dbsx/swsxtzs.js"></script>
+    <script src="zzsjmbablxxView.js"></script>
+    <style type="text/css">
+        body {
+            margin:0;
+            padding:0;
+            border:0;
+            width:100%;
+            height:100%;
+            overflow:visible;
+        }
+        html .sbbtab td{color:#727272}
+        html .sbbtab th{color:#000;text-align:right;}
+        hr{margin:10px 0}
+        .mini-popup{
+            overflow: hidden !important;
+        }
+
+        .editform{
+            padding: 2%;
+            width: 96%;
+        }
+        h5{
+            text-align: center;
+            font-size: 20px;
+            color: #158cc6;
+            padding: 10px 0;
+        }
+        .editform th{
+            padding: 5px;
+            text-align: right;
+        } .editform td{
+              padding: 5px;
+          }
+        hr{
+            margin: 10px 0;
+            border: 1px solid #f5f5f5;
+        }
+        .open_btdiv{
+            text-align: center;
+            padding: 20px 0;
+        }
+        section{
+            padding: 10px;
+        }
+        .wcjykjYl{
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<input name="lcslId" id="lcslId" class="mini-hidden" value="" />
+<input name="sqxh" id="sqxh" class="mini-hidden" value="" />
+<input name="rwbh" id="rwbh" class="mini-hidden" value="" />
+<input name="swsxDm" id="swsxDm" class="mini-hidden" value="" />
+
+<section>
+    <div class="wcjykjYl" id="step_yl_form" data-view-type="form">
+        <div title="增值税税收减免优惠备案">
+            <h5>税务机关补录信息</h5>
+            <div id="blxxChgForm">
+            <table class="form-table table_bg">
+                <tr>
+                    <th width="16.66%">优惠事项：</th>
+                    <td width="16.66%" colspan="3"><input name="yhsx" id="yhsx" width="100%" class="mini-textbox" width="100%" readonly="true" /></td>
+                </tr>
+                <tr>
+                    <th width="16.66%">优惠期限起：</th>
+                    <td width="16.66%"><input name="jmqxq" id="yhqxq" width="100%" allowInput="true" format="yyyy-MM-dd" errorMode="border"
+                                              onvaluechanged="onDateChanged"  required="true" requiredErrorText="优惠期限起不能为空" class="mini-monthpicker" width="100%" /></td>
+                    <th width="16.66%">优惠期限止：</th>
+                    <td width="16.66%"><input name="jmqxz" id="yhqxz" width="100%" allowInput="true" format="yyyy-MM-dd" errorMode="border"
+                                              onvaluechanged="onDateChanged" required="true" requiredErrorText="优惠期限止不能为空"  class="mini-monthpicker" width="100%" /></td>
+                </tr>
+            </table>
+            </div>
+            <h5>增值税税收减免优惠备案登记表</h5>
+            <div style="margin-bottom: 30px;" id="ssjmForm">
+                <table width="70%" style="margin:0 50px;">
+
+                    <tr>
+                        <td class="txt-r">减免性质大类：</td>
+                        <td class="search-item-control" colspan="2">
+                            <input id="jmxzdl" name="jmxzdl" style="width:100%" class="mini-combobox" emptytext="--请选择--"
+                                   required="true" requiredErrorText="减免项目不能为空" allowInput="true"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="txt-r">减免性质小类：</td>
+                        <td class="search-item-control" colspan="2">
+                            <input id="jmxzxl" name="jmxzxl" style="width:100%" class="mini-combobox" emptytext="--请选择--"
+                                   required="true" requiredErrorText="减免项目不能为空" allowInput="true"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="txt-r">减免征类型：</td>
+                        <td class="search-item-control" colspan="2">
+                            <input id="jmzlx" name="jmzlx" style="width:100%;" class="mini-combobox"  emptytext="--请选择--"
+                                   required="true" requirederrortext="减免税政策依据不能为空" allowInput="true" onvaluechanged="changeDataByJmzlx" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="txt-r">减免类型：</td>
+                        <td class="search-item-control" colspan="2">
+                            <input id="jmlx" name="jmlx" style="width:100%;" class="mini-combobox" required="true" errorMode="border"
+                                   requirederrortext="减免期限起不能为空" format="yyyy-MM-dd" allowInput="false" emptytext="--请选择--" />
+                        </td>
+                    </tr>
+                    <tr class="row-jz">
+                        <td class="txt-r">减征额度：</td>
+                        <td class="search-item-control" colspan="2">
+                            <input id="jzed" name="jzed" style="width:100%;" class="mini-textbox" errorMode="border" vtype="float;range:0,Number.MAX_VALUE;rangeDecimals:6"
+                                    floatErrorText="减征额度应为大于0，保留六位小数！"  />
+                        </td>
+                    </tr>
+                    <tr  class="row-jz">
+                        <td class="txt-r">减征幅度：</td>
+                        <td class="search-item-control" colspan="2">
+                            <input id="jzfd" name="jzfd" style="width:100%;" class="mini-textbox"  vtype="float;range:0,Number.MAX_VALUE;rangeDecimals:6"
+                                   floatErrorText="减征幅度应为大于0，保留六位小数！" />
+                        </td>
+                    </tr>
+                    <tr class="row-jz">
+                        <td class="txt-r">减征税率：</td>
+                        <td class="search-item-control" colspan="2">
+                            <input id="jzsl" name="jzsl" style="width:100%;" class="mini-textbox" vtype="float;range:0,1;rangeDecimals:6"
+                           floatErrorText="减征税率应为0~1的数字，保留六位小数！"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="open_btdiv"><a class="mini-button blue font14" onclick="nextShowSwsxtzs()"  style="padding:4px 10px;">下一步</a>&nbsp;&nbsp;
+    <a class="mini-button gray font14" onclick="onCancel('cancel')" style="padding:4px 10px;">取消</a></div>
+</body>
+</html>

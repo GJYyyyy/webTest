@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit|ie-stand|ie-comp">
+  <meta name="description" content="网上税务局,网上办税服务厅">
+  <meta name="keywords" content="网上税务局,网上办税服务厅">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../../images/public/favicon.ico" rel="icon" type="image/x-icon" />
+  <title>不通过详情</title>
+  <link rel="stylesheet" href="../../../styles/style.css">
+  <link rel="stylesheet" href="../validation.css">
+    <style>
+        #nsrjbxx tr{
+            line-height: 24px;
+        }
+        #btgyy-info{
+            text-indent: 80px;
+            margin-bottom: 80px;
+        }
+        h4 {
+            text-indent: 25px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false">
+
+    <div class="mini-fit">
+    <!--欠税信息-->
+    <h4 id="qsxx-h">欠税信息</h4>
+    <div id="qsxx-info" class="mini-datagrid" style="width:98%;height:250px;margin: 0 auto;" allowResize="false"
+         enabled="true" allowCellWrap="true" emptyText="暂无数据"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="true">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="zsxmMc" align="center">征收项目</div>
+            <div field="zspmMc" align="center">征收品目</div>
+            <div field="skssqq" align="center" dateFormat="yyyy-MM-dd">税款所属期起</div>
+            <div field="skssqz" align="center" dateFormat="yyyy-MM-dd">税款所属期止</div>
+            <div field="ybtse" align="center">应补(退)税额</div>
+        </div>
+    </div>
+    <!--未办结事项信息-->
+    <h4 id="wbjsx-h">未办结事项信息</h4>
+    <div id="wbjsx-info" class="mini-datagrid" style="width:98%;height:250px;margin: 0 auto;" allowResize="false"
+         enabled="true" allowCellWrap="true" emptyText="暂无数据"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="true">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="taskName" align="center">任务主题</div>
+            <div field="office" align="center">办理机关</div>
+            <div field="processPerson" align="center">办理人</div>
+            <div field="startDate" align="center" dateFormat="yyyy-MM-dd">任务发起时间</div>
+            <div field="startPerson" align="center">任务发起人</div>
+        </div>
+    </div>
+    <!--未申报记录信息-->
+    <h4 id="wsbjl-h">未申报记录信息</h4>
+    <div id="wsbjl-info" class="mini-datagrid" style="width:98%;height:250px;margin: 0 auto;" allowResize="false"
+         enabled="true" allowCellWrap="true" emptyText="暂无数据"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="true">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="zsxmMc" align="center">征收项目</div>
+            <div field="zspmMc" align="center">征收品目</div>
+            <div field="skssqq" align="center" dateFormat="yyyy-MM-dd">税款所属期起</div>
+            <div field="skssqz" align="center" dateFormat="yyyy-MM-dd">税款所属期止</div>
+            <div field="sbqx" align="center" dateFormat="yyyy-MM-dd">申报期限</div>
+            <!--<div field="sbzt" width="150" align="center">申报状态</div>-->
+        </div>
+    </div>
+    <!--多缴信息-->
+    <h4 id="djxx-h">多缴信息</h4>
+    <div id="djxx-info" class="mini-datagrid" style="width:98%;height:250px;margin: 0 auto;" allowResize="false"
+         enabled="true" allowCellWrap="true" emptyText="暂无数据"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="true">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="zsxmDm" align="center">征收项目</div>
+            <div field="zspmDm" align="center">征收品目</div>
+            <div field="money" align="center">多缴额</div>
+        </div>
+    </div>
+    <!--存在入库日期为空的税收缴款书，指标校验增加详情。-->
+    <h4 id="wrkxhjkxq-h">存在未入库销号的完税凭证</h4>
+    <div id="wrkxhjkxq-info" class="mini-datagrid" style="width:98%;height:250px;margin: 0 auto;" allowResize="false"
+         enabled="true" allowCellWrap="true" emptyText="暂无数据"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="true">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="dzsphm" align="center">税票号码</div>
+            <div field="skssqq" align="center" dateFormat="yyyy-MM-dd">税款所属期起</div>
+            <div field="skssqz" align="center" dateFormat="yyyy-MM-dd">税款所属期止</div>
+        </div>
+    </div>
+    <!--不存在“一窗式”票表比对异常的情况，指标校验增加比对不通过详情。-->
+    <h4 id="ycsjkxq-h">不存在“一窗式”票表比对异常的情况</h4>
+    <div id="ycsjkxq-info" class="mini-datagrid" style="width:98%;height:250px;margin: 0 auto;" allowResize="false"
+         enabled="true" allowCellWrap="true" emptyText="暂无数据"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="true">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="skssqq" align="center" dateFormat="yyyy-MM-dd">税款所属期起</div>
+            <div field="skssqz" align="center" dateFormat="yyyy-MM-dd">税款所属期止</div>
+        </div>
+    </div>
+    <!--不通过原因-->
+    <h4 id="btgyy-h">不通过原因</h4>
+    <p id="btgyy-info"></p>
+
+    </div>
+    <div id="actions" class="wc-button">
+      <button id="iknowBtn" class="button-blue" style="padding: 7px 30px;font-size: 14px">确定</button>
+    </div>
+
+  <script src="../../../../lib/jquery/jquery.js"></script>
+  <script src="../../../scripts/miniui.js"></script>
+  <script src="../../../scripts/gldcommon.js"></script>
+  <script>
+
+    var xqcx = {
+        init: function () {
+            xqcx.qsxx = mini.get('qsxx-info');
+            xqcx.wbjsx = mini.get('wbjsx-info');
+            xqcx.wsbjl = mini.get('wsbjl-info');
+            xqcx.djxx = mini.get('djxx-info');
+            xqcx.wrkxhjkxq = mini.get('wrkxhjkxq-info');
+            xqcx.ycsjkxq = mini.get('ycsjkxq-info');
+            // xqcx.btgyy = mini.get('btgyy-info');
+        }
+    };
+
+    function setData(data){
+        var data = mini.decode(data);
+        if (data.qsjkxq) {
+            xqcx.qsxx.setData(data.qsjkxq ? mini.decode(data.qsjkxq) : '');
+        } else {
+            xqcx.qsxx.hide();
+            $("#qsxx-h").hide();
+        }
+        if (data.wbjjkxq) {
+            xqcx.wbjsx.setData(data.wbjjkxq ? mini.decode(data.wbjjkxq) : '');
+        } else {
+            xqcx.wbjsx.hide();
+            $("#wbjsx-h").hide();
+        }
+        if (data.wsbjkxq) {
+            xqcx.wsbjl.setData(data.wsbjkxq ? mini.decode(data.wsbjkxq) : '');
+        } else {
+            xqcx.wsbjl.hide();
+            $("#wsbjl-h").hide();
+        }
+        if (data.djjkxq) {
+            xqcx.djxx.setData(data.djjkxq ? mini.decode(data.djjkxq) : '');
+        } else {
+            xqcx.djxx.hide();
+            $("#djxx-h").hide();
+        }
+        if (data.wrkxhjkxq) {
+            xqcx.wrkxhjkxq.setData(data.wrkxhjkxq ? mini.decode(data.wrkxhjkxq) : '');
+        } else {
+            xqcx.wrkxhjkxq.hide();
+            $("#wrkxhjkxq-h").hide();
+        }
+        if (data.ycsjkxq) {
+            xqcx.ycsjkxq.setData(data.ycsjkxq ? mini.decode(data.ycsjkxq) : '');
+
+        } else {
+            xqcx.ycsjkxq.hide();
+            $("#ycsjkxq-h").hide();
+        }
+        if (data.qtjkxq) {
+            $("#btgyy-info").text(data.qtjkxq ? data.qtjkxq : '');
+        } else {
+            $("#btgyy-info").hide();
+            $("#btgyy-h").hide();
+        }
+    }
+
+    function closeWin() {
+      // var userAgent = navigator.userAgent;
+      // if (userAgent.indexOf("Firefox") != -1 || userAgent.indexOf("Chrome") != -1 || isIE11 || isIE10 || isIE9 ||
+      //   isIE8) {
+      //   top.close(); //直接调用JQUERY close方法关闭
+      // } else {
+      //   window.opener = null;
+      //   window.open("", "_self");
+      //   window.close();
+      // }
+        Owner.closeWin();
+    }
+
+    function getQueryString(name) {
+      var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) {
+        return unescape(r[2]);
+      }
+      return null;
+    }
+
+    $("#actions").on('click', '#iknowBtn', function () {
+      if (window.CloseOwnerWindow) {
+        return window.CloseOwnerWindow();
+      } else {
+        closeWin();
+      }
+    });
+
+    $(function () {
+      xqcx.init()
+    });
+  </script>
+
+</body>
+
+</html>

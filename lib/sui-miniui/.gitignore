@@ -1,0 +1,6 @@
+/dist/
+/Thumbs.db/
+/.idea/
+/node_modules/
+/bower_components/
+/npm-debug.log/

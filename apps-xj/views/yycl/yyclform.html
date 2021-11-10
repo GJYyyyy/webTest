@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>异议处理表单</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../styles/style.css">
+    <style>
+        .cxsfxytitle {
+            background: #eee;
+            text-align: left;
+            text-indent: 20px;
+            height: 36px;
+            line-height: 36px;
+            width: 100%;
+        }
+
+        .content {
+            padding: 20px 0;
+        }
+
+        .jnskTable {
+            width: 90%;
+            margin: 0 auto;
+            height: auto;
+            border: 1px solid #000;
+            word-break: break-all;
+            table-layout: fixed;
+        }
+
+        .jnskTable td {
+            padding: 5px;
+            border: 1px solid #000;
+            color: #000;
+        }
+
+        .jnskTable .lable {
+            text-align: center;
+        }
+
+        .mini-textarea .mini-textbox-border {
+            height: 148px !important;
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false">
+    <div class="mini-fit">
+        <div class="editform">
+            <h3 style="margin: 3px auto; text-align: center;"><span id="swsxMc"></span>罚款缴纳异议处理</h3>
+            <div class="width970 infodiv" style="margin-top: -10px;padding-top: 0">
+                <fieldset class="bor" style="padding-bottom: 3px; margin-top: 10px;">
+                    <legend>
+                        <h3>基本信息</h3>
+                    </legend>
+                    <table id="jbxx" width="100%" border="0" cellspacing="0" cellpadding="0" class="infotab"
+                        style="line-height: 18px">
+                        <tr>
+                            <th>任务来源：</th>
+                            <td>电子税务局</td>
+                            <th>证件号码：</th>
+                            <td><span id="zjhm"></span></td>
+                            <th>纳税人名称：</th>
+                            <td><span id="nsrmc"></span></td>
+                        </tr>
+                        <tr>
+                            <th>提交日期：</th>
+                            <td><span id="tjsj"></span></td>
+                            <th>办理期限：</th>
+                            <td><span id="blqx"></span></td>
+                            <!-- <th>申请序号：</th>
+                            <td><span id="sqxh"></span></td> -->
+                        </tr>
+                        <!-- <tr>
+                            <th>申请人：</th>
+                            <td><span id="jbrmc"></span><span id="sjhm"></span></td>
+                            <th>文书号：</th>
+                            <td><span id="wsh"></span></td>
+                        </tr> -->
+                    </table>
+                </fieldset>
+                <br>
+                <h2 class="cxsfxytitle">纳税人基本信息</h2>
+                <div class="content">
+                    <table id="nsrjbxx" width="90%" border="0" cellspacing="0" cellpadding="0" class="infotab"
+                        style="line-height: 18px">
+                        <tr>
+                            <td align="right">纳税人识别号：</td>
+                            <td><input id="nsrsbh" name="nsrsbh" class="mini-textbox" style="width:100%;" readonly />
+                            </td>
+                            <td align="right">纳税人名称：</td>
+                            <td><input id="nsrmc" name="nsrmc" class="mini-textbox" style="width:100%;" readonly />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <h2 class="cxsfxytitle">处罚信息</h2>
+                <div class="content">
+                    <table class="jnskTable" border="0" cellSpacing="0" cellPadding="0">
+                        <tbody>
+                            <tr>
+                                <td colspan="4" class="lable">被处罚人名称</td>
+                                <td colspan="13" id="bcfrmc_td">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="lable">被处罚人证件名称</td>
+                                <td colspan="5" id="bcfrzjmc_td">
+                                </td>
+                                <td class="lable" colspan="3">证件号码</td>
+                                <td colspan="5" id="zjhm_td">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="lable">违法所属期</td>
+                                <td colspan="13" id="wfssq_td">
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="lable">违法事实 <br>及<br>处罚依据</td>
+                                <td colspan="13" id="wsssjcfyj_td">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="lable">罚款金额</td>
+                                <td colspan="13" id="fkje_td">
+                                    （大写）<span id="fkje_Dx"></span>￥<span id="fkje"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2 class="cxsfxytitle">纳税人异议点</h2>
+                <div class="content" style="width: 90%;margin: 0 auto;">
+                    <div style="display: inline-block;width: 14%; vertical-align: top;text-align: right;">纳税人提交的异议点：
+                    </div>
+                    <textarea class="mini-textarea" style="height:150px;width: 85%;" id="yyd" readonly></textarea>
+                </div>
+                <div>
+                    <h2 class="cxsfxytitle">审核意见</h2>
+                    <div class="content" style="width: 90%;margin: 0 auto;">
+                        <table id="shyj" width="100%" border="0" cellspacing="0" cellpadding="0" class="infotab"
+                            style="line-height: 18px">
+                            <tr style="color: red;">
+                                <td align="right">温馨提示：</td>
+                                <td>审核通过，您将通过纳税人的异议申诉，终审通过后需金三作废对纳税人的处罚等流程信息。</td>
+                            </tr>
+                            <tr style="color: red;">
+                                <td></td>
+                                <td>审核不通过，您将不通过纳税人的异议申诉，终审不通过后纳税人仍需缴纳罚款。</td>
+                            </tr>
+                            <tr>
+                                <td align="right"><span style="color: red;">*</span>审核结果：</td>
+                                <td style="width: 85%;">
+                                    <div class="mini-radiobuttonlist" repeatItems="2" repeatLayout="table" id="shjg"
+                                        name="shjg" textField="text" style="width: 85%;display: inline-block;"
+                                        valueField="id" data="[{text:'通过',id:'Y'},{text:'不通过',id:'N'}]"
+                                        onvaluechanged="radioValueChange" required requiredErrorText="审核结果不能为空">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="btglyTr" style="display:none;">
+                                <td align="right" style="vertical-align: top;"><span
+                                        style="color: red;">*</span>审核不通过理由：
+                                </td>
+                                <td style="width: 85%;">
+                                    <textarea class="mini-textarea" style="height:150px;width: 100%;" id="shbtgly"
+                                        name="shbtgly" required="btglyRequired"
+                                        requiredErrorText="审核不通过理由不能为空"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../lib/jquery/jquery.js"></script>
+    <script src="../../scripts/miniui.js"></script>
+    <script src="../../scripts/gldcommon.js"></script>
+    <script src="./yyclform.js"></script>
+</body>
+
+</html>

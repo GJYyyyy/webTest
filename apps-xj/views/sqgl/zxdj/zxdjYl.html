@@ -1,0 +1,35 @@
+<section>
+    <div class="table_bg table_div">
+        <table class="form-table table_bg" id="yl-form" data-view-type="form" width="90%">
+            <tr>
+                <th width="15%">纳税人识别号：</th>
+                <td width="35%">
+                    <input name="nsrsbh" class="mini-textbox" readonly="true" width="100%" />
+                </td>
+                <th width="15%">纳税人名称：</th>
+                <td width="35%">
+                    <input name="nsrmc" class="mini-textbox" readonly="true" width="100%" />
+                </td>
+            </tr>
+            <tr>
+                <th>注销原因：</th>
+                <td colspan="3">
+                    <input name="zxyyDmText" class="mini-textbox" readonly="true" width="100%" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h4>您存在以下未办结的事项</h4>
+    <div class="bszl" data-view-type="datagrid">
+        <div id="wbjsx-yl-grid" class="mini-datagrid" style="width:100%;height:260px;" allowResize="false" enabled="true" showPager="false"
+            showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false" idField="id" checkSelectionOnly="true"
+            allowCellSelect="true" allowCellEdit="true">
+            <div property="columns">
+                <div type="indexcolumn" width="50">序号</div>
+                <div field="wjsxmc">未办结事项</div>
+                <div field="wjsxmx">未办结事项明细</div>
+                <div field="wjsxfbclmc">未办结事项附报资料</div>
+            </div>
+        </div>
+    </div>
+</section>

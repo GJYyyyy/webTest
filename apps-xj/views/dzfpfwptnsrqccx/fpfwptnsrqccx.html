@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>电子发票服务平台服务上海市纳税人清册查询</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../styles/style.css">
+  <link rel="stylesheet" href="./fpfwptnsrqccx.css">
+</head>
+
+<body style="background:#fff;">
+  <!-- <div class="search">
+    <div class="searchC">查询条件</div>
+</div> -->
+
+  <div id="qymdFrom" class="searchdiv">
+    <table width="96%" border="0" cellspacing="0" cellpadding="0" class="qymdTable" id="qymdTable">
+      <tr>
+        <th style="width: 15%;text-align: right">平台所有者纳税人识别号：</th>
+        <td style="width: 35%;padding-bottom: 10px;"><input name="ptsyrnsrsbh" type="text" id="ptsyrnsrsbh"
+            class="mini-textbox" style="width: 100%" vtype="rangeLength:15,20" onvalidation="nsrsbhValidate"
+            maxLengthErrorText="编号长度不能超过20个字符" minLengthErrorText="编号长度不能低于15个字符" /></td>
+        <th style="text-align: right">平台名称：</th>
+        <td>
+          <input name="ptmc" type="text" id="ptmc" class="mini-textbox" style="width: 100%" />
+        </td>
+      </tr>
+      <tr>
+        <th style="width: 15%;text-align: right">清册上传日期：</th>
+        <td nowrap style="width: 35%">
+          <input id="lrrqStartTime" name="lrrqStartTime" class="mini-datepicker" format="yyyy-MM-dd"
+            style="width: 46%" />
+          <span style="display: inline-block;width: 5%;text-align: center;">至</span>
+          <input id="lrrqEndTime" name="lrrqEndTime" class="mini-datepicker" format="yyyy-MM-dd" style="width: 46%" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6" style="padding:10px; text-align:center;">
+          <a id="search" class="mini-button" onclick="fpfwptnsrqccx.doSearch">查询</a>
+          <a class="mini-button" onclick="fpfwptnsrqccx.doReset">重置</a>
+          <a class="mini-button" onclick="fpfwptnsrqccx.exportFpqd">导出</a>
+      </tr>
+    </table>
+  </div>
+
+  <div id="fpfwptGrid" class="mini-datagrid" showPager="true" style="width: 99%; height:500px; margin: 0 auto;"
+    sizeList="[30,50,100]" pageSize="30" allowCellWrap="false" allowHeaderWrap="true" fitColumns="true"
+    showEmptyText="true" onpagechanged="fpfwptnsrqccx.onpagechanged" onbeforeload="fpfwptnsrqccx.onbeforeload">
+    <div property="columns">
+      <div field="no" align="center" headeralign="center" width="80">序号</div>
+      <div field="ptmc" align="center" headeralign="center">平台名称</div>
+      <div field="ptsyrnsrsbh" align="center" headeralign="center">平台所有者纳税人识别号</div>
+      <div field="lrrq" align="center" headeralign="center" dateFormat="yyyy-MM-dd">清册上传日期</div>
+      <div field="cz" align="center" headeralign="center" renderer="onActionRenderer" width='120'>操作
+      </div>
+    </div>
+  </div>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="./fpfwptnsrqccx.js"></script>
+
+</html>

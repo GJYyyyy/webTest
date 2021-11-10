@@ -1,0 +1,133 @@
+
+<section>
+    <div id="step_yl_form" data-view-type="form">
+    <!--内容1开始-->
+    <h5>纳税人基本信息</h5>
+    <table class="form-table table_bg">
+        <tr>
+            <th style="width:170px;">纳税人识别号</th>
+            <td style="width:250px;">
+                <input name="nsrsbh" class="mini-textbox" width="100%" readonly/>
+            </td>
+            <th style="width:170px;">纳税人名称</th>
+            <td  style="width:250px;">
+                <input name="nsrmc" class="mini-textbox" width="100%" readonly/>
+            </td>
+        </tr>
+        <tr>
+            <th style="width:170px;">管理证明编号</th>
+            <td style="width:250px;">
+                <input name="wcjyhdssglzmbh" class="mini-textbox" width="100%" readonly/>
+            </td>
+
+            <th style="width:170px;"></th>
+            <td style="width:250px;"></td>
+        </tr>
+        <tr>
+            <th style="width:170px;">证明有效期起</th>
+            <td style="width:250px;">
+                <input name="zmyxqq" class="mini-textbox" width="100%" readonly/>
+            </td>
+
+            <th style="width:170px;">证明有效期止</th>
+            <td style="width:250px;">
+                <input name="zmyxqz" class="mini-textbox" width="100%" readonly/>
+            </td>
+        </tr>
+        <tr>
+            <th style="width:170px;">报验日期</th>
+            <td style="width:250px;">
+                <input name="byrq" class="mini-textbox" width="100%" readonly/>
+            </td>
+
+            <th style="width:170px;">经营地点</th>
+            <td style="width:250px;">
+                <input name="jydd" class="mini-textbox" width="100%" readonly/>
+            </td>
+        </tr>
+        <tr>
+            <th style="width:170px;">实际经营期起</th>
+            <td style="width:250px;">
+                <input name="sjjyqjq" class="mini-textbox" width="100%" readonly/>
+            </td>
+            <th style="width:170px;">实际经营期止</th>
+            <td style="width:250px;">
+                <input name="sjjyqjz" class="mini-textbox" width="100%" readonly/>
+            </td>
+        </tr>
+        <tr>
+            <th style="width:170px;">到达日期</th>
+            <td style="width:250px;">
+                <input name="ddrq" class="mini-textbox" width="100%" readonly/>
+            </td>
+            <th style="width:170px;">货物存放地点</th>
+            <td style="width:250px;">
+                <input name="hwcfdd" class="mini-textbox" width="100%" readonly/>
+            </td>
+        </tr>
+    </table>
+    <h5>货物或劳务信息</h5>
+        <div data-view-type="datagrid">
+            <div id="wcjyhdyl_grid" class="mini-datagrid" style="width:1160px;height:200px;margin:0 auto;" allowResize="false"
+         enabled="false"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="false">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="wcjyhwmc" vtype="required">
+                货物（服务）名称
+            </div>
+            <div field="yjskzsl" width="160" vtype="required" dataType="float">
+                预缴税款征收率（2%或3%）
+            </div>
+            <div field="yyjskje" width="100" vtype="required" dataType="float">
+                已缴纳税款金额
+            </div>
+            <div field="sjhtje" width="120" vtype="required,float">
+                实际合同
+            </div>
+            <div field="kjfpjezk" width="120" vtype="required" dataType="float">
+                开具发票金额（自开）
+            </div>
+            <div field="kjfpjedk" width="120" vtype="required" dataType="float">
+                开具发票金额（代开）
+            </div>
+            <div field="ybyjskje" width="120" vtype="required"　dataType="float">
+                应补预缴税款金额
+            </div>
+        </div>
+    </div>
+        </div>
+    <!--缴纳税款情况预览-->
+    <h5>缴纳税款情况</h5>
+        <div data-view-type="datagrid">
+            <div id="jkxx1_grid" class="mini-datagrid" style="width:1160px;height:200px;" allowResize="false"
+         enabled="false"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="false">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="pzzlDm" displayField="pzzlDmText"  vtype="required">
+                完税凭证种类
+            </div>
+            <div field="pzhm">
+                完税凭证号码
+            </div>
+            <div field="dzsphm">
+                电子税票号码
+            </div>
+            <div field="zsxmDm" displayField="zsxmDmText" width="100">
+                征收项目
+            </div>
+            <div field="zspmDm" displayField="zspmDmText" width="120">
+                征收品目
+            </div>
+            <div field="se" width="120">
+                税额
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+
+</section>

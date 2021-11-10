@@ -1,0 +1,77 @@
+body.yyblxzsz {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible; }
+  body.yyblxzsz .tree-wrap {
+    width: 29%;
+    float: left;
+    border: 1px solid #d5d5d5;
+    height: 500px; }
+    body.yyblxzsz .tree-wrap .mini-listbox-border {
+      border: none; }
+  body.yyblxzsz .set-content {
+    position: relative;
+    width: 69%;
+    border: 1px solid #d5d5d5;
+    float: right;
+    height: 500px; }
+    body.yyblxzsz .set-content .text-area-box {
+      width: 100%; }
+      body.yyblxzsz .set-content .text-area-box .nicEdit-panel {
+        width: 100%; }
+  body.yyblxzsz .h5 {
+    text-indent: 20px; }
+  body.yyblxzsz .textArea-wrap {
+    width: 96%;
+    margin: 0 auto; }
+  body.yyblxzsz .list-area {
+    display: none; }
+  body.yyblxzsz nicEdit-main {
+    outline: none; }
+  body.yyblxzsz .search-area {
+    width: 100%;
+    height: 50px;
+    padding-top: 100px; }
+  body.yyblxzsz .cxtjTable {
+    width: 50%;
+    margin: 0 auto; }
+  body.yyblxzsz .content-area {
+    width: 90%;
+    margin: 30px auto;
+    overflow: hidden; }
+    body.yyblxzsz .content-area .radio-area {
+      width: 80%;
+      height: 72px;
+      margin: 20px auto;
+      border: 1px solid #ccc; }
+      body.yyblxzsz .content-area .radio-area .left-box-radio {
+        width: 20%;
+        float: left;
+        height: 72px;
+        line-height: 72px;
+        text-align: center; }
+    body.yyblxzsz .content-area .radio-posi {
+      width: 80%;
+      margin-top: 20px; }
+    body.yyblxzsz .content-area .set-szyy-area {
+      width: 80%;
+      height: 72px;
+      margin: 20px auto; }
+      body.yyblxzsz .content-area .set-szyy-area .sz-title-right {
+        width: 200px !important; }
+  body.yyblxzsz .searchdiv {
+    margin-top: 30px;
+    height: 100px;
+    text-align: center; }
+  body.yyblxzsz .mini-listbox-item-selected {
+    background: #2c78c1;
+    color: #fff; }
+
+.nicEdit-main {
+  height: 300px;
+  overflow: scroll !important; }
+
+/*# sourceMappingURL=yyblxzsz.css.map */

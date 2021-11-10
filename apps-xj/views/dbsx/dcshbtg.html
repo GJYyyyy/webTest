@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>事项受理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="swsxtzs.css">
+    <style>
+        #nsrjbxx tr{
+            line-height: 24px;
+        }
+        #btgyy-info{
+            padding-left: 60px;
+            line-height: 24px;
+            margin-bottom: 80px;
+        }
+        h4 {
+            text-indent: 25px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false">
+<div class="mini-fit">
+    <div class="editform">
+        <h3 style="margin: 3px auto; text-align: center;"><span id="swsxMc"></span>跨区迁移多次审核不通过</h3>
+        <div class="width970 infodiv" style="margin-top: -10px;padding-top: 0; line-height: 24px;">
+            <fieldset class="bor" style="padding-bottom: 3px; margin-top: 10px;">
+                <legend><h3>基本信息</h3></legend>
+                <table id="nsrjbxx" width="100%" border="0" cellspacing="0" cellpadding="0" class="infotab"
+                       style="line-height: 18px">
+                    <tr>
+                        <th>任务来源：</th>
+                        <td>电子税务局</td>
+                        <th>证件号码：</th>
+                        <td><span id="sqr"></span></td>
+                        <th>纳税人名称：</th>
+                        <td><span id="nsrmc"></span></td>
+                    </tr>
+                    <tr>
+                        <th>提交日期：</th>
+                        <td><span id="cjsj"></span></td>
+                        <th>受理期限：</th>
+                        <td ><span id="blqx"></span></td>
+                        <th>文书号：</th>
+                        <td><span id="wsh"></span></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <br>
+            <!--<div id="tabs1" class="mini-tabs sbb" activeIndex="0" style="width:100%;height:710px;" plain="false">
+                <div id="wssqbDiv" title="申请表">
+                    &lt;!&ndash; 根据申请表URL加载 &ndash;&gt;
+                </div>
+                <div title="附列资料">
+
+                </div>
+            </div>-->
+            <!--<div id="tabs1" class="mini-tabs tab-content" activeIndex="0" style="width:100%;height: 500px;">-->
+                <!--<div title="申请表">-->
+                    <!--<div id="dbsx_content"></div>-->
+                <!--</div>-->
+                <!--<div title="附报资料">-->
+
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div id="dbsx_content"></div>-->
+        </div>
+    </div>
+    <!--欠税信息-->
+    <h4>欠税信息</h4>
+    <div id="qsxx-info" class="mini-datagrid" style="width:98%;height:250px;margin: 0 auto;" allowResize="false"
+         enabled="true" allowCellWrap="true" emptyText="暂无数据"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="true">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="zsxmMc" align="center">征收项目</div>
+            <div field="zspmMc" align="center">征收品目</div>
+            <div field="skssqq" align="center">税款所属期起</div>
+            <div field="skssqz" align="center">税款所属期止</div>
+            <div field="ybtse" align="center">应补(退)税额</div>
+        </div>
+    </div>
+    <!--未办结事项信息-->
+    <h4>未办结事项信息</h4>
+    <div id="wbjsx-info" class="mini-datagrid" style="width:98%;height:250px;margin: 0 auto;" allowResize="false"
+         enabled="true" allowCellWrap="true" emptyText="暂无数据"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="true">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="taskName" align="center">任务主题</div>
+            <div field="office" align="center">办理机关</div>
+            <div field="processPerson" align="center">办理人</div>
+            <div field="startDate" align="center">任务发起时间</div>
+            <div field="startPerson" align="center">任务发起人</div>
+        </div>
+    </div>
+    <!--未申报记录信息-->
+    <h4>未申报记录信息</h4>
+    <div id="wsbjl-info" class="mini-datagrid" style="width:98%;height:250px;margin: 0 auto;" allowResize="false"
+         enabled="true" allowCellWrap="true" emptyText="暂无数据"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="true">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="zsxmMc" align="center">征收项目</div>
+            <div field="zspmMc" align="center">征收品目</div>
+            <div field="skssqq" align="center">税款所属期起</div>
+            <div field="skssqz" align="center">税款所属期止</div>
+            <div field="sbqx" align="center">申报期限</div>
+            <!--<div field="sbzt" width="150" align="center">申报状态</div>-->
+        </div>
+    </div>
+    <!--多缴信息-->
+    <h4>多缴信息</h4>
+    <div id="djxx-info" class="mini-datagrid" style="width:98%;height:250px;margin: 0 auto;" allowResize="false"
+         enabled="true" allowCellWrap="true" emptyText="暂无数据"
+         showPager="false" showEmptyText="true" autoLoad="false" multiSelect="true" allowSortColumn="false"
+         idField="id" checkSelectionOnly="true" allowCellSelect="true" allowCellEdit="true">
+        <div property="columns">
+            <div type="indexcolumn" width="50">序号</div>
+            <div field="zsxmDm" align="center">征收项目</div>
+            <div field="zspmDm" align="center">征收品目</div>
+            <div field="money" align="center">多缴额</div>
+        </div>
+    </div>
+    <!--不通过原因-->
+    <h4>不通过原因</h4>
+    <div id="btgyy-info"></div>
+
+</div>
+<div class="dbsx-actions">
+    <a id="sqbPrintBtn" class="mini-button" onclick="sxbj()">事项办结</a>
+    <a class="mini-button" onclick="closeWin()" id="backBtn">返回</a>
+</div>
+
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="../../scripts/gldbfslkz.js"></script>
+<script>
+    var btg = {
+        'sqxh': 0,
+        initPage: function(){
+            btg.qsxx = mini.get('qsxx-info');
+            btg.wbjsx = mini.get('wbjsx-info');
+            btg.wsbjl = mini.get('wsbjl-info');
+            btg.djxx = mini.get('djxx-info');
+            // btg.btgyy = mini.get('btgyy-info');
+        }
+    };
+    function setData(record){
+        $("#sqr").text(record.nsrsbh);
+        $("#nsrmc").text(record.nsrmc);
+        $("#cjsj").text(record.lrsj);
+        $("#blqx").text(record.blqx);
+        $("#wsh").text(record.wsh);
+
+        btg.sqxh = record.sqxh;
+        $.ajax({
+            url: '/dzgzpt-wsys/api/sh/kqqytjbb/query/jkxq/' + record.sqxh,
+            type: 'post',
+            data: {
+                "sqxh" : record.sqxh
+            },
+            success: function (data, textStatus, request) {
+                if (data) {
+                    var resData = mini.decode(data);
+                    btg.qsxx.setData(resData.qsjkxq ? mini.decode(resData.qsjkxq) : '');
+                    btg.wbjsx.setData(resData.wbjjkxq ? mini.decode(resData.wbjjkxq) : '');
+                    btg.wsbjl.setData(resData.wsbjkxq ? mini.decode(resData.wsbjkxq) : '');
+                    btg.djxx.setData(resData.djjkxq ? mini.decode(resData.djjkxq) : '');
+                    var tex = resData.qtjkxq ? resData.qtjkxq.replace(/(;)/g, '<br/>') : '';
+                    $("#btgyy-info").html(tex);
+
+                } else{
+                    mini.alert(data.message || '接口异常，请稍后重试');
+                }
+            },
+            error:function(error){
+                mini.alert(error.message || '接口异常，请稍后重试');
+            }
+        });
+    }
+
+    function closeWin(){
+        // var userAgent = navigator.userAgent;
+        // if (userAgent.indexOf("Firefox") != -1 || userAgent.indexOf("Chrome") != -1 || isIE11 || isIE10 ||isIE9 ||isIE8 ) {
+        //     top.close();//直接调用JQUERY close方法关闭
+        // } else {
+        //     window.opener = null;
+        //     window.open("", "_self");
+        //     window.close();
+        // }
+        Owner.closeWin();
+
+    }
+    function sxbj() {
+        $.ajax({
+            url: '/dzgzpt-wsys/api/sh/kqqytjbb/sxbj/' + btg.sqxh,
+            type: 'post',
+            data: {
+                "sqxh" : btg.sqxh
+            },
+            success: function (data, textStatus, request) {
+                if (data.success) {
+                    mini.alert("事项办结成功！","提示",function (action) {
+                        if(action === 'ok') {
+                            closeWin(true);
+                        }
+                    });
+                } else{
+                    mini.alert(data.message || '接口异常，请稍后重试');
+                }
+            },
+            error:function(error){
+                mini.alert(error.message || '接口异常，请稍后重试');
+            }
+        });
+    }
+    function getQueryString(name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return unescape(r[2]);
+        }
+        return null;
+    }
+
+    // $("#actions").on('click','#iknowBtn',function(){
+    //     if (window.CloseOwnerWindow) {
+    //         return window.CloseOwnerWindow();
+    //     }
+    //     else {
+    //         closeWin();
+    //     }
+    // });
+
+    $(function () {
+        btg.initPage()
+    });
+</script>
+
+</body>
+</html>

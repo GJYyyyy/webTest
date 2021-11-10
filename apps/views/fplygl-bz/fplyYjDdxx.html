@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>邮寄订单信息</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/style.css">
+</head>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="fplyYjDdxx.js"></script>
+<body>
+<div id="yjxxdiv" title="发票邮寄信息" enabled="false">
+    <div class="searchdiv">
+        <h3>发票邮寄信息:</h3>
+        <div id="yjqkGrid" class="mini-datagrid" style="width:100%;height:83px;" idfield="id" allowresize="false"
+             showpager="false" allowCellEdit="false"
+             allowCellSelect="true" multiSelect="true" allowCellValid="true" oncellcommitedit="onCellCommitEdit">
+            <div property="columns">
+                <!-- <div field="kdgs" headeralign="center" allowsort="false">快递公司</div> -->
+                <div field="sjcs" headeralign="center" allowsort="false">收件城市</div>
+                <div field="sjcsqh" headeralign="center" allowsort="false">区县</div>
+                <div field="sjrdz" headeralign="center" allowsort="false">收件人地址</div>
+                <div field="sjdyzbm" headeralign="center" allowsort="false">邮政编码</div>
+                <div field="dysjrxm" headeralign="center" allowsort="false">购票人姓名</div>
+                <div field="dysjrlxdh" headeralign="center" allowsort="false">手机号码</div>
+                <div field="lxrsfzjlxDm" headeralign="center" allowsort="false" type="comboboxcolumn">证件类型
+                    <input class="mini-combobox" style="width:100%;" textfield="MC" property="editor"
+                           url="/dzgzpt-wsys/api/baseCode/get/baseCode2CombSelect/DM_GY_SFZJLX_GT3" valuefield="ID"/>
+                </div>
+                <div field="lxrsfzh" headeralign="center" allowsort="false">证件号码</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

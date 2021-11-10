@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>一网通办查询</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../dbsx/dbsxcx.css">
+    <style type="text/css">
+        #ywtbcxForm .cxtjTable{
+            text-align: center;
+            width: 75%;
+            margin: 0 auto;
+        }
+        #ywtbcxForm .cxtjTable th{
+            text-align: right;
+            padding-top: 5px;
+        }
+        #ywtbcxForm .cxtjTable td{
+            padding-top: 5px;
+        }
+        .redico{
+            color: red;
+            display: inline-block;
+            padding-right: 5px;
+        }
+        .blfjbox .mini-buttonedit-close{
+            display: none!important;
+        }
+        .blfjbox .mini-buttonedit-icon{
+            display: none!important;
+        }
+        .blfjbox .mini-buttonedit-border{
+            padding-right: 0!important;
+        }
+        .blfjbox .mini-buttonedit-button{
+            cursor: default!important;
+        }
+    </style>
+</head>
+
+<body>
+<div class="search">
+    <div class="searchC">查询条件</div>
+</div>
+<div id="ywtbcxForm" class="searchdiv">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="cxtjTable" id="ywtbcxTable">
+        <tr>
+            <th style="width: 15%">办理分局：</th>
+            <td style="width: 20%">
+                <input id="blfj" name="blfj" class="mini-combobox blfjbox" textfield="MC" valuefield="ID"
+                       shownullitem="false" readOnly="true"
+                       style="width:100%;" valueFromSelect="true" allowInput="false" />
+            </td>
+        </tr>
+        <tr>
+            <th><span class="redico">*</span>身份证号：</th>
+            <td ><input id="zrrsfzh" name="zrrsfzh" class="mini-textbox" style="width:100%;" required="true"
+                        onvaluechanged="onZjhmValidation" requiredErrorText="身份证号不能为空"/></td>
+            <th style="width: 15%"><span class="redico">*</span>姓名：</th>
+            <td style="width: 20%"><input id="zrrxm" name="zrrxm" class="mini-textbox" style="width:100%;" required="true"
+                                          requiredErrorText="姓名不能为空" /></td>
+        </tr>
+        <tr>
+            <th><span class="redico">*</span>证件类型：</th>
+            <td>
+                <input id="sfzjlx" name="sfzjlx" class="mini-combobox" valueField="ID"  textField="MC"
+                       shownullitem="false"
+                       valueFromSelect="true" allowInput="false" required="true" requiredErrorText="证件类型不能为空"/>
+            </td>
+            <th>亮证类型：</th>
+            <td><input id="lzlx" name="lzlx" class="mini-combobox" textfield="MC" valuefield="ID"
+                       shownullitem="false" valueFromSelect="true" allowInput="false"/>
+            </td>
+        </tr>
+
+        <tr>
+            <th>受理时间起：</th>
+            <td><input id="slsjQ" name="slsjQ" class="mini-datepicker" format="yyyy-MM-dd" emptytext="" onvaluechanged="slrqqChange" required requiredErrorText="受理时间起不能为空"/></td>
+            <th>受理时间止：</th>
+            <td><input id="slsjZ" name="slsjZ" class="mini-datepicker" format="yyyy-MM-dd" emptytext="" onvaluechanged="slrqzChange" required requiredErrorText="受理时间止不能为空"/></td>
+        </tr>
+        <tr>
+            <td colspan="4" style="padding:10px; text-align:center;">
+                <a id="search" class="mini-button" onclick="doSearch(this)">查询</a>
+                <a class="mini-button" onclick="doReset()">重置</a>
+        </tr>
+    </table>
+</div>
+
+<div class="mini-fit" id="ywtbcx" style="display:block">
+    <div id="ywtbcxGrid" class="mini-datagrid" showPager="true" style="width: 100%; height:100%;"
+         multiSelect="true" sizeList="[30,50,100]" pageSize="30">
+        <div property="columns">
+            <div type="indexcolumn">序号</div>
+            <div field="zrrsfzh" headeralign="center" align="center" allowsort="false" width="160">身份证号</div>
+            <div field="zrrxm" headeralign="center" align="center" allowsort="false" width="80">姓名</div>
+            <div field="blsx" headeralign="center" align="center" allowsort="false" width="160">办理事项</div>
+            <div field="lzlx" headeralign="center" align="center" allowsort="false" width="120">亮证类型</div>
+            <div field="slry" headeralign="center" align="center" allowsort="false" width="80">受理人员</div>
+            <div field="slsj" dateFormat="yyyy-MM-dd HH:mm:ss" headeralign="center" align="center" allowsort="false"
+                 width="120">受理时间</div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/efg_water.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="../../scripts/gldbfslkz.js"></script>
+<script src="../xbnsrcx/baseCode.js"></script>
+<script src="./Validator.js"></script>
+<script src="./zrrywtbcx.js"></script>
+</body>
+
+</html>

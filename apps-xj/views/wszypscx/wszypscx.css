@@ -1,0 +1,30 @@
+tr{
+    height: 50px;
+}
+
+th{
+    text-align: right;
+}
+
+.txt-red{
+    color: #f00;
+}
+
+.search{
+    cursor: pointer;
+}
+
+.ableClick{
+    color: #0994dc;
+    cursor: pointer;
+}
+
+.unableClick{
+    color: #e2e2e2;
+}
+
+.operateBtn{
+    background-color: #169BD5 !important;
+    color: #fff !important;
+    border-radius: 3px;
+}

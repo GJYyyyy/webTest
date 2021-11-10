@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit|ie-stand|ie-comp">
+<meta name="description" content="电子税务局">
+<meta name="keywords" content="聊天助手 税务局">
+<title>聊天助手</title>
+<link rel="stylesheet" href="chat.css">
+    <!--[if IE 8]><!-->
+    <style>
+        .chat-search input {
+            height: 18px;
+            font-size: 14px;
+        }
+        .chat-outer {
+            background: #126fd9;
+        }
+    </style>
+    <!--<![endif]-->
+    <!--[if gt IE 9]><!-->
+    <style>
+        .chat-search input {
+            height: 24px;
+            font-size: 12px;
+        }
+    </style>
+    <!--<![endif]-->
+</head>
+<body>
+<!-- steps 插件容器 id="wizard" -->
+<div id="wizard"></div>
+
+<div id="pop">
+    <div id="popHead">
+        <h2>我的消息</h2>
+    </div>
+</div>
+
+<div class="chat-header">
+    <div class="header-area-logo"></div>
+    <div class="header-area-title">
+        <span>上海市税务局电子工作平台</span>
+    </div>
+</div>
+
+<!--<div id="chat-win"-->
+<!--     class="mini-window"-->
+<!--     showModal="true"-->
+<!--     allowResize="false"-->
+<!--     allowDrag="false"-->
+<!--     showClose="true"-->
+<!--     style="display: none;width:700px;"-->
+<!--&gt;-->
+<div class="chat-outer">
+    <div class="chat" id="chat">
+        <div class="chat-left-outer">
+            <div class="chat-left">
+                <div class="chat-search" id="chat-search">
+                    <label>
+                        <input class="search-input" id="search-input" type="text" placeholder="请输入用户ID或名称">
+                    </label>
+                    <span class="search-id" id="search-id">搜索</span>
+                    <ul class="search-id-ul" id="search-id-ul"></ul>
+                </div>
+                <div class="chat-users" id="chat-users">
+                    <ul class="chat-users-ul" id="chat-users-ul"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="chat-right-outer">
+            <div class="chat-right">
+                <div class="chat-head">
+                    <span class="chat-head-title"></span>
+                    <div class="chat-close-outer">
+                        <!--<span class="chat-close"></span>-->
+                    </div>
+                </div>
+                <div class="chat-body">
+                    <div class="chat-msgs" id="chat-msgs">
+                        <div class="msg-oldtime">加载历史消息</div>
+                        <div class="chat-list">
+                            <div id="chat-list"></div>
+                            <div style="display: none;"></div>
+                        </div>
+                    </div>
+                    <div class="chat-text">
+                        <div class="chat-input">
+                            <label>
+                                <textarea class="chat-textarea" id="chat-textarea" placeholder="在此输入内容..."></textarea>
+                            </label>
+                        </div>
+                        <div class="tips"></div>
+                        <div class="send-btn" id="send-btn">发送(S)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+</div>
+<!--</div>-->
+
+
+
+<script src="../../../lib/jquery/jquery.min.js"></script>
+<!--[if IE]><!-->
+<script src="../../../lib/jquery/jquery.placeholder.min.js"></script>
+<script>
+    $(function(){
+        $('#search-input').placeholder();
+        $('#chat-textarea').placeholder();
+    });
+</script>
+<!--<![endif]-->
+<script src="../../../lib/sui-miniui/mini-all-min.js"></script>
+<script src="chat.js"></script>
+</body>
+</html>

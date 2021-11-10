@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>红字发票开具</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../dbsx/dbsxcx.css">
+    <link rel="stylesheet" href="hzfpkj.css">
+</head>
+<body style="background:#fff;">
+<section>
+    <div class="dbsx-actions">
+        <h2 style="color:#ff0000">红字发票开具</h2>
+        <h4 style="color:#0564BC;font-size:16px;text-align:left;padding-left:10px">蓝字发票代码：<span id="lzfpdm"></span>
+            <span style="padding-left:30px">蓝字发票号码：</span><span id="lzfphm"></span></h4>
+    </div>
+    <div class="hzfpkjxq" id="step_tx_form">
+        <div style="text-align: left;color: #ff0000">
+            <h4>购货方信息</h4>
+            <div class="table-cell">
+              <div><span class="l">名称：</span><span class="r" id="nsrmc"></span></div>
+              <div><span class="l">税号：</span><span class="r" id="nsrsh"></span></div>
+              <div><span class="l">电话及地址：</span><span class="r" id="dhjdz"></span></div>
+              <div><span class="l">开户银行及账号：</span><span class="r" id="khyhjzh"></span></div>
+            </div>
+            <h4>货物或劳务信息</h4>
+        </div>
+        <div id="hp-hwlwxx-grid" class="mini-datagrid" style="width:100%;"
+             allowresize="false" showpager="false" allowCellValid="false"
+             allowCellSelect="true" showEmptyText="true" emptyText='<font color="red">未找到符合条件的记录!</font>'>
+            <div property="columns">
+                <div cellStyle='color:#ff0000' field="hwlwmc" align="center" width="80">货物或劳务名称</div>
+                <div cellStyle='color:#ff0000' field="ggxh" align="center" width="80">规格型号</div>
+                <div cellStyle='color:#ff0000' field="dwslDmText" align="center" width="80">计量单位</div>
+                <div cellStyle='color:#ff0000' field="hlsl" align="center" width="80">数量</div>
+                <div cellStyle='color:#ff0000' field="jeHs" align="center" width="80">含税金额（合同金额）</div>
+            </div>
+        </div>
+        <p>备注信息：<span id="bzxx"></span></p>
+        <div style="text-align: left;color: #ff0000;padding-bottom:20px">
+            <h4>销货方信息</h4>
+            <div class="table-cell">
+                <div><span class="l">名称：</span><span class="r" id="xhfxxmc"></span></div>
+                <div><span class="l">税号：</span><span class="r" id="xhfxxsh"></span></div>
+                <div><span class="l">电话及地址：</span><span class="r" id="dhjdz2"></span></div>
+                <div><span class="l">开户银行及账号：</span><span class="r" id="khyhjzh2"></span></div>
+            </div>            
+        </div>
+        <h4 style="color: #ff0000">应缴税费信息</h4>
+        <div id="hp-fjs-grid" class="mini-datagrid" style="width:100%;"
+             allowresize="false" showpager="false" allowCellValid="false" ondrawsummarycell="onDrawSummaryCell" showSummaryRow="true"
+             allowCellSelect="true" showEmptyText="true" emptyText='<font color="red">未找到符合条件的记录!</font>'>
+            <div property="columns">
+                <div cellStyle='color:#ff0000' field="zsxmMC" align="center" width="80">征收项目</div>
+                <div cellStyle='color:#ff0000' field="zspmMC" align="center" width="80">征收品目</div>
+                <div cellStyle='color:#ff0000' field="jsyj" align="center" width="80">计税依据</div>
+                <div cellStyle='color:#ff0000' field="zsl" align="center" width="80">征收率</div>
+                <div cellStyle='color:#ff0000' field="se" align="center" width="80">应纳税额</div>
+            </div>
+        </div>
+    </div>
+    <div class="dbsx-actions">
+        <a id="sxbjBtn2" class="mini-button" onClick="hzfpkj.hzfpkjBtn">红字发票开具</a>
+        <a id="sxbjBtn2" class="mini-button" onClick="onCancel('ok');">返回</a>
+    </div>
+</section>
+</body>
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="../../scripts/gldbfslkz.js"></script>
+<script src="hzfpkjServer.js"></script>
+<script src="hzfpkj.js" type="text/javascript"></script>
+<script src="hzfpkjxq.js" type="text/javascript"></script>
+</html>

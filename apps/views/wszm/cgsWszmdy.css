@@ -1,0 +1,40 @@
+.dyTip {
+	text-align: left;
+	color: red;
+	font-size: 24px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+}
+.wszmxx{
+	height: 300px;
+	padding-top: 100px;
+}
+.wszmxxTable {
+	margin:auto;
+	border-collapse:collapse;
+}
+
+.wszmxxTable th{
+	border: 1px solid black;
+	width:150px;
+	text-align: center;
+}
+
+.wszmxxTable td{
+	border: 1px solid black;
+	width:250px;
+}
+.doa{
+	font-size: 17px;
+	width: 200px;
+	height: 30px;
+	text-align: center;
+	padding-top: 5px;
+}
+
+.noClick{
+	border: 1px solid #DDD;
+    background-color: #F5F5F5;
+    color:#ACA899;
+}

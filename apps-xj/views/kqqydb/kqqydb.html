@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>跨区迁移待办</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../dbsx/dbsxcx.css">
+    <style type="text/css">
+        .grid-cell-warning {
+            background: #fcffcc
+        }
+
+        .grid-cell-error {
+            background: #ff9669
+        }
+
+        #cxtjForm .cxtjTable {
+            width: 90% !important;
+        }
+
+        .tab-bar a {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<div class="tab-bar">
+    <a id="qrwhh" onclick="kqqydb.doSearch(this)">迁入未划户</a>
+    <a id="tyqydwhh" onclick="kqqydb.doSearch(this)">同意迁移但未划户</a>
+    <a id="dcshbtg" onclick="kqqydb.doSearch(this)">多次审核不通过</a>
+</div>
+
+<div class="search">
+    <div class="searchC">显示查询条件</div>
+</div>
+
+<div id="cxtjForm" class="searchdiv">
+    <table width="96%" border="0" cellspacing="0" cellpadding="0" class="cxtjTable" id="kqqyTable">
+        <tr>
+            <th style="width: 20%">社会信用代码（纳税人识别号）：</th>
+            <td style="width: 20%;"><input id="kqqynsrsbh" name="nsrsbh" class="mini-textbox" style="width:100%;"/></td>
+            <th style="width: 20%">收到日期：</th>
+            <td nowrap style="width: 20%;"><input id="kqqysdrqQ" name="sdrqQ" class="mini-datepicker" value="new Date(new Date().setDate(new Date().getDate() - 6))"
+                                                  format="yyyy-MM-dd" style="width:47%"
+                                                  emptytext="" required="true" requiredErrorText="请选择收到日期起"/>
+                <span style="width: 5%; display: inline-block;">至</span>
+                <input id="kqqysdrqZ" name="sdrqZ" class="mini-datepicker" format="yyyy-MM-dd" style="width:45%" value="new Date()"
+                       emptytext="" required="true" requiredErrorText="请选择收到日期止"/></td>
+
+        </tr>
+
+        <tr>
+            <th>文书号：</th>
+            <td style="padding: 5px 0;"><input id="kqqywsh" name="wsh" class="mini-textbox" style="width:100%;"/></td>
+            <th>办理期限：</th>
+            <td nowrap><input id="kqqyblqxQ" name="blqxQ" class="mini-datepicker" format="yyyy-MM-dd" style="width:47%"
+                              emptytext="" required="true" requiredErrorText="请选择办理期限起" value="new Date(new Date().setDate(new Date().getDate() - 6))"/>
+                <span style="width: 5%; display: inline-block;">至</span>
+                <input id="kqqyblqxZ" name="blqxZ" class="mini-datepicker" format="yyyy-MM-dd" style="width:45%" value="new Date()"
+                       emptytext="" required="true" requiredErrorText="请选择办理期限止"/></td>
+        </tr>
+        <tr>
+            <th>迁出地主管税务机关：</th>
+            <td style=""><input id="kqqyswjgdm" name="swjgdm" class="mini-treeselect" style="width:100%;"
+                                textfield="MC" valuefield="ID" parentField="PID" popupWidth="100%"
+                                url="/dzgzpt-wsys/api/baseCode/get/getQj"
+                                showNullItem="true" nullItemText="--请选择--" allowInput="true" valueFromSelect="true"/>
+            </td>
+
+            <!--<th>事项类型：</th>-->
+            <!--<td><input id="kqqyswsxDm" name="swsxdm" class="mini-combobox"-->
+            <!--textfield="MC" valuefield="ID"-->
+            <!--shownullitem="false" style="width:100%;" multiSelect = "false"-->
+            <!--/></td>-->
+        </tr>
+        <tr>
+            <td colspan="4" style="padding:10px; text-align:center;">
+                <a id="kqqysearch" class="mini-button" onclick="kqqydb.doSearch('search')">查询</a>
+                <a class="mini-button" onclick="kqqydb.doReset()">重置</a>
+        </tr>
+    </table>
+</div>
+
+<div id="dbsxGridkqqy" idField="lx" class="mini-datagrid" showPager="true" style="width:98%;height:450px; margin: 0 auto;"
+     multiSelect="true"
+     sizeList="[30,50,100]" pageSize="30">
+    <div property="columns">
+        <div type="indexcolumn" width="60">序号</div>
+        <div field="wsh" headeralign="center" align="center" allowsort="false" width="145">文书号</div>
+        <!--
+                    <div field="ywlb" headeralign="center" align="center" allowsort="false" width="80">业务类别</div>
+        -->
+        <div field="swjgjc" align="center" align="center" allowsort="false" width="170">迁出地主管税务机关</div>
+        <!--<div field="swsxmc" renderer="rwmcRenderer" headeralign="center" align="center" allowsort="false" width="120">-->
+            <!--任务名称-->
+        <!--</div>-->
+        <div field="nsrsbh" headeralign="center" align="center" allowsort="false" width="155">社会信用代码<br/>（纳税人识别号）</div>
+        <div field="nsrmc" headeralign="center" align="center" allowsort="false" width="120">纳税人名称</div>
+        <div field="zfjglx" headeralign="center"  align="center" allowsort="false" width="120">
+        总分机构类型
+        </div>
+        <div field="lrsj" headeralign="center" dateFormat="yyyy-MM-dd HH:mm:ss" align="center" allowsort="false"
+             width="80">收到日期
+        </div>
+        <div field="blqx" headeralign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" allowsort="false" width="80">办理期限</div>
+        <!--<div field="sqxh" visible="false" renderer="pzhdActionRenderer" ></div>-->
+        <div field="blztmc" headeralign="center" align="center" allowsort="false" width="60">受理状态</div>
+        <div field="a10" name="a10" headeralign="center" align="center" allowsort="false"
+             renderer="onActionRendererKqqy" width="50">操作
+        </div>
+    </div>
+</div>
+
+<script src="../../../lib/jquery/jquery.js"></script>
+<script src="../../scripts/miniui.js"></script>
+<script src="../../scripts/efg_water.js"></script>
+<script src="../../scripts/gldcommon.js"></script>
+<script src="../../scripts/gldbfslkz.js"></script>
+<script src="./kqqydb.js"></script>
+</body>
+
+</html>

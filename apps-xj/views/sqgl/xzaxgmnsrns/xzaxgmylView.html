@@ -1,0 +1,102 @@
+
+<div id="tabs1" class="mini-tabs tab-content" activeIndex="0" style="width:100%;height: auto;">
+    <div title="情况说明">
+        <!--内容1开始-->
+        <div title="按小规模纳税人纳税的情况说明">
+            <!--内容1开始-->
+            <div class="xzaxgmylView" id="step_yl_form" data-view-type="form">
+                <div style="width: 1000px">
+                    <h2 class="center-block" style="padding: 40px 0;text-align: center;">选择按小规模纳税人纳税的情况说明</h2>
+                    <table class="xzxgm-table" border="0" cellpadding="0" cellspacing="0">
+                        <tbody >
+                        <tr>
+                            <td rowspan="2" class="font-w padding-right10" align="right" style="width: 33%;">连续不超过12个月的经营期内累计应税销售额</td>
+                            <td class="padding-left10">
+                                <div>
+                                    货物劳务：
+                                    <input name="hwjssjq" allowInput="false" readonly class="mini-datepicker" width="200"
+                                           format="yyyy-MM-dd" />
+                                    至
+                                    <input name="hwjssjz" allowInput="false" readonly class="mini-datepicker" width="200"
+                                           format="yyyy-MM-dd" />
+                                    共
+                                    <input name="hwlwhj" class="mini-moneybox" readonly width="100" />
+                                    元
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="padding-left10">
+                                <div>
+                                    应税服务：
+                                    <input  name="ysjssjq" class="mini-datepicker" width="200" allowInput="false"
+                                            format="yyyy-MM-dd"  readonly />
+                                    至
+                                    <input  name="ysjssjz" class="mini-datepicker" width="200" allowInput="false"
+                                            format="yyyy-MM-dd"  readonly />
+                                    共
+                                    <input  name="ysfwhj" class="mini-moneybox" dataType="float" width="100" readonly />
+                                    元
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="font-w padding-right10">
+                                选择按小规模纳税人类型
+                            </td>
+                            <td class="padding-left10">
+                                <input name="xgmnsrlxText"  class="mini-textbox"  width="96%" readonly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="font-w padding-right10">
+                                情况说明
+                            </td>
+                            <td class="padding-left10">
+                                <input class="mini-textarea" name="qksm" errorMode="border" readonly  width="96%" height="100px">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div title="连续十二个月的小规模申报的应税销售额">
+        <div style="width: 800px;">
+            <h3 style="text-align: center">连续十二个月的小规模申报的应税销售额明细表</h3>
+            <div id="lx12Monthxse" class="mini-datagrid" style="width:100%;" allowResize="true" showEmptyText="true" autoLoad="false"
+                 idField="id" multiSelect="true" emptyText="<span style= 'color:#ff0000;'>没有相应销售额</span>"
+            >
+                <div property="columns">
+                    <div type="indexcolumn">序号</div>
+                    <div field="skssqz" width="120" headerAlign="center">申报年月</div>
+                    <div field="lwysbxse" width="70">劳务申报销售额</div>
+                    <div field="hwysbxse" width="70">货物申报销售额</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    table.xzxgm-table {
+        width: 100%;
+        border: solid #d3d3d3;
+        border-width: 1px 0px 0px 1px; }
+    table.xzxgm-table tr {
+        line-height: 50px; }
+    table.xzxgm-table tr td {
+        border: solid #d3d3d3;
+        border-width: 0px 1px 1px 0px;
+        padding: 10px 0px; }
+
+    .font-w {
+        font-weight: bold; }
+
+    .padding-left10 {
+        padding-left: 20px !important; }
+
+    .padding-right10 {
+        padding-right: 10px !important; }
+</style>

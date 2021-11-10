@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <title>甘肃管理平台</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <script src="../../../lib/jquery/jquery.js"></script>
+	<script type="text/javascript">
+        $(function(){
+            $.ajax({
+                type : "POST",
+                url : "../../../../api/gs/wtgl/fptjgl/checkPermission",
+                success : function(result) {
+                    var departid = result.departid;
+                    var date = new Date();
+                    var month = date.getMonth() + 1;
+                    var endDate = date.getFullYear() + '-' + month + '-' + date.getDate();
+                    var startDate = date.getFullYear()+'-1-1';
+                    var status = '%';
+                    var extraParams = "&startDate=" + startDate + "&endDate=" + endDate + "&status=" + status;
+                    var hrefStr;
+                    if (departid.substring(3, 5) == '00') {
+                        sessionStorage.setItem("jc","sj");
+                        sessionStorage.setItem("swjgdm","162%");
+                        sessionStorage.setItem("departid",'16200000000');
+                        hrefStr = 'overview.html';
+                    } else if ( departid.substring(5, 7) == '00' && departid.substring(3, 5) != '95' && departid.substring(3, 5) != '98'
+                        && departid.substring(3, 5) != '02') {
+                        sessionStorage.setItem("jc","sz");
+                        sessionStorage.setItem("swjgdm", departid.substring(0, 5) + '%');
+                        sessionStorage.setItem("departid",departid.substring(0, 5) + '000000');
+                        hrefStr = 'overview.html';
+                    } else if ( departid.substring(7, 9) == '00' || departid.substring(3, 5) == '95' || departid.substring(3, 5) == '98'
+                        || departid.substring(3, 5) == '02') {
+                        sessionStorage.setItem("jc","qx");
+                        sessionStorage.setItem("swjgdm", departid.substring(0, 7) + '%');
+                        sessionStorage.setItem("departid",departid.substring(0, 7) + '0000');
+                        hrefStr = "fptjcx_qx.html?areaValue=" + departid.substring(0, 7) + '0000' + extraParams;
+                    } else {
+                        sessionStorage.setItem("jc","fj");
+                        sessionStorage.setItem("swjgdm", departid.substring(0, 9) + '%');
+                        sessionStorage.setItem("departid", departid.substring(0, 9) + '00');
+                        hrefStr = "fptjcx_jg.html?unitValue=" + departid.substring(0, 9) + '00' + "&nsrsbh=&nsrdm=" + extraParams;
+                    }
+                    window.location.href = encodeURI(hrefStr);
+                    return;
+                },
+                error : function(e) {
+                    mini.alert("获取登录信息失败!");
+                }
+            });
+        });
+	</script>
+	正在跳转....请稍候......
+</html>
