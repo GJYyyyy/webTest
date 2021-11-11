@@ -1,9 +1,14 @@
 var qycztsxswcl = {
     /* constant */
+    api_host: 'http://10.199.137.214:8910/',
+    // api_host: '/',
+    api: {
+        query: 'dzgzpt-wsys/api/qycz/queryQyczInfo',
+    },
     enterprise_info_form: null,
     addtion_window: null,
     other_validation_rule_list: {
-        enterprise_name: {
+        enterprise_code: {
             regular: /^[0-9a-zA-Z]*$/,
             regular_error_text: '统一社会信用代码仅支持输入数字与英文'
         }
@@ -19,7 +24,14 @@ var qycztsxswcl = {
     /* handler methods */
     queryEnterprise: function(e) {
         if(!qycztsxswcl.validateForm()) return;
-        console.log(qycztsxswcl.enterprise_info_form.getData());
+        var data = qycztsxswcl.enterprise_info_form.getData();
+        $.ajax({
+            type: 'POST',
+            data: { tyshxydm: data.enterprise_name },
+            success: function(res) {
+                console.log(res);
+            }
+        })
     },
 
     openAddtionWindow: function(e) {
