@@ -27,6 +27,7 @@ var qycztsxswcl = {
         var data = qycztsxswcl.enterprise_info_form.getData();
         $.ajax({
             type: 'POST',
+            url: qycztsxswcl.api_host + qycztsxswcl.api.query,
             data: { tyshxydm: data.enterprise_name },
             success: function(res) {
                 console.log(res);
@@ -35,7 +36,7 @@ var qycztsxswcl = {
     },
 
     openAddtionWindow: function(e) {
-        this.addtion_window = mini.open({
+        qycztsxswcl.addtion_window = mini.open({
             url: './qycztsxswcl_add.html',
             title: '新增',
             width: 400,
