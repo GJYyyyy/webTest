@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./common.css">
     <link rel="stylesheet" href="./qycztsxswcl.css">
 </head>
-<body>
+<body class="horizontal-center">
 
     <form id="enterprise_info_form">
         <table>
@@ -18,14 +18,14 @@
                     <td>
                         <span class="field-required">统一社会信用代码<span>*</span>：</span>
                         <input id="enterprise_name" name="enterprise_name" class="mini-textbox" style="width:200px;"
-                            vtype="required;maxLength:50;" maxLengthErrorText="输入过长，请重新输入"
+                            vtype="required;maxLength:50;" maxLengthErrorText="统一社会信用代码输入过长，请重新输入"
                         />
                     </td>
                     <td class="btn-set">
-                        <button class="mini-button submit">提交</button>
-                        <button class="mini-button delete">删除</button>
-                        <button class="mini-button add" onclick="qycztsxswcl.openAddtionWindow">新增</button>
                         <button class="mini-button query" onclick="qycztsxswcl.queryEnterprise">查询</button>
+                        <button class="mini-button add" onclick="qycztsxswcl.openAddtionWindow">新增</button>
+                        <button class="mini-button delete">删除</button>
+                        <button class="mini-button submit">提交</button>
                     </td>
                 </tr>
                 <tr>

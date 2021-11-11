@@ -5,7 +5,7 @@ var qycztsxswcl = {
     other_validation_rule_list: {
         enterprise_name: {
             regular: /^[0-9a-zA-Z]*$/,
-            regular_error_text: '仅支持输入数字与英文'
+            regular_error_text: '统一社会信用代码仅支持输入数字与英文'
         }
     },
 

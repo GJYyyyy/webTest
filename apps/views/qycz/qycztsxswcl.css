@@ -1,6 +1,5 @@
-#enterprise_info_form .btn-set .mini-button {
-    float: right;
-    margin-left: 5px;
+#enterprise_info_form .btn-set {
+    text-align: right;
 }
 
 #enterprise_info_form .disabled-field > span {

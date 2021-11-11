@@ -1,6 +1,31 @@
 var qycztsxswcl_add = {
     /* constant */
     addtion_form: null,
+    other_validation_rule_list: {
+        project_name: {
+            regular: /^[0-9a-zA-Z\,\.\<\>\?\/\!\:\;\'\"\(\)\[\]\{\}，。《》？、！：；‘“（）【】\u4e00-\u9fa5]*$/,
+            regular_error_text: '项目名称仅支持输入汉字、数字、英文与标点符号'
+        },
+        contact_person: {
+            regular: /^[0-9\u4e00-\u9fa5]*$/,
+            regular_error_text: '联系人仅支持输入汉字与数字'
+        },
+        contact_method: {
+            regular: /^[0-9]*$/,
+            regular_error_text: '联系方式仅支持输入数字'
+        },
+    },
+    qyczlx_list: (function() {
+        var arr = [];
+        var i = 0;
+        for( ; i < 10 ; i++ ) {
+            arr.push({
+                id: i + 1,
+                text: '类型' + (i + 1),
+            });
+        }
+        return arr;
+    })(),
 
 
     /* life cycle methods */
@@ -13,6 +38,7 @@ var qycztsxswcl_add = {
 
     /* handler methods */
     submitForm: function() {
+        if(!qycztsxswcl_add.validateForm()) return;
         if(window.CloseOwnerWindow){
             return window.CloseOwnerWindow('ok');
         } else {
